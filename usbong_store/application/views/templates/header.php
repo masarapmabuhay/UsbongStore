@@ -41,15 +41,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		width: 60%;
 		float:left;
 		font-size: 22px;
-		padding: 4px;
+		padding: 6px;
+		border: #ffffff;		
+		border-top: 1px solid #d0d0d0;
+		border-left: 1px solid #d0d0d0;
+		border-bottom: 1px solid #d0d0d0;
 	}
 	
 	.Button-container {
 	}
 	
-	.Button {
-		font-size: 22px;
-		padding: 4px;
+	.Button {		
+		border-top: 1px solid #d0d0d0;
+		border-right: 1px solid #d0d0d0;
+		border-bottom: 1px solid #d0d0d0;
+		border-left: #ffffff;		
+		background:#ffffff;
 	}
 }
 	
@@ -59,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--	<img src="<?php echo base_url('assets/images/usbongStoreBrandLogo.png'); ?>">	-->
 	<div class="Search">
 		<input type="text" class="Search-input" placeholder="I'm looking for...">
-		<div class="Button-container"><button type="button" class="Button">Search</button></div>
+		<div class="Button-container"><button type="button" class="Button"><img src="<?php echo base_url('assets/images/magnifying_glass.png'); ?>"></button></div>
     </div>
 </body>
 </html>
