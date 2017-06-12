@@ -84,7 +84,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <li><a href="#">COMICS</a></li>
 		  <li><a href="#">MANGA</a></li>
 		  <li><a href="#">TOYS & COLLECTIBLES</a></li>
-		  <li><a href="#"><?php echo $books['name'];?></a></li>
 		  </ul>
 	  </div>
 	</nav>
