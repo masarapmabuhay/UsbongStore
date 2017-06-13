@@ -64,6 +64,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-left: #ffffff;		
 		background:#ffffff;
 	}
+	
+	.Image-item {
+	    max-width: 50%;
+    	height: auto;
+	}
 }
 	
 	</style>
@@ -91,13 +96,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php
 			$colCounter = 0;
 			foreach ($books as $value) {
+				$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				if ($colCounter==0) {
 					echo '<div class="row">';	
-					echo '<div class="col-sm-3">'.$value['name'].'</div>';
+// 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
+					echo '<div class="col-sm-3">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
+					echo '<br>'.$value['name'].'</div>';
 					$colCounter++;				
 				}
 				else if ($colCounter<4){
-					echo '<div class="col-sm-3">'.$value['name'].'</div>';
+// 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
+					echo '<div class="col-sm-3">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
+					echo '<br>'.$value['name'].'</div>';					
 					$colCounter++;
 				}
 				else {
