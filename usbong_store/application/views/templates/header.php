@@ -69,6 +69,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    max-width: 50%;
     	height: auto;
 	}
+	
+	.col-sm-3 {
+		text-align:center
+	}
 }
 	
 	</style>
@@ -102,14 +106,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
 					echo '<div class="col-sm-3">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
-					echo '<br>'.$value['name'].'</div>';
+					echo '<br>'.$value['name'];
+					echo '<br>'.$value['author'];			
+					
+					if ($value['price']!=null) {
+						echo '<br>₱'.$value['price'].'</div>';
+					}
+					else {
+						echo '<br>out of stock</div>';					
+					}
 					$colCounter++;				
 				}
 				else if ($colCounter<4){
 // 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
 					echo '<div class="col-sm-3">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
-					echo '<br>'.$value['name'].'</div>';					
+					echo '<br>'.$value['name'];
+					echo '<br>'.$value['author'];
+					
+					if ($value['price']!=null) {
+						echo '<br>₱'.$value['price'].'</div>';
+					}
+					else {
+						echo '<br>out of stock</div>';
+					}
 					$colCounter++;
 				}
 				else {
