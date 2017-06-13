@@ -7,7 +7,7 @@ class Books_Model extends CI_Model
 		$this->db->select('name');
 		$this->db->where('product_type_id','2'); //2 is for type: books		
 		$query = $this->db->get('product');
-		return $query->row_array();
+		return $query->result_array();
 	}
 }
 ?>

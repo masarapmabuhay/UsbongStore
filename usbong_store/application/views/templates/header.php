@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	body {
 		background-color: #fff;
-		margin: 0px auto;
+		margin: 10px 10px 10px 10px;
 		margin-top: 10px;
 		max-width: 1024px;
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -25,7 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	p {
-		 margin: 0 0 10px;
 		 padding:0;
 	}
 
@@ -84,10 +83,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <li><a href="#">COMICS</a></li>
 		  <li><a href="#">MANGA</a></li>
 		  <li><a href="#">TOYS & COLLECTIBLES</a></li>
-		  <li><a href="#"><?php echo $books['name'];?></a></li>
 		  </ul>
 	  </div>
 	</nav>
+
+	<div class="container">
+	<?php
+			$colCounter = 0;
+			foreach ($books as $value) {
+				if ($colCounter==0) {
+					echo '<div class="row">';	
+					echo '<div class="col-sm-3">'.$value['name'].'</div>';
+					$colCounter++;				
+				}
+				else if ($colCounter<4){
+					echo '<div class="col-sm-3">'.$value['name'].'</div>';
+					$colCounter++;
+				}
+				else {
+					echo '</div>';
+					$colCounter=0;
+				}
+			}
+	?>
+	</div>	
+	
 	
 </body>
 </html>
