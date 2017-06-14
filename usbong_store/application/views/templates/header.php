@@ -3,79 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	<title>Usbong Store Header</title>
-	<style type="text/css">
-
-	::selection { background-color: #f07746; color: #fff; }
-	::-moz-selection { background-color: #f07746; color: #fff; }
-
-	body {
-		background-color: #fff;
-		margin: 10px 10px 10px 10px;
-		margin-top: 10px;
-		max-width: 1024px;
-		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
-		color: #808080;
-	}
-	
-	p {
-		 padding:0;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 12px;
-		border-top: 1px solid #d0d0d0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-		background:#8ba8af;
-		color:#fff;
-	}
-	
-	.Search {
-	}
-
-	.Search-input {
-		width: 60%;
-		float:left;
-		font-size: 22px;
-		padding: 6px;
-		border: #ffffff;		
-		border-top: 1px solid #d0d0d0;
-		border-left: 1px solid #d0d0d0;
-		border-bottom: 1px solid #d0d0d0;
-	}
-	
-	.Button-container {
-	}
-	
-	.Button {		
-		padding: 5.5px;
-		border-top: 1px solid #d0d0d0;
-		border-right: 1px solid #d0d0d0;
-		border-bottom: 1px solid #d0d0d0;
-		border-left: #ffffff;		
-		background:#ffffff;
-	}
-	
-	.Image-item {
-	    max-width: 50%;
-    	height: auto;
-	}
-	
-	.col-sm-3 {
-		text-align:center
-	}
-}
-	
-	</style>
 </head>
 <body>
 <!--	<img src="<?php echo base_url('assets/images/usbongStoreBrandLogo.png'); ?>">	-->
@@ -86,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<nav class="navbar navbar">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
-		  <li class="active"><a href="#">BOOKS</a></li>
+		  <li class="active"><?php echo anchor('pages/view/Home', 'BOOKS'); ?></li>
 		  <li><a href="#">COMBOS</a></li>
 		  <li><a href="#">BEVERAGES</a></li>
 		  <li><a href="#">COMICS</a></li>
@@ -94,52 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <li><a href="#">TOYS & COLLECTIBLES</a></li>
 		  </ul>
 	  </div>
-	</nav>
-
-	<div class="container">
-	<?php
-			$colCounter = 0;
-			foreach ($books as $value) {
-				$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
-				if ($colCounter==0) {
-					echo '<div class="row">';	
-// 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-3">';
-					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
-					echo '<br>'.$value['name'];
-					echo '<br>'.$value['author'];			
-					
-					if ($value['price']!=null) {
-						echo '<br>₱'.$value['price'].'</div>';
-					}
-					else {
-						echo '<br>out of stock</div>';					
-					}
-					$colCounter++;				
-				}
-				else if ($colCounter<4){
-// 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-3">';
-					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
-					echo '<br>'.$value['name'];
-					echo '<br>'.$value['author'];
-					
-					if ($value['price']!=null) {
-						echo '<br>₱'.$value['price'].'</div>';
-					}
-					else {
-						echo '<br>out of stock</div>';
-					}
-					$colCounter++;
-				}
-				else {
-					echo '</div>';
-					$colCounter=0;
-				}
-			}
-	?>
-	</div>	
-	
-	
+	</nav>	
 </body>
 </html>

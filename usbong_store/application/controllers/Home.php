@@ -20,7 +20,8 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-//		$this->load->view('templates/header');
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
 //		$this->load->view('home');
 		$this->viewBooksCategory();
 		$this->load->view('templates/footer');
@@ -35,6 +36,6 @@ class Home extends CI_Controller {
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();
 //		$this->load->view('templates/general_template',$data);
-		$this->load->view('templates/header',$data);
+		$this->load->view('b/books',$data);
 	}	
 }
