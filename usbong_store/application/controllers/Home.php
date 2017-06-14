@@ -20,11 +20,12 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/style');
+/*		$this->load->view('templates/style');
 		$this->load->view('templates/header');
-//		$this->load->view('home');
+*/		
 		$this->viewBooksCategory();
-		$this->load->view('templates/footer');
+/*		$this->load->view('templates/footer');
+ */
 	}
 	
 	//---------------------------------------------------------
@@ -32,10 +33,37 @@ class Home extends CI_Controller {
 	//---------------------------------------------------------
 	public function viewBooksCategory()
 	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
 		$data['content'] = 'category/Books';
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();
 //		$this->load->view('templates/general_template',$data);
 		$this->load->view('b/books',$data);
+
+		//--------------------------------------------
+		$this->load->view('templates/footer');
 	}	
+	
+	//---------------------------------------------------------
+	// COMBOS Category
+	//---------------------------------------------------------
+	public function viewCombosCategory()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
+		$data['content'] = 'category/Combos';
+		$this->load->model('Combos_Model');
+		$data['combos'] = $this->Combos_Model->getCombos();
+		//		$this->load->view('templates/general_template',$data);
+		$this->load->view('b/combos',$data);
+
+		//--------------------------------------------
+		$this->load->view('templates/footer');		
+	}
+	
 }
