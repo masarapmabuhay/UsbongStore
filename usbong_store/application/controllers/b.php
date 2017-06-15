@@ -67,6 +67,24 @@ class b extends CI_Controller {
 	}
 	
 	//---------------------------------------------------------
+	// BEVERAGES Category
+	//---------------------------------------------------------
+	public function beverages()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
+		$this->load->model('Beverages_Model');
+		$data['beverages'] = $this->Beverages_Model->getBeverages();
+		//		$this->load->view('templates/general_template',$data);
+		$this->load->view('b/beverages',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
+	
+	//---------------------------------------------------------
 	// COMICS Category
 	//---------------------------------------------------------
 	public function comics()
