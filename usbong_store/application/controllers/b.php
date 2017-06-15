@@ -102,4 +102,39 @@ class b extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
+	//---------------------------------------------------------
+	// MANGA Category
+	//---------------------------------------------------------
+	public function manga()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
+		$this->load->model('Manga_Model');
+		$data['manga'] = $this->Manga_Model->getManga();
+		//		$this->load->view('templates/general_template',$data);
+		$this->load->view('b/manga',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
+	
+	//---------------------------------------------------------
+	// TOYS & COLLECTIBLES Category
+	//---------------------------------------------------------
+	public function toys_and_collectibles()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
+		$this->load->model('Toys_and_Collectibles_Model');
+		$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles();
+		//		$this->load->view('templates/general_template',$data);
+		$this->load->view('b/toys_and_collectibles',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}	
 }
