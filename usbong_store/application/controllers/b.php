@@ -37,7 +37,7 @@ class b extends CI_Controller {
 		$this->load->view('templates/header');
 		//--------------------------------------------
 		
-		$data['content'] = 'category/Books';
+//		$data['content'] = 'category/Books';
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();
 //		$this->load->view('templates/general_template',$data);
@@ -56,7 +56,7 @@ class b extends CI_Controller {
 		$this->load->view('templates/header');
 		//--------------------------------------------
 		
-		$data['content'] = 'category/Combos';
+//		$data['content'] = 'category/Combos';
 		$this->load->model('Combos_Model');
 		$data['combos'] = $this->Combos_Model->getCombos();
 		//		$this->load->view('templates/general_template',$data);
@@ -64,6 +64,24 @@ class b extends CI_Controller {
 
 		//--------------------------------------------
 		$this->load->view('templates/footer');		
+	}
+	
+	//---------------------------------------------------------
+	// COMICS Category
+	//---------------------------------------------------------
+	public function comics()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
+		$this->load->model('Comics_Model');
+		$data['comics'] = $this->Comics_Model->getComics();
+		//		$this->load->view('templates/general_template',$data);
+		$this->load->view('b/comics',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
 	}
 	
 }
