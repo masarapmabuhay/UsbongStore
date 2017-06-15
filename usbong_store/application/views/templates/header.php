@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<nav class="navbar navbar">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
-		  <li class="active"><a href = "<?php echo base_url()?>index.php/Home/viewBooksCategory">BOOKS</a></li>
-		  <li><a href = "<?php echo base_url()?>index.php/Home/viewCombosCategory">COMBOS</a></li>
+		  <li class="active"><a href = "<?php echo site_url('Home/viewBooksCategory')?>">BOOKS</a></li>
+		  <li><a href = "<?php echo site_url('Home/viewCombosCategory')?>">COMBOS</a></li>
 		  <li><a href="#">BEVERAGES</a></li>
 		  <li><a href="#">COMICS</a></li>
 		  <li><a href="#">MANGA</a></li>
