@@ -5,17 +5,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-<!--	<img src="<?php echo base_url('assets/images/usbongStoreBrandLogo.png'); ?>">	-->
-	<div class="Search">
-		<form method="get" action="<?php echo site_url('browse/search')?>">
-		<input type="text" class="Search-input" placeholder="I'm looking for..." name="param">
-		<div class="Button-container">
-			<button type="button" class="Button" onclick="<?php echo site_url('browse/search/')?>">
-				<img src="<?php echo base_url('assets/images/magnifying_glass.png'); ?>">
-			</button>
-		</div>
-		</form>
-    </div>
+		<div class="Topbar-container">
+		    <div class="Cart-container">
+				<button type="button" class="Button-cart" onclick="<?php echo site_url('browse/search/')?>">
+					<img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
+				</button>
+			</div>    
+			<div class="Search-container">
+				<form method="get" action="<?php echo site_url('browse/search')?>">
+				<input type="text" class="Search-input" placeholder="I'm looking for..." name="param">
+				<div class="Button-container">
+					<button type="button" class="Button" onclick="<?php echo site_url('browse/search/')?>">
+						<img src="<?php echo base_url('assets/images/magnifying_glass.png'); ?>">
+					</button>
+				</div>
+				</form>
+		    </div>
+	    </div>
 	<nav class="navbar navbar">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">

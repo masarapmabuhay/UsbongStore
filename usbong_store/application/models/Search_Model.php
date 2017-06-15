@@ -7,7 +7,7 @@ class Search_Model extends CI_Model
 		$this->db->like('name',$param); 
 		$this->db->or_like('author', $param); 
 		$query = $this->db->get('product');
-		return $query->result_array();		
+		return $query->result_array();
 	}
 }
 ?>

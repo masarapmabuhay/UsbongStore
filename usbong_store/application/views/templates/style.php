@@ -39,12 +39,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color:#fff;
 	}
 	
-	.Search {
+	.Search-container {
+		float: right;
+		width: 50%;				
 	}
 
 	.Search-input {
-		width: 60%;
-		float:left;
+		width: 90%;				
+		float: left;
 		font-size: 22px;
 		padding: 6px;
 		border: #ffffff;		
@@ -73,9 +75,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.col-sm-3 {
 		text-align:center
 	}
+	
+	.Cart-container {
+		float: right;
+	}	
+	
+	.Topbar-container {
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	.Button-cart {
+		background:#ffffff;
+		border: 0px solid		
+	}		
 }
 	
-	</style>
+</style>
 </head>
 <body>
 </body>
