@@ -17,8 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	body {
 		background-color: #fff;
-		margin: 10px 0px 10px 0px;
-		margin-top: 10px;
+		margin: 0px 0px 0px 0px;
 		max-width: 100%;
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
 		color: #808080;
@@ -40,12 +39,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Search-container {
-		float: right;
-		width: 50%;				
+		float: left;
+		width: 80%;		
+		margin-top: 3px;	
+		margin-left: 16px;	
 	}
 
 	.Search-input {
-		width: 90%;				
 		float: left;
 		font-size: 22px;
 		padding: 6px;
@@ -86,8 +86,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Button-cart {
-		background:#ffffff;
-		border: 0px solid		
+		background: #0000000;
+		border: 0px solid;		
+		padding: 0px;
+		margin-top: 4px;
+		margin-left: 6px;
 	}	
 	
 	.nav {
@@ -95,6 +98,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.header {
 		margin: 0px 10px 0px 10px;	
+	}
+
+	.usbongLogo {
+		margin-top: 3px;
 	}
 }	
 </style>
