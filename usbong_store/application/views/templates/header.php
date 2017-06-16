@@ -7,9 +7,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 		<div class="Topbar-container">
 		    <div class="Cart-container">
-				<button type="button" class="Button-cart" onclick="<?php echo site_url('browse/search/')?>">
+				<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
+				<button type="submit" class="Button-cart">
 					<img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
 				</button>
+				</form>
 			</div>    
 			<div class="Search-container">
 				<form method="get" action="<?php echo site_url('browse/search')?>">
