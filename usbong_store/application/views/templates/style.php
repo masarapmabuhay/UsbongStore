@@ -17,9 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	body {
 		background-color: #fff;
-		margin: 10px 10px 10px 10px;
+		margin: 10px 0px 10px 0px;
 		margin-top: 10px;
-		max-width: 1024px;
+		max-width: 100%;
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
 		color: #808080;
 	}
@@ -89,6 +89,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background:#ffffff;
 		border: 0px solid		
 	}	
+	
+	.nav {
+	}
+	
+	.header {
+		margin: 0px 10px 0px 10px;	
+	}
 }	
 </style>
 </head>

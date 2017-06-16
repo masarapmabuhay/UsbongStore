@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3>Toys & Collectibles</h3>
+	<h3 class="header">Toys & Collectibles</h3>
 	<br>
 	<div class="container">
 	<?php
