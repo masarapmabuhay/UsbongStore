@@ -13,9 +13,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>    
 			<div class="Search-container">
 				<form method="get" action="<?php echo site_url('browse/search')?>">
-				<input type="text" class="Search-input" placeholder="I'm looking for..." name="param">
+				<?php if (isset($param)) {
+					echo '<input type="text" class="Search-input" placeholder="I\'m looking for..." value="'.$param.'" name="param">';
+				}
+				else { //default
+					echo '<input type="text" class="Search-input" placeholder="I\'m looking for..." name="param">';
+				}
+				?>
 				<div class="Button-container">
-					<button type="button" class="Button" onclick="<?php echo site_url('browse/search/')?>">
+					<button type="submit" class="Button">
 						<img src="<?php echo base_url('assets/images/magnifying_glass.png'); ?>">
 					</button>
 				</div>

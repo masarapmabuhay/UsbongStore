@@ -20,13 +20,16 @@ class browse extends CI_Controller {
 	 */
 	public function search()//$param)
 	{
+		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
+		
 		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		$this->load->view('templates/header', $data);
 		//--------------------------------------------
 		
 		$this->load->model('Search_Model');
 		$data['result'] = $this->Search_Model->getSearchResult($this->input->get('param'));//$param);
-		$this->load->view('browse',$data);
+		
+		$this->load->view('browse', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
