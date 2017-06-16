@@ -28,10 +28,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</form>
 		    </div>
 	    </div>
-	<nav class="navbar navbar">
+	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
-		  <li class="active"><a href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
+		  <li><a href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
 		  <li><a href = "<?php echo site_url('b/combos/')?>">COMBOS</a></li>
 		  <li><a href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
 		  <li><a href = "<?php echo site_url('b/comics/')?>">COMICS</a></a></li>
