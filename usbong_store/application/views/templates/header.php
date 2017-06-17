@@ -28,11 +28,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>    
 				<div class="Search-container">
 					<form method="get" action="<?php echo site_url('browse/search')?>">
-					<?php if (isset($param)) {
-						echo '<input type="text" class="Search-input" placeholder="I\'m looking for..." value="'.$param.'" name="param">';
+					<?php if ((isset($param)) && ($param!="")) {
+						echo '<input type="text" class="Search-input" placeholder="I\'m looking for..." value="'.$param.'" name="param" required>';
 					}
 					else { //default
-						echo '<input type="text" class="Search-input" placeholder="I\'m looking for..." name="param">';
+						echo '<input type="text" class="Search-input" placeholder="I\'m looking for..." name="param" required>';
 					}
 					?>
 					</form>
