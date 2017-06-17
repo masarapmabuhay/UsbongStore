@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3>Search</h3>
+	<h3 class="header">Search</h3>
 	<br>
 	<div class="container">
 	<?php
@@ -38,8 +38,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img class="Image-item" src="'.base_url('assets/images/'.$productType.'/'.$reformattedResultName.'.jpg').'">';										
 //					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedResultName.'.jpg').'">';
 					echo '<br>'.$value['name'];
-					echo '<br>'.$value['author'];			
-					
+					if (isset($value['author'])) {
+						echo '<br>'.$value['author'];					
+					}					
 					if ($value['price']!=null) {
 						echo '<br>₱'.$value['price'].'</div>';
 					}
@@ -53,7 +54,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="col-sm-3">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/'.$productType.'/'.$reformattedResultName.'.jpg').'">';
 					echo '<br>'.$value['name'];
-					echo '<br>'.$value['author'];
+					if (isset($value['author'])) {
+						echo '<br>'.$value['author'];
+					}
 					
 					if ($value['price']!=null) {
 						echo '<br>₱'.$value['price'].'</div>';
