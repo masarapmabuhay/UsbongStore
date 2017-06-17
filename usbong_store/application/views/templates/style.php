@@ -40,14 +40,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Search-container {
 		float: left;
-		width: 80%;		
-		margin-top: 3px;	
+		margin-top: 6px;	
 		margin-left: 16px;	
 	}
 
 	.Search-input {
 		float: left;
-		font-size: 22px;
+		font-size: 18px;
 		padding: 6px;
 		border: #ffffff;		
 		border-top: 1px solid #d0d0d0;
