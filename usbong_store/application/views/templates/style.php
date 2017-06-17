@@ -102,6 +102,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.usbongLogo {
 		margin-top: 3px;
 	}
+	
+	.login {
+		border: 1px solid #d0d0d0;
+		max-width: 30%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+    	font-size: 24px;    	
+    	padding: 16px;
+	}
+	
+	.sign-in-text {
+		border-right: 1px solid;	
+		display: inline-block; 
+		padding-right: 12px;	
+	}
+	
+	.register-text {
+    	font-size: 16px;    		
+		display: inline-block; 
+		padding-left: 12px;		
+		padding-bottom: 12px;	
+	}
+		
+	.Email-input {
+	    margin-top: 12px;		    
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin-bottom: 12px;		    
+	}
+
+	.Password-input {
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin-bottom: 12px;		    
+	}
+	
+	.Button-login {
+	    font-size: 20px;    			
+	    padding: 10px;		
+	    display: inline-block; 	    
+	}
+
+	.forgotPassword-text {
+	    font-size: 14px;    			
+	    padding: 10px;		
+	    display: inline-block; 	    
+	}	
 }	
 </style>
 </head>
