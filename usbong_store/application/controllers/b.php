@@ -29,6 +29,33 @@ class b extends CI_Controller {
 	}
 	
 	//---------------------------------------------------------
+	// Account Creation Successful
+	//---------------------------------------------------------
+	public function literature_and_fiction()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		
+		$fields = array('firstName-param', 'lastName-param', 'emailAddress-param', 'Password-param');
+		
+		foreach ($fields as $field)
+		{
+			$data[$field] = $_POST[$field];
+		}
+		
+		$this->load->model('Account_Model');
+		$this->Account_Model->registerAccount($data);
+		
+		$this->load->model('Books_Model');
+		$data['books'] = $this->Books_Model->getBooks();
+		$this->load->view('b/books',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
+
+	//---------------------------------------------------------
 	// Books Category
 	//---------------------------------------------------------
 	public function books()
