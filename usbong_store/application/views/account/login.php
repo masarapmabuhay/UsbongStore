@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<div class="login">
-		<div class="sign-in-text">Sign In</div>
+	<div class="login-and-create">
+		<div class="login-text">Sign In</div>
 		<div class="register-text">Create New Account</div>
 		<div class="fields">
 			<form method="get" action="<?php echo site_url('account/login')?>">

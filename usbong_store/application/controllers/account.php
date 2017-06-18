@@ -34,4 +34,19 @@ class account extends CI_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
 	}
+	
+	public function create()
+	{
+		$this->load->view('templates/style');
+		$this->load->view('templates/header');
+		//--------------------------------------------
+		/*
+		 $this->load->model('Cart_Model');
+		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
+		 */
+		$this->load->view('account/create');
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
 }

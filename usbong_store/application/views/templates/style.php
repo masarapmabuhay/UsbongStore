@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 3px;
 	}
 	
-	.login {
+	.login-and-create {
 		border: 1px solid #d0d0d0;
 		max-width: 30%;		
 		float: none;
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	padding: 16px;
 	}
 	
-	.sign-in-text {
+	.login-text {
 		border-right: 1px solid;	
 		display: inline-block; 
 		padding-right: 12px;	
@@ -124,6 +124,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		display: inline-block; 
 		padding-left: 12px;		
 		padding-bottom: 12px;	
+	}
+
+	.login-text-in-create {
+    	font-size: 16px;    		
+		display: inline-block; 
+		padding-left: 12px;		
+		padding-bottom: 12px;	
+	}
+	
+	.register-text-in-create {
+		border-right: 1px solid;	
+		display: inline-block; 
+		padding-right: 12px;	
 	}
 		
 	.Email-input {
@@ -152,6 +165,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    padding: 10px;		
 	    display: inline-block; 	    
 	}	
+	
+	.Register-input {
+	    margin-top: 2px;		    
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin-bottom: 12px;		    
+	}
+	
 }	
 </style>
 </head>
