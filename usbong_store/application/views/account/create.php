@@ -15,8 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<input type="text" class="Register-input" placeholder="Last Name" name="lastName-param" required>';			
 					echo '<input type="text" class="Register-input" placeholder="Email Address" name="emailAddress-param" required>';
 					echo '<input type="text" class="Register-input" placeholder="Confirm Email" name="confirmEmail-param" required>';
-					echo '<input type="text" class="Register-input" placeholder="Password" name="Password-param" required>';
-					echo '<input type="text" class="Register-input" placeholder="Confirm Password" name="confirmPassword-param" required>';					
+					echo '<input type="password" class="Register-input" placeholder="Password" name="Password-param" required>';
+					echo '<input type="password" class="Register-input" placeholder="Confirm Password" name="confirmPassword-param" required>';					
 				?>
 				<button type="submit" class="Button-login">
 <!-- <img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
