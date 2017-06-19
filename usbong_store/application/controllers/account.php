@@ -18,7 +18,7 @@ class account extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function login()//$param)
+	public function login($param)
 	{
 //		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 		
@@ -26,9 +26,18 @@ class account extends CI_Controller {
 		$this->load->view('templates/header');
 		//--------------------------------------------
 /*		
-		$this->load->model('Cart_Model');
-		$data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
+		$this->load->library('session');
+		$this->load->library('form_validation');
 */		
+/*		
+		//added by Mike, 20160619
+		if ($param!==null) {
+			$this->load->view('account/l.aspx');
+		}	
+		else {
+			$this->load->view('account/login');
+		}
+*/
 		$this->load->view('account/login');
 		
 		//--------------------------------------------
@@ -48,10 +57,6 @@ class account extends CI_Controller {
 		 $this->load->model('Cart_Model');
 		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
 		 */
-/*		
-		$this->session->set_flashdata('errors', null);		
-		$this->session->set_flashdata('data', null); //added by Mike, 20170619
-*/		
 		$this->load->view('account/create');
 		
 		//--------------------------------------------
