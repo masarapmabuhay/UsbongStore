@@ -167,21 +167,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}	
 	
 	.Register-input {
-	    margin-top: 2px;		    
 	    font-size: 16px;    			
 	    padding: 6px;
 	    width: 100%;
 	    margin-bottom: 12px;		    
 	}
 	
-	.register-error {
+	.Register-error {		
 		font-size: 16px;
 		color: #c14646;		
 		background-color: #f6aaaa;
 		border-top: 1px solid #c98989;	
 		border-right: 1px solid #c98989;	
-		border-left: 1px solid #c98989;			
-	}	
+		border-left: 1px solid #c98989;		
+
+		border-bottom: 1px solid #f6aaaa;					
+		margin-bottom: -1px;
+	}		
 }	
 </style>
 </head>

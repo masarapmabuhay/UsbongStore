@@ -21,19 +21,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<input type="text" class="Register-input" placeholder="Last Name" name="lastName-param" required>';			
 					
 					if (strpos($validation_errors, "The Email Address field must contain a valid email address.") !== false) {
-						echo '<div class="register-error">Email Address is not a valid email.</div>';					
+						echo '<div class="Register-error">Email Address is not a valid email.</div>';					
 					}					
 					echo '<input type="text" class="Register-input" placeholder="Email Address" name="emailAddress-param" required>';
 
-					if (strpos($validation_errors, "The Confirm Email Address field does not match the Email Address field.") !== false) {
-						echo '<div class="register-error">Confirm Email does not match Email Address.</div>';
-					}					
-					echo '<input type="text" class="Register-input" placeholder="Confirm Email" name="confirmEmailAddress-param" required>';
+					$confirmEmail = '<div class="Register-error">Confirm Email does not match Email Address.</div>';
 					
+					echo '<div class="form-group">';
+						if (strpos($validation_errors, "The Confirm Email Address field does not match the Email Address field.") !== false) {
+							echo '<div class="Register-error">Confirm Email does not match Email Address.</div>';
+						}					
+						echo '<input type="text" class="Register-input" placeholder="Confirm Email" name="confirmEmailAddress-param" required>';
+					echo '</div>';					
 					echo '<input type="password" class="Register-input" placeholder="Password" name="password-param" required>';
 
 					if (strpos($validation_errors, "The Password Confirmation field does not match the Password field.") !== false) {
-						echo '<div class="register-error">Confirm Password does not match Password.</div>';
+						echo '<div class="Register-error">Confirm Password does not match Password.</div>';
 					}
 					echo '<input type="password" class="Register-input" placeholder="Confirm Password" name="confirmPassword-param" required>';					
 				?>
