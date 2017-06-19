@@ -4,10 +4,10 @@ class Account_Model extends CI_Model
 	public function registerAccount($param)
 	{		
 		$data = array(
-				'customer_first_name' => $param['firstName-param'],
-				'customer_last_name' => $param['lastName-param'],
-				'customer_email_address' => $param['emailAddress-param'],
-				'customer_password' => $param['password-param']
+				'customer_first_name' => $param['firstNameParam'],
+				'customer_last_name' => $param['lastNameParam'],
+				'customer_email_address' => $param['emailAddressParam'],
+				'customer_password' => $param['passwordParam']
 		);
 		
 		$this->db->insert('customer', $data);

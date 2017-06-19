@@ -43,30 +43,39 @@ class b extends CI_Controller {
 		$this->load->library('session');
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('firstName-param', 'First Name', 'trim|required');
-		$this->form_validation->set_rules('lastName-param', 'Last Name', 'trim|required');
-		$this->form_validation->set_rules('emailAddress-param', 'Email Address', 'required|valid_email');
-		$this->form_validation->set_rules('confirmEmailAddress-param', 'Confirm Email Address', 'required|matches[emailAddress-param]');		
-		$this->form_validation->set_rules('password-param', 'Password', 'required');
-		$this->form_validation->set_rules('confirmPassword-param', 'Password Confirmation', 'required|matches[password-param]');		
+		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
+		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
+		$this->form_validation->set_rules('emailAddressParam', 'Email Address', 'required|valid_email');
+		$this->form_validation->set_rules('confirmEmailAddressParam', 'Confirm Email Address', 'required|matches[emailAddressParam]');		
+		$this->form_validation->set_rules('passwordParam', 'Password', 'required');
+		$this->form_validation->set_rules('confirmPasswordParam', 'Password Confirmation', 'required|matches[passwordParam]');		
+		
+		$fields = array('firstNameParam', 'lastNameParam', 'emailAddressParam', 'confirmEmailAddressParam', 'passwordParam', 'confirmPasswordParam');
+		
+		foreach ($fields as $field)
+		{
+			$data[$field] = $_POST[$field];
+		}
 		
 		if ($this->form_validation->run() == FALSE)
 		{
 //			$this->load->view('myform');
 //			$this->load->view('account/create');			
 			$this->session->set_flashdata('errors', validation_errors());
+			$this->session->set_flashdata('data', $data);		
 			redirect('account/create');
 		}
 		else
 		{
 //			$this->load->view('formsuccess');
-			$fields = array('firstName-param', 'lastName-param', 'emailAddress-param', 'password-param');
+/*
+			$fields = array('firstNameParam', 'lastNameParam', 'emailAddressParam', 'passwordParam');
 			
 			foreach ($fields as $field)
 			{
 				$data[$field] = $_POST[$field];
 			}
-			
+*/			
 			$this->load->model('Account_Model');
 			$this->Account_Model->registerAccount($data);
 			
