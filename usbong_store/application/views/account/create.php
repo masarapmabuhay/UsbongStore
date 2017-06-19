@@ -69,18 +69,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 
 					//Password--------------------------------------------------					
-					if (isset($data['confirmPasswordParam'])) {
-						echo '<input type="password" class="Register-input" placeholder="Password" name="PasswordParam" value="'.$data['passwordParam'].'" required>';
+					if (isset($data['passwordParam'])) {
+						echo '<input type="password" class="Register-input" placeholder="Password" name="passwordParam" value="'.$data['passwordParam'].'" required>';
 					}
 					else { //default
 						echo '<input type="password" class="Register-input" placeholder="Password" name="passwordParam" required>';
 					}
-										
+					//-----------------------------------------------------------
+					
 					//Error Message
 					if (strpos($validation_errors, "The Password Confirmation field does not match the Password field.") !== false) {
 						echo '<div class="Register-error">Confirm Password does not match Password.</div>';
 					}
-
 					
 					//Confirm Email Address--------------------------------------------------
 					if (isset($data['confirmPasswordParam'])) {
