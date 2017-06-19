@@ -28,16 +28,17 @@ class account extends CI_Controller {
 		
 		$this->load->library('session');
 		$this->load->library('form_validation');
+/*				
+		$fields = array('emailAddressParam', 'passwordParam');
 		
-/*		
-		//added by Mike, 20160619
-		if ($param!==null) {
-			$this->load->view('account/l.aspx');
-		}	
-		else {
-			$this->load->view('account/login');
+		foreach ($fields as $field)
+		{
+			$data[$field] = $_POST[$field];
 		}
-*/
+		
+		$this->load->model('Account_Model');
+		$data['is_login_success'] = $this->Account_Model->loginAccount($data);
+*/				
 		$this->load->view('account/login');
 		
 		//--------------------------------------------

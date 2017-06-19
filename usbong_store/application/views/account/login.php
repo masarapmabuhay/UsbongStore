@@ -18,12 +18,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if ($this->session->flashdata('data')) {
 				$data = $this->session->flashdata('data');
 			}
+			
+			if (isset($data['is_login_success'])) {
+				echo "login success? ".$data['is_login_success'];
+			}
 	    ?>
 		<div class="fields">
-			<form method="get" action="<?php echo site_url('account/login')?>">
+			<form method="post" action="<?php echo site_url('')?>">
 				<?php 
-					echo '<input type="text" class="Email-input" placeholder="Email Address" name="emailParam" required>';
-					echo '<input type="text" class="Password-input" placeholder="Password" name="passwordParam" required>';												
+					echo '<input type="text" class="Email-input" placeholder="Email Address" name="emailAddressParam" required>';
+					echo '<input type="password" class="Password-input" placeholder="Password" name="passwordParam" required>';												
 					//reset the session values to null
 					$this->session->set_flashdata('errors', null);
 					$this->session->set_flashdata('data', null); //added by Mike, 20170619

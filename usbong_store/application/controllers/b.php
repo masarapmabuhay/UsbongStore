@@ -19,13 +19,34 @@ class b extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-/*		$this->load->view('templates/style');
-		$this->load->view('templates/header');
-*/		
-		$this->books();
-/*		$this->load->view('templates/footer');
- */
+	{				
+		$this->load->library('session');
+		$this->load->library('form_validation');
+		
+		$fields = array('emailAddressParam', 'passwordParam');
+		
+		foreach ($fields as $field)
+		{
+			if (isset($_POST[$field])) {
+				$data[$field] = $_POST[$field];		
+			}
+		}
+		
+		if (isset($data)) {
+			$this->load->model('Account_Model');
+			$data['is_login_success'] = $this->Account_Model->loginAccount($data);
+			
+			if ($data['is_login_success']=="true") {
+				$this->books();				
+			}
+			else {
+				$this->session->set_flashdata('data', $data);				
+				redirect('account/login');				
+			}			
+		}
+		else {
+			$this->books();		
+		}
 	}
 	
 	//---------------------------------------------------------
