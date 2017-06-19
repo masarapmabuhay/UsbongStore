@@ -63,7 +63,9 @@ class b extends CI_Controller {
 //			$this->load->view('account/create');			
 			$this->session->set_flashdata('errors', validation_errors());
 			$this->session->set_flashdata('data', $data);		
-			redirect('account/create');
+ 			redirect('account/create');
+//			redirect('account/login.aspx');
+			
 		}
 		else
 		{

@@ -88,11 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 					else { //default
 						echo '<input type="password" class="Register-input" placeholder="Confirm Password" name="confirmPasswordParam" required>';
-					}				
-					
-					//reset the session values to null
-					$this->session->set_flashdata('errors', null);
-					$this->session->set_flashdata('data', null); //added by Mike, 20170619
+					}					
 				?>
 				<button type="submit" class="Button-login">
 <!-- <img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	

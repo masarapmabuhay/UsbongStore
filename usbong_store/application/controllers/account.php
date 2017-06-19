@@ -48,6 +48,10 @@ class account extends CI_Controller {
 		 $this->load->model('Cart_Model');
 		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
 		 */
+/*		
+		$this->session->set_flashdata('errors', null);		
+		$this->session->set_flashdata('data', null); //added by Mike, 20170619
+*/		
 		$this->load->view('account/create');
 		
 		//--------------------------------------------
