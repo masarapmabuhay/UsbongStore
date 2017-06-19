@@ -46,7 +46,7 @@ class b extends CI_Controller {
 		$this->form_validation->set_rules('firstName-param', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastName-param', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('emailAddress-param', 'Email Address', 'required|valid_email');
-		$this->form_validation->set_rules('confirmEmailAddress-param', 'Email Address', 'required|matches[emailAddress-param]');		
+		$this->form_validation->set_rules('confirmEmailAddress-param', 'Confirm Email Address', 'required|matches[emailAddress-param]');		
 		$this->form_validation->set_rules('password-param', 'Password', 'required');
 		$this->form_validation->set_rules('confirmPassword-param', 'Password Confirmation', 'required|matches[password-param]');		
 		

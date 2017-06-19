@@ -174,6 +174,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    margin-bottom: 12px;		    
 	}
 	
+	.register-error {
+		font-size: 16px;
+		color: #c14646;		
+		background-color: #f6aaaa;
+		border-top: 1px solid #c98989;	
+		border-right: 1px solid #c98989;	
+		border-left: 1px solid #c98989;			
+	}	
 }	
 </style>
 </head>
