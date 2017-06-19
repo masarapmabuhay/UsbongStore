@@ -41,6 +41,9 @@ class account extends CI_Controller {
 		$this->load->view('templates/header');
 		//--------------------------------------------
 		
+		$this->load->library('session');
+		$this->load->library('form_validation');
+		
 		/*
 		 $this->load->model('Cart_Model');
 		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);

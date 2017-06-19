@@ -36,21 +36,45 @@ class b extends CI_Controller {
 		$this->load->view('templates/style');
 		$this->load->view('templates/header');
 		//--------------------------------------------
+				
+		//added by Mike, 20170619
+		$this->load->helper(array('form', 'url'));
 		
-		$fields = array('firstName-param', 'lastName-param', 'emailAddress-param', 'Password-param');
+		$this->load->library('session');
+		$this->load->library('form_validation');
 		
-		foreach ($fields as $field)
+		$this->form_validation->set_rules('firstName-param', 'First Name', 'trim|required');
+		$this->form_validation->set_rules('lastName-param', 'Last Name', 'trim|required');
+		$this->form_validation->set_rules('emailAddress-param', 'Email Address', 'required|valid_email');
+		$this->form_validation->set_rules('confirmEmailAddress-param', 'Email Address', 'required|matches[emailAddress-param]');		
+		$this->form_validation->set_rules('password-param', 'Password', 'required');
+		$this->form_validation->set_rules('confirmPassword-param', 'Password Confirmation', 'required|matches[password-param]');		
+		
+		if ($this->form_validation->run() == FALSE)
 		{
-			$data[$field] = $_POST[$field];
+//			$this->load->view('myform');
+//			$this->load->view('account/create');			
+			$this->session->set_flashdata('errors', validation_errors());
+			redirect('account/create');
 		}
-		
-		$this->load->model('Account_Model');
-		$this->Account_Model->registerAccount($data);
-		
-		$this->load->model('Books_Model');
-		$data['books'] = $this->Books_Model->getBooks();
-		$this->load->view('b/books',$data);
-		
+		else
+		{
+//			$this->load->view('formsuccess');
+			$fields = array('firstName-param', 'lastName-param', 'emailAddress-param', 'password-param');
+			
+			foreach ($fields as $field)
+			{
+				$data[$field] = $_POST[$field];
+			}
+			
+			$this->load->model('Account_Model');
+			$this->Account_Model->registerAccount($data);
+			
+			$this->load->model('Books_Model');
+			$data['books'] = $this->Books_Model->getBooks();
+			$this->load->view('b/books',$data);			
+		}
+								
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}
