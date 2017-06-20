@@ -24,7 +24,7 @@ class b extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		$fields = array('emailAddressParam', 'passwordParam');
-		
+				
 		foreach ($fields as $field)
 		{
 			if (isset($_POST[$field])) {
@@ -40,8 +40,14 @@ class b extends CI_Controller {
 				$this->books();				
 			}
 			else {
+/*				
 				$this->session->set_flashdata('data', $data);				
 				redirect('account/login');				
+*/
+				echo "<script>
+						alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
+					  </script>";				
+				$this->books();
 			}			
 		}
 		else {

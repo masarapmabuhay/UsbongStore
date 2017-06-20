@@ -18,9 +18,13 @@ class Account_Model extends CI_Model
 		$this->db->select('customer_password');
 		$this->db->where('customer_email_address',$param['emailAddressParam']);
 		$query = $this->db->get('customer');
+		$row = $query->row();
 		
-		if (password_verify($param['passwordParam'], $query->row()->customer_password)) {
-			return "true";
+		if ($row!==null) {
+			if (password_verify($param['passwordParam'], 
+					$row->customer_password)) {
+				return "true";
+			}
 		}
 		return "false";
 	}	

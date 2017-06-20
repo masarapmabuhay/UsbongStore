@@ -18,10 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if ($this->session->flashdata('data')) {
 				$data = $this->session->flashdata('data');
 			}
-			
+/*			
 			if (isset($data['is_login_success'])) {
 				echo "login success? ".$data['is_login_success'];
 			}
+*/			
 	    ?>
 		<div class="fields">
 			<form method="post" action="<?php echo site_url('')?>">
