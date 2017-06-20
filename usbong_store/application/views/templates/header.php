@@ -29,16 +29,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul>		
 		<div class="navbar-header">
 			<div class="Topbar-container">
-			  	<div class="Login-container"><a href = "<?php echo site_url('account/login/')?>">Login</a></div>		  
-			    <div class="Cart-container">
+			  	<div class="Login-container">
+			  		
+			  		<?php 
+				  		if (isset($customer_first_name)) {
+				  			echo "Hi, ".$customer_first_name."!";
+				  		}
+				  		else {
+				  			echo '<a href = "'.site_url('account/login/').'">';
+				  			echo "login";
+				  			echo '</a>';
+				  		}
+			  		?>
+			  	</div>		  
+				 <div class="Cart-container">
 					<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
 						<button type="submit" class="Button-cart">
 							<img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
 						</button>
 					</form>
 				</div>    
-			</div>		  
-		</div>
+		  </div>
 	  </div>	  
 	</nav>	
 </body>

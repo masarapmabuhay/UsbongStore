@@ -34,21 +34,32 @@ class b extends CI_Controller {
 		
 		if (isset($data)) {
 			$this->load->model('Account_Model');
-			$data['is_login_success'] = $this->Account_Model->loginAccount($data);
-			
-			if ($data['is_login_success']=="true") {
-				$this->books();				
+//			$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
+/*			
+			if ($data['does_email_exist']==null) {
+				$this->session->set_flashdata('data', $data);
+				redirect('account/login');
 			}
 			else {
-/*				
-				$this->session->set_flashdata('data', $data);				
-				redirect('account/login');				
-*/
-				echo "<script>
-						alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
-					  </script>";				
-				$this->books();
-			}			
+*/			
+				$data['is_login_success'] = $this->Account_Model->loginAccount($data);
+				
+				if (isset($data['is_login_success'])) {
+					$this->home($data['is_login_success']);					
+				}
+				else {
+					/*
+					 $this->session->set_flashdata('data', $data);
+					 redirect('account/login');
+					 */
+					echo "<script>
+						    alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
+					  	  </script>";
+					$this->books();
+				}				
+/*
+			}
+*/			
 		}
 		else {
 			$this->books();		
@@ -116,11 +127,26 @@ class b extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+	public function home($param) {
+		$data['customer_first_name'] = $param;
+		
+		$this->load->view('templates/style');
+		$this->load->view('templates/header',$data);
+		//--------------------------------------------
+		
+		$this->load->model('Books_Model');
+		$data['books'] = $this->Books_Model->getBooks();
+		$this->load->view('b/books',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');		
+	}
+	
 	//---------------------------------------------------------
 	// Books Category
 	//---------------------------------------------------------
 	public function books()
-	{
+	{		
 		$this->load->view('templates/style');
 		$this->load->view('templates/header');
 		//--------------------------------------------

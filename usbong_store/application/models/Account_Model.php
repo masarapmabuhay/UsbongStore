@@ -13,9 +13,17 @@ class Account_Model extends CI_Model
 		$this->db->insert('customer', $data);
 	}
 	
+	public function doesEmailAccountExist($param) 
+	{
+		$this->db->select('customer_email_address');
+		$this->db->where('customer_email_address',$param['emailAddressParam']);
+		$query = $this->db->get('customer');
+		$row = $query->row();		
+	}
+	 
 	public function loginAccount($param)
 	{		
-		$this->db->select('customer_password');
+		$this->db->select('customer_password, customer_first_name');
 		$this->db->where('customer_email_address',$param['emailAddressParam']);
 		$query = $this->db->get('customer');
 		$row = $query->row();
@@ -23,10 +31,10 @@ class Account_Model extends CI_Model
 		if ($row!==null) {
 			if (password_verify($param['passwordParam'], 
 					$row->customer_password)) {
-				return "true";
+				return $row->customer_first_name;//"true";
 			}
 		}
-		return "false";
+		return null;//"false";
 	}	
 }
 ?>
