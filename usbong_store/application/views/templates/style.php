@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-top: 1px solid #d0d0d0;
 		border-left: 1px solid #d0d0d0;
 		border-bottom: 1px solid #d0d0d0;
+		border-radius: 3px;
 	}
 	
 	.Button-container {
@@ -77,11 +78,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Cart-container {
 		float: right;
+		margin-left: 12px;
 	}	
 	
 	.Topbar-container {
 		width: 100%;
 		overflow: hidden;
+		float: right;
+	}
+	
+	.Login-container {
+		float: left;
+		margin-top: 16px;	
+		margin-left: 36px;		
 	}
 	
 	.Button-cart {
