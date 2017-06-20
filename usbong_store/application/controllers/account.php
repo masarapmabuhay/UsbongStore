@@ -46,6 +46,12 @@ class account extends CI_Controller {
 		$this->load->view('templates/footer');	
 	}
 	
+	public function logout() {
+		session_destroy();
+		
+		redirect(''); //home page		
+	}
+	
 	public function create()
 	{
 		$this->load->view('templates/style');

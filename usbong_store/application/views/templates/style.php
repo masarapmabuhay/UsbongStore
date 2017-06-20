@@ -47,11 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Search-input {
 		float: left;
 		font-size: 18px;
-		padding: 6px;
+		padding: 4px;
 		border: #ffffff;		
-		border-top: 1px solid #d0d0d0;
-		border-left: 1px solid #d0d0d0;
-		border-bottom: 1px solid #d0d0d0;
 		border-radius: 3px;
 	}
 	
@@ -78,6 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Cart-container {
 		float: right;
+		margin-right: 24px;
 		margin-left: 12px;
 	}	
 	
@@ -100,6 +98,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 4px;
 		margin-left: 6px;
 	}	
+	
+	.Customer-dropdown {
+		margin-top: 16px;
+	}
 	
 	.nav {
 	}
