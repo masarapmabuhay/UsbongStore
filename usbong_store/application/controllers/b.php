@@ -19,10 +19,11 @@ class b extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{				
+	{						
+/*		
 		$this->load->library('session');
 		$this->load->library('form_validation');
-		
+*/		
 		$fields = array('emailAddressParam', 'passwordParam');
 				
 		foreach ($fields as $field)
@@ -42,10 +43,20 @@ class b extends CI_Controller {
 			}
 			else {
 */			
-				$data['is_login_success'] = $this->Account_Model->loginAccount($data);
-				
-				if (isset($data['is_login_success'])) {
-					$this->home($data['is_login_success']);					
+				$data['customer_data'] = $this->Account_Model->loginAccount($data);
+
+				if (isset($data['customer_data'])) {
+					//added by Mike, 20170620
+					$newdata = array(
+							'customer_first_name'  => $data['customer_data']->customer_first_name,
+							'customer_email_address'     => $data['customer_data']->customer_email_address,
+							'logged_in' => TRUE
+					);
+					
+					$this->session->set_userdata($newdata);
+					$this->books();
+					
+// 					$this->home($data);					
 				}
 				else {
 					/*
@@ -74,13 +85,13 @@ class b extends CI_Controller {
 		$this->load->view('templates/style');
 		$this->load->view('templates/header');
 		//--------------------------------------------
-				
+/* 	
 		//added by Mike, 20170619
 		$this->load->helper(array('form', 'url'));
 		
 		$this->load->library('session');
 		$this->load->library('form_validation');
-		
+*/		
 		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('emailAddressParam', 'Email Address', 'required|valid_email');
@@ -127,13 +138,14 @@ class b extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function home($param) {
-		$data['customer_first_name'] = $param;
+	public function home($data) {
+//		$data['customer_first_name'] = $param;
 		
 		$this->load->view('templates/style');
 		$this->load->view('templates/header',$data);
 		//--------------------------------------------
 		
+				
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();
 		$this->load->view('b/books',$data);
@@ -146,11 +158,11 @@ class b extends CI_Controller {
 	// Books Category
 	//---------------------------------------------------------
 	public function books()
-	{		
+	{					
 		$this->load->view('templates/style');
 		$this->load->view('templates/header');
 		//--------------------------------------------
-		
+				
 //		$data['content'] = 'category/Books';
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();

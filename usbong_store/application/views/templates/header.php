@@ -29,15 +29,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul>		
 		<div class="navbar-header">
 			<div class="Topbar-container">
-			  	<div class="Login-container">
-			  		
+			  	<div class="Login-container">			  		
 			  		<?php 
-				  		if (isset($customer_first_name)) {
-				  			echo "Hi, ".$customer_first_name."!";
+				  		//if (isset($customer_data['customer_first_name'])) {
+			  			if (($this->session->has_userdata('customer_first_name')!==null) &&
+			  				(!empty($this->session->userdata('customer_first_name')))) {
+			  				echo "Hi, ".$this->session->userdata('customer_first_name')."!";
 				  		}
 				  		else {
 				  			echo '<a href = "'.site_url('account/login/').'">';
-				  			echo "login";
+				  			echo "Login";
 				  			echo '</a>';
 				  		}
 			  		?>

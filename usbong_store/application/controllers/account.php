@@ -25,9 +25,10 @@ class account extends CI_Controller {
 		$this->load->view('templates/style');
 		$this->load->view('templates/header');
 		//--------------------------------------------
-		
+/*		
 		$this->load->library('session');
 		$this->load->library('form_validation');
+*/		
 /*				
 		$fields = array('emailAddressParam', 'passwordParam');
 		
