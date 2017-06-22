@@ -8,7 +8,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	     
+
+	<script>
+		//Reference: https://www.w3schools.com/howto/howto_js_dropdown.asp;
+		//last accessed: 20170622
+		/* When the user clicks on the button, 
+		toggle between hiding and showing the dropdown content */
+		function myFunction() {
+		    document.getElementById("myDropdown").classList.toggle("show");
+		}
+		
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+		
+		    var dropdowns = document.getElementsByClassName("dropdown-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}
+	</script>
+
 	<title>Usbong Store</title>
 	<style type="text/css">
 
@@ -69,6 +94,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 	
+	.Product-image {
+	    max-width: 75%;
+    	height: auto;
+	}
+		
+	.Product-name {
+		color: #222222;
+		font-size: 28px;
+		font-weight: bold;	
+	}
+
+	.Product-author {
+		color: #4b4b4b;
+		font-size: 16px;
+		margin-left: 6px;
+	}
+
+	.Product-price {
+		color: #b88a1b;
+		font-size: 24px;
+		margin-left: 6px;
+	}
+
+	.Product-quantity {
+		color: #4b4b4b;
+		font-size: 16px;
+		margin-top: 24px;
+	}
+
+	.Quantity-label {
+		padding-right: 8px;
+	}
+
+	.Product-purchase-button {
+		color: #4b4b4b;
+		font-size: 16px;
+		margin-top: 12px;
+	}
+
+	.Button-purchase {
+		padding: 8px 42px 8px 42px;
+	}
+		
 	.col-sm-3 {
 		text-align:center
 	}
@@ -220,7 +288,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-bottom: 1px solid #f6aaaa;					
 		margin-bottom: -1px;
 	}		
-}	
+	
+	
+	/* 
+	 * ------------------------------------------------------------------
+	 * DROPDOWN
+	 * Reference: https://www.w3schools.com/howto/howto_js_dropdown.asp;
+	 * last accessed: 20170622	 
+	 * ------------------------------------------------------------------
+	 */
+
+	/* Dropdown Button */
+	.dropbtn {
+	    background-color: #9f7b42;
+	    color: white;
+	    padding: 16px;
+	    font-size: 16px;
+	    border: none;
+	    cursor: pointer;
+	}
+	
+	/* Dropdown button on hover & focus */
+	.dropbtn:hover, .dropbtn:focus {
+	    background-color: #68502b;
+	}
+	
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+	
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #f9f9f9;
+	    min-width: 40px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    z-index: 1;
+	}
+	
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	    color: black;
+	    padding: 12px 16px;
+	    text-decoration: none;
+	    display: block;
+	}
+	
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #f1f1f1}
+	
+	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+	.show {display:block;}
+		
+	}	
 </style>
 </head>
 <body>
