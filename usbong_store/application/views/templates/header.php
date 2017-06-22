@@ -66,6 +66,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Cart-container">
 				<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
 					<button type="submit" class="Button-cart">
+							<?php
+								//TODO: update value
+								$cartItems=250;
+							
+								if ($cartItems<10) {
+									echo '<div class="Text-cart">';
+									echo 0;
+									echo '</div>';									
+								}
+								else if ($cartItems<100) {
+									echo '<div class="Text-cart-2digits">';
+									echo 16;
+									echo '</div>';
+								}								
+								else {
+									echo '<div class="Text-cart-3digits">';
+									echo 250;
+									echo '</div>';									
+								}
+							?>
 						<img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
 					</button>
 				</form>

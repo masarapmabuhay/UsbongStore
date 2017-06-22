@@ -107,6 +107,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 4px;
 		margin-left: 6px;
 	}	
+
+	.Text-cart {
+		position: absolute;
+		color: white;
+		padding-left: 15px;		
+	    padding-top: 14px;
+		font-size: 14px;
+	}	
+
+	.Text-cart-2digits {
+		position: absolute;
+		color: white;
+		padding-left: 10px;		
+	    padding-top: 14px;
+		font-size: 14px;
+	}	
+
+	.Text-cart-3digits {
+		position: absolute;
+		color: white;
+		padding-left: 8px;		
+	    padding-top: 14px;
+		font-size: 14px;
+	}	
 	
 	.Customer-dropdown {
 		margin-top: 16px;
