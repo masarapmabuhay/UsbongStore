@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<h3 class="header">Books</h3>
 	<br>
-	<div class="container">
+	<div class="Books-container">
 	<?php
 			$colCounter = 0;
 			foreach ($books as $value) {
@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if ($colCounter==0) {
 					echo '<div class="row">';	
 // 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-3">';
+					echo '<div class="col-sm-2">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
 					echo '<br>'.$value['name'];
 					echo '<br>'.$value['author'];			
@@ -28,9 +28,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 					$colCounter++;				
 				}
-				else if ($colCounter<4){
+				else if ($colCounter<5){
 // 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-3">';
+					echo '<div class="col-sm-2">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
 					echo '<br>'.$value['name'];
 					echo '<br>'.$value['author'];

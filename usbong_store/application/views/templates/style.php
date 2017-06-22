@@ -65,13 +65,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Image-item {
-	    max-width: 50%;
+	    max-width: 75%;
     	height: auto;
 	}
 	
 	.col-sm-3 {
 		text-align:center
 	}
+
+	.col-sm-2 {
+		text-align:center
+	}
+	
+	.Books-container {
+		margin-left: 142px;
+	}	
+	
 	
 	.Cart-container {
 		float: right;
