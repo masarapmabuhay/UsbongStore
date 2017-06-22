@@ -94,6 +94,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 	
+	.Product-item {
+		border-radius: 4px;	
+	}
+
+	.Product-item:hover {
+		text-decoration: underline;
+	}
+
+	.Product-item-titleOnly {
+		font-weight: bold;
+	}
+
+	.Product-item-details {
+		font-weight: normal;
+	}
+			
 	.Product-image {
 	    max-width: 75%;
     	height: auto;
