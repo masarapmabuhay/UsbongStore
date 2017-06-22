@@ -14,31 +14,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$reformattedBeveragesName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				if ($colCounter==0) {
 					echo '<div class="row">';	
-// 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-3">';
+					echo '<div class="col-sm-2 Product-item">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/beverages/'.$reformattedBeveragesName.'.jpg').'">';
-					echo '<br>'.$value['name'];
+					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
+					echo '<label class="Product-item-details">';
 
 					if ($value['price']!=null) {
-						echo '<br>₱'.$value['price'].'</div>';
+						echo '₱'.$value['price'];
+						echo '</label>';
 					}
 					else {
-						echo '<br>out of stock</div>';					
+						echo 'out of stock';
+						echo '</label>';
 					}
+					echo '</div>';
 					$colCounter++;				
 				}
-				else if ($colCounter<4){
-// 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-3">';
+				else if ($colCounter<5){
+					echo '<div class="col-sm-2 Product-item">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/beverages/'.$reformattedBeveragesName.'.jpg').'">';
-					echo '<br>'.$value['name'];
+					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
+					echo '<label class="Product-item-details">';					
 					
 					if ($value['price']!=null) {
-						echo '<br>₱'.$value['price'].'</div>';
+						echo '₱'.$value['price'];
+						echo '</label>';
 					}
 					else {
-						echo '<br>out of stock</div>';
+						echo 'out of stock';
+						echo '</label>';
 					}
+					echo '</div>';
 					$colCounter++;
 				}
 				else {
