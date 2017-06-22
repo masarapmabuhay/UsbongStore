@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<b>Antoine de Saint-Exupéry</b>
 				</div>				
 				<div class="row">	
-					<div class="Product-overview-header"><b>Book Overview</b><br></div>
+					<div class="Product-overview-header"><b>Product Overview</b><br></div>
 					<div class="Product-overview-content">This book's often quoted phrase, «On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.  (We can only see well with our hearts. What is essential is invisible to the eye.)» reminds us that a person can be vain, difficult, and demanding, but it is the quality time that we spent for that person that makes him or her special and unique from all the other persons in the world.</div>
 				</div>		
 			</div>

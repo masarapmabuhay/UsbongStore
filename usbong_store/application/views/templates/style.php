@@ -151,6 +151,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-radius: 4px;
 		margin-left: 16px;
 	}
+
+	.Button-purchase:hover {
+		background-color: #d4be00;
+	}
 		
 	.col-sm-3 {
 		text-align:center
