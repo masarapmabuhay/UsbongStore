@@ -36,56 +36,43 @@ class b extends CI_Controller {
 		if (isset($data)) {
 			$this->load->model('Account_Model');
 // 			$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
-/*			
-			if ((isset($data['does_email_exist'])) &&
-					(!empty((array) $data['does_email_exist']))) { //check if empty
-*/
-/*			
-			if (isset($data['does_email_exist']) &&
-					empty($data['does_email_exist'])) { //check if empty					
-//			if ((isset($data['does_email_exist'])) &&
-//				($data['does_email_exist']==$data['emailAddressParam'])) {
-				$this->session->set_flashdata('data', $data);
-				redirect('account/login');
-			}
-			else {
-*/			
-				$data['customer_data'] = $this->Account_Model->loginAccount($data);
 
-				if (isset($data['customer_data'])) {
-					//added by Mike, 20170620
-					$newdata = array(
+			$data['customer_data'] = $this->Account_Model->loginAccount($data);
+
+			if (isset($data['customer_data'])) {
+				//added by Mike, 20170620
+				$newdata = array(
 							'customer_first_name'  => $data['customer_data']->customer_first_name,
 							'customer_email_address'     => $data['customer_data']->customer_email_address,
 							'logged_in' => TRUE
-					);
+				);
 					
-					$this->session->set_userdata($newdata);
-					$this->books();
+				$this->session->set_userdata($newdata);
+				$this->books();
 					
 // 					$this->home($data);					
-				}
-				else {
+			}
+			else {
 					/*
 					 $this->session->set_flashdata('data', $data);
 					 redirect('account/login');
 					 */
 					
-					//added by Mike, 20170622
-					$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
-					if (isset($data['does_email_exist'])) { 
-							$this->session->set_flashdata('data', $data);
-							redirect('account/login');
-					}										
-					else {					
-						echo "<script>
+				//added by Mike, 20170622
+				$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
+				if (isset($data['does_email_exist'])) { 
+						$this->session->set_flashdata('data', $data);
+						redirect('account/login');
+				}										
+				else {					
+					echo "<script>
 							    alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
-						  	  </script>";
-						$this->books();
-					}
-				}				
-/*			}
-*/			
+								window.location.href='/usbong_store/';
+						  </script>";
+// 					redirect('/'); //return to homepage					
+// 					$this->books();
+				}
+			}				
 		}
 		else {
 			$this->books();		
@@ -152,7 +139,7 @@ class b extends CI_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}
-
+/*
 	public function home($data) {
 //		$data['customer_first_name'] = $param;
 		
@@ -168,7 +155,7 @@ class b extends CI_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');		
 	}
-	
+*/	
 	//---------------------------------------------------------
 	// Books Category
 	//---------------------------------------------------------
