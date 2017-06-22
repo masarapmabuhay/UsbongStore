@@ -101,20 +101,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 	.Product-name {
 		color: #222222;
-		font-size: 28px;
+		font-size: 30px;
 		font-weight: bold;	
 	}
 
 	.Product-author {
 		color: #4b4b4b;
-		font-size: 16px;
+		font-size: 18px;
 		margin-left: 6px;
 	}
 
 	.Product-price {
 		color: #b88a1b;
 		font-size: 24px;
+		margin-top: 24px;		
 		margin-left: 6px;
+	}
+
+	.Product-overview-header {
+		color: #8bbf4f;
+		margin-top: 12px;
+		font-size: 18px;
+	}
+
+	.Product-overview-content {
+		font-size: 16px;
 	}
 
 	.Product-quantity {
@@ -135,6 +146,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Button-purchase {
 		padding: 8px 42px 8px 42px;
+		background-color: #ffe400;
+		border: 0px solid;		
+		border-radius: 4px;
+		margin-left: 16px;
 	}
 		
 	.col-sm-3 {
@@ -300,7 +315,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	/* Dropdown Button */
 	.dropbtn {
-	    background-color: #9f7b42;
+	    background-color: #68502b;
 	    color: white;
 	    padding: 16px;
 	    font-size: 16px;
@@ -310,7 +325,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	/* Dropdown button on hover & focus */
 	.dropbtn:hover, .dropbtn:focus {
-	    background-color: #68502b;
+	    background-color: #9f7b42;
 	}
 	
 	/* The container <div> - needed to position the dropdown content */
