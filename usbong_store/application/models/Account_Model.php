@@ -18,7 +18,8 @@ class Account_Model extends CI_Model
 		$this->db->select('customer_email_address');
 		$this->db->where('customer_email_address',$param['emailAddressParam']);
 		$query = $this->db->get('customer');
-		$row = $query->row();		
+		$row = $query->row();
+		return $row;
 	}
 	 
 	public function loginAccount($param)

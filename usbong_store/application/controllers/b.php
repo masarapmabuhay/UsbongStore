@@ -35,9 +35,16 @@ class b extends CI_Controller {
 		
 		if (isset($data)) {
 			$this->load->model('Account_Model');
-//			$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
+// 			$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
 /*			
-			if ($data['does_email_exist']==null) {
+			if ((isset($data['does_email_exist'])) &&
+					(!empty((array) $data['does_email_exist']))) { //check if empty
+*/
+/*			
+			if (isset($data['does_email_exist']) &&
+					empty($data['does_email_exist'])) { //check if empty					
+//			if ((isset($data['does_email_exist'])) &&
+//				($data['does_email_exist']==$data['emailAddressParam'])) {
 				$this->session->set_flashdata('data', $data);
 				redirect('account/login');
 			}
@@ -63,13 +70,21 @@ class b extends CI_Controller {
 					 $this->session->set_flashdata('data', $data);
 					 redirect('account/login');
 					 */
-					echo "<script>
-						    alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
-					  	  </script>";
-					$this->books();
+					
+					//added by Mike, 20170622
+					$data['does_email_exist'] = $this->Account_Model->doesEmailAccountExist($data);
+					if (isset($data['does_email_exist'])) { 
+							$this->session->set_flashdata('data', $data);
+							redirect('account/login');
+					}										
+					else {					
+						echo "<script>
+							    alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
+						  	  </script>";
+						$this->books();
+					}
 				}				
-/*
-			}
+/*			}
 */			
 		}
 		else {

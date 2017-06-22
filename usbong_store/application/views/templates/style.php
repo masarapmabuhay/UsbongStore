@@ -149,16 +149,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		display: inline-block; 
 		padding-right: 12px;	
 	}
-		
-	.Email-input {
-	    margin-top: 12px;		    
-	    font-size: 16px;    			
-	    padding: 6px;
-	    width: 100%;
-	    margin-bottom: 12px;		    
-	}
 
-	.Password-input {
+	.Login-input {
 	    font-size: 16px;    			
 	    padding: 6px;
 	    width: 100%;
