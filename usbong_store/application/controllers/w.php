@@ -10,16 +10,16 @@ class w extends CI_Controller {
 		$this->load->view('templates/style');
 		$this->load->view('templates/header');
 		//--------------------------------------------
+
+		$productName = str_replace('-',' ',$param); 
+				
+		$this->load->model('W_Model');
+		$data['result'] = $this->W_Model->getProduct($productName);
+//		$data['result'] = $this->W_Model->getProduct($param);
 		
-//		$this->load->model('Cart_Model');
-//		$data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
-		
-//		$this->load->view('w', $data);
-		$this->load->view('w');
+		$this->load->view('w', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
 	}
-	
-	
 }

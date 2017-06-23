@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">	
-				<img class="Product-image" src="<?php echo base_url('assets/images/books/Le Petit Prince.jpg');?>">	
+				<img class="Product-image" src="<?php echo base_url('assets/images/books/'.$result->name.'.jpg');?>">				
 			</div>
 			<div class="col-sm-5">	
 				<div class="row Product-name">
