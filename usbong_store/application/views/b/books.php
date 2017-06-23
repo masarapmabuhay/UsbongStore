@@ -12,9 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$colCounter = 0;
 			foreach ($books as $value) {
 				$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
-				$URLFriendlyReformattedBookName = str_replace(' ','-',$reformattedBookName); //replace " " and "-"
-
-				$URLFriendlyReformattedBookAuthor = str_replace(' ','-',$value['author']); //replace " " and "-"
+				$URLFriendlyReformattedBookName = str_replace(',','',str_replace(' ','-',$reformattedBookName)); //replace " " and "-"
+				$URLFriendlyReformattedBookAuthor = str_replace(',','',str_replace(' ','-',$value['author'])); //replace " " and "-"
 				
 				if ($colCounter==0) {
 					echo '<div class="row">';	

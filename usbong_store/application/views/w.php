@@ -17,10 +17,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-5">	
 				<div class="row Product-name">
-					Le Petit Prince				
+					<?php
+						echo $result->name;
+					?>
 				</div>
 				<div class="row Product-author">
-					<b>Antoine de Saint-Exupéry</b>
+					<b>
+					<?php
+						echo $result->author;
+					?>
+					</b>
 				</div>				
 				<div class="row">	
 					<div class="Product-overview-header"><b>Product Overview</b><br></div>
@@ -29,7 +35,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-3">	
 				<div class="row Product-price">
-					<b>₱500</b> [Free Delivery]
+					<b>
+					<?php
+					if (trim($result->price)=='') {
+						echo 'out of stock';						
+					}
+					else {
+						echo '₱'.$result->price.' [Free Delivery]';
+					}
+					?>
+					</b>					
 				</div>					
 				<div class="row Product-quantity">
 					<label class="Quantity-label">Quantity:</label>
