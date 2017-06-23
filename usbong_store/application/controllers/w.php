@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class w extends CI_Controller {
 
-	public function index($param)
+	public function index($productDetail, $productId)
 	{
 //		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 		
@@ -11,10 +11,10 @@ class w extends CI_Controller {
 		$this->load->view('templates/header');
 		//--------------------------------------------
 
-		$productName = str_replace('-',' ',$param); 
-				
+//		$productName = str_replace('-',' ',$param); 
+			
 		$this->load->model('W_Model');
-		$data['result'] = $this->W_Model->getProduct($productName);
+		$data['result'] = $this->W_Model->getProduct($productId);
 //		$data['result'] = $this->W_Model->getProduct($param);
 		
 		$this->load->view('w', $data);

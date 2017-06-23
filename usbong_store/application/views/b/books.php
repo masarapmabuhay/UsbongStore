@@ -13,10 +13,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach ($books as $value) {
 				$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				$URLFriendlyReformattedBookName = str_replace(' ','-',$reformattedBookName); //replace " " and "-"
+
+				$URLFriendlyReformattedBookAuthor = str_replace(' ','-',$value['author']); //replace " " and "-"
 				
 				if ($colCounter==0) {
 					echo '<div class="row">';	
-					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName).'">';
+					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
@@ -36,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
-					echo '<a class="Product-item" href="'.site_url('/w/'.$URLFriendlyReformattedBookName).'">';
+					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';

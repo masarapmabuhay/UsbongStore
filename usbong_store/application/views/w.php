@@ -10,7 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">	
-				<img class="Product-image" src="<?php echo base_url('assets/images/books/'.$result->name.'.jpg');?>">				
+				<?php 
+					$reformattedBookName = str_replace(':','',str_replace('\'','',$result->name)); //remove ":" and "'"				
+				?>
+				<img class="Product-image" src="<?php echo base_url('assets/images/books/'.$reformattedBookName.'.jpg');?>">				
 			</div>
 			<div class="col-sm-5">	
 				<div class="row Product-name">
