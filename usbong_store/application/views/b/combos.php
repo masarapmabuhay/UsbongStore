@@ -21,11 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo $value['author'];
 					
 					if ($value['price']!=null) {
-						echo '<br>₱'.$value['price'];
+						echo '<br><label class="Product-item-price">₱'.$value['price'].'</label>';
 						echo '</label>';
 					}
 					else {
-						echo '<br>out of stock';
+						echo '<br><label class="Product-item-price">out of stock</label>';
 						echo '</label>';
 					}
 					echo '</div>';
@@ -39,11 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo $value['author'];
 					
 					if ($value['price']!=null) {
-						echo '<br>₱'.$value['price'];
+						echo '<br><label class="Product-item-price">₱'.$value['price'].'</label>';
 						echo '</label>';
 					}
 					else {
-						echo '<br>out of stock';
+						echo '<br><label class="Product-item-price">out of stock</label>';
 						echo '</label>';
 					}
 					echo '</div>';

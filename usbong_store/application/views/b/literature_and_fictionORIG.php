@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<h3 class="header">Books</h3>
 	<br>
-	<div class="Books-container">
+	<div class="container">
 	<?php
 			$colCounter = 0;
 			foreach ($books as $value) {
@@ -15,40 +15,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if ($colCounter==0) {
 					echo '<div class="row">';	
 // 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-2 Product-item">';
+					echo '<div class="col-sm-3">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
-					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
-					echo '<label class="Product-item-details">';
-					echo $value['author'];
+					echo '<br>'.$value['name'];
+					echo '<br>'.$value['author'];			
 					
 					if ($value['price']!=null) {
-						echo '<br><label class="Product-item-price">₱'.$value['price'].'</label>';
-						echo '</label>';					
+						echo '<br>₱'.$value['price'].'</div>';
 					}
 					else {
-						echo '<br><label class="Product-item-price">out of stock</label>';					
-						echo '</label>';
-					}			
-					echo '</div>';
+						echo '<br>out of stock</div>';					
+					}
 					$colCounter++;				
 				}
-				else if ($colCounter<5){
+				else if ($colCounter<4){
 // 					echo '<div class="col-sm-3">'.$value['name'].'</div>';
-					echo '<div class="col-sm-2 Product-item">';
+					echo '<div class="col-sm-3">';
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedBookName.'.jpg').'">';
-					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
-					echo '<label class="Product-item-details">';					
-					echo $value['author'];
+					echo '<br>'.$value['name'];
+					echo '<br>'.$value['author'];
 					
 					if ($value['price']!=null) {
-						echo '<br><label class="Product-item-price">₱'.$value['price'].'</label>';
-						echo '</label>';
+						echo '<br>₱'.$value['price'].'</div>';
 					}
 					else {
-						echo '<br><label class="Product-item-price">out of stock</label>';
-						echo '</label>';
+						echo '<br>out of stock</div>';
 					}
-					echo '</div>';
 					$colCounter++;
 				}
 				else {
@@ -58,5 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 	?>
 	</div>	
+	
+	
 </body>
 </html>

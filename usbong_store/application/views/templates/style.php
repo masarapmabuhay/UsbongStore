@@ -41,11 +41,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	::-moz-selection { background-color: #f07746; color: #fff; }
 
 	body {
-		background-color: #fff;
+		background-color:  #f6f6f6;
 		margin: 0px 0px 0px 0px;
 		max-width: 100%;
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
 		color: #808080;
+	}
+	
+	.navbar {
+		background-color: #1a0d00;
+	}
+	
+	a {
+		color: #dec32e;
+	}
+
+	a:hover {
+		color: #dec32e;
 	}
 	
 	p {
@@ -100,15 +112,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Product-item:hover {
 		text-decoration: underline;
+		color: #222222;
 	}
 
 	.Product-item-titleOnly {
+		color: #222222;
 		font-weight: bold;
 	}
 
 	.Product-item-details {
+		color: #4b4b4b;	
 		font-weight: normal;
 	}
+
+	.Product-item-price {
+		color: #b88a1b;
+	}
+
 			
 	.Product-image {
 	    max-width: 75%;
