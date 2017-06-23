@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class w extends CI_Controller {
 
-	public function index()//$param)
+	public function index($param)
 	{
 //		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 		
@@ -20,4 +20,6 @@ class w extends CI_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
 	}
+	
+	
 }
