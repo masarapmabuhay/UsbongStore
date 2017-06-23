@@ -69,10 +69,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 12px;
 		border-top: 1px solid #d0d0d0;
 		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-		background:#8ba8af;
+		background: #52493f;
 		color:#fff;
+		margin: 0; 
+		padding: 0 10px 0 10px;
 	}
 	
 	.Search-container {
@@ -200,7 +200,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-align:center
 	}
 	
-	.Books-container {
+	.container {
 		margin-left: 142px;
 	}	
 	

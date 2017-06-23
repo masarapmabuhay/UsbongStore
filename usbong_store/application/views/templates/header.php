@@ -69,24 +69,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php
 								//TODO: update value
 								$cartItems=250;
-							
-								if ($cartItems<10) {
-									echo '<div class="Text-cart">';
-									echo 0;
-									echo '</div>';									
+
+								
+								if ($cartItems==0) {
+									echo '<img src="'.base_url('assets/images/cart_icon.png').'">';									
 								}
-								else if ($cartItems<100) {
-									echo '<div class="Text-cart-2digits">';
-									echo 16;
-									echo '</div>';
-								}								
 								else {
-									echo '<div class="Text-cart-3digits">';
-									echo 250;
-									echo '</div>';									
+									if ($cartItems<10) {
+										echo '<div class="Text-cart">';
+										echo 0;
+										echo '</div>';
+									}
+									else if ($cartItems<100) {
+										echo '<div class="Text-cart-2digits">';
+										echo 16;
+										echo '</div>';
+									}
+									else {
+										echo '<div class="Text-cart-3digits">';
+										echo 250;
+										echo '</div>';
+									}
+									
+									echo '<img src="'.base_url('assets/images/cart_icon_not_empty.png').'">';									
 								}
 							?>
-						<img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
 					</button>
 				</form>
 			</div>    

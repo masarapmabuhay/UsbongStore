@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<h3 class="header">Books</h3>
 	<br>
-	<div class="Books-container">
+	<div class="container">
 	<?php
 			$colCounter = 0;
 			foreach ($books as $value) {
@@ -56,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter=0;
 				}
 			}
+			echo '</div>';
 	?>
 	</div>	
 </body>

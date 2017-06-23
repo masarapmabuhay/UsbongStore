@@ -52,9 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter=0;
 				}
 			}
+			echo '</div>';			
 	?>
-	</div>	
-	
-	
+	</div>		
 </body>
 </html>
