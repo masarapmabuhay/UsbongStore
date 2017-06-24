@@ -29,7 +29,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>				
 				<div class="row">	
 					<div class="Product-overview-header"><b>Product Overview</b><br></div>
-					<div class="Product-overview-content">This book's often quoted phrase, «On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.  (We can only see well with our hearts. What is essential is invisible to the eye.)» reminds us that a person can be vain, difficult, and demanding, but it is the quality time that we spent for that person that makes him or her special and unique from all the other persons in the world.</div>
+					<div class="Product-overview-content">
+					<?php	
+						if (!empty($result->product_overview)) {							
+							echo $result->product_overview;
+						}
+						else {
+							echo 'This book\'s often quoted phrase, «On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.  (We can only see well with our hearts. What is essential is invisible to the eye.)», reminds us that a person can be vain, difficult, and demanding, but it is the quality time that we spent for that person that makes him or her special and unique from all the other persons in the world.';							
+						}
+					?>
+					</div>
 				</div>		
 			</div>
 			<div class="col-sm-3">	
@@ -40,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo 'out of stock';						
 					}
 					else {
-						echo '₱'.$result->price.' [Free Delivery]';
+						echo '&#x20B1;'.$result->price.' [Free Delivery]';
 					}
 					?>
 					</b>					

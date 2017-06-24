@@ -6,7 +6,7 @@ class Search_Model extends CI_Model
 		//edited by Mike, 20170624
 		$splitParamArray = explode(" ", $param);		
 	
-		$this->db->select('product_id, name, author, price, product_type_id');
+		$this->db->select('product_id, name, author, price, product_type_id, product_overview');
 		
 		foreach ($splitParamArray as $value) {
 			$this->db->like('name', $value);
