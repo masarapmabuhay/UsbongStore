@@ -60,6 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #dec32e;
 	}
 	
+	hr {
+		margin-right: 142px;
+		border: 1px solid #6d8f48;
+	}
+	
 	p {
 		 padding:0;
 	}
@@ -265,6 +270,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.header {
 		margin: 0px 10px 0px 10px;	
+	}
+
+	.Search-result {
+		margin-left: 100px;
+		margin-bottom: 32px;	
+		font-size: 18px;
+		color: #1a0d00;
+	}
+	
+	.Search-noResult {
+		margin-left: 100px;
+		margin-bottom: 32px;	
+		font-size: 18px;
+		color: #1a0d00;
 	}
 
 	.usbongLogo {

@@ -5,7 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="header">Product Item</h3>
 	<br>
 	<div class="container">
 		<div class="row">
