@@ -148,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 		
 	.Cart-product-image {
-	    max-width: 100%;
+	    max-width: 60%;
     	height: auto;
 	}
 
@@ -172,6 +172,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 	}
 
+	.Cart-order-price {
+		color: #b88a1b;
+	}
+
 	.Cart-product-price-each {
 		color: #4b4b4b;
 		font-size: 20px;
@@ -192,6 +196,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 24px;		
 		margin-right: 30px;
 		text-align: right;
+	}
+
+	.Cart-order-list {
+	}
+
+	.Cart-order-total {
+		border: 1px solid;		
+		border-radius: 2px;	
+		padding: 10px 22px 10px 0px;
+		text-align: right;
+		color: #77b043;
+		font-weight: bold;
+	}
+
+	.Cart-order-total-row {
+		color: #4b4b4b;
 	}
 
 	.Product-author {
@@ -236,6 +256,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Button-purchase {
 		padding: 8px 42px 8px 42px;
 		background-color: #ffe400;
+		color: #222222;
+		font-weight: bold;
 		border: 0px solid;		
 		border-radius: 4px;
 		margin-left: 16px;
@@ -317,6 +339,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.header {
 		margin: 0px 10px 0px 10px;	
+
 	}
 
 	.Search-result {
