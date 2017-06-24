@@ -127,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									FREE
 								</div>		
 							</div>						
-							<div class="row Cart-order-total-row">
+							<div class="row Cart-order-total-with-checkout-row">
 								<div class="col-sm-6">		
 									Order Total
 								</div>

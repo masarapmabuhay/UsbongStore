@@ -204,7 +204,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Cart-order-total {
 		border: 1px solid;		
 		border-radius: 2px;	
-		padding: 10px 22px 10px 0px;
+		padding: 10px 22px 10px 7px;
 		text-align: right;
 		color: #77b043;
 		font-weight: bold;
@@ -212,6 +212,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Cart-order-total-row {
 		color: #4b4b4b;
+	}
+
+	.Cart-order-total-with-checkout-row {
+		border-top: 1px solid;				
+		color: #4b4b4b;
+		margin-left: 0px;
 	}
 
 	.Product-author {
