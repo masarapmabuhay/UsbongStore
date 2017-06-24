@@ -84,16 +84,6 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function literature_and_fiction()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
-		//--------------------------------------------
-/* 	
-		//added by Mike, 20170619
-		$this->load->helper(array('form', 'url'));
-		
-		$this->load->library('session');
-		$this->load->library('form_validation');
-*/		
 		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('emailAddressParam', 'Email Address', 'required|valid_email');
@@ -119,25 +109,28 @@ class b extends CI_Controller {
 		}
 		else
 		{
-//			$this->load->view('formsuccess');
-/*
-			$fields = array('firstNameParam', 'lastNameParam', 'emailAddressParam', 'passwordParam');
-			
-			foreach ($fields as $field)
-			{
-				$data[$field] = $_POST[$field];
-			}
-*/			
 			$this->load->model('Account_Model');
 			$this->Account_Model->registerAccount($data);
 			
+			//added by Mike, 20170624
+			$newdata = array(
+					'customer_first_name'  => $data['firstNameParam'],
+					'customer_email_address'     => $data['emailAddressParam'],
+					'logged_in' => TRUE
+			);			
+			$this->session->set_userdata($newdata);
+		
+			$this->load->view('templates/style');
+			$this->load->view('templates/header');
+			//--------------------------------------------
+							
 			$this->load->model('Books_Model');
 			$data['books'] = $this->Books_Model->getBooks();
 			$this->load->view('b/books',$data);			
-		}
-								
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}								
 	}
 /*
 	public function home($data) {
