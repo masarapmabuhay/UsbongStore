@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h3 class="header">Shopping Cart</h3>
 	<br>
 	<?php 
-		$resultCount = 0;//count($result);
+		$resultCount = count($result);
 		if ($resultCount==0) {
 			echo '<div class="Cart-noResult">';
 			echo 'It is currently empty.';
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		else {
 	?>
-		<div class="container">
+		<div class="Cart-container">
 			<?php
 				$colCounter = 0;
 				foreach ($result as $value) {
@@ -44,11 +44,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 				?>
 					<div class="row">
-						<div class="col-sm-3">	
-							<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
+						<div class="col-sm-2">	
+							<img class="Cart-product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 						</div>
-						<div class="col-sm-5">	
-							<div class="row Product-name">							
+						<div class="col-sm-3">	
+							<div class="row Cart-product-name">							
 								<?php
 									echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
 									echo $value['name'];
@@ -71,11 +71,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo 'out of stock';						
 								}
 								else {
-									echo '&#x20B1;'.$value['price'].' [Free Delivery]';
+									echo '<label class="">&#x20B1;'.$value['price'].' [Free Delivery]</label>';
 								}
 								?>
-								</b>					
+								</b>
+								<br>
+								<label class="Cart-product-price">each</label>					
 							</div>					
+						</div>
+						<div class="col-sm-2">								
 							<div class="row Product-quantity">
 								<label class="Quantity-label">Quantity:</label>
 								<div class="dropdown">
@@ -87,14 +91,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  </div>
 								</div>
 							</div>
-							<div class="row Product-purchase-button">
-								<button type="submit" class="Button-purchase">
-			 						ADD TO CART
-								</button>				
-							</div>				
+						</div>
+						<div class="col-sm-2">								
+							<div class="row Cart-product-subtotal">
+								<?php
+									echo '<label class="">&#x20B1;'.$value['price'].'</label>';
+								?>	
+								<br>
+								<label class="Cart-product-item-subtotal">(Subtotal)</label>																				
+							</div>
 						</div>
 					</div>
-					<hr class="horizontal-line">
+					<hr class="Cart-hr">
 				<?php 
 				  }
 				?>					
