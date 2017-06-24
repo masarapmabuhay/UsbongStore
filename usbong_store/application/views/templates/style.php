@@ -113,6 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Product-item {
 		border-radius: 4px;	
+		color: #222222;
 	}
 
 	.Product-item:hover {

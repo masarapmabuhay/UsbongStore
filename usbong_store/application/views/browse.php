@@ -56,9 +56,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 						</div>
 						<div class="col-sm-5">	
-							<div class="row Product-name">
+							<div class="row Product-name">							
 								<?php
+									echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
 									echo $value['name'];
+									echo '</a>';
 								?>
 							</div>
 							<div class="row Product-author">
