@@ -34,6 +34,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	</script>
 
+	<script>
+		//added by Mike, 20170626
+		// When the user clicks on <div>, open the popup
+		function myPopupFunction() {
+		    document.getElementById("myPopup").classList.toggle("show");
+		}	
+
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.Button-purchase')) {
+		
+		    var dropdowns = document.getElementsByClassName("popup-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}		
+	</script>
+
 	<title>Usbong Store</title>
 	<style type="text/css">
 
@@ -503,6 +526,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.show {display:block;}
 		
 	}	
+	
+	/* added by Mike, 20170626 */		
+	/* Popup container */
+	.popup {
+	    position: relative;
+	    display: inline-block;
+	}
+	
+	/* The actual popup (appears on top) */
+	.popup-content {
+	    display: none;
+    	position: fixed;
+    	top: 50px;
+    	right: 10px;	    
+    	width: 300px;
+    	background-color: #f9f9f9;
+	    padding: 10px;
+	    min-width: 40px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    z-index: 1;
+	    border-radius: 3px;	    
+	}
+
 </style>
 </head>
 <body>

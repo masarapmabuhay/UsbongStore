@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo $value['author'];
 					
 					if ($value['price']!=null) {
-						echo '<br><label class="Product-item-price">₱'.$value['price'].'</label>';
+						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 						echo '</label>';					
 					}
 					else {
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo $value['author'];
 					
 					if ($value['price']!=null) {
-						echo '<br><label class="Product-item-price">₱'.$value['price'].'</label>';
+						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 						echo '</label>';
 					}
 					else {

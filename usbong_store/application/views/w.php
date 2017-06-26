@@ -65,11 +65,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  </div>
 					</div>
 				</div>
-				<div class="row Product-purchase-button">
-					<button type="submit" class="Button-purchase">
- 						ADD TO CART
-					</button>				
-				</div>				
+					<div class="row Product-purchase-button">				
+						<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>				
+						<div id="myPopup" class="popup-content">
+							2 copies of book added!
+						</div>					
+					</div>				
 			</div>
 		</div>	
 	</div>		
