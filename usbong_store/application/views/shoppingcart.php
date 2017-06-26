@@ -20,6 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 			<div class="col-sm-9 Cart-order-list">										
 				<?php
+					//added by Mike, 20170626
+					$orderTotal = 0;
+				
 					$colCounter = 0;
 					foreach ($result as $value) {
 						$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
@@ -72,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									if (trim($value['price'])=='') {
 										echo 'out of stock';						
 									}
-									else {
+									else {										
 										echo '<label class="">&#x20B1;'.$value['price'].' [Free Delivery]</label>';
 									}
 									?>
@@ -97,7 +100,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-2">								
 								<div class="row Cart-product-subtotal">
 									<?php
-										echo '<label class="">&#x20B1;'.$value['price'].'</label>';
+										if (trim($value['price'])=='') {
+											echo '&#x20B1; 0';
+										}
+										else {
+											echo '<label class="">&#x20B1;'.$value['price'].'</label>';
+										}
+																																							
+										//added by Mike, 20170626
+										$orderTotal+=$value['price']; //multiply with quantity to get the subtotal
+										
 									?>	
 									<br>
 									<label class="Cart-product-item-subtotal">(Subtotal)</label>																				
@@ -116,7 +128,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php echo count($result).' items'?>		
 								</div>
 								<div class="col-sm-6 Cart-order-price">		
-									<?php echo '&#x20B1; 42.00'?>		
+									<?php echo '&#x20B1; '.$orderTotal?>		
 								</div>								
 							</div>
 							<div class="row Cart-order-total-row">
@@ -132,7 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									Order Total
 								</div>
 								<div class="col-sm-6 Cart-order-price">		
-									<?php echo '&#x20B1; 42.00'?>		
+									<?php echo '&#x20B1; '.$orderTotal?>		
 								</div>								
 							</div>
 							<br>
