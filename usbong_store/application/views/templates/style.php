@@ -37,9 +37,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script>
 		//added by Mike, 20170626
 		function myPopupFunction() {				
+			var product_id = document.getElementById("product_idParam").value;
+			var customer_id = document.getElementById("customer_idParam").value;
+			var quantity = document.getElementById("quantityParam").value;
+			var price = document.getElementById("priceParam").value;
+			
+//			var base_url = window.location.origin;
+			var site_url = "<?php echo site_url('cart/addToCart/');?>";
+			var my_url = site_url.concat(product_id,'/',customer_id,'/',quantity,'/',price);
+			
 			$.ajax({
 		        type:"POST",
-		        url:"<?php echo site_url('cart/addToCart/1/7/1/400');?>",
+		        url:my_url,
 
 		        success:function() {
 					document.getElementById("myPopup").classList.toggle("show");			        
@@ -47,8 +56,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		    });
 		    event.preventDefault();
-//			window.location.href = "<?php echo site_url('cart/addToCart/1/7/1/400');?>";
-//			document.getElementById("myPopup").classList.toggle("show");
 		}	
 
 		// Close the dropdown menu if the user clicks outside of it

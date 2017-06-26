@@ -66,6 +66,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 					<div class="row Product-purchase-button">				
+						<?php 
+								$quantity = 1;
+								//TODO: fix quantity and price
+									
+								echo '<input type="hidden" id="product_idParam" value="'.$result->product_id.'" required>';
+								echo '<input type="hidden" id="customer_idParam" value="'.$this->session->userdata('customer_id').'" required>';										
+								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
+								echo '<input type="hidden" id="priceParam" value="'.$result->price.'" required>';							
+						?>						
 						<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>				
 						<div id="myPopup" class="popup-content">
 							<div class="row">
