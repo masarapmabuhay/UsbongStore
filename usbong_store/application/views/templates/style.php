@@ -41,21 +41,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var customer_id = document.getElementById("customer_idParam").value;
 			var quantity = document.getElementById("quantityParam").value;
 			var price = document.getElementById("priceParam").value;
-			
-//			var base_url = window.location.origin;
-			var site_url = "<?php echo site_url('cart/addToCart/');?>";
-			var my_url = site_url.concat(product_id,'/',customer_id,'/',quantity,'/',price);
-			
-			$.ajax({
-		        type:"POST",
-		        url:my_url,
 
-		        success:function() {
-					document.getElementById("myPopup").classList.toggle("show");			        
-		        }
-
-		    });
-		    event.preventDefault();
+			//added by Mike, 20170627
+			if (customer_id=="") {
+				window.location.href = "<?php echo site_url('account/login/');?>";
+			}
+			else {				
+	//			var base_url = window.location.origin;
+				var site_url = "<?php echo site_url('cart/addToCart/');?>";
+				var my_url = site_url.concat(product_id,'/',customer_id,'/',quantity,'/',price);
+				
+				$.ajax({
+			        type:"POST",
+			        url:my_url,
+	
+			        success:function() {
+						document.getElementById("myPopup").classList.toggle("show");			        
+			        }
+	
+			    });
+			    event.preventDefault();
+			}
 		}	
 
 		// Close the dropdown menu if the user clicks outside of it
@@ -115,14 +121,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 padding:0;
 	}
 
-	p.footer {
+	p.footer {		
 		text-align: right;
 		font-size: 12px;
 		border-top: 1px solid #d0d0d0;
 		line-height: 32px;
 		background: #52493f;
 		color:#fff;
-		margin: 0; 
+		margin: 20px 0 0 0; 
 		padding: 0 10px 0 10px;
 	}
 	
