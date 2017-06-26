@@ -36,9 +36,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<script>
 		//added by Mike, 20170626
-		// When the user clicks on <div>, open the popup
-		function myPopupFunction() {
-		    document.getElementById("myPopup").classList.toggle("show");
+		function myPopupFunction() {				
+			$.ajax({
+		        type:"POST",
+		        url:"<?php echo site_url('cart/addToCart/1/7/1/400');?>",
+
+		        success:function() {
+					document.getElementById("myPopup").classList.toggle("show");			        
+		        }
+
+		    });
+		    event.preventDefault();
+//			window.location.href = "<?php echo site_url('cart/addToCart/1/7/1/400');?>";
+//			document.getElementById("myPopup").classList.toggle("show");
 		}	
 
 		// Close the dropdown menu if the user clicks outside of it

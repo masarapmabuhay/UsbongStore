@@ -40,11 +40,12 @@ class b extends CI_Controller {
 			$data['customer_data'] = $this->Account_Model->loginAccount($data);
 
 			if (isset($data['customer_data'])) {
-				//added by Mike, 20170620
+				//added by Mike, 20170626
 				$newdata = array(
 							'customer_first_name'  => $data['customer_data']->customer_first_name,
 							'customer_email_address'     => $data['customer_data']->customer_email_address,
-							'logged_in' => TRUE
+							'logged_in' => TRUE,
+							'customer_id' => $data['customer_data']->customer_id
 				);
 					
 				$this->session->set_userdata($newdata);

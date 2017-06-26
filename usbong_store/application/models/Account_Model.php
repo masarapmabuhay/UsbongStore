@@ -24,7 +24,7 @@ class Account_Model extends CI_Model
 	 
 	public function loginAccount($param)
 	{		
-		$this->db->select('customer_password, customer_first_name, customer_email_address');
+		$this->db->select('customer_password, customer_first_name, customer_email_address, customer_id'); //edited by Mike, 20170626
 		$this->db->where('customer_email_address',$param['emailAddressParam']);
 		$query = $this->db->get('customer');
 		$row = $query->row();

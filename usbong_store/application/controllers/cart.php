@@ -34,4 +34,31 @@ class cart extends CI_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
 	}
+	
+	public function addToCart() {//$product_idParam, $customer_idParam, $quantityParam, $priceParam) {//($productId, $customerId, $quantity, $price) {	
+/*		$fields = array('product_idParam', 'customer_idParam', 'quantityParam', 'priceParam');
+		
+		foreach ($fields as $field)
+		{
+			$data[$field] = $_POST[$field];
+		}
+*/		
+/*
+		$data = array(
+				'product_id' => $product_idParam,
+				'customer_id' => $customer_idParam,
+				'quantity' => $quantityParam,
+				'price' => $priceParam
+		);
+*/		
+		$data = array(
+				'product_id' => $this->uri->segment(3),
+				'customer_id' => $this->uri->segment(4),
+				'quantity' => $this->uri->segment(5),
+				'price' => $this->uri->segment(6)
+		);
+				
+		$this->load->model('Cart_Model');
+		$this->Cart_Model->addToCart($data);
+	}
 }
