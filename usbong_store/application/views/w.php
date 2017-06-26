@@ -68,7 +68,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row Product-purchase-button">				
 						<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>				
 						<div id="myPopup" class="popup-content">
-							2 copies of book added!
+							<div class="row">
+								<div class="col-sm-4">									
+									<img class="Popup-product-image" src="<?php echo base_url('assets/images/books/'.$reformattedBookName.'.jpg');?>">				
+								</div>
+								<div class="col-sm-8 Popup-product-details">
+									<?php 
+										$quantity=1;
+										if ($quantity>1) {
+											echo 'Added<b>'.$quantity.'</b> copies of ';									
+										}
+										else {
+											echo 'Added <b>1</b> copy of ';
+										}
+										echo '<b>'.$result->name.'</b>!'
+									?>
+									<br><b>Order Total: </b>
+									<label class="Popup-product-price">&#x20B1;<?php echo $result->price;?></label>
+									<label class="Popup-product-free-delivery"><br>[Free Delivery]</label> 												
+								<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
+									<button type="submit" class="Button-view-cart">
+										View Cart 
+									</button>
+								</form>						
+								</div>
+							</div>
 						</div>					
 					</div>				
 			</div>

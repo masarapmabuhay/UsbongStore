@@ -175,6 +175,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 
+	.Popup-product-image {
+	    max-width: 120%;
+    	height: auto;
+    	margin-left: 6px;
+	}
+
 	.Product-name {
 		color: #222222;
 		font-size: 30px;
@@ -256,6 +262,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 	}
 
+	.Popup-product-details {
+		font-size: 15px;
+	}
+
+	.Popup-product-currency-symbol {
+		color: #b88a1b;
+		font-size: 18px;
+		margin-left: 6px;
+	}
+
+	.Popup-product-price {
+		color: #b88a1b;
+		font-size: 24px;
+		margin-right: 2px;
+	}
+
+	.Popup-product-free-delivery {
+		color: #b88a1b;
+		font-size: 18px;
+		margin-top: -30px;
+		margin-right: 2px;
+	}
+
 	.Product-overview-header {
 		color: #8bbf4f;
 		margin-top: 12px;
@@ -294,6 +323,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Button-purchase:hover {
 		background-color: #d4be00;
+	}
+
+	.Button-view-cart {
+		padding: 8px 42px 8px 42px;
+		background-color: #84c44b;
+		color: #222222;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+	}
+
+	.Button-view-cart:hover {
+		background-color: #77b043;
 	}
 		
 	.col-sm-3 {
@@ -542,7 +584,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	right: 10px;	    
     	width: 300px;
     	background-color: #f9f9f9;
-	    padding: 10px;
+	    padding: 16px;
 	    min-width: 40px;
 	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	    z-index: 1;
