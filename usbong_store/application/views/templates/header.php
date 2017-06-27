@@ -64,7 +64,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  </li>
 		  <li>
 			<div class="Cart-container">
-				<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
+				<form method="post" action="<?php 
+										//added by Mike, 20170627
+										if ($this->session->userdata('customer_id')=="") {
+											echo site_url('account/login/');									
+										}
+										else {
+											echo site_url('cart/shoppingcart');								
+										}
+											?>"				
+					>
 					<button type="submit" class="Button-cart">
 							<?php
 								//TODO: update value
