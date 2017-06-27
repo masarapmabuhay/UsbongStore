@@ -56,14 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>					
 				<div class="row Product-quantity">
 					<label class="Quantity-label">Quantity:</label>
-					<div class="dropdown">
-					  <button onclick="myFunction()" class="dropbtn">1</button>
-					  <div id="myDropdown" class="dropdown-content">
-					    <a href="#">1</a>
-					    <a href="#">2</a>
-					    <a href="#">3</a>
-					  </div>
-					</div>
+					<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" 
+							value="1" min="1" max="999" onKeyPress="if(this.value.length==3) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>					    
 				</div>
 					<div class="row Product-purchase-button">				
 						<?php 
@@ -72,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									
 								echo '<input type="hidden" id="product_idParam" value="'.$result->product_id.'" required>';
 								echo '<input type="hidden" id="customer_idParam" value="'.$this->session->userdata('customer_id').'" required>';										
-								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
+// 								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
 								echo '<input type="hidden" id="priceParam" value="'.$result->price.'" required>';							
 						?>						
 						<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>				

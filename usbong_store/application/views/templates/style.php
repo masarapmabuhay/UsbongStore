@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  }
 		}		
 	</script>
-
+	
 	<title>Usbong Store</title>
 	<style type="text/css">
 
@@ -536,6 +536,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: -1px;
 	}		
 	
+	.Quantity-textbox { 
+		background-color: #fCfCfC;
+	    color: #68502b;
+	    padding: 12px;
+	    font-size: 16px;
+	    border: 1px solid #68502b;
+	    width: 20%;
+	    border-radius: 3px;	    	    
+	}
+	
+	.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+	    -webkit-appearance: none !important;
+	    margin: 0px !important;
+	    -moz-appearance:textfield !important;
+	}
 	
 	/* 
 	 * ------------------------------------------------------------------
