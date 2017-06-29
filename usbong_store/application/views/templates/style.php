@@ -434,6 +434,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}	
 
 	.Text-cart {
+		pointer-events: none;
 		position: absolute;
 		color: white;
 		padding-left: 15px;		
@@ -442,6 +443,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}	
 
 	.Text-cart-2digits {
+		pointer-events: none;
 		position: absolute;
 		color: white;
 		padding-left: 10px;		
@@ -450,6 +452,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}	
 
 	.Text-cart-3digits {
+		pointer-events: none;
 		position: absolute;
 		color: white;
 		padding-left: 8px;		
