@@ -27,5 +27,20 @@ class Cart_Model extends CI_Model
 */				 
 		$this->db->insert('cart', $data);
 	}
+	
+	public function getTotalNumInCart($param) {
+		$this->db->select('quantity');
+		$this->db->where('customer_id', $param);
+		$query = $this->db->get('cart');
+		$result = $query->result_array;
+		
+		$totalNum = 0;
+		
+		foreach($result as $row) {
+			$totalNum+=$row;	
+		}
+		
+		return $totalNum;
+	}
 }
 ?>

@@ -75,33 +75,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											?>"				
 					>
 					<button type="submit" class="Button-cart">
-							<?php
-								//TODO: update value
-								$cartItems=250;
-
-								
-								if ($cartItems==0) {
-									echo '<img src="'.base_url('assets/images/cart_icon.png').'">';									
-								}
-								else {
-									if ($cartItems<10) {
-										echo '<div class="Text-cart">';
-										echo 0;
-										echo '</div>';
-									}
-									else if ($cartItems<100) {
-										echo '<div class="Text-cart-2digits">';
-										echo 16;
-										echo '</div>';
-									}
-									else {
-										echo '<div class="Text-cart-3digits">';
-										echo 250;
-										echo '</div>';
-									}
+							<input type="hidden" id="totalItemsInCart" value="0">
+					
+							<label class="Text-cart" id="Text-cartId">
+							</label>
 									
-									echo '<img src="'.base_url('assets/images/cart_icon_not_empty.png').'">';									
-								}
+							<label class="Text-cart-2digits" id="Text-cart-2digitsId">
+							</label>
+
+							<label class="Text-cart-3digits" id="Text-cart-3digitsId">
+							</label>
+							<?php 
+								echo '<img src="'.base_url('assets/images/cart_icon_not_empty.png').'">'
 							?>
 					</button>
 				</form>

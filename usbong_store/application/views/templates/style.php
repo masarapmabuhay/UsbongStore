@@ -41,26 +41,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var customer_id = document.getElementById("customer_idParam").value;
 			var quantity = document.getElementById("quantityParam").value;
 			var price = document.getElementById("priceParam").value;
+			
+			var textCart = document.getElementById("Text-cartId");
+			var textCart2Digits = document.getElementById("Text-cart-2digitsId");
+			var textCart3Digits = document.getElementById("Text-cart-3digitsId");
+	
+			var totalItemsInCart = parseInt(document.getElementById("totalItemsInCart").value);
 
-			//added by Mike, 20170627
-			if (customer_id=="") {
-				window.location.href = "<?php echo site_url('account/login/');?>";
-			}
-			else {				
-	//			var base_url = window.location.origin;
-				var site_url = "<?php echo site_url('cart/addToCart/');?>";
-				var my_url = site_url.concat(product_id,'/',customer_id,'/',quantity,'/',price);
-				
-				$.ajax({
-			        type:"POST",
-			        url:my_url,
+			//do the following only if quantity is a Number, i.e. not NaN
+			if (!isNaN(quantity)) {								
+				totalItemsInCart+=parseInt(quantity);
+
+				if (totalItemsInCart>999) {
+					totalItemsInCart=999;
+				}
 	
-			        success:function() {
-						document.getElementById("myPopup").classList.toggle("show");			        
-			        }
-	
-			    });
-			    event.preventDefault();
+				document.getElementById("totalItemsInCart").value = totalItemsInCart;
+						
+				//added by Mike, 20170627
+				if (customer_id=="") {
+					window.location.href = "<?php echo site_url('account/login/');?>";
+				}
+				else {				
+		//			var base_url = window.location.origin;
+					var site_url = "<?php echo site_url('cart/addToCart/');?>";
+					var my_url = site_url.concat(product_id,'/',customer_id,'/',quantity,'/',price);
+					
+					$.ajax({
+				        type:"POST",
+				        url:my_url,
+		
+				        success:function() {			        	
+				        	if (totalItemsInCart<10) {
+					        	textCart.innerHTML=totalItemsInCart;
+								textCart2Digits.innerHTML="";
+								textCart3Digits.innerHTML="";
+				        	}
+							else if (totalItemsInCart<100) {
+					        	textCart.innerHTML="";
+								textCart2Digits.innerHTML=totalItemsInCart;
+								textCart3Digits.innerHTML="";
+							}
+							else {
+					        	textCart.innerHTML="";
+								textCart2Digits.innerHTML="";
+								textCart3Digits.innerHTML=totalItemsInCart;
+							}
+							
+							document.getElementById("myPopup").classList.toggle("show");			        
+				        }
+		
+				    });
+				    event.preventDefault();
+				}
 			}
 		}	
 
