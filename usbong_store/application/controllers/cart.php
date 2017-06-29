@@ -61,10 +61,5 @@ class cart extends MY_Controller {
 				
 		$this->load->model('Cart_Model');
 		$this->Cart_Model->addToCart($data);
-	}
-	
-	public function getTotalNumInCart($param) {
-		$this->load->model('Cart_Model');
-		return $this->Cart_Model->addToCart($param);
-	}
+	}	
 }

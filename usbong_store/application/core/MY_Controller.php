@@ -8,7 +8,18 @@ class MY_Controller extends CI_Controller {
 	}
 	
 	public function initHeader() {
-		$this->load->view('templates/header');		
+		$customer_id = $this->session->userdata('customer_id');
+
+		if ($customer_id!="") {			
+			$this->load->model('Cart_Model');
+			$data['totalItemsInCart'] = $this->Cart_Model->getTotalItemsInCart($customer_id);			
+		}	
+		else {
+			$data['totalItemsInCart'] = 0;			
+		}
+//		$data['totalItemsInCart']=10;
+
+		$this->load->view('templates/header', $data);		
 	}
 	
 	public function initHeaderWith($data) {

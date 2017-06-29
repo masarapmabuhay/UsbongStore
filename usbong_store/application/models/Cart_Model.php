@@ -28,16 +28,24 @@ class Cart_Model extends CI_Model
 		$this->db->insert('cart', $data);
 	}
 	
-	public function getTotalNumInCart($param) {
+	public function getTotalItemsInCart($param) {
 		$this->db->select('quantity');
 		$this->db->where('customer_id', $param);
 		$query = $this->db->get('cart');
-		$result = $query->result_array;
+//		$result = $query->result_array;
 		
 		$totalNum = 0;
 		
-		foreach($result as $row) {
-			$totalNum+=$row;	
+		if ($query->num_rows() > 0)
+		{
+			foreach ($query->result() as $row)
+			{
+				$totalNum+=intval($row->quantity);				
+			}
+		}
+				
+		if ($totalNum>999) {
+			$totalNum=999; //max
 		}
 		
 		return $totalNum;

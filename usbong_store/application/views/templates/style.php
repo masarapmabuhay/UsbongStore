@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var textCart2Digits = document.getElementById("Text-cart-2digitsId");
 			var textCart3Digits = document.getElementById("Text-cart-3digitsId");
 	
-			var totalItemsInCart = parseInt(document.getElementById("totalItemsInCart").value);
+			var totalItemsInCart = parseInt(document.getElementById("totalItemsInCartId").value);
 
 			//do the following only if quantity is a Number, i.e. not NaN
 			if (!isNaN(quantity)) {								
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					totalItemsInCart=999;
 				}
 	
-				document.getElementById("totalItemsInCart").value = totalItemsInCart;
+				document.getElementById("totalItemsInCartId").value = totalItemsInCart;
 						
 				//added by Mike, 20170627
 				if (customer_id=="") {
