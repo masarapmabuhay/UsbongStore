@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class browse extends CI_Controller {
+class browse extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,10 @@ class browse extends CI_Controller {
 	public function search()//$param)
 	{
 		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
-		
-		$this->load->view('templates/style');
-		$this->load->view('templates/header', $data);
+
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeaderWith($data);
 		//--------------------------------------------
 		
 		$this->load->model('Search_Model');

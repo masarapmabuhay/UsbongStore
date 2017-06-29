@@ -22,9 +22,11 @@ class account extends CI_Controller {
 	{
 //		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 		
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
+		
 /*		
 		$this->load->library('session');
 		$this->load->library('form_validation');
@@ -54,8 +56,9 @@ class account extends CI_Controller {
 	
 	public function create()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 		$this->load->library('session');

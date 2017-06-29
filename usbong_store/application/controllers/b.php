@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class b extends CI_Controller {
+class b extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -120,9 +120,14 @@ class b extends CI_Controller {
 					'logged_in' => TRUE
 			);			
 			$this->session->set_userdata($newdata);
-		
+/*		
 			$this->load->view('templates/style');
 			$this->load->view('templates/header');
+*/
+			//from application/core/MY_Controller
+			$this::initStyle();
+			$this::initHeader();
+			
 			//--------------------------------------------
 							
 			$this->load->model('Books_Model');
@@ -155,8 +160,9 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function books()
 	{					
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 				
 //		$data['content'] = 'category/Books';
@@ -174,8 +180,9 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function combos()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 //		$data['content'] = 'category/Combos';
@@ -193,8 +200,9 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function beverages()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 		$this->load->model('Beverages_Model');
@@ -211,8 +219,9 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function comics()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 		$this->load->model('Comics_Model');
@@ -229,8 +238,9 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function manga()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 		$this->load->model('Manga_Model');
@@ -247,8 +257,9 @@ class b extends CI_Controller {
 	//---------------------------------------------------------
 	public function toys_and_collectibles()
 	{
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 		$this->load->model('Toys_and_Collectibles_Model');

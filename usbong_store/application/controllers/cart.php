@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class cart extends CI_Controller {
+class cart extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,8 +22,9 @@ class cart extends CI_Controller {
 	{
 //		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 		
-		$this->load->view('templates/style');
-		$this->load->view('templates/header');
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
 		//--------------------------------------------
 		
 		$this->load->model('Cart_Model');
