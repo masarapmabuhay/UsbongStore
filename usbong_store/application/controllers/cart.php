@@ -28,6 +28,7 @@ class cart extends MY_Controller {
 		//--------------------------------------------
 		
 		$customer_id = $this->session->userdata('customer_id');
+		$data['result'] = '';
 		
 		if ($customer_id!="") {					
 			$this->load->model('Cart_Model');

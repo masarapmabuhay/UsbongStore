@@ -24,6 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$orderTotal = 0;
 				
 					$colCounter = 0;
+					
+					if ($result=='') {
+						redirect('/account/login', 'refresh');
+					}
+					
 					foreach ($result as $value) {
 						$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 						$URLFriendlyReformattedProductName = str_replace(',','',str_replace(' ','-',$reformattedProductName)); //replace " " and "-"
@@ -88,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="row Product-quantity">
 									<label class="Quantity-label">Quantity:</label>
 									<div class="dropdown">
-									  <button onclick="myFunction()" class="dropbtn">1</button>
+									  <button onclick="myFunction()" class="dropbtn"><?php echo $value['quantity'];?></button>
 									  <div id="myDropdown" class="dropdown-content">
 									    <a href="#">1</a>
 									    <a href="#">2</a>
