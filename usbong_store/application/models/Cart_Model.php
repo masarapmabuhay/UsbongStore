@@ -1,30 +1,23 @@
 <?php 
 class Cart_Model extends CI_Model
 {
-	public function getCart()//$customer)
+	public function getCart($customerId)
 	{
+/*		
 		$this->db->select('product_id, name, author, price, product_type_id');
-//		$this->db->like('name',$param); 
-//		$this->db->or_like('author', $param); 
 		$query = $this->db->get('product');
+		return $query->result_array();
+*/		
+		$this->db->select('t1.product_id, t1.quantity, t2.name, t2.author, t2.price, t2.product_type_id');
+		$this->db->from('cart as t1');
+		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
+		$this->db->where('t1.customer_id', $customerId);
+		$query = $this->db->get();
+		
 		return $query->result_array();
 	}
 	
-	public function addToCart($data) {//$product_idParam, $customer_idParam, $quantityParam, $priceParam) {
-/*		$data = array(
-				'product_id' => $param['product_idParam'],
-				'customer_id' => $param['customer_idParam'],
-				'quantity' => $param['quantityParam'],
-				'price' => $param['priceParam']
-		);
-
-		$data = array(
- 				'product_id' => $product_idParam,
-				 'customer_id' => $customer_idParam,
-				 'quantity' => $quantityParam,
-				 'price' => $priceParam
-		);
-*/				 
+	public function addToCart($data) {	 
 		$this->db->insert('cart', $data);
 	}
 	

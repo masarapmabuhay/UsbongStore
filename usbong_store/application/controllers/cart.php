@@ -27,8 +27,12 @@ class cart extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
-		$this->load->model('Cart_Model');
-		$data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
+		$customer_id = $this->session->userdata('customer_id');
+		
+		if ($customer_id!="") {					
+			$this->load->model('Cart_Model');
+			$data['result'] = $this->Cart_Model->getCart($customer_id);
+		}
 		
 		$this->load->view('shoppingcart', $data);
 		
