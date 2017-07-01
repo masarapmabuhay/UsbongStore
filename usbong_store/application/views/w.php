@@ -76,7 +76,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<img class="Popup-product-image" src="<?php echo base_url('assets/images/books/'.$reformattedBookName.'.jpg');?>">				
 								</div>
 								<div class="col-sm-8 Popup-product-details">
+									<span id="quantityId"></span>
 									<?php 
+									
+/*									
 										$quantity=1;
 										if ($quantity>1) {
 											echo 'Added<b>'.$quantity.'</b> copies of ';									
@@ -84,6 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										else {
 											echo 'Added <b>1</b> copy of ';
 										}
+*/										
 										echo '<b>'.$result->name.'</b>!'
 									?>
 									<br><b>Order Total: </b>

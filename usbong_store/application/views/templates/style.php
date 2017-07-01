@@ -58,6 +58,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			//do the following only if quantity is a Number, i.e. not NaN
 			if (!isNaN(quantity)) {								
+				//added by Mike, 20170701
+				var quantityField = document.getElementById("quantityId");
+
+				if (quantity>1) {
+					quantityField.innerHTML = "Added <b>" +quantity +"</b> copies of ";
+				}
+				else {
+					quantityField.innerHTML = "Added <b>1</b> copy of ";
+				}
+
+				//-----------------------------------------------------------
+				
 				totalItemsInCart+=parseInt(quantity);
 
 				if (totalItemsInCart>99) {
