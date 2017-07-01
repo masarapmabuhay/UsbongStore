@@ -123,9 +123,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<script>
 		//added by Mike, 20170626
-		function myQuantityFunction(quantity, id) {
-			var trimmedId = id.substring("quantityParam".length, id.length);
-			
+		function myQuantityFunction(quantity, id) {			
+			var trimmedId = id.split("~")[0].substring("quantityId".length, id.length);
+			var totalItemsInCart = id.split("~")[1];	
+
+//			alert("hello"+totalItemsInCart);			
 //			alert("hello"+id.substring("quantityParam".length, id.length));
 					
 			var subTotalField = document.getElementById("subtotalId"+trimmedId);
@@ -136,7 +138,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			
 			var subTotal = quantity * parseInt(priceField.innerHTML);
-				subTotalField.innerHTML = "&#x20B1;" + subTotal;
+			subTotalField.innerHTML = "&#x20B1;" + subTotal;
+
+			//-----------------------------------------------------------------------
+			//update Order Total
+			//-----------------------------------------------------------------------
+			var orderTotalField1 = document.getElementById("orderTotalId1");
+			var orderTotalField2 = document.getElementById("orderTotalId2");
+
+			var orderTotal=0;
+			
+			for (i=0; i<totalItemsInCart; i++) {
+				var sField = document.getElementById("subtotalId"+i);
+				orderTotal += parseInt(sField.innerHTML.substring(1, sField.innerHTML.length));
+			}
+
+			orderTotalField1.innerHTML = orderTotal;
+			orderTotalField2.innerHTML = orderTotal;			
 		}
 	</script>
 	

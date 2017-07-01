@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-3">					
 								<div class="row Cart-product-quantity">
 									<label class="Quantity-label">Quantity:</label>
-									<input type="tel" id="quantityParam<?php echo $itemCounter?>" class="Quantity-textbox no-spin" 
+									<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount?>" class="Quantity-textbox no-spin" 
 											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
 								</div>
 							</div>
@@ -128,7 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php echo count($result).' items'?>		
 								</div>
 								<div class="col-sm-6 Cart-order-price">		
-									<?php echo '&#x20B1; '.$orderTotal?>		
+								    <?php echo '<label>&#x20B1;<span id="orderTotalId1">'.$orderTotal.'</span></label>';?>
+								
+									<?php //echo '&#x20B1; '.$orderTotal?>		
 								</div>								
 							</div>
 							<div class="row Cart-order-total-row">
@@ -144,7 +146,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									Order Total
 								</div>
 								<div class="col-sm-6 Cart-order-price">		
-									<?php echo '&#x20B1; '.$orderTotal?>		
+								    <?php echo '<label>&#x20B1;<span id="orderTotalId2">'.$orderTotal.'</span></label>';?>
+
+									<?php //echo '&#x20B1; '.$orderTotal?>		
 								</div>								
 							</div>
 							<br>
