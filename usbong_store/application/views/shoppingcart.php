@@ -103,11 +103,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											echo '&#x20B1; 0';
 										}
 										else {
-											echo '<label class="">&#x20B1;'.$value['price'].'</label>';
+											echo '<label class="">&#x20B1;'.$value['quantity']*$value['price'].'</label>';
 										}
 																																							
 										//added by Mike, 20170626
-										$orderTotal+=$value['price']; //multiply with quantity to get the subtotal
+										$orderTotal+=($value['quantity']*$value['price']); //multiply with quantity to get the subtotal
 										
 									?>	
 									<br>
