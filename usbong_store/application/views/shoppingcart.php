@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										echo 'out of stock';						
 									}
 									else {										
-										echo '<label class="">&#x20B1;'.$value['price'].' [Free Delivery]</label>';
+										echo '<label>&#x20B1;<span id="priceId'.$itemCounter.'">'.$value['price'].'</span> [Free Delivery]</label>';
 									}
 									?>
 									</b>
@@ -92,8 +92,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-3">					
 								<div class="row Cart-product-quantity">
 									<label class="Quantity-label">Quantity:</label>
-									<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" 
-											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>					    
+									<input type="tel" id="quantityParam<?php echo $itemCounter?>" class="Quantity-textbox no-spin" 
+											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
 								</div>
 							</div>
 							<div class="col-sm-2">								
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											echo '&#x20B1; 0';
 										}
 										else {
-											echo '<label class="">&#x20B1;'.$value['quantity']*$value['price'].'</label>';
+											echo '<label id="subtotalId'.$itemCounter.'">&#x20B1;'.$value['quantity']*$value['price'].'</label>';
 										}
 																																							
 										//added by Mike, 20170626
@@ -117,6 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<hr class="Cart-hr">
 					<?php 
+						$itemCounter++;
 					  }
 					?>					
 					</div>

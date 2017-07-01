@@ -121,6 +121,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}		
 	</script>
 	
+	<script>
+		//added by Mike, 20170626
+		function myQuantityFunction(quantity, id) {
+			var trimmedId = id.substring("quantityParam".length, id.length);
+			
+//			alert("hello"+id.substring("quantityParam".length, id.length));
+					
+			var subTotalField = document.getElementById("subtotalId"+trimmedId);
+			var priceField = document.getElementById("priceId"+trimmedId);
+
+			if (Number.isNaN(quantity)) {
+				quantity = 0;
+			}
+			
+			var subTotal = quantity * parseInt(priceField.innerHTML);
+				subTotalField.innerHTML = "&#x20B1;" + subTotal;
+		}
+	</script>
+	
 	<title>Usbong Store</title>
 	<style type="text/css">
 
