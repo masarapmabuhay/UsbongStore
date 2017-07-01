@@ -21,9 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-9 Cart-order-list">										
 				<?php
 					//added by Mike, 20170626
-					$orderTotal = 0;
-				
+					$orderTotal = 0;				
 					$colCounter = 0;
+					$itemCounter = 0;
 					
 					if ($result=='') {
 						redirect('/account/login', 'refresh');
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-2">	
 								<img class="Cart-product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 							</div>
-							<div class="col-sm-3">	
+							<div class="col-sm-2">	
 								<div class="row Cart-product-name">							
 									<?php
 										echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										echo '</a>';
 									?>
 								</div>
-								<div class="row Product-author">
+								<div class="row Cart-product-author">
 									<b>
 									<?php
 										echo $value['author'];
@@ -89,17 +89,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label class="Cart-product-price-each">each</label>					
 								</div>					
 							</div>
-							<div class="col-sm-2">								
-								<div class="row Product-quantity">
+							<div class="col-sm-3">					
+								<div class="row Cart-product-quantity">
 									<label class="Quantity-label">Quantity:</label>
-									<div class="dropdown">
-									  <button onclick="myFunction()" class="dropbtn"><?php echo $value['quantity'];?></button>
-									  <div id="myDropdown" class="dropdown-content">
-									    <a href="#">1</a>
-									    <a href="#">2</a>
-									    <a href="#">3</a>
-									  </div>
-									</div>
+									<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" 
+											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>					    
 								</div>
 							</div>
 							<div class="col-sm-2">								
@@ -154,9 +148,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<br>
 							<div class="row Cart-order-total-row">
-								<button type="submit" class="Button-purchase">
-			 						CONTINUE TO CHECKOUT
-								</button>				
+								<div class="col-sm-12">		
+									<button type="submit" class="Button-continue-to-checkout">
+				 						CONTINUE TO CHECKOUT
+									</button>				
+								</div>
 							</div>											
 						</div>														
 					</div>	

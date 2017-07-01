@@ -14,24 +14,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		//last accessed: 20170622
 		/* When the user clicks on the button, 
 		toggle between hiding and showing the dropdown content */
-		function myFunction() {
-		    document.getElementById("myDropdown").classList.toggle("show");
+		function myFunction(id) {
+		    document.getElementById("myDropdown"+id).classList.toggle("show");
 		}
-		
-		// Close the dropdown menu if the user clicks outside of it
-		window.onclick = function(event) {
-		  if (!event.target.matches('.dropbtn')) {
-		
-		    var dropdowns = document.getElementsByClassName("dropdown-content");
-		    var i;
-		    for (i = 0; i < dropdowns.length; i++) {
-		      var openDropdown = dropdowns[i];
-		      if (openDropdown.classList.contains('show')) {
-		        openDropdown.classList.remove('show');
-		      }
-		    }
-		  }
-		}
+
+//		window.onclick = function(event) {
+		$(document).click(function(){
+// 			$("#dropbtn").hide();
+//			if (!event.target.matches('.dropbtn')) {				
+//			if (event.target.matches('.window')) {
+/*
+				if (!event) { 
+					var event = window.event; 
+				}
+*/	
+/*
+				var S = event.srcElement ? event.srcElement : event.target;
+				if(($(S).attr('id')!='myDropDown')||$(S).hasClass('option')==false)
+				{ 
+					alert("hello");
+					$('.dropdown-content').hide();
+				}
+*/
+//				$("div").is(".dropdown-content").hide();
+				$(".dropdown-content").hide();
+//			}
+		});
 	</script>
 
 	<script>
@@ -52,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if (!isNaN(quantity)) {								
 				totalItemsInCart+=parseInt(quantity);
 
-				if (totalItemsInCart>999) {
-					totalItemsInCart=999;
+				if (totalItemsInCart>99) {
+					totalItemsInCart=99;
 				}
 	
 				document.getElementById("totalItemsInCartId").value = totalItemsInCart;
@@ -247,14 +255,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #222222;
 		font-size: 18px;
 		font-weight: bold;	
-		margin-top: 24px;				
+		margin-top: 4px;				
 	}
 
 	.Cart-product-price {
 		color: #b88a1b;
 		font-size: 20px;
-		margin-top: 24px;		
-		margin-left: 6px;
+		margin-top: 4px;		
 	}
 
 	.Cart-order-price {
@@ -264,7 +271,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Cart-product-price-each {
 		color: #4b4b4b;
 		font-size: 20px;
-		margin-left: 6px;
 	}
 
 	label.Cart-product-price {
@@ -278,7 +284,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Cart-product-subtotal {
 		color: #b88a1b;
 		font-size: 20px;
-		margin-top: 24px;		
+		margin-top: 4px;		
 		margin-right: 30px;
 		text-align: right;
 	}
@@ -305,9 +311,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 0px;
 	}
 
+
+	.Cart-product-author {
+		color: #4b4b4b;
+		font-size: 18px;
+		margin-left: 6px;
+	}
+
 	.Product-author {
 		color: #4b4b4b;
 		font-size: 18px;
+		margin-left: 6px;
+	}
+
+	.Cart-product-price {
+		color: #b88a1b;
+		font-size: 20px;
+		margin-top: 4px;		
 		margin-left: 6px;
 	}
 
@@ -351,6 +371,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 16px;
 	}
 
+	.Cart-product-quantity {
+		color: #4b4b4b;
+		font-size: 16px;
+		margin-top: 4px;
+	}
+
 	.Product-quantity {
 		color: #4b4b4b;
 		font-size: 16px;
@@ -378,6 +404,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Button-purchase:hover {
+		background-color: #d4be00;
+	}
+
+	.Button-continue-to-checkout {
+		padding: 8px 24px 8px 24px;
+		background-color: #ffe400;
+		color: #222222;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+		margin-left: 16px;
+		font-size: 14px;
+	}
+
+	.Button-continue-to-checkout:hover {
 		background-color: #d4be00;
 	}
 
