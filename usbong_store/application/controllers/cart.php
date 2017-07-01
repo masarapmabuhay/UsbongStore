@@ -33,12 +33,45 @@ class cart extends MY_Controller {
 		if ($customer_id!="") {					
 			$this->load->model('Cart_Model');
 			$data['result'] = $this->Cart_Model->getCart($customer_id);
+			
+			//merge all product items that are the same
+			//increment quantity field accordingly
+//			echo "hello".count($data['result']);
+			$mergeOutput = array(); //$data['result'];//
+			
+			foreach ($data['result'] as $value) {
+				if ($this->in_array_r($value['name'], $mergeOutput, false)) {					
+					$mergeOutput[$value['name']]['quantity'] += $value['quantity'];
+//					echo "in array".$mergeOutput[$value['name']]['quantity']."<br>";				
+				}
+				else {
+					$mergeOutput[$value['name']] = $value;
+//					echo "new ".$value['name']."<br>";
+				}
+				
+			}
 		}
+//		$data['result'] = $finalOutput;//$mergeOutput;
+		$data['result'] = $mergeOutput;
+		
 		
 		$this->load->view('shoppingcart', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
+	}
+	
+	//Reference: https://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array;
+	//last accessed: 20170702
+	//answer by: jwueller
+	public function in_array_r($needle, $haystack, $strict = false) {
+		foreach ($haystack as $item) {
+			if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && $this->in_array_r($needle, $item, $strict))) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	public function addToCart() {//$product_idParam, $customer_idParam, $quantityParam, $priceParam) {//($productId, $customerId, $quantity, $price) {	
