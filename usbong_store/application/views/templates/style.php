@@ -579,6 +579,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          background-color:#f1f1f1;
          font-weight: bold;
  	}
+ 	
 	.nav {
 	}
 	

@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 
 			  			if ($is_login_successful) {
-				 			echo '<div class="Customer-dropdown" data-toggle="dropdown">';
+				 			echo '<div class="Customer-dropdown">';
 			  				echo "<a><b>Hi, ".$this->session->userdata('customer_first_name')."!</b></a>";
 
 								echo '<div class="dropdown">';
