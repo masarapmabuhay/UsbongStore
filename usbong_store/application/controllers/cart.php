@@ -50,9 +50,9 @@ class cart extends MY_Controller {
 				}
 				
 			}
-		}
 //		$data['result'] = $finalOutput;//$mergeOutput;
-		$data['result'] = $mergeOutput;
+			$data['result'] = $mergeOutput;			
+		}
 		
 		
 		$this->load->view('shoppingcart', $data);
