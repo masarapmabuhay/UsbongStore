@@ -554,6 +554,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 16px;
 	}
 	
+	.dropdown {
+	    position: relative;
+    	display: inline-block;
+	}
+	
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-menu {
+	    display: none;
+	    position: absolute;
+	    background-color: #f9f9f9;
+	    min-width: 160px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    z-index: 1;
+	}
+	
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-menu {
+	    display: block;
+	    margin-right:-80px;
+	}
+			
+	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+         background-color:#f1f1f1;
+         font-weight: bold;
+ 	}
 	.nav {
 	}
 	
@@ -730,8 +755,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 	.show {display:block;}
-		
-	}	
 	
 	/* added by Mike, 20170626 */		
 	/* Popup container */
