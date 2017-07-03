@@ -615,13 +615,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.login-and-create {
-		border: 1px solid #d0d0d0;
 		max-width: 30%;		
 		float: none;
     	display: block;
     	margin: 0 auto;
     	font-size: 24px;    	
     	padding: 16px;
+    	background-color: #4b3b2c;
+    	border-radius: 4px;
 	}
 	
 	.login-text {
