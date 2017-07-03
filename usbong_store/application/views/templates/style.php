@@ -386,7 +386,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 24px;		
 		margin-left: 6px;
 	}
-
+	
 	.Popup-product-details {
 		font-size: 15px;
 	}

@@ -23,7 +23,8 @@ class MY_Controller extends CI_Controller {
 	}
 	
 	public function initHeaderWith($data) {
-		$this->load->view('templates/header', $data);
+		$this->initHeader();
+//		$this->load->view('templates/header', $data);
 	}
 	
 }
