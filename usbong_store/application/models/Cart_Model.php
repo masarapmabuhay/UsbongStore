@@ -12,6 +12,7 @@ class Cart_Model extends CI_Model
 		$this->db->from('cart as t1');
 		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
 		$this->db->where('t1.customer_id', $customerId);
+		$this->db->where('t1.removed_datetime_stamp', 0);		
 		$query = $this->db->get();
 		
 		return $query->result_array();
@@ -19,6 +20,26 @@ class Cart_Model extends CI_Model
 	
 	public function addToCart($data) {	 
 		$this->db->insert('cart', $data);
+	}
+
+	public function checkoutCustomerOrder($data) {		
+		$this->db->insert('customer_order', $data);
+		$customerOrderId = $this->db->insert_id(); //newly inserted Row
+		
+//		echo "hello".$customerOrderId;
+		
+		date_default_timezone_set('Asia/Hong_Kong');
+		$dateTimeStamp = date('Y/m/d h:i:s a');
+		
+		$updateData = array(
+				'customer_order_id' => $customerOrderId,
+				'purchased_datetime_stamp' => $dateTimeStamp
+		);
+		$this->db->where('customer_id', $data['customer_id']);
+		$this->db->where('purchased_datetime_stamp', 0);
+		$this->db->where('removed_datetime_stamp', 0);
+		
+		$this->db->update('cart', $updateData); 
 	}
 	
 	public function getTotalItemsInCart($param) {

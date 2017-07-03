@@ -18,8 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	?>
 		<div class="Cart-container">
 			<div class="row">
-			<div class="col-sm-9 Cart-order-list">										
-				<?php
+			<div class="col-sm-9 Cart-order-list">		
+				<form method="post" action="<?php echo site_url('cart/checkout')?>">																			
+				<?php				
 					//added by Mike, 20170626
 					$orderTotal = 0;				
 					$colCounter = 0;
@@ -78,9 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<b>
 									<?php
 									if (trim($value['price'])=='') {
+										echo '<input type="hidden" name="priceParam'.$itemCounter.'" value="0">';
 										echo 'out of stock';						
 									}
 									else {										
+										echo '<input type="hidden" name="priceParam'.$itemCounter.'" value="'.$value['price'].'">';
 										echo '<label>&#x20B1;<span id="priceId'.$itemCounter.'">'.$value['price'].'</span> [Free Delivery]</label>';
 									}
 									?>
@@ -92,7 +95,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-3">					
 								<div class="row Cart-product-quantity">
 									<label class="Quantity-label">Quantity:</label>
-									<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount?>" class="Quantity-textbox no-spin" 
+									<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount;?>" class="Quantity-textbox no-spin" 
+											name="quantityParam<?php echo $itemCounter;?>"
 											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
 								</div>
 							</div>
@@ -153,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<br>
 							<div class="row Cart-order-total-row">
-								<div class="col-sm-12">		
+								<div class="col-sm-12">												
 									<button type="submit" class="Button-continue-to-checkout">
 				 						CONTINUE TO CHECKOUT
 									</button>				
@@ -166,5 +170,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php 
 			  }
 			?>					
+			</form>
 </body>
 </html>

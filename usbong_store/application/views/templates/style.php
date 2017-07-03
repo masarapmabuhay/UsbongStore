@@ -621,7 +621,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	margin: 0 auto;
     	font-size: 24px;    	
     	padding: 16px;
-    	background-color: #4b3b2c;
+    	border: 1px solid #4b3b2c;
     	border-radius: 4px;
 	}
 	

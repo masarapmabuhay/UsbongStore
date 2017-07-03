@@ -100,4 +100,50 @@ class cart extends MY_Controller {
 		$this->load->model('Cart_Model');
 		$this->Cart_Model->addToCart($data);
 	}	
+	
+	public function checkout() {		
+		$customer_id = $this->session->userdata('customer_id');
+
+		$this->load->model('Cart_Model');
+		$data['result'] = $this->Cart_Model->getCart($customer_id);
+	
+		$orderTotalPrice = 0;
+		$totalQuantity = 0;
+
+//		echo "hello".count($data['result']);
+		
+		for($i=0; $i<count($data['result']); $i++) {
+//			$_POST['quantityParam'.$i];
+//			echo "hello".$_POST['priceParam'.$i];
+
+			$orderTotalPrice+=$_POST['quantityParam'.$i]*$_POST['priceParam'.$i];
+			$totalQuantity+=$_POST['quantityParam'.$i];
+		}
+//		echo "orderTotalPrice: ".$orderTotalPrice;
+
+		$data = array(
+				'customer_id' => $customer_id,
+				'quantity' => $totalQuantity,
+				'status_accepted' => 1,
+				'order_total_price' => $orderTotalPrice				
+		);			
+
+		$this->load->model('Cart_Model');
+		$this->Cart_Model->checkoutCustomerOrder($data);
+
+
+//		$data[$field] = $_POST[$field];
+		
+/*		
+		$data = array(
+				'product_id' => $this->uri->segment(3),
+				'customer_id' => $this->uri->segment(4),
+				'quantity' => $this->uri->segment(5),
+				'price' => $this->uri->segment(6)
+		);
+		
+		$this->load->model('Cart_Model');
+		$this->Cart_Model->addToCart($data);
+*/		
+	}
 }
