@@ -24,7 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label class="Product-item-details">';
 					echo $value['author'];
 					
-					if ($value['price']!=null) {
+//					if ($value['price']!=null) {
+					if ($value['quantity_in_stock']!=0) {
 						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 						echo '</label>';					
 					}
@@ -44,7 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label class="Product-item-details">';					
 					echo $value['author'];
 					
-					if ($value['price']!=null) {
+//					if ($value['price']!=null) {
+					if ($value['quantity_in_stock']!=0) {
 						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 						echo '</label>';
 					}
