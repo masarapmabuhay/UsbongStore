@@ -659,8 +659,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Button-login {
 	    font-size: 20px;    			
-	    padding: 10px;		
 	    display: inline-block; 	    
+		background-color: #ffe400;
+		padding: 8px 30px 8px 30px;
+		background-color: #ffe400;
+		color: #222222;
+		border: 0px solid;		
+		border-radius: 4px;
+	}
+	
+	.Button-login:hover {
+		background-color: #d4be00;
 	}
 
 	.forgotPassword-text {

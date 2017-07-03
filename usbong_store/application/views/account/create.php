@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<div class="login-and-create">
 		<div class="register-text-in-create">Create New Account</div>
-		<div class="login-text-in-create"><a href = "<?php echo site_url('account/login/')?>">Sign In</a></div>
+		<div class="login-text-in-create"><a href = "<?php echo site_url('account/login/')?>"><b>Sign In</b></a></div>
 		<?php
 			$validation_errors="";
 			if ($this->session->flashdata('errors')) {
