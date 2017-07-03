@@ -8,7 +8,7 @@ class Cart_Model extends CI_Model
 		$query = $this->db->get('product');
 		return $query->result_array();
 */		
-		$this->db->select('t1.product_id, t1.quantity, t2.name, t2.author, t2.price, t2.product_type_id');
+		$this->db->select('t1.cart_id, t1.product_id, t1.quantity, t2.name, t2.author, t2.price, t2.product_type_id');
 		$this->db->from('cart as t1');
 		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
 		$this->db->where('t1.customer_id', $customerId);
@@ -20,6 +20,14 @@ class Cart_Model extends CI_Model
 	
 	public function addToCart($data) {	 
 		$this->db->insert('cart', $data);
+	}
+	
+	public function updateQuantityInCart($cartId, $quantity) {		
+		$updateData = array(
+				'quantity' => $quantity
+		);
+		$this->db->where('cart_id', $cartId);		
+		$this->db->update('cart', $updateData);
 	}
 
 	public function checkoutCustomerOrder($data) {		

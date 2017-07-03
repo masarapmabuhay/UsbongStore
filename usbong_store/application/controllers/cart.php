@@ -112,12 +112,17 @@ class cart extends MY_Controller {
 
 //		echo "hello".count($data['result']);
 		
-		for($i=0; $i<count($data['result']); $i++) {
-//			$_POST['quantityParam'.$i];
+//		for($i=0; $i<count($data['result']); $i++) {
+		$i=0;
+		foreach ($data['result'] as $value) {
+//			echo "hello".$_POST['quantityParam'.$i];
 //			echo "hello".$_POST['priceParam'.$i];
 
 			$orderTotalPrice+=$_POST['quantityParam'.$i]*$_POST['priceParam'.$i];
 			$totalQuantity+=$_POST['quantityParam'.$i];
+
+			$this->Cart_Model->updateQuantityInCart($value['cart_id'], $_POST['quantityParam'.$i]);
+			$i++;
 		}
 //		echo "orderTotalPrice: ".$orderTotalPrice;
 
