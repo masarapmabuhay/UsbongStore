@@ -294,7 +294,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 		
 	.Cart-product-image {
-	    max-width: 60%;
+	    max-width: 160%;
     	height: auto;
 	}
 
@@ -314,7 +314,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #222222;
 		font-size: 18px;
 		font-weight: bold;	
-		margin-top: 4px;				
+		margin-top: 4px;			
+		margin-left: 10px;    			
 	}
 
 	.Cart-product-price {
