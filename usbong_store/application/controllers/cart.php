@@ -26,18 +26,26 @@ class cart extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
-		
 		$customer_id = $this->session->userdata('customer_id');
 		$data['result'] = '';
 
 		$product_id = $this->uri->segment(3);
-
-		if ($product_id!="") {
-			$this->load->model('Cart_Model');
-			$this->Cart_Model->removeItemInCart($customer_id, $product_id);
+//		$customer_id = $this->uri->segment(4);
+		$quantity = $this->uri->segment(4);
+		
+		if ($product_id!="") {			
+			//edited by Mike, 20170704
+			if (($customer_id!="") && ($quantity!="")) { //do this if product_id and quantity are all uri segments				
+				$this->load->model('Cart_Model');
+				$this->Cart_Model->updateQuantityOfProductInCart($customer_id, $product_id, $quantity);				
+			}
+			else {	//do this if product_id is the only uri segment
+				$this->load->model('Cart_Model');
+				$this->Cart_Model->removeItemInCart($customer_id, $product_id);
+			}
 		}		
-		else {		
-			if ($customer_id!="") {					
+		else {					
+			if ($customer_id!="") {						
 				$this->load->model('Cart_Model');
 				$data['result'] = $this->Cart_Model->getCart($customer_id);
 				
@@ -61,7 +69,7 @@ class cart extends MY_Controller {
 				$data['result'] = $mergeOutput;			
 			}
 		}		
-		
+
 		$this->load->view('shoppingcart', $data);
 		
 		//--------------------------------------------

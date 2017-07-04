@@ -180,8 +180,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			totalQuantityField.innerHTML = totalQuantity;
 
-			//TODO: update the DB as well
-			//window.location.href = "<?php echo site_url('cart/shoppingcart/');?>";			        	        			        				        			
+			//update the DB as well
+			var product_id = document.getElementById("productId"+trimmedId).value;
+			
+			var site_url = "<?php echo site_url('cart/shoppingcart/');?>";
+			var my_url = site_url.concat(product_id, "/", quantity);
+			
+			$.ajax({
+		        type:"POST",
+		        url:my_url,
+
+		        success:function() {		
+					window.location.href = "<?php echo site_url('cart/shoppingcart/');?>";			        	        			        				        
+		       	}
+		    });
+			event.preventDefault();
 		}
 	</script>
 

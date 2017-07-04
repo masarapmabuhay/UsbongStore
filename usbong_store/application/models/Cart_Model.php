@@ -30,6 +30,27 @@ class Cart_Model extends CI_Model
 		$this->db->update('cart', $updateData);
 	}
 	
+	public function updateQuantityOfProductInCart($customerId, $productId, $quantity) {
+
+		//step 1: change the quantity of all cart rows with the same productId and customerId to 0 
+		$updateData = array(
+				'quantity' => 0
+		);
+		$this->db->where('product_id', $productId);
+		$this->db->where('customer_id', $customerId);
+		$this->db->update('cart', $updateData);
+		
+		//step 2: update only the first cart row with the same productId and customerId
+		$updateData = array(
+				'quantity' => $quantity
+		);
+		$this->db->where('product_id', $productId);
+		$this->db->where('customer_id', $customerId);
+		$this->db->limit(1);
+		$this->db->update('cart', $updateData);
+		
+	}
+	
 	public function removeItemInCart($customerId, $productId) {		
 		date_default_timezone_set('Asia/Hong_Kong');
 		$dateTimeStamp = date('Y/m/d h:i:s a');

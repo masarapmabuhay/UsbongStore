@@ -99,6 +99,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount;?>" class="Quantity-textbox no-spin" 
 											name="quantityParam<?php echo $itemCounter;?>"
 											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
+								
+									<input type="hidden" id="productId<?php echo $itemCounter?>" value="<?php echo $value['product_id'];?>">
 								</div>
 								<div class="row">
 									<br>
