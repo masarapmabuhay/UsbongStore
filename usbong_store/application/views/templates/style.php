@@ -169,6 +169,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			orderTotalField2.innerHTML = orderTotal;			
 		}
 	</script>
+
+	<script>
+		//added by Mike, 20170626
+		function removeProductItemFunction(id) {			
+//			alert("hello"+id);
+
+			var productId = id;
+			var totalItemsInCart = id.split("~")[1];	
+
+//			alert("hello "+productId);						
+//			alert("hello"+totalItemsInCart);			
+//			alert("hello"+id.substring("quantityParam".length, id.length));
+
+			var site_url = "<?php echo site_url('cart/shoppingcart/');?>";
+			var my_url = site_url.concat(productId);
+
+//			alert("hey! "+my_url);
+			
+			$.ajax({
+		        type:"POST",
+		        url:my_url,
+
+		        success:function() {		
+					window.location.href = "<?php echo site_url('cart/shoppingcart/');?>";			        	        			        				        
+		       	}
+		    });
+			event.preventDefault();
+
+/*					
+			var subTotalField = document.getElementById("subtotalId"+trimmedId);
+			var priceField = document.getElementById("priceId"+trimmedId);
+
+			if (Number.isNaN(quantity)) {
+				quantity = 0;
+			}
+			
+			var subTotal = quantity * parseInt(priceField.innerHTML);
+			subTotalField.innerHTML = "&#x20B1;" + subTotal;
+
+			//-----------------------------------------------------------------------
+			//update Order Total
+			//-----------------------------------------------------------------------
+			var orderTotalField1 = document.getElementById("orderTotalId1");
+			var orderTotalField2 = document.getElementById("orderTotalId2");
+
+			var orderTotal=0;
+			
+			for (i=0; i<totalItemsInCart; i++) {
+				var sField = document.getElementById("subtotalId"+i);
+				orderTotal += parseInt(sField.innerHTML.substring(1, sField.innerHTML.length));
+			}
+
+			orderTotalField1.innerHTML = orderTotal;
+			orderTotalField2.innerHTML = orderTotal;			
+*/			
+		}
+	</script>
 	
 	<title>Usbong Store</title>
 	<style type="text/css">
@@ -251,6 +308,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Remove-button {
 		background-color: Transparent;
 	    border: none;
+	}
+	
+	Remove-button-image-text {
+		pointer-events: none;
 	}
 
 	.Remove-button:hover {

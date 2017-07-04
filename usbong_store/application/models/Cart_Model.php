@@ -29,7 +29,21 @@ class Cart_Model extends CI_Model
 		$this->db->where('cart_id', $cartId);		
 		$this->db->update('cart', $updateData);
 	}
-
+	
+	public function removeItemInCart($customerId, $productId) {		
+		date_default_timezone_set('Asia/Hong_Kong');
+		$dateTimeStamp = date('Y/m/d h:i:s a');
+		
+		$updateData = array(
+				'quantity' => 0,
+				'removed_datetime_stamp' => $dateTimeStamp
+		);
+		$this->db->where('customer_id', $customerId);
+		$this->db->where('product_id', $productId);
+	
+		$this->db->update('cart', $updateData);
+	}
+	
 	public function checkoutCustomerOrder($data) {		
 		$this->db->insert('customer_order', $data);
 		$customerOrderId = $this->db->insert_id(); //newly inserted Row

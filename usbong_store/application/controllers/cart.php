@@ -29,31 +29,38 @@ class cart extends MY_Controller {
 		
 		$customer_id = $this->session->userdata('customer_id');
 		$data['result'] = '';
-		
-		if ($customer_id!="") {					
+
+		$product_id = $this->uri->segment(3);
+
+		if ($product_id!="") {
 			$this->load->model('Cart_Model');
-			$data['result'] = $this->Cart_Model->getCart($customer_id);
-			
-			//merge all product items that are the same
-			//increment quantity field accordingly
-//			echo "hello".count($data['result']);
-			$mergeOutput = array(); //$data['result'];//
-			
-			foreach ($data['result'] as $value) {
-				if ($this->in_array_r($value['name'], $mergeOutput, false)) {					
-					$mergeOutput[$value['name']]['quantity'] += $value['quantity'];
-//					echo "in array".$mergeOutput[$value['name']]['quantity']."<br>";				
-				}
-				else {
-					$mergeOutput[$value['name']] = $value;
-//					echo "new ".$value['name']."<br>";
-				}
+			$this->Cart_Model->removeItemInCart($customer_id, $product_id);
+		}		
+		else {		
+			if ($customer_id!="") {					
+				$this->load->model('Cart_Model');
+				$data['result'] = $this->Cart_Model->getCart($customer_id);
 				
+				//merge all product items that are the same
+				//increment quantity field accordingly
+	//			echo "hello".count($data['result']);
+				$mergeOutput = array(); //$data['result'];//
+				
+				foreach ($data['result'] as $value) {
+					if ($this->in_array_r($value['name'], $mergeOutput, false)) {					
+						$mergeOutput[$value['name']]['quantity'] += $value['quantity'];
+	//					echo "in array".$mergeOutput[$value['name']]['quantity']."<br>";				
+					}
+					else {
+						$mergeOutput[$value['name']] = $value;
+	//					echo "new ".$value['name']."<br>";
+					}
+					
+				}
+	//		$data['result'] = $finalOutput;//$mergeOutput;
+				$data['result'] = $mergeOutput;			
 			}
-//		$data['result'] = $finalOutput;//$mergeOutput;
-			$data['result'] = $mergeOutput;			
-		}
-		
+		}		
 		
 		$this->load->view('shoppingcart', $data);
 		

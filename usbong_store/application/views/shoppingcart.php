@@ -101,11 +101,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 								<div class="row">
 									<br>
-									<button type="button" id=id="removeButtonId<?php echo $itemCounter.'~'.$resultCount;?>" class="Remove-button" onKeyPress="">
-										<?php 
-											echo '<img src="'.base_url('assets/images/remove_item.png').'">'
-										?>									
-										Remove Item
+									<button type="button" id="<?php echo $value['product_id'];?>" class="Remove-button" onClick="removeProductItemFunction(this.id);">
+										<span class="Remove-button-image-text">
+											<?php 
+												echo '<img src="'.base_url('assets/images/remove_item.png').'">'
+											?>
+											Remove Item
+										</span>
 									</button>												
 								</div>
 							</div>
