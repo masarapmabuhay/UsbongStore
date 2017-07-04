@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$orderTotal = 0;				
 					$colCounter = 0;
 					$itemCounter = 0;
+					$totalQuantity = 0;
 					
 					if ($result=='') {
 						redirect('/account/login', 'refresh');
@@ -132,6 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<hr class="Cart-hr">
 					<?php 
+						$totalQuantity+=$value['quantity'];
 						$itemCounter++;
 					  }
 					?>					
@@ -140,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="Cart-order-total">
 							<div class="row Cart-order-total-row">
 								<div class="col-sm-6">		
-									<?php echo count($result).' items'?>		
+									<?php echo '<span id="totalQuantityId">'.$totalQuantity.'</span> items'?>		
 								</div>
 								<div class="col-sm-6 Cart-order-price">		
 								    <?php echo '<label>&#x20B1;<span id="orderTotalId1">'.$orderTotal.'</span></label>';?>

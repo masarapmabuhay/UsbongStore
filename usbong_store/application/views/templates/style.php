@@ -166,7 +166,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 			orderTotalField1.innerHTML = orderTotal;
-			orderTotalField2.innerHTML = orderTotal;			
+			orderTotalField2.innerHTML = orderTotal;	
+
+			//-----------------------------------------------------------------------
+			//update Total Quantity		
+			//-----------------------------------------------------------------------			
+			var totalQuantityField = document.getElementById("totalQuantityId");
+			var totalQuantity = 0;
+			
+			for (i=0; i<totalItemsInCart; i++) {
+				var q = document.getElementById("quantityId"+i+"~"+totalItemsInCart);				
+				totalQuantity += parseInt(q.value);
+			}
+			totalQuantityField.innerHTML = totalQuantity;
+
+			//TODO: update the DB as well
+			//window.location.href = "<?php echo site_url('cart/shoppingcart/');?>";			        	        			        				        			
 		}
 	</script>
 
