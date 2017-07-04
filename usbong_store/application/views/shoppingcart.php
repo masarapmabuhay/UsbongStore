@@ -99,6 +99,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											name="quantityParam<?php echo $itemCounter;?>"
 											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
 								</div>
+								<div class="row">
+									<br>
+									<button type="button" id=id="removeButtonId<?php echo $itemCounter.'~'.$resultCount;?>" class="Remove-button" onKeyPress="">
+										<?php 
+											echo '<img src="'.base_url('assets/images/remove_item.png').'">'
+										?>									
+										Remove Item
+									</button>												
+								</div>
 							</div>
 							<div class="col-sm-2">								
 								<div class="row Cart-product-subtotal">

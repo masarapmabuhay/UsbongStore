@@ -247,6 +247,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-left: #ffffff;		
 		background:#ffffff;
 	}
+
+	.Remove-button {
+		background-color: Transparent;
+	    border: none;
+	}
+
+	.Remove-button:hover {
+		border: 1px solid #969696;
+		border-radius: 4px;	
+	}
 	
 	.Image-item {
 	    max-width: 75%;
