@@ -281,6 +281,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #dec32e;
 	}
 	
+	a.Footer-list-header {
+		color: #fff;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	a.Footer-list-item {
+		color: #fff;
+	}
+	
 	hr {
 		margin-right: 142px;
 		border: 1px solid #6d8f48;
@@ -306,7 +316,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin: 20px 0 0 0; 
 		padding: 0 10px 0 10px;
 	}
+
+	.Footer-container {		
+		font-size: 18px;
+		border-top: 1px solid #d0d0d0;
+		line-height: 32px;
+		background: #52493f;
+		color:#fff;
+		padding: 42px 20px 42px 120px; 
+	}
 	
+	.Footer-container-list{		
+		text-align: left;
+		font-size: 14px;
+		list-style-type: none;
+	}
+
 	.Search-container {
 		float: left;
 		margin-top: 6px;	
