@@ -260,7 +260,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	::selection { background-color: #f07746; color: #fff; }
 	::-moz-selection { background-color: #f07746; color: #fff; }
-
+	
 	body {
 		background-color:  #f6f6f6;
 		margin: 0px 0px 0px 0px;
@@ -271,6 +271,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.navbar {
 		background-color: #1a0d00;
+		margin: 0;
+	}
+
+	.categories-navbar {	
+		background-color: #f6f6f6; <!-- #281e1a -->
+		margin-bottom: 20px;
+		display:table;
+  		margin:0 auto;
+  		
+	}
+
+	.categories-navbar li a {
+		color: #281e1a;
+	}
+
+
+	.categories-navbar li a:hover {
+		font-weight: bold;
 	}
 	
 	a {
@@ -364,6 +382,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 4px;
 		border: #ffffff;		
 		border-radius: 3px;
+		width: 300px;
 	}
 	
 	.Button-container {
@@ -646,7 +665,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Cart-container {
 		margin-right: 24px;
 		margin-left: 24px;
-		margin-bottom: 20px;
+		margin-bottom: 12px;
 	}	
 	
 	.Topbar-container {

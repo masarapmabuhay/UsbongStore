@@ -25,12 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					</form>
 			  </div></li>
-		  <li><a href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
-		  <li><a href = "<?php echo site_url('b/combos/')?>">COMBOS</a></li>
-		  <li><a href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
-		  <li><a href = "<?php echo site_url('b/comics/')?>">COMICS</a></li>
-		  <li><a href = "<?php echo site_url('b/manga/')?>">MANGA</a></li>
-		  <li><a href = "<?php echo site_url('b/toys-and-collectibles/')?>">TOYS & COLLECTIBLES</a></li>
 		</ul>		
 		<ul class="nav navbar-nav navbar-right" role="menu">
 		  <li>
@@ -109,6 +103,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</form>
 			</div>    
 		  </li>
+		</ul>
+		</div>
+	</nav>	
+	<nav class="navbar navbar-static-top categories-navbar ">
+	  <div class="container-fluid">
+		<ul class="nav navbar-nav">
+		  <li><a href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
+		  <li><a href = "<?php echo site_url('b/textbooks/')?>">TEXTBOOKS</a></li>
+		  <li><a href = "<?php echo site_url('b/combos/')?>">COMBOS</a></li>
+		  <li><a href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
+		  <li><a href = "<?php echo site_url('b/comics/')?>">COMICS</a></li>
+		  <li><a href = "<?php echo site_url('b/manga/')?>">MANGA</a></li>
+		  <li><a href = "<?php echo site_url('b/toys-and-collectibles/')?>">TOYS & COLLECTIBLES</a></li>
 		</ul>
 	</nav>	
 </body>
