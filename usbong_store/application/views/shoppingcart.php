@@ -144,7 +144,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="Cart-order-total">
 							<div class="row Cart-order-total-row">
 								<div class="col-sm-6">		
-									<?php echo '<span id="totalQuantityId">'.$totalQuantity.'</span> items'?>		
+									<?php 
+										if ($totalQuantity>1) {	
+											echo '<span id="totalQuantityId">'.$totalQuantity.'</span> items';
+										}
+										else {
+											echo '<span id="totalQuantityId">'.$totalQuantity.'</span> item';
+										}
+									?>		
 								</div>
 								<div class="col-sm-6 Cart-order-price">		
 								    <?php echo '<label>&#x20B1;<span id="orderTotalId1">'.$orderTotal.'</span></label>';?>

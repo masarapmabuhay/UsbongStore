@@ -331,6 +331,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 14px;
 		list-style-type: none;
 	}
+	
+	.Customer-information-ul {
+		text-align: left;
+		font-size: 16px;
+		list-style-type: none;
+	}
+	
+	.Customer-information-li {
+		display: inline-block;
+	}
+
+	.Contact-information-ul {
+		text-align: left;
+		font-size: 16px;
+		list-style-type: none;
+
+	    columns: 2;
+	    -webkit-columns: 2;
+	    -moz-columns: 2;
+	}
 
 	.Search-container {
 		float: left;
@@ -739,6 +759,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.usbongLogo {
 		margin-top: 3px;
 	}
+
+	.Customer-information {
+		max-width: 30%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+    	margin-bottom: 20px;
+    	font-size: 24px;    	
+    	padding: 16px;
+    	border: 1px solid #4b3b2c;
+    	border-radius: 4px;
+	}
+
+	.Customer-information-text-in-checkout {
+		display: inline-block; 
+		padding-right: 12px;	
+	}
 	
 	.login-and-create {
 		max-width: 30%;		
@@ -784,6 +821,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 100%;
 	    margin-bottom: 12px;		    
 	}
+
+	.Customer-information-text-in-checkout {
+		display: inline-block; 
+		padding-right: 12px;	
+		margin-bottom: 16px;		
+	}
 	
 	.Button-login {
 	    font-size: 20px;    			
@@ -824,6 +867,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-bottom: 1px solid #f6aaaa;					
 		margin-bottom: -1px;
 	}		
+
+	.Checkout-input {
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin-bottom: 12px;		    
+	    resize: none;
+	}
+
+	.Checkout-input-mode-of-payment {
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin-bottom: 0;		    
+	}
+
 	
 	.Quantity-textbox { 
 		background-color: #fCfCfC;

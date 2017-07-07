@@ -119,6 +119,12 @@ class cart extends MY_Controller {
 	public function checkout() {		
 		$customer_id = $this->session->userdata('customer_id');
 
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		
 		$this->load->model('Cart_Model');
 		$data['result'] = $this->Cart_Model->getCart($customer_id);
 	
@@ -150,6 +156,12 @@ class cart extends MY_Controller {
 
 		$this->load->model('Cart_Model');
 		$this->Cart_Model->checkoutCustomerOrder($data);
+		
+		$this->load->view('checkout', $data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+		
 
 
 //		$data[$field] = $_POST[$field];
