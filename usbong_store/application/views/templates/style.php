@@ -62,10 +62,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var quantityField = document.getElementById("quantityId");
 
 				if (quantity>1) {
-					quantityField.innerHTML = "Added <b>" +quantity +"</b> copies of ";
+					quantityField.innerHTML = "Added <b>" +quantity +"</b> units of ";
 				}
 				else {
-					quantityField.innerHTML = "Added <b>1</b> copy of ";
+					quantityField.innerHTML = "Added <b>1</b> unit of ";
 				}
 
 				//-----------------------------------------------------------
@@ -272,6 +272,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.navbar {
 		background-color: #1a0d00;
 		margin: 0;
+		z-index: 0;		
 	}
 
 	.categories-navbar {	
@@ -780,7 +781,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Customer-information {
-		max-width: 30%;		
+		max-width: 40%;		
 		float: none;
     	display: block;
     	margin: 0 auto;

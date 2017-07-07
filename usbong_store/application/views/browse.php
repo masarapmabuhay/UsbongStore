@@ -99,19 +99,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>					
 							<div class="row Product-quantity">
 								<label class="Quantity-label">Quantity:</label>
-								<div class="dropdown">
-								  <button onclick="myFunction()" class="dropbtn">1</button>
-								  <div id="myDropdown" class="dropdown-content">
-								    <a href="#">1</a>
-								    <a href="#">2</a>
-								    <a href="#">3</a>
-								  </div>
-								</div>
+								<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" 
+										value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>					    
 							</div>
 							<div class="row Product-purchase-button">
-								<button type="submit" class="Button-purchase">
-			 						ADD TO CART
-								</button>				
+								<?php 
+										$quantity = 1;
+										//TODO: fix quantity and price
+											
+										echo '<input type="hidden" id="product_idParam" value="'.$value['product_id'].'" required>';
+										echo '<input type="hidden" id="customer_idParam" value="'.$this->session->userdata('customer_id').'" required>';										
+		// 								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
+										echo '<input type="hidden" id="priceParam" value="'.$value['price'].'" required>';							
+								?>				
+								<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>
+								<div id="myPopup" class="popup-content">
+									<div class="row">
+										<div class="col-sm-4">									
+											<img class="Popup-product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
+										</div>
+										<div class="col-sm-8 Popup-product-details">
+											<span id="quantityId"></span>
+											<?php 
+											
+		/*									
+												$quantity=1;
+												if ($quantity>1) {
+													echo 'Added<b>'.$quantity.'</b> copies of ';									
+												}
+												else {
+													echo 'Added <b>1</b> copy of ';
+												}
+		*/										
+												echo '<b>'.$value['name'].'</b>!'
+											?>
+											<br><b>Order Total: </b>
+											<label class="Popup-product-price">&#x20B1;<?php echo $value['price'];?></label>
+											<label class="Popup-product-free-delivery"><br>[Free Delivery]</label> 												
+											<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
+												<button type="submit" class="Button-view-cart">
+													View Cart 
+												</button>
+											</form>						
+										</div>
+									</div>
+								</div>					
 							</div>				
 						</div>
 					</div>
