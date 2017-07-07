@@ -626,6 +626,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Cart-container {
 		margin-right: 24px;
 		margin-left: 24px;
+		margin-bottom: 20px;
 	}	
 	
 	.Topbar-container {
@@ -744,6 +745,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		float: none;
     	display: block;
     	margin: 0 auto;
+    	margin-bottom: 20px;
     	font-size: 24px;    	
     	padding: 16px;
     	border: 1px solid #4b3b2c;
