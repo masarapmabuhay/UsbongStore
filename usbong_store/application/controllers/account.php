@@ -73,4 +73,24 @@ class account extends MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}	
+	
+	public function settings()
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		$this->load->library('session');
+		$this->load->library('form_validation');
+		
+		/*
+		 $this->load->model('Cart_Model');
+		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
+		 */
+		$this->load->view('account/settings');
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}	
 }

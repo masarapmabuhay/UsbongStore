@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								echo '<div class="dropdown">';
 								echo '<ul class="dropdown-menu">';			  		
-								  	echo '<li><a href = "'.site_url('b/books/').'">My Account</a></li>';				
+								  	echo '<li><a href = "'.site_url('account/settings/').'">My Account</a></li>';				
 								  	echo '<li><a href = "'.site_url('account/logout/').'">Log Out</a></li>';
 								echo '</ul>';
 								echo '</div>';

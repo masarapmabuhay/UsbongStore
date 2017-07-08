@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.store_app" target="_blank">Usbong Store App</a></li>					
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
 					<li><a class="Footer-list-header" href = "<?php echo site_url('b/books/')?>"><b>My Account</b></a></li>					
-					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">Settings</a></li>	
+					<li><a class="Footer-list-item" href = "<?php echo site_url('account/settings/')?>">Settings</a></li>	
 					<li><a class="Footer-list-item" href = "<?php 
 																//added by Mike, 20170627
 																if ($this->session->userdata('customer_id')=="") {
