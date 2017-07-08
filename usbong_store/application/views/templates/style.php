@@ -403,7 +403,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	.categories-navbar li a:hover {
-		font-weight: bold;
+		color: #747372;
 	}
 	
 	a {
