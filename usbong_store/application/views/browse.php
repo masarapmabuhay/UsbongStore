@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		// 								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
 										echo '<input type="hidden" id="priceParam" value="'.$value['price'].'" required>';							
 								?>				
-								<button id="addToCartId<?php echo $itemCounter.'~'.$resultCount;?>" onclick="myPopupFunction(this.id)" class="Button-purchase">ADD TO CART</button>
+								<button id="addToCartId<?php echo $itemCounter.'~'.$resultCount;?>" onclick="myPopupFunctionInSearchPage(this.id)" class="Button-purchase">ADD TO CART</button>
 								<div id="myPopup" class="popup-content">
 									<div class="row">
 										<div class="col-sm-4">									

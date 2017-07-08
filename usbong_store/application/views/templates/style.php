@@ -41,10 +41,106 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //			}
 		});
 	</script>
+	
+	<script>
+		//-----------------------------------------------------------
+		//PRODUCT ITEM PAGE
+		//-----------------------------------------------------------
+
+		//added by Mike, 20170626
+		function myPopupFunction() {				
+			var product_id = document.getElementById("product_idParam").value;
+			var customer_id = document.getElementById("customer_idParam").value;
+			var quantity = document.getElementById("quantityParam").value;
+			var price = document.getElementById("priceParam").value;
+			
+			var textCart = document.getElementById("Text-cartId");
+			var textCart2Digits = document.getElementById("Text-cart-2digitsId");
+			var textCart3Digits = document.getElementById("Text-cart-3digitsId");
+	
+			var totalItemsInCart = parseInt(document.getElementById("totalItemsInCartId").value);
+			//do the following only if quantity is a Number, i.e. not NaN
+			if (!isNaN(quantity)) {								
+				//added by Mike, 20170701
+				var quantityField = document.getElementById("quantityId");
+				if (quantity>1) {
+					quantityField.innerHTML = "Added <b>" +quantity +"</b> units of ";
+				}
+				else {
+					quantityField.innerHTML = "Added <b>1</b> unit of ";
+				}
+				//-----------------------------------------------------------
+				
+				totalItemsInCart+=parseInt(quantity);
+				if (totalItemsInCart>99) {
+					totalItemsInCart=99;
+				}
+	
+				document.getElementById("totalItemsInCartId").value = totalItemsInCart;
+						
+				//added by Mike, 20170627
+				if (customer_id=="") {
+					window.location.href = "<?php echo site_url('account/login/');?>";
+				}
+				else {				
+		//			var base_url = window.location.origin;
+					var site_url = "<?php echo site_url('cart/addToCart/');?>";
+					var my_url = site_url.concat(product_id,'/',customer_id,'/',quantity,'/',price);
+					
+					$.ajax({
+				        type:"POST",
+				        url:my_url,
+		
+				        success:function() {			        	
+				        	if (totalItemsInCart<10) {
+					        	textCart.innerHTML=totalItemsInCart;
+								textCart2Digits.innerHTML="";
+								textCart3Digits.innerHTML="";
+				        	}
+							else if (totalItemsInCart<100) {
+					        	textCart.innerHTML="";
+								textCart2Digits.innerHTML=totalItemsInCart;
+								textCart3Digits.innerHTML="";
+							}
+							else {
+					        	textCart.innerHTML="";
+								textCart2Digits.innerHTML="";
+								textCart3Digits.innerHTML=totalItemsInCart;
+							}
+							
+							document.getElementById("myPopup").classList.toggle("show");			        
+				        }
+		
+				    });
+				    event.preventDefault();
+				}
+			}
+		}	
+/*
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.Button-purchase')) {
+		
+		    var dropdowns = document.getElementsByClassName("popup-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}		
+*/		
+	</script>
 
 	<script>
+		//-----------------------------------------------------------
+		//SEARCH PRODUCT PAGE
+		//-----------------------------------------------------------
+
 		//added by Mike, 20170626
-		function myPopupFunction(id) {	
+		function myPopupFunctionInSearchPage(id) {	
 			var trimmedId = id.split("~")[0].substring("addToCartId".length, id.length);
 			var totalItemsInCart = id.split("~")[1];	
 			
