@@ -27,6 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="container">
 			<?php
 				$colCounter = 0;
+				$itemCounter = 0;
+				
 				foreach ($result as $value) {
 					$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 					$URLFriendlyReformattedProductName = str_replace(',','',str_replace(' ','-',$reformattedProductName)); //replace " " and "-"
@@ -99,24 +101,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>					
 							<div class="row Product-quantity">
 								<label class="Quantity-label">Quantity:</label>
-								<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" 
-										value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>					    
+								<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount;?>" class="Quantity-textbox no-spin" 
+										name="quantityParam<?php echo $itemCounter;?>"
+										value="1" min="1" max="99" onKeyUp="" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
+								
+								<input type="hidden" id="productId<?php echo $itemCounter?>" value="<?php echo $value['product_id'];?>">
+								<input type="hidden" id="productName<?php echo $itemCounter?>" value="<?php echo $value['name'];?>">
+								<input type="hidden" id="productImage<?php echo $itemCounter?>" value="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">
+							
 							</div>
 							<div class="row Product-purchase-button">
 								<?php 
-										$quantity = 1;
+//										$quantity = 1;
 										//TODO: fix quantity and price
 											
-										echo '<input type="hidden" id="product_idParam" value="'.$value['product_id'].'" required>';
+// 										echo '<input type="hidden" id="product_idParam" value="'.$value['product_id'].'" required>';
 										echo '<input type="hidden" id="customer_idParam" value="'.$this->session->userdata('customer_id').'" required>';										
 		// 								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
 										echo '<input type="hidden" id="priceParam" value="'.$value['price'].'" required>';							
 								?>				
-								<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>
+								<button id="addToCartId<?php echo $itemCounter.'~'.$resultCount;?>" onclick="myPopupFunction(this.id)" class="Button-purchase">ADD TO CART</button>
 								<div id="myPopup" class="popup-content">
 									<div class="row">
 										<div class="col-sm-4">									
-											<img class="Popup-product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
+											<img class="Popup-product-image" id="productImageId" src="">				
 										</div>
 										<div class="col-sm-8 Popup-product-details">
 											<span id="quantityId"></span>
@@ -131,7 +139,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo 'Added <b>1</b> copy of ';
 												}
 		*/										
-												echo '<b>'.$value['name'].'</b>!'
+//												echo '<b>'.$value['name'].'</b>!'
+											echo '<b><span id="productNameId"></span></b>!'
+											
 											?>
 											<br><b>Order Total: </b>
 											<label class="Popup-product-price">&#x20B1;<?php echo $value['price'];?></label>
@@ -149,6 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<hr class="horizontal-line">
 				<?php 
+					$itemCounter++;
 				  }
 				?>					
 			</div>		

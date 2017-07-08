@@ -44,10 +44,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<script>
 		//added by Mike, 20170626
-		function myPopupFunction() {				
-			var product_id = document.getElementById("product_idParam").value;
+		function myPopupFunction(id) {	
+			var trimmedId = id.split("~")[0].substring("addToCartId".length, id.length);
+			var totalItemsInCart = id.split("~")[1];	
+			
+			var product_id = document.getElementById("productId"+trimmedId).value;
+			var quantity = document.getElementById("quantityId"+trimmedId+"~"+totalItemsInCart).value;
+			
+// 			var product_id = document.getElementById("product_idParam").value;
 			var customer_id = document.getElementById("customer_idParam").value;
-			var quantity = document.getElementById("quantityParam").value;
+// 			var quantity = document.getElementById("quantityParam").value;
 			var price = document.getElementById("priceParam").value;
 			
 			var textCart = document.getElementById("Text-cartId");
@@ -68,6 +74,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					quantityField.innerHTML = "Added <b>1</b> unit of ";
 				}
 
+				//-----------------------------------------------------------
+
+				var productName = document.getElementById("productName"+trimmedId).value;				
+				var productNameField = document.getElementById("productNameId");
+				productNameField.innerHTML = productName;
+
+				//-----------------------------------------------------------
+
+				var productImageSrc = document.getElementById("productImage"+trimmedId).value;
+				var productImageId = document.getElementById("productImageId");
+				productImageId.src = productImageSrc;
+								
 				//-----------------------------------------------------------
 				
 				totalItemsInCart+=parseInt(quantity);
