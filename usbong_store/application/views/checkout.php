@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$validation_errors="";
 			if ($this->session->flashdata('errors')) {
 				$validation_errors = $this->session->flashdata('errors');
+//				echo "error: "+$validation_errors;
 			}	
 			
 			$data=[];
@@ -21,8 +22,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 	    ?>
 		<div class="fields">
-				<form method="post" action="<?php echo site_url('b/literature_and_fiction')?>">
+				<form method="post" action="<?php echo site_url('cart/confirm')?>">
 					<?php 
+/*						//Error Message
+						if (strpos($validation_errors, "The Email Address field must contain a valid email address.") !== false) {
+							echo '<div class="Register-error">Email Address is not a valid email.</div>';
+						}			
+*/						
 						//First Name--------------------------------------------------
 						if (isset($data['firstNameParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
@@ -41,12 +47,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 						//-----------------------------------------------------------
 	
-/*					
+					
 						//Error Message
-						if (strpos($validation_errors, "The Email Address field must contain a valid email address.") !== false) {
-							echo '<div class="Register-error">Email Address is not a valid email.</div>';					
+//						echo "hello ".$validation_errors;
+						if (strpos($validation_errors, "The Contact Number field must contain only numbers.") !== false) {
+							echo '<div class="Register-error">Contact Number must contain only numbers.</div>';					
 						}					
-*/						
 						//Email Address--------------------------------------------------					
 						if (isset($data['contactNumberParam'])) {
 							echo '<input type="tel" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" value="'.$data['contactNumberParam'].'" required>';
@@ -91,6 +97,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" required>';
 						}				
 
+						if (strpos($validation_errors, "The Postal Code field must contain only numbers.") !== false) {
+							echo '<div class="Register-error">Postal Code must contain only numbers.</div>';
+						}						
 						//Postal Code--------------------------------------------------
 						if (isset($data['postalCodeParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
@@ -101,26 +110,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						echo '<label class="Checkout-input-mode-of-payment">-Mode of Payment-</label>';
 						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="modeOfPaymentParam">Bank Deposit</label>';
+						echo '<label><input type="radio" name="modeOfPaymentParam" checked>Bank Deposit</label>';
 						echo '</div>';
 						echo '<div class="radio Checkout-input-mode-of-payment">';
 						echo '<label><input type="radio" name="modeOfPaymentParam">Paypal</label>';
-						echo '</div>';
+						echo '</div><br>';
 						
 						//Additional Instructions--------------------------------------------------
 						if (isset($data['additionalInstructionsParam'])) {
-							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Instructions" name="additionalInstructionsParam" value="'.$data['additionalInstructionsParam'].'" required></textarea>';
+							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Instructions" name="additionalInstructionsParam" value="'.$data['additionalInstructionsParam'].'"></textarea>';
 						}
 						else { //default
-							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Instructions" name="additionalInstructionsParam" required></textarea>';
+							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Instructions" name="additionalInstructionsParam"></textarea>';
 						}
 
 						//Additional Inquiries--------------------------------------------------
 						if (isset($data['additionalInquiriesParam'])) {
-							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Inquiries" name="additionalInquiriesParam" value="'.$data['additionalInquriesParam'].'" required></textarea>';
+							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Inquiries" name="additionalInquiriesParam" value="'.$data['additionalInquriesParam'].'"></textarea>';
 						}
 						else { //default
-							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Inquiries" name="additionalInquiriesParam" required></textarea>';
+							echo '<textarea rows="5" class="Checkout-input" placeholder="Additional Inquiries" name="additionalInquiriesParam"></textarea>';
 						}
 						
 						//reset the session values to null

@@ -1014,7 +1014,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    font-size: 16px;    			
 	    padding: 6px;
 	    width: 100%;
-	    margin-bottom: 0;		    
+	    margin: 0;		    
 	}
 
 	
