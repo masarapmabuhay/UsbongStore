@@ -98,7 +98,8 @@ class account extends MY_Controller {
 	public function save()
 	{				
 		$customer_id = $this->session->userdata('customer_id');
-				
+
+		$this->form_validation->set_rules('emailAddressParam', 'Email Address', 'valid_email|trim|required');
 		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('contactNumberParam', 'Contact Number', 'trim|required|numeric');
@@ -107,7 +108,7 @@ class account extends MY_Controller {
 		$this->form_validation->set_rules('countryParam', 'Country', 'trim|required');
 		$this->form_validation->set_rules('postalCodeParam', 'Postal Code', 'trim|required|numeric');
 		
-		$fields = array('firstNameParam', 'lastNameParam', 'contactNumberParam', 'shippingAddressParam', 'cityParam', 'countryParam', 'postalCodeParam', 'modeOfPaymentParam');
+		$fields = array('emailAddressParam', 'firstNameParam', 'lastNameParam', 'contactNumberParam', 'shippingAddressParam', 'cityParam', 'countryParam', 'postalCodeParam', 'modeOfPaymentParam');
 		
 		foreach ($fields as $field)
 		{
