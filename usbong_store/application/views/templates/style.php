@@ -1010,7 +1010,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Checkout-input {
 	    font-size: 16px;    			
-	    padding: 16px 6px 6px 6px;
+	    padding: 16px 6px 6px 8px;
 		margin-bottom: 12px;
 	    resize: none;
 		width: 100%;

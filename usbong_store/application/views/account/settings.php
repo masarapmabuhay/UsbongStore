@@ -24,12 +24,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="fields">
 				<form method="post" action="<?php echo site_url('account/save')?>">
 						<?php 
+						//Email Address--------------------------------------------------					
 						//Error Message
 						if (strpos($validation_errors, "The Email Address field must contain a valid email address.") !== false) {
 							echo '<div class="Register-error">Email Address is not a valid email.</div>';
 						}		
 						echo '<div class="Checkout-div">';
-						//Email Address--------------------------------------------------
 						if (isset($data['emailAddressParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$data['emailAddressParam'].'" required>';
 						}
@@ -41,105 +41,123 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 						echo '<span class="floating-label">Email Address</span>';
 						echo '</div>';
-												
+						//-----------------------------------------------------------
+						
 						//First Name--------------------------------------------------
+						echo '<div class="Checkout-div">';					
 						if (isset($data['firstNameParam'])) {
-							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
 						}
 						else if (isset($result->customer_first_name)) {
-							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" value="'.$result->customer_first_name.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$result->customer_first_name.'" required>';
 						}						
 						else { //default
-							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" required>';
 						}
+						echo '<span class="floating-label">First Name</span>';
+						echo '</div>';
 						//-----------------------------------------------------------
 						
 						//Last Name--------------------------------------------------
+						echo '<div class="Checkout-div">';					
 						if (isset($data['lastNameParam'])) {
-							echo '<input type="text" class="Checkout-input" placeholder="Last Name" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
 						}
 						else if (isset($result->customer_last_name)) {
-							echo '<input type="text" class="Checkout-input" placeholder="Last Name" name="lastNameParam" value="'.$result->customer_last_name.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$result->customer_last_name.'" required>';
 						}						
 						else { //default
-							echo '<input type="text" class="Checkout-input" placeholder="Last Name" name="lastNameParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" required>';
 						}
+						echo '<span class="floating-label">Last Name</span>';
+						echo '</div>';
 						//-----------------------------------------------------------
 						
-						
+
+						//Contact Number--------------------------------------------------
+						echo '<div class="Checkout-div">';						
 						//Error Message
-						//						echo "hello ".$validation_errors;
 						if (strpos($validation_errors, "The Contact Number field must contain only numbers.") !== false) {
 							echo '<div class="Register-error">Contact Number must contain only numbers.</div>';
 						}
 						if (isset($data['contactNumberParam'])) {
-							echo '<input type="tel" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" value="'.$data['contactNumberParam'].'" required>';
+							echo '<input type="tel" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$data['contactNumberParam'].'" required>';
 						}
 						else if (isset($result->customer_contact_number)) {
-							echo '<input type="text" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" value="'.$result->customer_contact_number.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$result->customer_contact_number.'" required>';
 						}
 						else { //default
-							echo '<input type="tel" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" required>';
+							echo '<input type="tel" class="Checkout-input" placeholder="" name="contactNumberParam" required>';
 						}
+						echo '<span class="floating-label">Contact Number</span>';
+						echo '</div>';
 						//-----------------------------------------------------------
-						/*
-						 //Error Message
-						 if (strpos($validation_errors, "The Confirm Email Address field does not match the Email Address field.") !== false) {
-						 echo '<div class="Register-error">Confirm Email does not match Email Address.</div>';
-						 }
-						 */
+						
+						
 						//Shipping Address--------------------------------------------------
+						echo '<div class="Checkout-div">';						
 						if (isset($data['shippingAddressParam'])) {
-							echo '<input type="text" class="Checkout-input" placeholder="Shipping Address" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
 						}
 						else if (isset($result->customer_shipping_address)) {
-							echo '<input type="text" class="Checkout-input" placeholder="Shipping Address" name="shippingAddressParam" value="'.$result->customer_shipping_address.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$result->customer_shipping_address.'" required>';
 						}
 						else { //default
-							echo '<input type="text" class="Checkout-input" placeholder="Shipping Address" name="shippingAddressParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" required>';
 						}
+						echo '<span class="floating-label">Shipping Address</span>';
+						echo '</div>';
+						//-----------------------------------------------------------
 						
 						//City--------------------------------------------------
+						echo '<div class="Checkout-div">';						
 						if (isset($data['cityParam'])) {
-							echo '<input type="text" class="Checkout-input" placeholder="City" name="cityParam" value="'.$data['cityParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$data['cityParam'].'" required>';
 						}
 						else if (isset($result->customer_city)) {
-							echo '<input type="text" class="Checkout-input" placeholder="City" name="cityParam" value="'.$result->customer_city.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$result->customer_city.'" required>';
 						}
 						else { //default
-							echo '<input type="text" class="Checkout-input" placeholder="City" name="cityParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" required>';
 						}
+						echo '<span class="floating-label">City</span>';
+						echo '</div>';
 						//-----------------------------------------------------------
-						/*
-						 //Error Message
-						 if (strpos($validation_errors, "The Password Confirmation field does not match the Password field.") !== false) {
-						 echo '<div class="Register-error">Confirm Password does not match Password.</div>';
-						 }
-						 */
+						
+						
 						//Country--------------------------------------------------
+						echo '<div class="Checkout-div">';
 						if (isset($data['countryParam'])) {
-							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" value="'.$data['countryParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$data['countryParam'].'" required>';
 						}
 						else if (isset($result->customer_country)) {
-							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" value="'.$result->customer_country.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$result->customer_country.'" required>';
 						}
 						else { //default
-							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" required>';
 						}
-						
+						echo '<span class="floating-label">Country</span>';
+						echo '</div>';
+						//-----------------------------------------------------------
+
+						//Postal Code--------------------------------------------------
+						echo '<div class="Checkout-div">';						
 						if (strpos($validation_errors, "The Postal Code field must contain only numbers.") !== false) {
 							echo '<div class="Register-error">Postal Code must contain only numbers.</div>';
 						}
 						//Postal Code--------------------------------------------------
 						if (isset($data['postalCodeParam'])) {
-							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
 						}
 						else if (isset($result->customer_postal_code)) {
-							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" value="'.$result->customer_postal_code.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$result->customer_postal_code.'" required>';
 						}
 						else { //default
-							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" required>';
 						}
+						echo '<span class="floating-label">Postal Code</span>';
+						echo '</div>';
+						//-----------------------------------------------------------
 						
 						echo '<label class="Checkout-input-mode-of-payment">-Mode of Payment-</label>';
 						$isBankDepositChecked=true;												
