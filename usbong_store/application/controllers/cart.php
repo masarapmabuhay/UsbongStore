@@ -119,6 +119,12 @@ class cart extends MY_Controller {
 	public function checkout() {		
 		$customer_id = $this->session->userdata('customer_id');
 
+		//added by Mike, 20170710
+		if (($customer_id=="") ||
+				(!isset($_POST['quantityParam0']))) { //if POST variable is empty
+			redirect(site_url('account/login/'));
+		}
+		
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();

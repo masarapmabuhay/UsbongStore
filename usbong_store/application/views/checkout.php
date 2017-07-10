@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 	<div class="Customer-information">
 		<div class="Customer-information-text-in-checkout"><b>Customer Information</b></div>
-		<?php
+		<?php		
 			$validation_errors="";
 			if ($this->session->flashdata('errors')) {
 				$validation_errors = $this->session->flashdata('errors');
