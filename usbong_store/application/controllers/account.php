@@ -76,6 +76,8 @@ class account extends MY_Controller {
 
 	public function settings()
 	{
+		$customer_id = $this->session->userdata('customer_id');
+		
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
@@ -84,13 +86,10 @@ class account extends MY_Controller {
 		$this->load->library('session');
 		$this->load->library('form_validation');
 		
-		//TODO: load data from DB
-		
-		/*
-		 $this->load->model('Cart_Model');
-		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
-		 */
-		$this->load->view('account/settings');
+		$this->load->model('Account_Model');
+		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
+				
+		$this->load->view('account/settings', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');
@@ -98,21 +97,23 @@ class account extends MY_Controller {
 	
 	public function save()
 	{				
+		$customer_id = $this->session->userdata('customer_id');
+				
 		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('contactNumberParam', 'Contact Number', 'trim|required|numeric');
 		$this->form_validation->set_rules('shippingAddressParam', 'Shipping Address', 'trim|required');
-		$this->form_validation->set_rules('countryParam', 'Country', 'trim|required');
 		$this->form_validation->set_rules('cityParam', 'City', 'trim|required');
+		$this->form_validation->set_rules('countryParam', 'Country', 'trim|required');
 		$this->form_validation->set_rules('postalCodeParam', 'Postal Code', 'trim|required|numeric');
 		
-		$fields = array('firstNameParam', 'lastNameParam', 'contactNumberParam', 'shippingAddressParam', 'countryParam', 'cityParam', 'postalCodeParam');
+		$fields = array('firstNameParam', 'lastNameParam', 'contactNumberParam', 'shippingAddressParam', 'cityParam', 'countryParam', 'postalCodeParam', 'modeOfPaymentParam');
 		
 		foreach ($fields as $field)
 		{
 			$data[$field] = $_POST[$field];
 		}
-		
+				
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->session->set_flashdata('errors', validation_errors());
@@ -125,11 +126,7 @@ class account extends MY_Controller {
 			
 			$this->load->library('session');
 			$this->load->library('form_validation');
-			
-			/*
-			 $this->load->model('Cart_Model');
-			 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
-			 */
+									
 			$this->load->view('account/settings');
 			
 			//--------------------------------------------
@@ -163,7 +160,7 @@ class account extends MY_Controller {
 			 */
 //			echo "OK! Success!";
 			
-			//TODO: store data in DB
+			$this->session->set_flashdata('data', $data);
 			
 			//from application/core/MY_Controller
 			$this::initStyle();
@@ -173,10 +170,9 @@ class account extends MY_Controller {
 			$this->load->library('session');
 			$this->load->library('form_validation');
 			
-			/*
-			 $this->load->model('Cart_Model');
-			 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
-			 */
+			$this->load->model('Account_Model');
+			$this->Account_Model->updateAccount($customer_id, $data);
+			
 			$this->load->view('account/settings');
 			
 			//--------------------------------------------

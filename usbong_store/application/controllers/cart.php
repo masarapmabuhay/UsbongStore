@@ -120,10 +120,14 @@ class cart extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 
 		//added by Mike, 20170710
-		if (($customer_id=="") ||
-				(!isset($_POST['quantityParam0']))) { //if POST variable is empty
+		if ($customer_id=="") {
 			redirect(site_url('account/login/'));
 		}
+		
+		if (!isset($_POST['quantityParam0'])) { //if POST variable is empty
+			redirect(site_url(''));	//redirect to home page
+		}
+		
 		
 		//from application/core/MY_Controller
 		$this::initStyle();

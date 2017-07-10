@@ -28,6 +28,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if (isset($data['firstNameParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
 						}
+						else if (isset($result->customer_first_name)) {
+							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" value="'.$result->customer_first_name.'" required>';
+						}						
 						else { //default
 							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" required>';
 						}
@@ -37,6 +40,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if (isset($data['lastNameParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="Last Name" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
 						}
+						else if (isset($result->customer_last_name)) {
+							echo '<input type="text" class="Checkout-input" placeholder="Last Name" name="lastNameParam" value="'.$result->customer_last_name.'" required>';
+						}						
 						else { //default
 							echo '<input type="text" class="Checkout-input" placeholder="Last Name" name="lastNameParam" required>';
 						}
@@ -48,9 +54,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if (strpos($validation_errors, "The Contact Number field must contain only numbers.") !== false) {
 							echo '<div class="Register-error">Contact Number must contain only numbers.</div>';
 						}
-						//Email Address--------------------------------------------------
 						if (isset($data['contactNumberParam'])) {
 							echo '<input type="tel" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" value="'.$data['contactNumberParam'].'" required>';
+						}
+						else if (isset($result->customer_contact_number)) {
+							echo '<input type="text" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" value="'.$result->customer_contact_number.'" required>';
 						}
 						else { //default
 							echo '<input type="tel" class="Checkout-input" placeholder="Contact Number" name="contactNumberParam" required>';
@@ -66,6 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if (isset($data['shippingAddressParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="Shipping Address" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
 						}
+						else if (isset($result->customer_shipping_address)) {
+							echo '<input type="text" class="Checkout-input" placeholder="Shipping Address" name="shippingAddressParam" value="'.$result->customer_shipping_address.'" required>';
+						}
 						else { //default
 							echo '<input type="text" class="Checkout-input" placeholder="Shipping Address" name="shippingAddressParam" required>';
 						}
@@ -73,6 +84,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						//City--------------------------------------------------
 						if (isset($data['cityParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="City" name="cityParam" value="'.$data['cityParam'].'" required>';
+						}
+						else if (isset($result->customer_city)) {
+							echo '<input type="text" class="Checkout-input" placeholder="City" name="cityParam" value="'.$result->customer_city.'" required>';
 						}
 						else { //default
 							echo '<input type="text" class="Checkout-input" placeholder="City" name="cityParam" required>';
@@ -88,6 +102,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if (isset($data['countryParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" value="'.$data['countryParam'].'" required>';
 						}
+						else if (isset($result->customer_country)) {
+							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" value="'.$result->customer_country.'" required>';
+						}
 						else { //default
 							echo '<input type="text" class="Checkout-input" placeholder="Country" name="countryParam" required>';
 						}
@@ -99,17 +116,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if (isset($data['postalCodeParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
 						}
+						else if (isset($result->customer_postal_code)) {
+							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" value="'.$result->customer_postal_code.'" required>';
+						}
 						else { //default
 							echo '<input type="text" class="Checkout-input" placeholder="Postal Code" name="postalCodeParam" required>';
 						}
 						
 						echo '<label class="Checkout-input-mode-of-payment">-Mode of Payment-</label>';
-						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="modeOfPaymentParam" checked>Bank Deposit</label>';
-						echo '</div>';
-						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="modeOfPaymentParam">Paypal</label>';
-						echo '</div><br>';
+						$isBankDepositChecked=true;												
+						if (isset($data['modeOfPaymentParam'])) {
+							if ($data['modeOfPaymentParam']==0) {
+								$isBankDepositChecked=true;
+							}
+							else {
+								$isBankDepositChecked=false;
+							}							
+						}						
+						else if (isset($result->mode_of_payment_id)) {
+							if ($result->mode_of_payment_id==0) {
+								$isBankDepositChecked=true;
+							}
+							else {
+								$isBankDepositChecked=false;
+							}
+						}
+
+						if ($isBankDepositChecked==true) {
+							echo '<div class="radio Checkout-input-mode-of-payment">';
+							echo '<label><input type="radio" name="modeOfPaymentParam" value="0" checked>Bank Deposit</label>';
+							echo '</div>';
+							echo '<div class="radio Checkout-input-mode-of-payment">';
+							echo '<label><input type="radio" name="modeOfPaymentParam" value="1">Paypal</label>';
+							echo '</div>';
+						}
+						else {
+							echo '<div class="radio Checkout-input-mode-of-payment">';
+							echo '<label><input type="radio" name="modeOfPaymentParam" value="0">Bank Deposit</label>';
+							echo '</div>';
+							echo '<div class="radio Checkout-input-mode-of-payment">';
+							echo '<label><input type="radio" name="modeOfPaymentParam" value="1" checked>Paypal</label>';
+							echo '</div>';							
+						}
+						
+						echo '<br>';
 						
 						//reset the session values to null
 						$this->session->set_flashdata('errors', null);

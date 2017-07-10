@@ -37,5 +37,30 @@ class Account_Model extends CI_Model
 		}
 		return null;//"false";
 	}	
+
+	public function getCustomerInformation($customerId) {
+		$this->db->select('customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id');
+		$this->db->where('customer_id', $customerId);		
+		$query = $this->db->get('customer');
+		$row = $query->row();
+		return $row;
+	}
+	
+	
+	public function updateAccount($customerId, $data) {				
+		//step 1: change the quantity of all cart rows with the same productId and customerId to 0
+		$updateData = array(
+				'customer_first_name' => $data['firstNameParam'],
+				'customer_last_name' => $data['lastNameParam'],
+				'customer_contact_number' => $data['contactNumberParam'],
+				'customer_shipping_address' => $data['shippingAddressParam'],
+				'customer_city' => $data['cityParam'],
+				'customer_country' => $data['countryParam'],
+				'customer_postal_code' => $data['postalCodeParam'],				
+				'mode_of_payment_id' => $data['modeOfPaymentParam']				
+		);
+		$this->db->where('customer_id', $customerId);
+		$this->db->update('customer', $updateData);		
+	}
 }
 ?>
