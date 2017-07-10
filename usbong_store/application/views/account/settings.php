@@ -27,18 +27,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						//Error Message
 						if (strpos($validation_errors, "The Email Address field must contain a valid email address.") !== false) {
 							echo '<div class="Register-error">Email Address is not a valid email.</div>';
-						}						
+						}		
+						echo '<div class="Checkout-div">';
 						//Email Address--------------------------------------------------
 						if (isset($data['emailAddressParam'])) {
-							echo '<input type="text" class="Register-input" placeholder="Email Address" name="emailAddressParam" value="'.$data['emailAddressParam'].'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$data['emailAddressParam'].'" required>';
 						}
 						else if (isset($result->customer_email_address)) {
-							echo '<input type="text" class="Checkout-input" placeholder="Email Address" name="emailAddressParam" value="'.$result->customer_email_address.'" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$result->customer_email_address.'" required>';
 						}
 						else { //default
-							echo '<input type="text" class="Register-input" placeholder="Email Address" name="emailAddressParam" required>';
+							echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" required>';
 						}
-						
+						echo '<span class="floating-label">Email Address</span>';
+						echo '</div>';
+												
 						//First Name--------------------------------------------------
 						if (isset($data['firstNameParam'])) {
 							echo '<input type="text" class="Checkout-input" placeholder="First Name" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';

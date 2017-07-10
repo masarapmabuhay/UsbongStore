@@ -9,9 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	<link href="css/bootstrap-form-helpers.min.css" rel="stylesheet">
-	<script src="js/bootstrap-formhelpers.min.js"></script>
-
 	<script>
 		//Reference: https://www.w3schools.com/howto/howto_js_dropdown.asp;
 		//last accessed: 20170622
@@ -1005,12 +1002,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: -1px;
 	}		
 
+	.Checkout-div {
+		margin: 0px;
+		padding: 0px;
+		position: relative;
+	}
+
 	.Checkout-input {
 	    font-size: 16px;    			
-	    padding: 6px;
-	    width: 100%;
-	    margin-bottom: 12px;		    
+	    padding: 16px 6px 6px 6px;
+		margin-bottom: 12px;
 	    resize: none;
+		width: 100%;
+		height: 50px;
+		color: #3a3a3a;
 	}
 
 	.Checkout-input-mode-of-payment {
@@ -1019,8 +1024,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 100%;
 	    margin: 0;		    
 	}
-
 	
+	.Checkout-input:focus ~ .floating-label,
+	.Checkout-input:not(:focus):valid ~ .floating-label{
+	  bottom: 50px;
+	  font-size: 12px;
+	  opacity: 1;
+	}	
+	
+	.floating-label {
+	  bottom: 40px;
+	  position: absolute;
+	  pointer-events: none;
+	  font-size: 20px;
+	  left: 10px;
+	  transition: 0.2s ease all;
+	  height: 10px;
+	}
+
 	.Quantity-textbox { 
 		background-color: #fCfCfC;
 	    color: #68502b;
