@@ -894,6 +894,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 3px;
 	}
 
+	.Check-out-customer-information {
+		max-width: 50%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+    	margin-bottom: 20px;
+    	font-size: 24px;    	
+    	padding: 16px;
+    	border: 1px solid #4b3b2c;
+    	border-radius: 4px;
+	}
+
 	.Customer-information {
 		max-width: 40%;		
 		float: none;
@@ -1040,6 +1052,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  left: 10px;
 	  transition: 0.2s ease all;
 	  height: 10px;
+	}
+
+	.nopadding {
+	   padding: 0 !important;
+	   margin: 0 !important;
 	}
 
 	.Quantity-textbox { 

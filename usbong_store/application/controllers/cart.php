@@ -167,26 +167,20 @@ class cart extends MY_Controller {
 		$this->load->model('Cart_Model');
 		$this->Cart_Model->checkoutCustomerOrder($data);
 		
+		//added by Mike, 20170710
+		$this->load->library('session');
+		$this->load->library('form_validation');
+		
+		$this->load->model('Account_Model');
+		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
+		
+				
 		$this->load->view('checkout', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 		
 
-
-//		$data[$field] = $_POST[$field];
-		
-/*		
-		$data = array(
-				'product_id' => $this->uri->segment(3),
-				'customer_id' => $this->uri->segment(4),
-				'quantity' => $this->uri->segment(5),
-				'price' => $this->uri->segment(6)
-		);
-		
-		$this->load->model('Cart_Model');
-		$this->Cart_Model->addToCart($data);
-*/		
 	}
 
 	//---------------------------------------------------------
