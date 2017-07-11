@@ -642,6 +642,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Checkout-shopping-cart-text {
 		font-size: 18px;
 		margin-bottom: 10px;
+		color: #1d1d1d;		
 	}
 
 	.Thankyou-text {
@@ -981,6 +982,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	padding: 16px;
     	border: 1px solid #4b3b2c;
     	border-radius: 4px;
+    	color: #1d1d1d;    	
 	}
 
 	.Customer-information {
@@ -1016,6 +1018,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-right: 1px solid;	
 		display: inline-block; 
 		padding-right: 12px;	
+		color: #1d1d1d;		
 	}
 	
 	.register-text {
@@ -1036,6 +1039,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-right: 1px solid;	
 		display: inline-block; 
 		padding-right: 12px;	
+		color: #1d1d1d;		
 	}
 
 	.Login-input {
