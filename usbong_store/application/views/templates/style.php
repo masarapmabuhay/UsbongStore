@@ -644,6 +644,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 10px;
 	}
 
+	.Thankyou-text {
+		font-size: 18px;
+		padding: 20px 100px 20px 100px;
+		color: #1d1d1d;
+	}
+
+	.Thankyou-order-detail-date-and-number {
+		font-size: 16px;
+		padding: 20px 20px 20px 20px;
+		color: #1d1d1d;
+	}
+
+	.Thankyou-order-container {
+		padding: 20px 40px 20px 20px;
+		border: 1px solid #ab9c7d;		
+		border-radius: 4px;
+		margin: 20px;
+		color: #1d1d1d;
+	}
+
+	.Thankyou-order-details {
+		font-size: 14px;
+		padding-left: 20;
+		padding-right: 20;
+		color: #1d1d1d;
+    }
+
+	.Thankyou-order-details-text {
+		font-size: 14px;
+		text-align: left;
+		display:block;
+    }
+
 	.Cart-order-list {
 	}
 
@@ -909,7 +942,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.header {
 		margin: 0px 10px 0px 10px;	
-
+		color: #1d1d1d;
 	}
 
 	.Search-result {
