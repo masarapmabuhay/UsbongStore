@@ -91,6 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  }
 					?>					
 					</div>
+		<form method="post" action="<?php echo site_url('cart/confirm')?>">
 		<div class="col-sm-6 nopadding">			
 			<div class="Checkout-customer-information">	
 				<div class="Customer-information-text-in-checkout"><b>Customer Information</b></div>
@@ -110,7 +111,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 			    ?>
 				<div class="fields">
-						<form method="post" action="<?php echo site_url('account/save')?>">
 								<?php 
 								//Email Address--------------------------------------------------					
 								//Error Message
@@ -289,7 +289,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								$this->session->set_flashdata('errors', null);
 								$this->session->set_flashdata('data', null); //added by Mike, 20170619
 							?>
-						</form>
 					</div>	
 				</div>
 			</div>
@@ -334,12 +333,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row Cart-order-total-row">
 							<div class="col-sm-12">												
 								<button type="submit" class="Button-continue-to-checkout">
-			 						PLACE ORDER
+			 						CONFIRM
 								</button>				
 							</div>
 						</div>											
 					</div>		
 			</div>
+			</form>			
 		</div>
 </body>
 </html>

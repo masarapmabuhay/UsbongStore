@@ -127,49 +127,17 @@ class cart extends MY_Controller {
 		if ($customer_id=="") {
 			redirect(site_url('account/login/'));
 		}
-		
-		if (!isset($_POST['quantityParam0'])) { //if POST variable is empty
+
+		if (!($this->session->flashdata('errors')) && //or coming from field validation and there are errors
+			((!isset($_POST['quantityParam0'])))) {//if POST variable is empty
 			redirect(site_url(''));	//redirect to home page
-		}
-		
+		}		
 		
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
-		
-/*		
-		$this->load->model('Cart_Model');
-		$data['result'] = $this->Cart_Model->getCart($customer_id);
 	
-		
-		
-		$orderTotalPrice = 0;
-		$totalQuantity = 0;
-*/
-		
-		
-//		echo "hello".count($data['result']);
-/*		
-//		for($i=0; $i<count($data['result']); $i++) {
-		$i=0;
-		foreach ($data['result'] as $value) {
-//			echo "hello".$_POST['quantityParam'.$i];
-//			echo "hello".$_POST['priceParam'.$i];
-
-			$orderTotalPrice+=$_POST['quantityParam'.$i]*$_POST['priceParam'.$i];
-			$totalQuantity+=$_POST['quantityParam'.$i];
-
-			$this->Cart_Model->updateQuantityInCart($value['cart_id'], $_POST['quantityParam'.$i]);
-			$i++;
-		}
-//		echo "orderTotalPrice: ".$orderTotalPrice;
-*/
-
-/*
-		$this->load->model('Cart_Model');
-		$this->Cart_Model->checkoutCustomerOrder($data);
-*/		
 		//added by Mike, 20170711
 		if ($customer_id!="") {
 			$this->load->model('Cart_Model');
@@ -213,15 +181,18 @@ class cart extends MY_Controller {
 	// Cart Checkout Confirm
 	//---------------------------------------------------------	
 	public function confirm() {
+		$customer_id = $this->session->userdata('customer_id');
+		
+		$this->form_validation->set_rules('emailAddressParam', 'Email Address', 'valid_email|trim|required');
 		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('contactNumberParam', 'Contact Number', 'trim|required|numeric');
 		$this->form_validation->set_rules('shippingAddressParam', 'Shipping Address', 'trim|required');
-		$this->form_validation->set_rules('countryParam', 'Country', 'trim|required');
 		$this->form_validation->set_rules('cityParam', 'City', 'trim|required');
+		$this->form_validation->set_rules('countryParam', 'Country', 'trim|required');
 		$this->form_validation->set_rules('postalCodeParam', 'Postal Code', 'trim|required|numeric');
 		
-		$fields = array('firstNameParam', 'lastNameParam', 'contactNumberParam', 'shippingAddressParam', 'countryParam', 'cityParam', 'postalCodeParam');
+		$fields = array('emailAddressParam', 'firstNameParam', 'lastNameParam', 'contactNumberParam', 'shippingAddressParam', 'cityParam', 'countryParam', 'postalCodeParam', 'modeOfPaymentParam');
 		
 		foreach ($fields as $field)
 		{
@@ -232,7 +203,7 @@ class cart extends MY_Controller {
 		{
 			$this->session->set_flashdata('errors', validation_errors());
 			$this->session->set_flashdata('data', $data);
-			
+/*			
 			//from application/core/MY_Controller
 			$this::initStyle();
 			$this::initHeader();
@@ -242,7 +213,8 @@ class cart extends MY_Controller {
 			
 			//--------------------------------------------
 			$this->load->view('templates/footer');
-			
+*/			
+			$this->checkout();
 			//redirect('cart/checkout');
 		}
 		else
