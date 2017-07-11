@@ -141,11 +141,13 @@ class cart extends MY_Controller {
 		//added by Mike, 20170711
 		if ($customer_id!="") {
 			$this->load->model('Cart_Model');
-			$data['result'] = $this->Cart_Model->getCart($customer_id);
-			
+			$data['result'] = $this->Cart_Model->getCart($customer_id);			
 			$data['result'] = $this->mergeOutput($data['result']);
+			
+//			$data = $this->processCustomerOrder($data['result'], $customer_id);	
+			$data = array_merge($data, $this->processCustomerOrder($data['result'], $customer_id));
 		}
-		
+/*		
 		$orderTotalPrice = 0;
 		$totalQuantity = 0;
 		
@@ -160,6 +162,7 @@ class cart extends MY_Controller {
 				'status_accepted' => 1,
 				'order_total_price' => $orderTotalPrice
 		));
+*/
 		
 		//added by Mike, 20170710
 		$this->load->library('session');
@@ -177,6 +180,48 @@ class cart extends MY_Controller {
 
 	}
 
+	public function processCustomerOrder($result, $customer_id) {
+/*
+		$this->load->model('Cart_Model');
+		$data['result'] = $this->Cart_Model->getCart($customer_id);
+		
+		$data['result'] = $this->mergeOutput($data['result']);
+*/		
+		$orderTotalPrice = 0;
+		$totalQuantity = 0;
+		
+		foreach ($result as $value) {
+			$orderTotalPrice+=$value['quantity']*$value['price'];
+			$totalQuantity+=$value['quantity'];
+		}
+		
+		return array(
+						'customer_id' => $customer_id,
+						'quantity' => $totalQuantity,
+						'status_accepted' => 1,
+						'order_total_price' => $orderTotalPrice
+				);		
+
+/*		
+		$data = array_merge($data, array(
+				'customer_id' => $customer_id,
+				'quantity' => $totalQuantity,
+				'status_accepted' => 1,
+				'order_total_price' => $orderTotalPrice
+		));
+*/
+/*		
+		$data = array(
+					'customer_id' => $customer_id,
+					'quantity' => $totalQuantity,
+					'status_accepted' => 1,
+					'order_total_price' => $orderTotalPrice
+				);
+		
+		return $data;
+*/		
+	}
+	
 	//---------------------------------------------------------
 	// Cart Checkout Confirm
 	//---------------------------------------------------------	
@@ -203,17 +248,7 @@ class cart extends MY_Controller {
 		{
 			$this->session->set_flashdata('errors', validation_errors());
 			$this->session->set_flashdata('data', $data);
-/*			
-			//from application/core/MY_Controller
-			$this::initStyle();
-			$this::initHeader();
-			//--------------------------------------------
 
-			$this->load->view('checkout', $data);
-			
-			//--------------------------------------------
-			$this->load->view('templates/footer');
-*/			
 			$this->checkout();
 			//redirect('cart/checkout');
 		}
@@ -230,20 +265,29 @@ class cart extends MY_Controller {
 					'logged_in' => TRUE
 			);
 			$this->session->set_userdata($newdata);
-
+*/
 			$this::initStyle();
 			$this::initHeader();
 			
 			//--------------------------------------------
+			$this->load->model('Cart_Model');
+			$data['result'] = $this->Cart_Model->getCart($customer_id);
+			$data['result'] = $this->mergeOutput($data['result']);
+
+//			$data = $this->processCustomerOrder($customer_id);
+//			$data = $this->processCustomerOrder($data['result'], $customer_id);
+			$data = $this->processCustomerOrder($data['result'], $customer_id);
 			
-			$this->load->model('Books_Model');
-			$data['books'] = $this->Books_Model->getBooks();
-			$this->load->view('b/books',$data);
+			
+			$this->load->model('Cart_Model');			
+			$this->Cart_Model->checkoutCustomerOrder($data);
+			
+			$this->load->view('thankyou',$data);
 			
 			//--------------------------------------------
 			$this->load->view('templates/footer');
-*/
-			echo "OK! Success!";
+
+//			echo "OK! Success!";
 			//send the data to DB
 		}
 	}
