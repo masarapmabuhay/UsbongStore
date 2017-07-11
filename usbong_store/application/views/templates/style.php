@@ -566,6 +566,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 
+	.Checkout-product-image {
+	    max-width: 200%;
+    	height: auto;
+	}
+
 	.Popup-product-image {
 	    max-width: 120%;
     	height: auto;
@@ -584,6 +589,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-weight: bold;	
 		margin-top: 4px;			
 		margin-left: 10px;    			
+	}
+
+	.Checkout-product-name {
+		color: #222222;
+		font-size: 14px;
+		font-weight: bold;	
+		margin-left: 2px;    			
 	}
 
 	.Cart-product-price {
@@ -617,6 +629,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-align: right;
 	}
 
+	.Checkout-product-subtotal {
+		color: #b88a1b;
+		font-size: 14px;
+		margin-top: 4px;		
+		text-align: right;
+	}
+
+	.Checkout-order-list {
+	}
+
+	.Checkout-shopping-cart-text {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
 	.Cart-order-list {
 	}
 
@@ -643,6 +670,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Cart-product-author {
 		color: #4b4b4b;
 		font-size: 18px;
+		margin-left: 6px;
+	}
+
+	.Checkout-product-author {
+		color: #4b4b4b;
+		font-size: 14px;
 		margin-left: 6px;
 	}
 
@@ -705,6 +738,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 4px;
 	}
 
+	.Checkout-product-quantity {
+		color: #4b4b4b;
+		font-size: 14px;
+		margin-top: 4px;
+	}
+
 	.Product-quantity {
 		color: #4b4b4b;
 		font-size: 16px;
@@ -713,6 +752,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Quantity-label {
 		padding-right: 8px;
+	}
+
+	.Checkout-quantity-label {
+		padding-right: 8px;
+		color: #463000;
 	}
 
 	.Product-purchase-button {
@@ -894,8 +938,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-top: 3px;
 	}
 
-	.Check-out-customer-information {
-		max-width: 50%;		
+	.Checkout-customer-information {
+		max-width: 80%;		
 		float: none;
     	display: block;
     	margin: 0 auto;

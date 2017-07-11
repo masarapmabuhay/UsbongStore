@@ -48,25 +48,8 @@ class cart extends MY_Controller {
 			if ($customer_id!="") {						
 				$this->load->model('Cart_Model');
 				$data['result'] = $this->Cart_Model->getCart($customer_id);
-				
-				//merge all product items that are the same
-				//increment quantity field accordingly
-	//			echo "hello".count($data['result']);
-				$mergeOutput = array(); //$data['result'];//
-				
-				foreach ($data['result'] as $value) {
-					if ($this->in_array_r($value['name'], $mergeOutput, false)) {					
-						$mergeOutput[$value['name']]['quantity'] += $value['quantity'];
-	//					echo "in array".$mergeOutput[$value['name']]['quantity']."<br>";				
-					}
-					else {
-						$mergeOutput[$value['name']] = $value;
-	//					echo "new ".$value['name']."<br>";
-					}
-					
-				}
-	//		$data['result'] = $finalOutput;//$mergeOutput;
-				$data['result'] = $mergeOutput;			
+
+				$data['result'] = $this->mergeOutput($data['result']);
 			}
 		}		
 
@@ -74,6 +57,27 @@ class cart extends MY_Controller {
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
+	}
+
+	//added by Mike, 20170711
+	public function mergeOutput($d) {		
+		//merge all product items that are the same
+		//increment quantity field accordingly
+		$mergeOutput = array(); //$data['result'];//
+		
+		foreach ($d as $value) {
+			if ($this->in_array_r($value['name'], $mergeOutput, false)) {
+				$mergeOutput[$value['name']]['quantity'] += $value['quantity'];
+				//					echo "in array".$mergeOutput[$value['name']]['quantity']."<br>";
+			}
+			else {
+				$mergeOutput[$value['name']] = $value;
+				//					echo "new ".$value['name']."<br>";
+			}
+			
+		}
+		//		$data['result'] = $finalOutput;//$mergeOutput;
+		return $mergeOutput;		
 	}
 	
 	//Reference: https://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array;
@@ -134,15 +138,19 @@ class cart extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
-		
+/*		
 		$this->load->model('Cart_Model');
 		$data['result'] = $this->Cart_Model->getCart($customer_id);
 	
+		
+		
 		$orderTotalPrice = 0;
 		$totalQuantity = 0;
-
-//		echo "hello".count($data['result']);
+*/
 		
+		
+//		echo "hello".count($data['result']);
+/*		
 //		for($i=0; $i<count($data['result']); $i++) {
 		$i=0;
 		foreach ($data['result'] as $value) {
@@ -156,25 +164,43 @@ class cart extends MY_Controller {
 			$i++;
 		}
 //		echo "orderTotalPrice: ".$orderTotalPrice;
+*/
 
-		$data = array(
+/*
+		$this->load->model('Cart_Model');
+		$this->Cart_Model->checkoutCustomerOrder($data);
+*/		
+		//added by Mike, 20170711
+		if ($customer_id!="") {
+			$this->load->model('Cart_Model');
+			$data['result'] = $this->Cart_Model->getCart($customer_id);
+			
+			$data['result'] = $this->mergeOutput($data['result']);
+		}
+		
+		$orderTotalPrice = 0;
+		$totalQuantity = 0;
+		
+		foreach ($data['result'] as $value) {			
+			$orderTotalPrice+=$value['quantity']*$value['price'];
+			$totalQuantity+=$value['quantity'];			
+		}
+
+		$data = array_merge($data, array(
 				'customer_id' => $customer_id,
 				'quantity' => $totalQuantity,
 				'status_accepted' => 1,
-				'order_total_price' => $orderTotalPrice				
-		);			
-
-		$this->load->model('Cart_Model');
-		$this->Cart_Model->checkoutCustomerOrder($data);
+				'order_total_price' => $orderTotalPrice
+		));
 		
 		//added by Mike, 20170710
 		$this->load->library('session');
 		$this->load->library('form_validation');
 		
 		$this->load->model('Account_Model');
-		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
-		
+		$data['customer_information_result'] = $this->Account_Model->getCustomerInformation($customer_id);
 				
+		
 		$this->load->view('checkout', $data);
 		
 		//--------------------------------------------

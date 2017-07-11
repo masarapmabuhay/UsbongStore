@@ -9,8 +9,90 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 	<div>
 	<div class="row nopadding">
-		<div class="col-sm-9 nopadding">			
-			<div class="Check-out-customer-information">	
+		<div class="col-sm-3 Checkout-order-list">	
+		<div class="Checkout-shopping-cart-text"><b>Shopping Cart</b></div>			
+				<?php				
+					//added by Mike, 20170626
+//					$orderTotal = 0;				
+					$colCounter = 0;
+					$itemCounter = 0;
+//					$totalQuantity = 0;
+										
+					foreach ($result as $value) {
+						$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+						$URLFriendlyReformattedProductName = str_replace(',','',str_replace(' ','-',$reformattedProductName)); //replace " " and "-"
+						$URLFriendlyReformattedBookAuthor = str_replace(',','',str_replace(' ','-',$value['author'])); //replace " " and "-"
+						
+						$productType="books"; //default
+						switch($value['product_type_id']) {
+							case 3: //beverages
+								$productType="beverages";
+								break;
+							case 5: //combos
+								$productType="combos";
+								break;
+							case 6: //comics
+								$productType="comics";
+								break;
+							case 7: //manga
+								$productType="manga";
+								break;
+							case 8: //toys & collectibles
+								$productType="toys_and_collectibles";
+								break;
+						}
+					?>
+						<div class="row">
+							<div class="col-sm-2">	
+								<img class="Checkout-product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
+							</div>
+							<div class="col-sm-7">	
+								<div class="row Checkout-product-name">							
+									<?php
+										echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
+										echo $value['name'];
+										echo '</a>';
+									?>
+								</div>
+								<div class="row Checkout-product-author">
+									<b>
+									<?php
+										echo $value['author'];
+									?>
+									</b>
+								</div>		
+								<div class="row Checkout-product-quantity">
+									<label class="Checkout-quantity-label">Quantity: <?php echo $value['quantity'];?></label>
+								</div>										
+							</div>
+							<div class="col-sm-3">								
+								<div class="row Checkout-product-subtotal">
+									<?php
+										if (trim($value['price'])=='') {
+											echo '&#x20B1; 0';
+										}
+										else {
+											echo '<label id="subtotalId'.$itemCounter.'">&#x20B1;'.$value['quantity']*$value['price'].'</label>';
+										}
+/*																																							
+										//added by Mike, 20170626
+										$orderTotal+=($value['quantity']*$value['price']); //multiply with quantity to get the subtotal
+*/										
+									?>	
+									<br>
+									<label class="Cart-product-item-subtotal">(Subtotal)</label>																				
+								</div>
+							</div>
+						</div>
+						<hr class="Cart-hr">
+					<?php 
+//						$totalQuantity+=$value['quantity'];
+						$itemCounter++;
+					  }
+					?>					
+					</div>
+		<div class="col-sm-6 nopadding">			
+			<div class="Checkout-customer-information">	
 				<div class="Customer-information-text-in-checkout"><b>Customer Information</b></div>
 				<?php
 					//added by Mike, 20170710
@@ -39,8 +121,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['emailAddressParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$data['emailAddressParam'].'" required>';
 								}
-								else if (isset($result->customer_email_address)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$result->customer_email_address.'" required>';
+								else if (isset($customer_information_result->customer_email_address)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$customer_information_result->customer_email_address.'" required>';
 								}
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" required>';
@@ -54,8 +136,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['firstNameParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
 								}
-								else if (isset($result->customer_first_name)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$result->customer_first_name.'" required>';
+								else if (isset($customer_information_result->customer_first_name)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$customer_information_result->customer_first_name.'" required>';
 								}						
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" required>';
@@ -67,13 +149,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								//Last Name--------------------------------------------------
 								echo '<div class="Checkout-div">';					
 								if (isset($data['lastNameParam'])) {
-									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
 								}
-								else if (isset($result->customer_last_name)) {
-									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$result->customer_last_name.'" required>';
+								else if (isset($customer_information_result->customer_last_name)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="lastNameParam" value="'.$customer_information_result->customer_last_name.'" required>';
 								}						
 								else { //default
-									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" name="lastNameParam" required>';
 								}
 								echo '<span class="floating-label">Last Name</span>';
 								echo '</div>';
@@ -89,8 +171,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['contactNumberParam'])) {
 									echo '<input type="tel" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$data['contactNumberParam'].'" required>';
 								}
-								else if (isset($result->customer_contact_number)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$result->customer_contact_number.'" required>';
+								else if (isset($customer_information_result->customer_contact_number)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$customer_information_result->customer_contact_number.'" required>';
 								}
 								else { //default
 									echo '<input type="tel" class="Checkout-input" placeholder="" name="contactNumberParam" required>';
@@ -105,8 +187,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['shippingAddressParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
 								}
-								else if (isset($result->customer_shipping_address)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$result->customer_shipping_address.'" required>';
+								else if (isset($customer_information_result->customer_shipping_address)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$customer_information_result->customer_shipping_address.'" required>';
 								}
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" required>';
@@ -120,8 +202,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['cityParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$data['cityParam'].'" required>';
 								}
-								else if (isset($result->customer_city)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$result->customer_city.'" required>';
+								else if (isset($customer_information_result->customer_city)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$customer_information_result->customer_city.'" required>';
 								}
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" required>';
@@ -136,8 +218,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['countryParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$data['countryParam'].'" required>';
 								}
-								else if (isset($result->customer_country)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$result->customer_country.'" required>';
+								else if (isset($customer_information_result->customer_country)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$customer_information_result->customer_country.'" required>';
 								}
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" required>';
@@ -155,8 +237,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['postalCodeParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
 								}
-								else if (isset($result->customer_postal_code)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$result->customer_postal_code.'" required>';
+								else if (isset($customer_information_result->customer_postal_code)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$customer_information_result->customer_postal_code.'" required>';
 								}
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" required>';
@@ -175,8 +257,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										$isBankDepositChecked=false;
 									}							
 								}						
-								else if (isset($result->mode_of_payment_id)) {
-									if ($result->mode_of_payment_id==0) {
+								else if (isset($customer_information_result->mode_of_payment_id)) {
+									if ($customer_information_result->mode_of_payment_id==0) {
 										$isBankDepositChecked=true;
 									}
 									else {
@@ -207,12 +289,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								$this->session->set_flashdata('errors', null);
 								$this->session->set_flashdata('data', null); //added by Mike, 20170619
 							?>
-							<br><br>
-							<button type="submit" class="Button-login">
-			<!-- <img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
-			 -->					
-			 				Save
-							</button>
 						</form>
 					</div>	
 				</div>
