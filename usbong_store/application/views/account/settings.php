@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$this->session->set_flashdata('errors', null);
 						$this->session->set_flashdata('data', null); //added by Mike, 20170619
 					?>
-					<br><br>
+					<br>
 					<button type="submit" class="Button-login">
 	<!-- <img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
 	 -->					
