@@ -414,14 +414,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #dec32e;
 	}
 	
-	a.Footer-list-header {
+	a.Footer-list-item {
+		color: #fff;
+	}
+	
+	span.Footer-list-header {
 		color: #fff;
 		font-weight: bold;
 		font-size: 20px;
 	}
 
-	a.Footer-list-item {
-		color: #fff;
+	span.Footer-list-header:hover {
 	}
 	
 	hr {

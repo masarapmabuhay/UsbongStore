@@ -64,11 +64,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<br><label class="Product-item-price">out of stock</label>';
 						echo '</label>';
 					}
+					echo '</a>';
 					echo '</div>';
 					$colCounter++;
 				}
 				else {
-					echo '</a>';				
 					echo '</div>';
 					$colCounter=0;
 				}

@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-sm-4">						
 				<ul class="Footer-container-list">
-					<li><a class="Footer-list-header"><b>Categories</b></a></li>					
+					<li><span class="Footer-list-header"><b>Categories</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/combos/')?>">COMBOS</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
@@ -20,11 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-4">
 				<ul class="Footer-container-list">
-					<li><a class="Footer-list-header"><b>Mobile Apps</b></a></li>					
+					<li><span class="Footer-list-header"><b>Mobile Apps</b></span></li>					
 					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.specialty_bookstore&hl=en" target="_blank">Usbong Specialty Bookstore App</a></li>					
 					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.store_app" target="_blank">Usbong Store App</a></li>					
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
-					<li><a class="Footer-list-header" href = "<?php echo site_url('b/books/')?>"><b>My Account</b></a></li>					
+					<li><span class="Footer-list-header"><b>My Account</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('account/settings/')?>">Settings</a></li>	
 					<li><a class="Footer-list-item" href = "<?php 
 																//added by Mike, 20170627
@@ -40,10 +40,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-4">		
 				<ul class="Footer-container-list">
-					<li><a class="Footer-list-header"><b>Information</b></a></li>					
+					<li><span class="Footer-list-header"><b>Information</b></span></li>					
 					<li><a class="Footer-list-item" href ="http://www.usbong.ph" target="_blank">USBONG.PH</a></li>					
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
-					<li><a class="Footer-list-header" href = "<?php echo site_url('b/books/')?>"><b>Quick Help</b></a></li>					
+					<li><span class="Footer-list-header"><b>Quick Help</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">Help & Support</a></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">Contact Us</a></li>					
 				</ul>
