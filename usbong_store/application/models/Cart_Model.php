@@ -8,11 +8,13 @@ class Cart_Model extends CI_Model
 		$query = $this->db->get('product');
 		return $query->result_array();
 */		
-		$this->db->select('t1.cart_id, t1.product_id, t1.quantity, t2.name, t2.author, t2.price, t2.product_type_id');
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t2.name, t2.author, t2.price, t2.product_type_id');
 		$this->db->from('cart as t1');
 		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
 		$this->db->where('t1.customer_id', $customerId);
 		$this->db->where('t1.removed_datetime_stamp', 0);		
+		$this->db->where('t1.customer_order_id', null);
+		
 		$query = $this->db->get();
 		
 		return $query->result_array();
@@ -88,6 +90,7 @@ class Cart_Model extends CI_Model
 	public function getTotalItemsInCart($param) {
 		$this->db->select('quantity');
 		$this->db->where('customer_id', $param);
+		$this->db->where('customer_order_id', null);		
 		$query = $this->db->get('cart');
 //		$result = $query->result_array;
 		

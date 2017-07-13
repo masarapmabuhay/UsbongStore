@@ -272,10 +272,6 @@ class cart extends MY_Controller {
 			);
 			$this->session->set_userdata($newdata);
 */
-			$this::initStyle();
-			$this::initHeader();
-			
-			//--------------------------------------------
 			$this->load->model('Cart_Model');
 			$data['result'] = $this->Cart_Model->getCart($customer_id);
 			$data['result'] = $this->mergeOutput($data['result']);
@@ -283,10 +279,14 @@ class cart extends MY_Controller {
 //			$data = $this->processCustomerOrder($customer_id);
 //			$data = $this->processCustomerOrder($data['result'], $customer_id);
 			$data = $this->processCustomerOrder($data['result'], $customer_id);
-			
-			
+						
 			$this->load->model('Cart_Model');			
 			$this->Cart_Model->checkoutCustomerOrder($data);
+			
+			
+			$this::initStyle();
+			$this::initHeader();			
+			//--------------------------------------------
 			
 			$this->load->view('thankyou',$data);
 			
