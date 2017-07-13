@@ -164,8 +164,16 @@ class account extends MY_Controller {
 			 $this->load->view('templates/footer');
 			 */
 //			echo "OK! Success!";
-			
+/*			
 			$this->session->set_flashdata('data', $data);
+			
+			$newdata = array(
+					'customer_id'  => $customer_id
+			);
+			$this->session->set_userdata($newdata);
+*/			
+/*			
+//			$customer_id = $this->session->userdata('customer_id');
 			
 			//from application/core/MY_Controller
 			$this::initStyle();
@@ -182,6 +190,11 @@ class account extends MY_Controller {
 			
 			//--------------------------------------------
 			$this->load->view('templates/footer');			
+*/
+			$this->load->model('Account_Model');
+			$this->Account_Model->updateAccount($customer_id, $data);
+			
+			$this->settings();
 		}
 	}	
 }

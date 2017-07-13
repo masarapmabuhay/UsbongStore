@@ -11,6 +11,16 @@ class MY_Controller extends CI_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 
 		if ($customer_id!="") {			
+			$this->load->model('Account_Model');
+			
+			$customerInformation = $this->Account_Model->getCustomerInformation($customer_id);
+			//$data['customer_first_name'] = $customerInformation->customer_first_name;
+
+			$newdata = array(
+					'customer_first_name'  => $customerInformation->customer_first_name
+			);
+			$this->session->set_userdata($newdata);
+			
 			$this->load->model('Cart_Model');
 			$data['totalItemsInCart'] = $this->Cart_Model->getTotalItemsInCart($customer_id);			
 		}	
