@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="header">Thank you! Your order is confirmed.</h3>
+	<h3 class="Thankyou-header">&#x2714; Thank you! Your order is confirmed.</h3>
 	<p class="Thankyou-text"> We've accepted your order, and are now processing it. You will receive a confirmation email from us with the next steps.</p>
 	<br>
 	<h4 class="header"><b>Order Details</b></h4>

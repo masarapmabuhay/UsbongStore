@@ -656,7 +656,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Thankyou-order-detail-date-and-number {
 		font-size: 16px;
-		padding: 20px 20px 20px 20px;
+		padding: 20px 20px 5px 20px;
 		color: #1d1d1d;
 	}
 
@@ -670,8 +670,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Thankyou-order-details {
 		font-size: 14px;
-		padding-left: 20;
-		padding-right: 20;
+		padding-left: 20px;
+		padding-right: 20px;
 		color: #1d1d1d;
     }
 
@@ -679,6 +679,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 14px;
 		text-align: left;
 		display:block;
+		padding-left: 18px;
     }
 
 	.Cart-order-list {
@@ -949,6 +950,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #1d1d1d;
 	}
 
+	.Thankyou-header {
+		margin: 0px 10px 0px 10px;	
+	    color: #77b043
+	}
+	
 	.Search-result {
 		margin-left: 100px;
 		margin-bottom: 32px;	
