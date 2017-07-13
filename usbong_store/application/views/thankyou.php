@@ -5,7 +5,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="Thankyou-header">&#x2714; Thank you! Your order is confirmed.</h3>
+	<?php 
+		$data=[];
+		if ($this->session->flashdata('data')) {
+			$data = $this->session->flashdata('data');
+		}
+	?>
+	<h3 class="Thankyou-header">&#x2714; Thank you<?php echo ', '.$data['firstNameParam'];?>! Your order is confirmed.</h3>
 	<p class="Thankyou-text"> We've accepted your order, and are now processing it. You will receive a confirmation email from us with the next steps.</p>
 	<br>
 	<h4 class="header"><b>Order Details</b></h4>
@@ -15,15 +21,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-3 Thankyou-order-details">
 				<div class="Thankyou-order-details-text">
 					<b>Shipping Address</b><br>
-					Usbong Social Systems, Inc.<br>
-					2 E. Rodriguez Ave. Sto. Nino<br>
-					Marikina City, 1800,<br>
-					Philippines<br>
+					<?php echo $data['firstNameParam'].' '.$data['lastNameParam'].'<br>';?>
+					<?php echo $data['shippingAddressParam'].'<br>';?>
+					<?php echo $data['cityParam'].', '.$data['postalCodeParam'].',<br>';?>
+					<?php echo $data['countryParam'].'<br>';?>
 				</div>
 			</div>
 			<div class="col-sm-3 Thankyou-order-details">		
 				<b>Payment Method</b><br>
-				Bank Deposit
+					<?php 
+						if ($data['modeOfPaymentParam']==0) {
+							echo 'Bank Deposit';
+						}
+						else {
+							echo 'Paypal';
+						}
+					?>
 			</div>
 			<div class="col-sm-3 Thankyou-order-details">		
 			</div>
