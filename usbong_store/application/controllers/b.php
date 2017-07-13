@@ -174,6 +174,24 @@ class b extends MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}	
+
+	//---------------------------------------------------------
+	// Textbooks Category
+	//---------------------------------------------------------
+	public function textbooks()
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		$this->load->model('Textbooks_Model');
+		$data['books'] = $this->Textbooks_Model->getTextbooks();
+		$this->load->view('b/textbooks',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
 	
 	//---------------------------------------------------------
 	// COMBOS Category
