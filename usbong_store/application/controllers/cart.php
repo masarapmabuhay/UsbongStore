@@ -196,8 +196,7 @@ class cart extends MY_Controller {
 		}
 		
 		date_default_timezone_set('Asia/Hong_Kong');
-		$dateTimeStamp = date('Y/m/d H:i:s a');
-				
+		$dateTimeStamp = date('Y/m/d H:i:s');				
 		
 		return array(
 						'customer_id' => $customer_id,
@@ -284,10 +283,16 @@ class cart extends MY_Controller {
 //			$data = $this->processCustomerOrder($customer_id);
 //			$data = $this->processCustomerOrder($data['result'], $customer_id);
 			$data = $this->processCustomerOrder($data['result'], $customer_id);
+			
 						
 			$this->load->model('Cart_Model');			
 			$this->Cart_Model->checkoutCustomerOrder($data);
+
+//			echo "hey ".$data['added_datetime_stamp'];
 			
+			$data['order_number'] = strtotime($data['added_datetime_stamp']);	
+			$date = date_create($data['added_datetime_stamp']);
+			$data['date'] = date_format($date, 'F j, Y');
 			
 			$this::initStyle();
 			$this::initHeader();			

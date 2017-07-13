@@ -55,7 +55,7 @@ class Cart_Model extends CI_Model
 	
 	public function removeItemInCart($customerId, $productId) {		
 		date_default_timezone_set('Asia/Hong_Kong');
-		$dateTimeStamp = date('Y/m/d H:i:s a');
+		$dateTimeStamp = date('Y/m/d H:i:s');
 		
 		$updateData = array(
 				'quantity' => 0,

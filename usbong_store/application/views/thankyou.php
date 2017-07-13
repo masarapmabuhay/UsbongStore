@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<p class="Thankyou-text"> We've accepted your order, and are now processing it. You will receive a confirmation email from us with the next steps.</p>
 	<br>
 	<h4 class="header"><b>Order Details</b></h4>
-	<p class="Thankyou-order-detail-date-and-number">Order on July 11, 2017 | Order# 1234567890</p>
+	<p class="Thankyou-order-detail-date-and-number">Order on <?php echo $date;?> | Order# <?php echo $order_number;?></p>
 	<div class="Thankyou-order-container">
 		<div class="row">
 			<div class="col-sm-3 Thankyou-order-details">
