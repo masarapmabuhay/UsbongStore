@@ -46,19 +46,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row Cart-order-total-row">
 						<div class="col-sm-6">		
 							<?php 
-								$totalQuantity=1;
-								$orderTotal=1000;
+//								$totalQuantity=1;
+//								$orderTotal=1000;
 								
-								if ($totalQuantity>1) {	
-									echo '<span id="totalQuantityId">'.$totalQuantity.'</span> items';
+								if ($quantity>1) {	
+									echo '<span id="totalQuantityId">'.$quantity.'</span> items';
 								}
 								else {
-									echo '<span id="totalQuantityId">'.$totalQuantity.'</span> item';
+									echo '<span id="totalQuantityId">'.$quantity.'</span> item';
 								}
 							?>		
 						</div>
 						<div class="col-sm-6 Cart-order-price">		
-						    <?php echo '<label>&#x20B1;<span id="orderTotalId1">'.$orderTotal.'</span></label>';?>
+						    <?php echo '<label>&#x20B1;<span id="orderTotalId1">'.$order_total_price.'</span></label>';?>
 						
 							<?php //echo '&#x20B1; '.$orderTotal?>		
 						</div>								
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							Order Total
 						</div>
 						<div class="col-sm-6 Cart-order-price">		
-						    <?php echo '<label>&#x20B1;<span id="orderTotalId2">'.$orderTotal.'</span></label>';?>
+						    <?php echo '<label>&#x20B1;<span id="orderTotalId2">'.$order_total_price.'</span></label>';?>
 
 							<?php //echo '&#x20B1; '.$orderTotal?>		
 						</div>								
