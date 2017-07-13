@@ -55,7 +55,7 @@ class Cart_Model extends CI_Model
 	
 	public function removeItemInCart($customerId, $productId) {		
 		date_default_timezone_set('Asia/Hong_Kong');
-		$dateTimeStamp = date('Y/m/d h:i:s a');
+		$dateTimeStamp = date('Y/m/d H:i:s a');
 		
 		$updateData = array(
 				'quantity' => 0,
@@ -72,13 +72,14 @@ class Cart_Model extends CI_Model
 		$customerOrderId = $this->db->insert_id(); //newly inserted Row
 		
 //		echo "hello".$customerOrderId;
-		
+/*		
 		date_default_timezone_set('Asia/Hong_Kong');
 		$dateTimeStamp = date('Y/m/d h:i:s a');
+*/
 		
 		$updateData = array(
 				'customer_order_id' => $customerOrderId,
-				'purchased_datetime_stamp' => $dateTimeStamp
+				'purchased_datetime_stamp' => $data['added_datetime_stamp']
 		);
 		$this->db->where('customer_id', $data['customer_id']);
 		$this->db->where('purchased_datetime_stamp', 0);

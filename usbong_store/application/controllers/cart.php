@@ -195,11 +195,16 @@ class cart extends MY_Controller {
 			$totalQuantity+=$value['quantity'];
 		}
 		
+		date_default_timezone_set('Asia/Hong_Kong');
+		$dateTimeStamp = date('Y/m/d H:i:s a');
+				
+		
 		return array(
 						'customer_id' => $customer_id,
 						'quantity' => $totalQuantity,
 						'status_accepted' => 1,
-						'order_total_price' => $orderTotalPrice
+						'order_total_price' => $orderTotalPrice,
+						'added_datetime_stamp' => $dateTimeStamp
 				);		
 
 /*		
