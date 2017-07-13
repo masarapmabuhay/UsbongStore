@@ -257,6 +257,9 @@ class cart extends MY_Controller {
 			//added by Mike, 20170713
 			$this->session->set_flashdata('data', $data);
 			
+			$this->load->model('Account_Model');
+			$this->Account_Model->updateAccount($customer_id, $data);
+			
 /*			
 			$this->load->model('Account_Model');
 			$this->Account_Model->registerAccount($data);
