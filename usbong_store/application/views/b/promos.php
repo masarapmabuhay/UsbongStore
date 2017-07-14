@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row">';	
 					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
-					echo '<img class="Image-item" src="'.base_url('assets/images/combos/'.$reformattedProductName.'.jpg').'">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';
 					
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else if ($colCounter<5){
 					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
-					echo '<img class="Image-item" src="'.base_url('assets/images/combos/'.$reformattedProductName.'.jpg').'">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';					
 					

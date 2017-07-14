@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							$productType="beverages";
 							break;
 						case 5: //combos
-							$productType="combos";
+							$productType="promos";
 							break;
 						case 6: //comics
 							$productType="comics";

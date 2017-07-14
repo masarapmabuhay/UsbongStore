@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				foreach ($result as $value) {
 					$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 					$URLFriendlyReformattedProductName = str_replace(',','',str_replace(' ','-',$reformattedProductName)); //replace " " and "-"
-					$URLFriendlyReformattedBookAuthor = str_replace(',','',str_replace(' ','-',$value['author'])); //replace " " and "-"
+					$URLFriendlyReformattedProductAuthor = str_replace(',','',str_replace(' ','-',$value['author'])); //replace " " and "-"
 					
 					$productType="books"; //default
 					switch($value['product_type_id']) {
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							$productType="beverages";
 							break;
 						case 5: //combos
-							$productType="combos";
+							$productType="promos";
 							break;
 						case 6: //comics
 							$productType="comics";
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-sm-5">	
 							<div class="row Product-name">							
 								<?php
-									echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
+									echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 									echo $value['name'];
 									echo '</a>';
 								?>
