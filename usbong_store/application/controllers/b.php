@@ -194,9 +194,9 @@ class b extends MY_Controller {
 	}
 	
 	//---------------------------------------------------------
-	// COMBOS Category
+	// PROMOS Category
 	//---------------------------------------------------------
-	public function combos()
+	public function promos()
 	{
 		//from application/core/MY_Controller
 		$this::initStyle();
@@ -204,10 +204,10 @@ class b extends MY_Controller {
 		//--------------------------------------------
 		
 //		$data['content'] = 'category/Combos';
-		$this->load->model('Combos_Model');
-		$data['combos'] = $this->Combos_Model->getCombos();
+		$this->load->model('Promos_Model');
+		$data['promos'] = $this->Promos_Model->getPromos();
 		//		$this->load->view('templates/general_template',$data);
-		$this->load->view('b/combos',$data);
+		$this->load->view('b/promos',$data);
 
 		//--------------------------------------------
 		$this->load->view('templates/footer');		

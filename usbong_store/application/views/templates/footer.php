@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><span class="Footer-list-header"><b>Categories</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/textbooks/')?>">TEXTBOOKS</a></li>
-				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/combos/')?>">COMBOS</a></li>
+				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/promos/')?>">PROMOS</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/comics/')?>">COMICS</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/manga/')?>">MANGA</a></li>

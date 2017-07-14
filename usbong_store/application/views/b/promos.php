@@ -5,12 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="header">Combos</h3>
+	<h3 class="header">Promos</h3>
 	<br>
 	<div class="container">
 	<?php
 			$colCounter = 0;
-			foreach ($combos as $value) {
+			foreach ($promos as $value) {
 				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				$URLFriendlyReformattedProductName = str_replace("(","",
 												  str_replace(")","",
