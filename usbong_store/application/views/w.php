@@ -10,9 +10,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-sm-3">	
 				<?php 
-					$reformattedBookName = str_replace(':','',str_replace('\'','',$result->name)); //remove ":" and "'"				
+				
+					$reformattedProductName = str_replace(':','',str_replace('\'','',$result->name)); //remove ":" and "'"				
+					
+					$productType="books"; //default
+					switch($result->product_type_id) {
+						case 3: //beverages
+							$productType="beverages";
+							break;
+						case 5: //combos
+							$productType="combos";
+							break;
+						case 6: //comics
+							$productType="comics";
+							break;
+						case 7: //manga
+							$productType="manga";
+							break;
+						case 8: //toys & collectibles
+							$productType="toys_and_collectibles";
+							break;
+						case 9: //textbooks
+							$productType="textbooks";
+							break;						
+					}
 				?>
-				<img class="Product-image" src="<?php echo base_url('assets/images/books/'.$reformattedBookName.'.jpg');?>">				
+				<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 			</div>
 			<div class="col-sm-5">	
 				<div class="row Product-name">
@@ -73,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div id="myPopup" class="popup-content">
 							<div class="row">
 								<div class="col-sm-4">									
-									<img class="Popup-product-image" src="<?php echo base_url('assets/images/books/'.$reformattedBookName.'.jpg');?>">				
+									<img class="Popup-product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 								</div>
 								<div class="col-sm-8 Popup-product-details">
 									<span id="quantityId"></span>

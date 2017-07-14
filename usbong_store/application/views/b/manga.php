@@ -11,40 +11,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php
 			$colCounter = 0;
 			foreach ($manga as $value) {
-				$reformattedMangaName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+				$URLFriendlyReformattedProductName = str_replace("(","",
+												  str_replace(")","",
+													str_replace("&","and",
+													str_replace(',','',
+														str_replace(' ','-',
+															$reformattedProductName))))); //replace "&", " ", and "-"
+				$URLFriendlyReformattedProductAuthor = str_replace("(","",
+													str_replace(")","",
+														str_replace("&","and",
+															str_replace(',','',
+																str_replace(' ','-',
+																	$value['author']))))); //replace "&", " ", and "-"
+				
 				if ($colCounter==0) {
 					echo '<div class="row">';	
-					echo '<div class="col-sm-3 Product-item">';
-					echo '<img class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedMangaName.'.jpg').'">';
-					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
-					echo '<label class="Product-item-details">';
-
-					if ($value['price']!=null) {
-						echo '<label class="Product-item-price">₱'.$value['price'].'</label>';
-						echo '</label>';
-					}
-					else {
-						echo '<br><label class="Product-item-price">out of stock</label>';
-						echo '</label>';
-					}
-					echo '</div>';
-					$colCounter++;				
-				}
-				else if ($colCounter<4){
-					echo '<div class="col-sm-3 Product-item">';
-					echo '<img class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedMangaName.'.jpg').'">';
+					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
+					echo '<div class="col-sm-2 Product-item">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';
 					
-					if ($value['price']!=null) {
-						echo '<label class="Product-item-price">₱'.$value['price'].'</label>';
+//					if ($value['price']!=null) {
+					if ($value['quantity_in_stock']!=0) {
+						echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+						echo '</label>';					
+					}
+					else {
+						echo '<label class="Product-item-price">out of stock</label>';					
+						echo '</label>';
+					}			
+					echo '</a>';
+					echo '</div>';
+					$colCounter++;				
+				}
+				else if ($colCounter<5){
+					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
+					echo '<div class="col-sm-2 Product-item">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedProductName.'.jpg').'">';
+					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
+					echo '<label class="Product-item-details">';					
+					
+//					if ($value['price']!=null) {
+					if ($value['quantity_in_stock']!=0) {
+						echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 						echo '</label>';
 					}
 					else {
-						echo '<br><label class="Product-item-price">out of stock</label>';
+						echo '<label class="Product-item-price">out of stock</label>';
 						echo '</label>';
 					}
-					echo '</div>';					
+					echo '</a>';
+					echo '</div>';
 					$colCounter++;
 				}
 				else {
@@ -52,8 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter=0;
 				}
 			}
-			echo '</div>';			
+			echo '</div>';
 	?>
-	</div>
+	</div>	
 </body>
 </html>
