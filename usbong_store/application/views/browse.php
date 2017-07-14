@@ -30,9 +30,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$itemCounter = 0;
 				
 				foreach ($result as $value) {
+/*					
 					$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 					$URLFriendlyReformattedProductName = str_replace(',','',str_replace(' ','-',$reformattedProductName)); //replace " " and "-"
 					$URLFriendlyReformattedProductAuthor = str_replace(',','',str_replace(' ','-',$value['author'])); //replace " " and "-"
+*/
+					$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+					$URLFriendlyReformattedProductName = str_replace("(","",
+														str_replace(")","",
+															str_replace("&","and",
+															str_replace(',','',
+																str_replace(' ','-',
+																	$reformattedProductName))))); //replace "&", " ", and "-"
+					$URLFriendlyReformattedProductAuthor = str_replace("(","",
+														str_replace(")","",
+															str_replace("&","and",
+																str_replace(',','',
+																str_replace(' ','-',
+																	$value['author']))))); //replace "&", " ", and "-"
 					
 					$productType="books"; //default
 					switch($value['product_type_id']) {
