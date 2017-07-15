@@ -51,6 +51,10 @@ class account extends MY_Controller {
 	public function ordersummary() {
 		$customer_id = $this->session->userdata('customer_id');
 		
+		if (!isset($customer_id)) {
+			redirect('account/login'); //home page
+		}
+		
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
