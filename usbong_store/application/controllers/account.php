@@ -86,7 +86,7 @@ class account extends MY_Controller {
 
 		date_default_timezone_set('Asia/Hong_Kong');
 
-		$offset = -strtotime('14:00', 0);		
+		$offset = -strtotime('8:00', 0);		
 		$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3)+$offset);
 		echo 'hello '.$addedDateTimeStamp;
 
