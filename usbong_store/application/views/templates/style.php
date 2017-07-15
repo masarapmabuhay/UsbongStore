@@ -740,6 +740,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Order-summary {
 		font-size: 18px;
+		color: #4b4b4b;
+	}
+
+	.Order-summary-price {
+		text-align: left;
+    	display: inline-block;
+	}
+
+	.Order-summary-alternate {
+		font-size: 18px;
+		color: #4b4b4b;		
+		background-color: #f4f2ef;
 	}
 	
 	.Popup-product-details {

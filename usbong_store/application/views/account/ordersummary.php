@@ -34,28 +34,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</div>
 					<?php 
+						$counter=0;
 						foreach ($order_summary as $value) {
 							echo '<div class="row">';
-
-								echo '<div class="col-sm-2 Order-summary">';
-								echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
-								echo '</div>';
+								if ($counter!=0) {
+									echo '<div class="col-sm-2 Order-summary-alternate">';
+									echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary-alternate">';
+									echo strtotime($value['added_datetime_stamp']);
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary-alternate">';
+									echo $value['quantity'];
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary-alternate">';
+									echo "Accepted";
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+									echo '&#x20B1;'.$value['order_total_price'];
+									echo '</div>';
+									
+								}
+								else {
+									echo '<div class="col-sm-2 Order-summary">';
+									echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary">';
+									echo strtotime($value['added_datetime_stamp']);
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary">';
+									echo $value['quantity'];
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary">';
+									echo "Accepted";
+									echo '</div>';
+									
+									echo '<div class="col-sm-2 Order-summary">';
+									echo '&#x20B1;'.$value['order_total_price'];
+									echo '</div>';									
+								}
 								
-								echo '<div class="col-sm-2 Order-summary">';
-								echo strtotime($value['added_datetime_stamp']);							
-								echo '</div>';
-								
-								echo '<div class="col-sm-2 Order-summary">';
-								echo $value['quantity'];							
-								echo '</div>';
-								
-								echo '<div class="col-sm-2 Order-summary">';
-								echo "Accepted";
-								echo '</div>';
-								
-								echo '<div class="col-sm-2 Order-summary">';
-								echo $value['order_total_price'];
-								echo '</div>';
+								$counter=($counter+1)%2;
 								
 							echo '</div>';		
 						}
