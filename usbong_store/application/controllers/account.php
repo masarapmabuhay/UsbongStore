@@ -72,6 +72,31 @@ class account extends MY_Controller {
 		$this->load->view('templates/footer');	
 	}
 	
+	public function orderdetails() {
+		$customer_id = $this->session->userdata('customer_id');
+		
+		if (!isset($customer_id)) {
+			redirect('account/login'); //home page
+		}
+		
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+/*		
+		$this->load->model('Account_Model');
+		$data['order_summary'] = $this->Account_Model->getCustomerOrders($customer_id);
+		
+		$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+		$this->load->view('account/orderdetails', $data);
+*/		
+		$this->load->view('account/orderdetails');
+
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
+	
 	public function logout() {
 		session_destroy();
 		
