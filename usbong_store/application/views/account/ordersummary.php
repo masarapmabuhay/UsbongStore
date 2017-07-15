@@ -36,9 +36,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?php 
 						foreach ($order_summary as $value) {
 							echo '<div class="row">';
-							
-							echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
-							
+
+								echo '<div class="col-sm-2 Order-summary">';
+								echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
+								echo '</div>';
+								
+								echo '<div class="col-sm-2 Order-summary">';
+								echo strtotime($value['added_datetime_stamp']);							
+								echo '</div>';
+								
+								echo '<div class="col-sm-2 Order-summary">';
+								echo $value['quantity'];							
+								echo '</div>';
+								
+								echo '<div class="col-sm-2 Order-summary">';
+								echo "Accepted";
+								echo '</div>';
+								
+								echo '<div class="col-sm-2 Order-summary">';
+								echo $value['order_total_price'];
+								echo '</div>';
+								
 							echo '</div>';		
 						}
 					?>					
@@ -46,5 +64,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
+	<br>
 </body>
 </html>
