@@ -10,15 +10,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div>
 		<div class="row">
 			<div class="col-sm-9 Order-summary">		
-				25 items
-				<div class="row">
-					<div class="col-sm-6 Order-summary">		
-						The Salmon of Doubt
+				<?php 
+					echo count($order_details).'items';
+				
+				?>
+									<div class="row">
+						<div class="col-sm-6 Order-summary">		
+							The Salmon of Doubt
+						</div>
+						<div class="col-sm-3 Order-summary">		
+							400pesos
+						</div>
 					</div>
-					<div class="col-sm-3 Order-summary">		
-						400pesos
-					</div>
-				</div>
+				
 			</div>
 			<div class="col-sm-3 Order-summary">		
 				<h2>Shipped To:</h2><br>

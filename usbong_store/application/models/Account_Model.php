@@ -79,5 +79,32 @@ class Account_Model extends CI_Model
 		$query = $this->db->get('customer');
 		return $query->row();
 	}
+
+	//#orderNumber is actually added_datetime_stamp
+	public function getOrderDetails($customerId, $addedDateTimeStamp) {
+/*		
+		$this->db->select('customer_order_id');
+		$this->db->where('customer_id', $customerId);
+		$this->db->where('added_datetime_stamp', $orderNumber);
+		$this->db->order_by('added_datetime_stamp', 'DESC');
+		$query = $this->db->get('customer_order');
+
+		//return $query->result_array();
+		foreach ($query->result_array() as $value) {
+			
+		}
+*/		
+//		, t3.name, t3.product_type_id
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price');
+		$this->db->from('cart as t1');
+		$this->db->join('customer_order as t2', 't1.customer_order_id = t2.customer_order_id', 'LEFT');
+		$this->db->where('t1.customer_id', $customerId);
+		$this->db->where('t2.added_datetime_stamp', $addedDateTimeStamp);		
+		$this->db->where('t1.purchased_datetime_stamp', $addedDateTimeStamp);		
+		$this->db->order_by('t1.added_datetime_stamp', 'DESC');	
+		$query = $this->db->get();
+		
+		return $query->result_array();		
+	}	
 }
 ?>

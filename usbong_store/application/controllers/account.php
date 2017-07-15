@@ -83,7 +83,20 @@ class account extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+
+		date_default_timezone_set('Asia/Hong_Kong');
+
+		$offset = -strtotime('14:00', 0);		
+		$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3)+$offset);
+		echo 'hello '.$addedDateTimeStamp;
+
 		
+		
+//		$datetime = new DateTime($this->uri->segment(3), new DateTimeZone('Asia/Hong_Kong'));
+//		$addedDateTimeStamp = $datetime->format('Y/m/d H:i:s');
+		
+		
+//		echo "hello ".$addedDateTimeStamp;
 /*		
 		$this->load->model('Account_Model');
 		$data['order_summary'] = $this->Account_Model->getCustomerOrders($customer_id);
@@ -91,7 +104,10 @@ class account extends MY_Controller {
 		$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
 		$this->load->view('account/orderdetails', $data);
 */		
-		$this->load->view('account/orderdetails');
+		$this->load->model('Account_Model');
+		$data['order_details'] = $this->Account_Model->getOrderDetails($customer_id, $addedDateTimeStamp);
+		
+		$this->load->view('account/orderdetails', $data);
 
 		//--------------------------------------------
 		$this->load->view('templates/footer');
