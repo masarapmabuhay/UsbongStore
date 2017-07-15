@@ -63,5 +63,14 @@ class Account_Model extends CI_Model
 		$this->db->where('customer_id', $customerId);
 		$this->db->update('customer', $updateData);		
 	}
+	
+	public function getCustomerOrders($customerId) {
+		$this->db->select('added_datetime_stamp, quantity, status_accepted, order_total_price');
+		$this->db->where('customer_id', $customerId);
+		$this->db->where('status_accepted', 1);
+		$this->db->order_by('added_datetime_stamp', 'DESC');
+		$query = $this->db->get('customer_order');
+		return $query->result_array();
+	}
 }
 ?>

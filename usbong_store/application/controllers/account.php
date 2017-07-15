@@ -48,6 +48,24 @@ class account extends MY_Controller {
 		$this->load->view('templates/footer');	
 	}
 	
+	public function ordersummary() {
+		$customer_id = $this->session->userdata('customer_id');
+		
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		
+		$this->load->model('Account_Model');
+		$data['order_summary'] = $this->Account_Model->getCustomerOrders($customer_id);
+
+		$this->load->view('account/ordersummary', $data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');	
+	}
+	
 	public function logout() {
 		session_destroy();
 		

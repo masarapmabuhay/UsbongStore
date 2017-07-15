@@ -738,6 +738,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 	}
 	
+	.Order-summary {
+		font-size: 18px;
+	}
+	
 	.Popup-product-details {
 		font-size: 15px;
 	}
