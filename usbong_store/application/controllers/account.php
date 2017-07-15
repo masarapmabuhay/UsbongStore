@@ -64,6 +64,8 @@ class account extends MY_Controller {
 		$this->load->model('Account_Model');
 		$data['order_summary'] = $this->Account_Model->getCustomerOrders($customer_id);
 
+		$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+		
 		$this->load->view('account/ordersummary', $data);
 		
 		//--------------------------------------------

@@ -72,5 +72,12 @@ class Account_Model extends CI_Model
 		$query = $this->db->get('customer_order');
 		return $query->result_array();
 	}
+	
+	public function getCustomerEmailAddress($customerId) {
+		$this->db->select('customer_email_address');
+		$this->db->where('customer_id', $customerId);
+		$query = $this->db->get('customer');
+		return $query->row();
+	}
 }
 ?>

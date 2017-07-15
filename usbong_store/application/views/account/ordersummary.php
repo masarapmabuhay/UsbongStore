@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h3 class="header">Your Account at the Usbong Store</h3>
-	<p><i>&ensp;&ensp;&ensp;You're logged in as masarapmabuhay@gmail.com</i></p>
+	<p><i>&ensp;&ensp;&ensp;You're logged in as <?php echo $customer_email_address?></i></p>
 	<br>
 	<div>
 		<div class="row">
