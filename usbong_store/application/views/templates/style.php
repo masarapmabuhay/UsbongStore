@@ -751,13 +751,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Order-summary-alternate {
 		font-size: 18px;
 		color: #4b4b4b;		
-		background-color: #f4f2ef;
+		background-color: #f9f7f1;
+	}
+
+	.Order-details {
+		font-size: 18px;
+		color: #4b4b4b;
+		margin-left: 20px;
+	}
+
+	.Order-details-product {
+		background-color: #f9f7f1;
+	}
+	
+	.Order-details-shipping-address {
+		text-align: left;
 	}
 	
 	.Order-details-purchased-datetime-stamp {
 		text-align: right;
 	}
 	
+	.Order-details-align-right {
+		text-align: right;
+	}
+
+	.Order-details-align-right-order-total {
+		text-align: right;
+		background-color: #f9f7f1;
+	}
 	
 	.Popup-product-details {
 		font-size: 15px;
