@@ -12,6 +12,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-9 Order-summary">		
 				<?php 
 					echo count($order_details).'items';
+					$count=0;
+					foreach ($order_details as $value) {
+						$count+=$value['quantity'];
+					}
+					echo "Hello ".$count;
 				
 				?>
 									<div class="row">

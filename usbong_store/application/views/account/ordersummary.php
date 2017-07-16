@@ -43,7 +43,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '</div>';
 									
 									echo '<div class="col-sm-2 Order-summary-alternate">';
-									echo strtotime($value['added_datetime_stamp']);
+//									echo strtotime($value['added_datetime_stamp']);
+									$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
+									$timestamp = $date->format('U');
+									echo $timestamp;
 									echo '</div>';
 									
 									echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -65,7 +68,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '</div>';
 									
 									echo '<div class="col-sm-2 Order-summary">';
-									echo strtotime($value['added_datetime_stamp']);
+//									echo strtotime($value['added_datetime_stamp']);
+									$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
+									$timestamp = $date->format('U');
+									echo $timestamp;
 									echo '</div>';
 									
 									echo '<div class="col-sm-2 Order-summary">';

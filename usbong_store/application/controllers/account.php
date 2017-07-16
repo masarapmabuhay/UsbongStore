@@ -85,13 +85,31 @@ class account extends MY_Controller {
 		//--------------------------------------------
 
 		date_default_timezone_set('Asia/Hong_Kong');
-
+/*
 		$offset = -strtotime('8:00', 0);		
 		$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3)+$offset);
 		echo 'hello '.$addedDateTimeStamp;
+*/
+		$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3));		
+		echo 'hello '.$addedDateTimeStamp.'<br>';
+/*
+		echo 'gmdate '.gmdate('Y-m-d H:i:s', $this->uri->segment(3))."<br>";
+*/		
+/*		
+//		date_default_timezone_set('America/Chicago');
+		$currDate = new DateTime();
+		$currDate->setTimezone(new DateTimeZone('Asia/Hong_Kong'));
+		echo date_format($currDate,'Y-m-d H:i:s');
+*/	
+		
+//		$offset = new DateTime($curDate, new DateTimeZone('Asia/Hong_Kong'));
+/*		
+		$offset = $currDate->getOffset();
+		echo "offset: ".$currDate->getOffset() . "<br>";
 
-		
-		
+		$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3)-$offset);
+		echo 'hey '.$addedDateTimeStamp.'<br>';
+*/		
 //		$datetime = new DateTime($this->uri->segment(3), new DateTimeZone('Asia/Hong_Kong'));
 //		$addedDateTimeStamp = $datetime->format('Y/m/d H:i:s');
 		
