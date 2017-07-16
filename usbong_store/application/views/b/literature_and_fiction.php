@@ -11,19 +11,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php
 			$colCounter = 0;
 			foreach ($books as $value) {
-				$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
-				$URLFriendlyReformattedBookName = str_replace("(","",
-												  str_replace(")","",
-													str_replace("&","and",
-													str_replace(',','',
-														str_replace(' ','-',
-															$reformattedBookName))))); //replace "&", " ", and "-"
-				$URLFriendlyReformattedBookAuthor = str_replace("(","",
-													str_replace(")","",
+				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+				$URLFriendlyReformattedProductName = str_replace("(","",
+														str_replace(")","",
 														str_replace("&","and",
-															str_replace(',','',
-																str_replace(' ','-',
-																	$value['author']))))); //replace "&", " ", and "-"
+														str_replace(',','',
+														str_replace(' ','-',
+														str_replace('/','-',
+														$reformattedProductName)))))); //replace "&", " ", and "-"
+				$URLFriendlyReformattedProductAuthor = str_replace("(","",
+														str_replace(")","",
+														str_replace("&","and",
+														str_replace(',','',
+														str_replace(' ','-',
+														str_replace('/','-',
+														$value['author'])))))); //replace "&", " ", and "-"
 				
 				if ($colCounter==0) {
 					echo '<div class="row">';	

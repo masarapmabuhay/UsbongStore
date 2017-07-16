@@ -13,17 +13,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach ($toys_and_collectibles as $value) {
 				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				$URLFriendlyReformattedProductName = str_replace("(","",
-												  str_replace(")","",
-													str_replace("&","and",
-													str_replace(',','',
-														str_replace(' ','-',
-															$reformattedProductName))))); //replace "&", " ", and "-"
-				$URLFriendlyReformattedProductAuthor = str_replace("(","",
-													str_replace(")","",
+														str_replace(")","",
 														str_replace("&","and",
-															str_replace(',','',
-																str_replace(' ','-',
-																	$value['author']))))); //replace "&", " ", and "-"
+														str_replace(',','',
+														str_replace(' ','-',
+														str_replace('/','-',
+														$reformattedProductName)))))); //replace "&", " ", and "-"
+				$URLFriendlyReformattedProductAuthor = str_replace("(","",
+														str_replace(")","",
+														str_replace("&","and",
+														str_replace(',','',
+														str_replace(' ','-',
+														str_replace('/','-',
+														$value['author'])))))); //replace "&", " ", and "-"
 				
 				if ($colCounter==0) {
 					echo '<div class="row">';	
