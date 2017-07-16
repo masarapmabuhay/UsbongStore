@@ -30,17 +30,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					else {
 						echo "1 item";
 					}
-					
-				
+						
+					foreach ($order_details as $value) {
+						echo '<div class="row">';
+						echo	'<div class="col-sm-6 Order-summary">';
+						echo		$value['name'];
+						echo 	'</div>';
+						echo	'<div class="col-sm-3 Order-summary">';
+						echo		$value['price'];
+						echo	'</div>';
+						echo '</div>';
+						
+					}
 				?>
-									<div class="row">
-						<div class="col-sm-6 Order-summary">		
-							The Salmon of Doubt
-						</div>
-						<div class="col-sm-3 Order-summary">		
-							400pesos
-						</div>
-					</div>
 				
 			</div>
 			<div class="col-sm-3 Order-summary">		
