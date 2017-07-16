@@ -754,6 +754,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #f4f2ef;
 	}
 	
+	.Order-details-purchased-datetime-stamp {
+		text-align: right;
+	}
+	
+	
 	.Popup-product-details {
 		font-size: 15px;
 	}
