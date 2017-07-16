@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																	echo site_url('cart/shoppingcart');								
 																}
 															?>">Shopping Cart</a></li>					
-					<li><a class="Footer-list-item" href = "<?php echo site_url('account/ordersummary/')?>">Order History</a></li>					
+					<li><a class="Footer-list-item" href = "<?php echo site_url('account/ordersummary/')?>">Order Summary</a></li>					
 				</ul>
 			</div>
 			<div class="col-sm-4">		
