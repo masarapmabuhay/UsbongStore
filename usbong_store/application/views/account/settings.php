@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="header">Account Settings</h3>
+	<h2 class="header">Account Settings</h2>
 	<br>
 	<br>
 	<div class="Customer-information">

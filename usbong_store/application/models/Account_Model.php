@@ -11,6 +11,8 @@ class Account_Model extends CI_Model
 		);
 				
 		$this->db->insert('customer', $data);
+		
+		return $this->db->insert_id(); //customer_id
 	}
 	
 	public function doesEmailAccountExist($param) 

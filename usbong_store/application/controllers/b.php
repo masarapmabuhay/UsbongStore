@@ -111,13 +111,14 @@ class b extends MY_Controller {
 		else
 		{
 			$this->load->model('Account_Model');
-			$this->Account_Model->registerAccount($data);
+			$customer_id = $this->Account_Model->registerAccount($data);
 			
 			//added by Mike, 20170624
 			$newdata = array(
 					'customer_first_name'  => $data['firstNameParam'],
 					'customer_email_address'     => $data['emailAddressParam'],
-					'logged_in' => TRUE
+					'logged_in' => TRUE,
+					'customer_id' => $customer_id
 			);			
 			$this->session->set_userdata($newdata);
 /*		

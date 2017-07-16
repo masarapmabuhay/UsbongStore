@@ -5,13 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="header">Your Account at the Usbong Store</h3>
-	<p><i>&ensp;&ensp;&ensp;You're logged in as <?php echo $customer_email_address?></i></p>
+	<h2 class="header">Order Summary</h2>
 	<br>
 	<div>
 		<div class="row">
 			<div class="col-sm-3 Order-summary">		
-				Order Summary
 			</div>
 			<div class="col-sm-9 Order-summary">		
 				<h3>Orders</h3>

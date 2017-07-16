@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h3 class="header">Search</h3>
+	<h2 class="header">Search</h2>
 	<br>
 	<?php 
 		$resultCount = count($result);
