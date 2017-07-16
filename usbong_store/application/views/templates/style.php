@@ -751,7 +751,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Order-summary-alternate {
 		font-size: 18px;
 		color: #4b4b4b;		
-		background-color: #f9f7f1;
+		background-color: #efe6ca;
 	}
 
 	.Order-details {
@@ -761,7 +761,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Order-details-product {
-		background-color: #f9f7f1;
+		background-color: #efe6ca;
 	}
 	
 	.Order-details-shipping-address {
@@ -778,7 +778,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Order-details-align-right-order-total {
 		text-align: right;
-		background-color: #f9f7f1;
+		background-color: #efe6ca;
 	}
 	
 	.Popup-product-details {

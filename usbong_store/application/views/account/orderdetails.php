@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo	'<b>'.$value['name'].'</b>';
 							echo	'</a>';
 							echo 	'</div>';
-							echo	'<div class="col-sm-3 Order-details">';
+							echo	'<div class="col-sm-5 Order-details">';
 							echo	'<div class="Order-details-align-right">&#x20B1;'.$value['price'].'</div>';
 							echo	'</div>';
 							echo '</div>';			
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo	'<div class="col-sm-6 Order-details">';
 					echo	'<div class="Order-details-align-right">Order Subtotal</div>';				
 					echo 	'</div>';
-					echo	'<div class="col-sm-3 Order-details">';
+					echo	'<div class="col-sm-5 Order-details">';
 					echo	'<div class="Order-details-align-right">&#x20B1;'.$value['order_total_price'].'</div>';				
 					echo	'</div>';
 					echo '</div>';
@@ -75,16 +75,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo	'<div class="col-sm-6 Order-details">';
 					echo	'<div class="Order-details-align-right">Shipping (PH)</div>';					
 					echo 	'</div>';
-					echo	'<div class="col-sm-3 Order-details">';
+					echo	'<div class="col-sm-5 Order-details">';
 					echo	'<div class="Order-details-align-right"><b>FREE</b></div>';
 					echo	'</div>';
 					echo '</div>';
 					
-					echo '<div class="row">';
+					echo '<div class="row Order-details-product">';
 					echo	'<div class="col-sm-6 Order-details">';
 					echo    '<div class="Order-details-align-right">Order Total</div>';
 					echo 	'</div>';
-					echo	'<div class="col-sm-3 Order-details">';
+					echo	'<div class="col-sm-5 Order-details">';
 					echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$value['order_total_price'].'</div>';
 					echo	'</div>';
 					echo '</div>';
@@ -95,15 +95,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-3 Order-details">		
 			<div class="Order-details-shipping-address">
 				<h3><b>Payment Method:</b></h3>
-				Bank Deposit<br>			
+				<?php 
+					if ($result->mode_of_payment_id==0) {
+						echo 'Bank Deposit<br>';
+					}
+					else {
+						echo 'Paypal<br>';					
+					}
+				?>
 			</div>
 
 			<div class="Order-details-shipping-address">
 				<h3><b>Shipped To:</b></h3>
-				Michael Syson<br>
-				2 E. Rodriguez Ave. Sto. Nino<br>
-				Marikina City, 1800,<br>
-				Philippines<br>			
+				<?php 
+					echo $result->customer_first_name.' '.$result->customer_last_name.'<br>';				
+					echo $result->customer_shipping_address.'<br>';
+					echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
+					echo $result->customer_country.'<br>';					
+				?>
 			</div>
 			</div>
 		</div>
