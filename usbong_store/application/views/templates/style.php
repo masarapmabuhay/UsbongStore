@@ -741,6 +741,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Order-summary {
 		font-size: 18px;
 		color: #4b4b4b;
+		margin:0px;
+		padding:0px;
 	}
 
 	.Order-summary-price {

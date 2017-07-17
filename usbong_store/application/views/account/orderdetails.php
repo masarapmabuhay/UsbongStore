@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo	'<div class="Order-details-align-right">Order Subtotal</div>';				
 					echo 	'</div>';
 					echo	'<div class="col-sm-5 Order-details">';
-					echo	'<div class="Order-details-align-right">&#x20B1;'.$value['order_total_price'].'</div>';				
+					echo	'<div class="Order-details-align-right">&#x20B1;'.$order_details['order_total_price'].'</div>';				
 					echo	'</div>';
 					echo '</div>';
 					
@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo    '<div class="Order-details-align-right">Order Total</div>';
 					echo 	'</div>';
 					echo	'<div class="col-sm-5 Order-details">';
-					echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$value['order_total_price'].'</div>';
+					echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$order_details['order_total_price'].'</div>';
 					echo	'</div>';
 					echo '</div>';
 					
