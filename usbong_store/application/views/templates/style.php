@@ -1047,7 +1047,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Customer-information {
-		max-width: 40%;		
+		max-width: 50%;		
 		float: none;
     	display: block;
     	margin: 0 auto;
@@ -1061,8 +1061,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Customer-information-text-in-checkout {
 		display: inline-block; 
 		padding-right: 12px;	
+
 	}
 	
+	.Account-settings {	
+	}
+	
+	.Account-settings-subject-header {
+		text-align: left;
+		margin-left: 40px;
+    	font-size: 18px;
+    	color: #1a0d00;    	
+    	border: .2px solid #4b3b2c;    	
+    	background-color: #efe6ca;  
+    	padding: 5px;  	    	
+    	font-weight: bold;
+	}
+
+	.Account-settings-subject-content {
+		text-align: left;
+		margin-left: 40px;
+		font-size: 18px;  
+		color: #1a0d00;		  			
+    	padding: 5px;  	    	
+    	border: .2px dotted #4b3b2c;    	
+	}
+	
+	.Account-settings-subject-content-link {
+		text-align: left;
+		margin-left: 40px;
+		font-size: 18px;  
+		color: #1a0d00;		  			
+    	padding: 5px;  	    	
+	}
+
+	.Account-settings-subject-content-link:hover {
+		color: #1a0d00;		  			
+	}
+		
 	.login-and-create {
 		max-width: 30%;		
 		float: none;

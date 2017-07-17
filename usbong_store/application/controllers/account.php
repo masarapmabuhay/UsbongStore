@@ -248,4 +248,32 @@ class account extends MY_Controller {
 			$this->settings();
 		}
 	}	
+	
+	public function updatepassword()//$param)
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		/*
+		 $this->load->library('session');
+		 $this->load->library('form_validation');
+		 */
+		/*
+		 $fields = array('emailAddressParam', 'passwordParam');
+		 
+		 foreach ($fields as $field)
+		 {
+		 $data[$field] = $_POST[$field];
+		 }
+		 
+		 $this->load->model('Account_Model');
+		 $data['is_login_success'] = $this->Account_Model->loginAccount($data);
+		 */
+		$this->load->view('account/updatepassword');
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
 }
