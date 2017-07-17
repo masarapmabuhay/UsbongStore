@@ -783,6 +783,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #efe6ca;
 	}
 	
+	.Order-details-order-number-link {
+		font-size: 18px;  
+		color: #4b4b4b;
+	}
+
+	.Order-details-order-number-link:hover {
+		font-size: 18px;  
+		color: #4b4b4b;
+	}
+	
 	.Popup-product-details {
 		font-size: 15px;
 	}
@@ -1095,7 +1105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	padding: 5px;  	    	
     	border: .2px dotted #4b3b2c;    	
 	}
-	
+		
 	.Account-settings-subject-content-link {
 		text-align: left;
 		margin-left: 40px;
