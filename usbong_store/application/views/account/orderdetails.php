@@ -18,77 +18,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-sm-6 Order-details">		
 				<?php 
-//					echo count($order_details).'items';
-					$count=0;
-					foreach ($order_details as $value) {
-						$count+=$value['quantity'];
+					if (count($order_details)==0) {
+						echo '<div class="Order-Details-noResult">';
+						echo 'You have not made any orders yet.';
+						echo '</div>';
 					}
-					
-					if ($count>1) {
-						echo $count." items";						
-					}
-					else {
-						echo "1 item";
-					}
+					else {					
+	//					echo count($order_details).'items';
+						$count=0;
+						foreach ($order_details as $value) {
+							$count+=$value['quantity'];
+						}
 						
-					foreach ($order_details as $value) {
-						$counter = 0;						
-						while ($counter<$value['quantity']) {							
-							$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
-							$URLFriendlyReformattedBookName = str_replace("(","",
-																str_replace(")","",
-																str_replace("&","and",
-																str_replace(',','',
-																str_replace(' ','-',
-																$reformattedBookName))))); //replace "&", " ", and "-"
-							$URLFriendlyReformattedBookAuthor = str_replace("(","",
+						if ($count>1) {
+							echo $count." items";						
+						}
+						else {
+							echo "1 item";
+						}
+							
+						foreach ($order_details as $value) {
+							$counter = 0;						
+							while ($counter<$value['quantity']) {							
+								$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+								$URLFriendlyReformattedBookName = str_replace("(","",
 																	str_replace(")","",
 																	str_replace("&","and",
 																	str_replace(',','',
 																	str_replace(' ','-',
-																	$value['author']))))); //replace "&", " ", and "-"
-							
-							echo '<div class="row Order-details-product">';
-							echo	'<div class="col-sm-6 Order-details">';
-							echo 	'<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
-							echo	'<b>'.$value['name'].'</b>';
-							echo	'</a>';
-							echo 	'</div>';
-							echo	'<div class="col-sm-5 Order-details">';
-							echo	'<div class="Order-details-align-right">&#x20B1;'.$value['price'].'</div>';
-							echo	'</div>';
-							echo '</div>';			
-							
-							$counter++;
-						}				
-					}
-					echo '<div class="row">';
-					echo	'<div class="col-sm-6 Order-details">';
-					echo	'<div class="Order-details-align-right">Order Subtotal</div>';				
-					echo 	'</div>';
-					echo	'<div class="col-sm-5 Order-details">';
-					echo	'<div class="Order-details-align-right">&#x20B1;'.$order_details['order_total_price'].'</div>';				
-					echo	'</div>';
-					echo '</div>';
-					
-					echo '<div class="row">';
-					echo	'<div class="col-sm-6 Order-details">';
-					echo	'<div class="Order-details-align-right">Shipping (PH)</div>';					
-					echo 	'</div>';
-					echo	'<div class="col-sm-5 Order-details">';
-					echo	'<div class="Order-details-align-right"><b>FREE</b></div>';
-					echo	'</div>';
-					echo '</div>';
-					
-					echo '<div class="row Order-details-product">';
-					echo	'<div class="col-sm-6 Order-details">';
-					echo    '<div class="Order-details-align-right">Order Total</div>';
-					echo 	'</div>';
-					echo	'<div class="col-sm-5 Order-details">';
-					echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$order_details['order_total_price'].'</div>';
-					echo	'</div>';
-					echo '</div>';
-					
+																	$reformattedBookName))))); //replace "&", " ", and "-"
+								$URLFriendlyReformattedBookAuthor = str_replace("(","",
+																		str_replace(")","",
+																		str_replace("&","and",
+																		str_replace(',','',
+																		str_replace(' ','-',
+																		$value['author']))))); //replace "&", " ", and "-"
+								
+								echo '<div class="row Order-details-product">';
+								echo	'<div class="col-sm-6 Order-details">';
+								echo 	'<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
+								echo	'<b>'.$value['name'].'</b>';
+								echo	'</a>';
+								echo 	'</div>';
+								echo	'<div class="col-sm-5 Order-details">';
+								echo	'<div class="Order-details-align-right">&#x20B1;'.$value['price'].'</div>';
+								echo	'</div>';
+								echo '</div>';			
+								
+								$counter++;
+							}				
+						}
+						echo '<div class="row">';
+						echo	'<div class="col-sm-6 Order-details">';
+						echo	'<div class="Order-details-align-right">Order Subtotal</div>';				
+						echo 	'</div>';
+						echo	'<div class="col-sm-5 Order-details">';
+						echo	'<div class="Order-details-align-right">&#x20B1;'.$value['order_total_price'].'</div>';				
+						echo	'</div>';
+						echo '</div>';
+						
+						echo '<div class="row">';
+						echo	'<div class="col-sm-6 Order-details">';
+						echo	'<div class="Order-details-align-right">Shipping (PH)</div>';					
+						echo 	'</div>';
+						echo	'<div class="col-sm-5 Order-details">';
+						echo	'<div class="Order-details-align-right"><b>FREE</b></div>';
+						echo	'</div>';
+						echo '</div>';
+						
+						echo '<div class="row Order-details-product">';
+						echo	'<div class="col-sm-6 Order-details">';
+						echo    '<div class="Order-details-align-right">Order Total</div>';
+						echo 	'</div>';
+						echo	'<div class="col-sm-5 Order-details">';
+						echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$value['order_total_price'].'</div>';
+						echo	'</div>';
+						echo '</div>';
+					}					
 				?>
 				
 			</div>

@@ -1031,6 +1031,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #1a0d00;
 	}
 
+	.Order-Details-noResult {
+		margin-top: 50px;
+		margin-left: 200px;
+		font-size: 18px;
+		color: #1a0d00;
+	}
+
 	.usbongLogo {
 		margin-top: 3px;
 	}
