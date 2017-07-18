@@ -65,6 +65,31 @@ class Account_Model extends CI_Model
 		$this->db->where('customer_id', $customerId);
 		$this->db->update('customer', $updateData);		
 	}
+
+	public function updateAccountPassword($customerId, $data) {
+		//step 1: change the quantity of all cart rows with the same productId and customerId to 0
+		$updateData = array(
+				'customer_password' =>  password_hash($data['newPasswordParam'], PASSWORD_DEFAULT)
+		);
+		$this->db->where('customer_id', $customerId);
+		$this->db->update('customer', $updateData);
+	}
+	
+	public function isCurrentPasswordCorrect($param)
+	{				
+		$this->db->select('customer_password'); //edited by Mike, 20170626
+		$this->db->where('customer_id',$param['customerId']);
+		$query = $this->db->get('customer');
+		$row = $query->row();
+		
+		if ($row!==null) {
+			if (password_verify($param['currentPasswordParam'],
+					$row->customer_password)) {
+						return null;//$row;//"true";
+			}
+		}
+		return new stdClass;//null;//"false";
+	}
 	
 	public function getCustomerOrders($customerId) {
 		$this->db->select('added_datetime_stamp, quantity, status_accepted, order_total_price');

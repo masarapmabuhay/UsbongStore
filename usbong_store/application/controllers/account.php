@@ -315,18 +315,22 @@ class account extends MY_Controller {
 			$this->settings();
 		}
 	}	
+
+	public function updatepassword() {
+		$this->updatepasswordWith(null);
+	}
 	
-	public function updatepassword()//$param)
+	public function updatepasswordWith($param)
 	{
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
 		
-		/*
+		
 		 $this->load->library('session');
 		 $this->load->library('form_validation');
-		 */
+		
 		/*
 		 $fields = array('emailAddressParam', 'passwordParam');
 		 
@@ -338,9 +342,51 @@ class account extends MY_Controller {
 		 $this->load->model('Account_Model');
 		 $data['is_login_success'] = $this->Account_Model->loginAccount($data);
 		 */
-		$this->load->view('account/updatepassword');
+		 		 		 
+		$data['is_update_password_successful'] = $param;
+		$this->load->view('account/updatepassword', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}
+	
+	public function savepassword()
+	{
+		$customer_id = $this->session->userdata('customer_id');
+		
+		$this->form_validation->set_rules('currentPasswordParam', 'Current Password', 'trim|required');
+		$this->form_validation->set_rules('newPasswordParam', 'New Password', 'trim|required');
+		$this->form_validation->set_rules('confirmNewPasswordParam', 'Confirm New Password', 'trim|required|matches[newPasswordParam]');
+		
+		$fields = array('currentPasswordParam', 'newPasswordParam', 'confirmNewPasswordParam');
+		
+		foreach ($fields as $field)
+		{
+			$data[$field] = $_POST[$field];
+		}
+		
+		$data['customerId'] = $customer_id;
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('errors', validation_errors());
+			$this->session->set_flashdata('data', $data);
+			
+			$this->updatepassword();			
+		}
+		else
+		{			
+			$this->load->model('Account_Model');
+			$data['password_is_incorrect'] = $this->Account_Model->isCurrentPasswordCorrect($data);
+			
+			if (isset($data['password_is_incorrect'])) {
+				$this->session->set_flashdata('data', $data);				
+				$this->updatepassword();				
+			}
+			else {
+				$this->Account_Model->updateAccountPassword($customer_id, $data);				
+				$this->updatepasswordWith("success");				
+			}			
+		}
+	}	
 }

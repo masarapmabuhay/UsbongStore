@@ -1223,6 +1223,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: -1px;
 	}		
 
+	.Update-error {		
+		font-size: 16px;
+		color: #c14646;		
+		background-color: #f6aaaa;
+		border-top: 1px solid #c98989;	
+		border-right: 1px solid #c98989;	
+		border-left: 1px solid #c98989;		
+
+		border-bottom: 1px solid #f6aaaa;					
+		margin-bottom: -1px;
+	}		
+
+	.Update-success {		
+		font-size: 16px;
+		color: #496d28;		
+		background-color: #77b043;
+		border-top: 1px solid #90d94f;	
+		border-right: 1px solid #90d94f;	
+		border-left: 1px solid #90d94f;		
+
+		border-bottom: 1px solid #f6aaaa;					
+		margin-bottom: -1px;
+	}		
+
 	.Checkout-div {
 		margin: 0px;
 		padding: 0px;
@@ -1248,6 +1272,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Checkout-input:focus ~ .floating-label,
 	.Checkout-input:not(:focus):valid ~ .floating-label{
+	  bottom: 50px;
+	  font-size: 12px;
+	  opacity: 1;
+	}	
+
+	.Update-input {
+	    font-size: 16px;    			
+	    padding: 16px 6px 6px 8px;
+		margin-bottom: 12px;
+	    resize: none;
+		width: 100%;
+		height: 50px;
+		color: #3a3a3a;
+	}
+
+	.Update-input:focus ~ .floating-label,
+	.Update-input:not(:focus):valid ~ .floating-label{
 	  bottom: 50px;
 	  font-size: 12px;
 	  opacity: 1;
