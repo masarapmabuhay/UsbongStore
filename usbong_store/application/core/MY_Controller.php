@@ -17,7 +17,8 @@ class MY_Controller extends CI_Controller {
 			//$data['customer_first_name'] = $customerInformation->customer_first_name;
 
 			$newdata = array(
-					'customer_first_name'  => $customerInformation->customer_first_name
+					'customer_first_name'  => $customerInformation->customer_first_name,
+					'is_admin' => $customerInformation->is_admin
 			);
 			$this->session->set_userdata($newdata);
 			

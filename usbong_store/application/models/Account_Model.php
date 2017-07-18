@@ -41,7 +41,7 @@ class Account_Model extends CI_Model
 	}	
 
 	public function getCustomerInformation($customerId) {
-		$this->db->select('customer_email_address, customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id');
+		$this->db->select('customer_email_address, customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id, is_admin');
 		$this->db->where('customer_id', $customerId);		
 		$query = $this->db->get('customer');
 		$row = $query->row();

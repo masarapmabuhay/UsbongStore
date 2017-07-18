@@ -43,6 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								echo '<div class="dropdown">';
 								echo '<ul class="dropdown-menu">';			  		
 								  	echo '<li><a href = "'.site_url('account/settings/').'">My Account</a></li>';				
+
+								  	if ($this->session->userdata('is_admin')=="1") { //true
+								  		echo '<li><a href = "'.site_url('account/ordersummaryadmin/').'">Order Summary (Admin)</a></li>';								  	
+								  	}
+								  	
 								  	echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  
 								  	echo '<li><a href = "'.site_url('account/logout/').'">Log Out</a></li>';
 								echo '</ul>';

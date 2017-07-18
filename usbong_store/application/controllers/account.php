@@ -74,9 +74,11 @@ class account extends MY_Controller {
 	
 	public function ordersummaryadmin() {
 		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');		
 		
 		if ((!isset($customer_id)) ||
-			($customer_id!="12")) {
+//			($customer_id!="12")) {
+			($is_admin!="1")) {			
 				redirect('account/login'); //home page
 		}
 				
@@ -134,12 +136,14 @@ class account extends MY_Controller {
 	
 	public function orderdetailsadmin() {
 		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
 		
 		if ((!isset($customer_id)) ||
-			($customer_id!="12")) {
+//			($customer_id!="12")) {
+			($is_admin!="1")) {
 				redirect('account/login'); //home page
 		}
-		
+				
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
