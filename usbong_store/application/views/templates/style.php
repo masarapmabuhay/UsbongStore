@@ -738,6 +738,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 	}
 	
+	.Contact {
+		width:60%;
+		font-size: 18px;
+		color: #4b4b4b;
+		margin:40px;
+		padding:0px;
+	}
+	
+	.Contact-support-email-address {
+		color: #77b043;
+		font-weight: bold;	
+	}
+	
 	.Order-summary {
 		font-size: 18px;
 		color: #4b4b4b;

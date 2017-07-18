@@ -45,8 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><a class="Footer-list-item" href ="http://www.usbong.ph" target="_blank">USBONG.PH</a></li>					
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
 					<li><span class="Footer-list-header"><b>Quick Help</b></span></li>					
-					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">Help & Support</a></li>					
-					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">Contact Us</a></li>					
+					<li><a class="Footer-list-item" href = "<?php echo site_url('contact/')?>">Contact Usbong</a></li>					
 				</ul>
 			</div>
 		</div>		
