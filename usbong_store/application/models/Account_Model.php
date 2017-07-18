@@ -75,6 +75,14 @@ class Account_Model extends CI_Model
 		return $query->result_array();
 	}
 	
+	public function getCustomerOrdersAdmin() {
+		$this->db->select('added_datetime_stamp, customer_id, quantity, status_accepted, order_total_price, fulfilled_status');
+		$this->db->where('status_accepted', 1);
+		$this->db->order_by('added_datetime_stamp', 'DESC');
+		$query = $this->db->get('customer_order');
+		return $query->result_array();
+	}
+	
 	public function getCustomerEmailAddress($customerId) {
 		$this->db->select('customer_email_address');
 		$this->db->where('customer_id', $customerId);
@@ -82,7 +90,6 @@ class Account_Model extends CI_Model
 		return $query->row();
 	}
 
-	//#orderNumber is actually added_datetime_stamp
 	public function getOrderDetails($customerId, $addedDateTimeStamp) {
 		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price');
 		$this->db->from('cart as t1');
@@ -96,5 +103,20 @@ class Account_Model extends CI_Model
 		
 		return $query->result_array();		
 	}	
+	
+	public function getOrderDetailsAdmin($customerId, $addedDateTimeStamp) {
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price');
+		$this->db->from('cart as t1');
+		$this->db->join('customer_order as t2', 't1.customer_order_id = t2.customer_order_id', 'LEFT');
+		$this->db->join('product as t3', 't1.product_id = t3.product_id', 'LEFT');
+		$this->db->where('t1.customer_id', $customerId);
+		$this->db->where('t2.added_datetime_stamp', $addedDateTimeStamp);
+		$this->db->where('t1.purchased_datetime_stamp', $addedDateTimeStamp);
+		$this->db->order_by('t1.added_datetime_stamp', 'DESC');
+		$query = $this->db->get();
+		
+		return $query->result_array();
+	}
+	
 }
 ?>

@@ -5,13 +5,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h2 class="header">Order #<?php echo $this->uri->segment(3);?></h2>
+	<h2 class="header">Order #<?php echo $this->uri->segment(3);?> (Admin)</h2>
 	<br>
 	<div>
 		<div class="row">
 			<div class="col-sm-3 Account-settings">
 					<div class="row Account-settings-subject-header">Orders</div>
-					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummary/')?>">Order Summary</a></div>				
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummaryadmin/')?>">Order Summary (Admin)</a></div>				
 					<div class="row Account-settings-subject-header">Settings</div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settings/')?>">Update Information</a></div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>

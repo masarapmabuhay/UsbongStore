@@ -755,6 +755,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #4b4b4b;		
 		background-color: #efe6ca;
 	}
+	
+	.Fulfilled-Status-OK {
+		background-color: #77b043;
+	}
+
+	.Fulfilled-Status-Not-OK {
+		background-color: #e04949;
+	}
 
 	.Order-details {
 		font-size: 18px;
@@ -1035,7 +1043,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Order-Summary-noResult {
 		margin-top: 56px;
-		margin-left: 560px;
+		margin-left: 300px;
 		margin-bottom: 56px;	
 		font-size: 18px;
 		color: #1a0d00;
