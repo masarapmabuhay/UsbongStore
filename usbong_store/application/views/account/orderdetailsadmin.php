@@ -60,12 +60,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											$value['author']))))); //replace "&", " ", and "-"
 											
 											echo '<div class="row Order-details-product">';
-											echo	'<div class="col-sm-6 Order-details">';
+											echo	'<div class="col-sm-8 Order-details">';
 											echo 	'<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
 											echo	'<b>'.$value['name'].'</b>';
 											echo	'</a>';
 											echo 	'</div>';
-											echo	'<div class="col-sm-5 Order-details">';
+											echo	'<div class="col-sm-3 Order-details">';
 											echo	'<div class="Order-details-align-right">&#x20B1;'.$value['price'].'</div>';
 											echo	'</div>';
 											echo '</div>';
