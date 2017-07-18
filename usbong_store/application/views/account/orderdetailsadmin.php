@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h2 class="header">Order #<?php echo $this->uri->segment(3);?> (Admin)</h2>
+	<h2 class="header">Order #<?php echo $this->uri->segment(3);?> (Admin) | Customer: <?php echo $result->customer_email_address;?></h2>
 	<br>
 	<div>
 		<div class="row">
