@@ -1055,6 +1055,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 18px;
 		color: #1a0d00;
 	}
+	
+	.Order-Details-admin-fulfilled {
+		text-align: right;
+	}
 
 	.usbongLogo {
 		margin-top: 3px;

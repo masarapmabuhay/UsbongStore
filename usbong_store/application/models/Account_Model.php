@@ -82,6 +82,15 @@ class Account_Model extends CI_Model
 		$query = $this->db->get('customer_order');
 		return $query->result_array();
 	}
+		
+	public function updateCustomerOrderAdmin($fulfilledStatus, $addedDatetimeStamp, $productCustomerId) {
+		$updateData = array(
+				'fulfilled_status' => $fulfilledStatus
+		);
+		$this->db->where('customer_id', $productCustomerId);
+		$this->db->where('added_datetime_stamp', $addedDatetimeStamp);		
+		$this->db->update('customer_order', $updateData);
+	}
 	
 	public function getCustomerEmailAddress($customerId) {
 		$this->db->select('customer_email_address');
@@ -105,7 +114,7 @@ class Account_Model extends CI_Model
 	}	
 	
 	public function getOrderDetailsAdmin($customerId, $addedDateTimeStamp) {
-		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price');
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.customer_id');
 		$this->db->from('cart as t1');
 		$this->db->join('customer_order as t2', 't1.customer_order_id = t2.customer_order_id', 'LEFT');
 		$this->db->join('product as t3', 't1.product_id = t3.product_id', 'LEFT');

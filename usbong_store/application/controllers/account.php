@@ -85,8 +85,16 @@ class account extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
-		
 		$this->load->model('Account_Model');
+		$fulfilled_status = $this->uri->segment(3);
+		if ($fulfilled_status!==null) {			
+			date_default_timezone_set('Asia/Hong_Kong');			
+			$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(4));			
+			$productCustomerId = $this->uri->segment(5);
+			
+			$this->Account_Model->updateCustomerOrderAdmin($fulfilled_status, $addedDateTimeStamp, $productCustomerId);			
+		}
+						
 		$data['order_summary'] = $this->Account_Model->getCustomerOrdersAdmin();
 		
 		$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
@@ -144,7 +152,7 @@ class account extends MY_Controller {
 		$product_customer_id = $this->uri->segment(4);
 		
 		$this->load->model('Account_Model');
-		$data['order_details'] = $this->Account_Model->getOrderDetails($product_customer_id, $addedDateTimeStamp);
+		$data['order_details'] = $this->Account_Model->getOrderDetailsAdmin($product_customer_id, $addedDateTimeStamp);
 		
 		$data['result'] = $this->Account_Model->getCustomerInformation($product_customer_id);
 		
