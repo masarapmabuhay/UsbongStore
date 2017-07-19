@@ -1211,10 +1211,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #d4be00;
 	}
 
-	.forgotPassword-text {
+	.forgotPassword-div {
 	    font-size: 14px;    			
 	    padding: 10px;		
 	    display: inline-block; 	    
+	}	
+
+	.forgotPassword-text {
+	    font-size: 14px;    			
+	    display: inline-block; 	    
+	    color: #6b6b6b;
+	}	
+
+	.forgotPassword-text:hover {
+	    font-size: 14px;    			
+	    display: inline-block; 	    
+	    color: #6b6b6b;
 	}	
 	
 	.Register-input {

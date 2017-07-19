@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  -->					
  				Sign in
 				</button>
-				<div class="forgotPassword-text">Forgot password</div>
+				<div class="forgotPassword-div"><a class ="forgotPassword-text" href = "<?php echo site_url('contact/')?>"><b>Forgot password</b></a></div>
 			</form>
 		</div>		
 	</div>
