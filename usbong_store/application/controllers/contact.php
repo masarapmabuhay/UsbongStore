@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class contact extends MY_Controller {
+class Contact extends MY_Controller {
 /* //orig
 	public function index()
 	{

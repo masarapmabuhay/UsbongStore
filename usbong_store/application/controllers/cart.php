@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class cart extends MY_Controller {
+class Cart extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.

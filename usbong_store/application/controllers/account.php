@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class account extends MY_Controller {
+class Account extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.

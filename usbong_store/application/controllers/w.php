@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class w extends MY_Controller {
+class W extends MY_Controller {
 
 	public function index($productDetail, $productId)
 	{
