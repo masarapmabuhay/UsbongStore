@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php 
 					if (count($order_summary)==0) {
 						echo '<div class="Order-Summary-noResult">';
-						echo 'You have not made any orders yet.';
+						echo 'No customer has made any orders yet.';
 						echo '</div>';
 					}
 					else {
