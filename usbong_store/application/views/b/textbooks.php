@@ -69,11 +69,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
-				}
+					
+					if ($colCounter==5) {
+						echo '</div>';
+						$colCounter=0;
+					}
+				}/*
 				else {
 					echo '</div>';
 					$colCounter=0;
-				}
+				}*/
 			}
 			echo '</div>';
 	?>
