@@ -1336,6 +1336,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  font-size: 12px;
 	  opacity: 1;
 	}	
+
+	.request {
+		max-width: 40%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+    	margin-bottom: 20px;
+    	font-size: 24px;    	
+    	padding: 16px;
+    	border: 1px solid #4b3b2c;
+    	border-radius: 4px;
+	}
+
+	.request-text {
+		display: inline-block; 
+		padding-right: 12px;	
+		color: #1d1d1d;		
+	}
+	
+	.Request-input {
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin-bottom: 12px;	
+	    margin-top: 6px;	    
+	    resize: none;
+	}
+	
+	.Request-quantity-label {
+	    font-size: 16px;    			
+	}
+	
+	.Request-quantity-textbox { 
+		background-color: #fCfCfC;
+	    color: #68502b;
+	    padding: 12px;
+	    font-size: 16px;
+	    border: 1px solid #68502b;
+	    width: 10%;
+	    border-radius: 3px;	    	    
+	}
+	
 	
 	.floating-label {
 	  bottom: 40px;
