@@ -110,6 +110,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 				?>
 				</div>
+				<?php 
+					if ($result->quantity_in_stock>=1) {
+				?>				
 					<div class="row Product-purchase-button">				
 						<?php 
 								//$quantity = 1;
@@ -153,6 +156,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</div>					
 					</div>				
+				<?php 
+					}
+				?>				
 			</div>
 		</div>	
 	</div>		
