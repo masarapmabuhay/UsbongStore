@@ -95,13 +95,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</b>					
 				</div>						
 				<div class="row Product-quantity">
-					<label class="Quantity-label">Quantity:</label>
-					<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" 
-							value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>					    
+				<?php 
+					if ($result->quantity_in_stock<1) {
+				?>
+						<label class="Quantity-label">Quantity: <span class="Quantity-out-of-stock">out of stock</span></label>						
+				<?php						
+					}
+					else {
+				?>
+						<label class="Quantity-label">Quantity:</label>
+						<input type="tel" id="quantityParam" class="Quantity-textbox no-spin"
+							value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>
+				<?php 
+					}
+				?>
 				</div>
 					<div class="row Product-purchase-button">				
 						<?php 
-								$quantity = 1;
+								//$quantity = 1;
 								//TODO: fix quantity and price
 									
 								echo '<input type="hidden" id="product_idParam" value="'.$result->product_id.'" required>';

@@ -1408,6 +1408,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 20%;
 	    border-radius: 3px;	    	    
 	}
+
+	.Quantity-out-of-stock { 
+	    color: #68502b;
+	}
+
 	
 	.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
 	    -webkit-appearance: none !important;
