@@ -419,6 +419,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #fff;
 	}
 	
+	a.Security {
+		color: #77b043;
+		font-weight: bold;	
+	}
+
 	span.Footer-list-header {
 		color: #fff;
 		font-weight: bold;
