@@ -40,6 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							case 8: //toys & collectibles
 								$productType="toys_and_collectibles";
 								break;
+							case 9: //textbooks
+								$productType="textbooks";
+								break;
+							case 10: //childrens
+								$productType="childrens";
+								break;								
 						}
 					?>
 						<div class="row">
