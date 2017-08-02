@@ -33,6 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						case 9: //textbooks
 							$productType="textbooks";
 							break;						
+						case 10: //childrens
+							$productType="childrens";
+							break;
 					}
 				?>
 				<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				

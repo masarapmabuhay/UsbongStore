@@ -195,6 +195,26 @@ class B extends MY_Controller {
 	}
 	
 	//---------------------------------------------------------
+	// Children's Books Category
+	//---------------------------------------------------------
+	public function childrens()
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		//		$data['content'] = 'category/Books';
+		$this->load->model('Childrens_Model');
+		$data['books'] = $this->Childrens_Model->getChildrens();
+		//		$this->load->view('templates/general_template',$data);
+		$this->load->view('b/childrens',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}	
+	
+	//---------------------------------------------------------
 	// PROMOS Category
 	//---------------------------------------------------------
 	public function promos()

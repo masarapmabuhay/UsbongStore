@@ -116,6 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
 		  <li><a href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
+		  <li><a href = "<?php echo site_url('b/childrens/')?>">CHILDREN'S</a></li>
 		  <li><a href = "<?php echo site_url('b/textbooks/')?>">TEXTBOOKS</a></li>
 		  <li><a href = "<?php echo site_url('b/promos/')?>">PROMOS</a></li>
 		  <li><a href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
