@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 				<?php
 					if (($productType=="books") || ($productType=="textbooks")
-							|| ($productType=="manga")) {
+							|| ($productType=="manga") || ($productType=="childrens")) {
 				?>						
 				<div class="row Product-format">
 					<?php
@@ -51,6 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row Product-condition">
 					<?php
 						echo 'Condition: <b>'.$result->description.'</b>';						
+					?>
+				</div>
+				<div class="row Product-language">
+					<?php
+						echo 'Language: <b>'.$result->language.'</b>';						
 					?>
 				</div>
 				<?php 	
