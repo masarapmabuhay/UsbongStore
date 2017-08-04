@@ -1372,17 +1372,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.request-text {
 		display: inline-block; 
 		padding-right: 12px;	
-		color: #1d1d1d;		
+		color: #1d1d1d;
+		margin-bottom: 12px;				
 	}
 	
 	.Request-input {
-	    font-size: 16px;    			
+/*	    font-size: 16px;    			
 	    padding: 6px;
 	    width: 100%;
 	    margin-bottom: 12px;	
 	    margin-top: 6px;	    
 	    resize: none;
+*/
+	    font-size: 16px;    			
+	    padding: 16px 6px 6px 8px;
+		margin-bottom: 12px;
+	    resize: none;
+		width: 100%;
+		height: 50px;
+		color: #3a3a3a;	    
 	}
+
+	.Request-input:focus ~ .floating-label,
+	.Request-input:not(:focus):valid ~ .floating-label{
+	  bottom: 50px;
+	  font-size: 12px;
+	  opacity: 1;
+	}	
+
+	.Request-textarea {
+		vertical-align: top;	
+	    font-size: 16px;    			
+	    padding: 16px 6px 6px 8px;
+		margin-bottom: 12px;
+	    resize: none;
+		width: 100%;
+		height: 50px;
+		color: #3a3a3a;	    
+	}	
+	
+	.Request-textarea:focus ~ .floating-label,
+	.Request-textarea:not(:focus):valid ~ .floating-label{
+	  bottom: 50px;
+	  font-size: 12px;
+	  opacity: 1;
+	}	
+	
 	
 	.Request-quantity-label {
 	    font-size: 16px;    			
@@ -1396,6 +1431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    border: 1px solid #68502b;
 	    width: 10%;
 	    border-radius: 3px;	    	    
+		margin-bottom: 12px;
 	}
 	
 	

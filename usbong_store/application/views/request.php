@@ -24,24 +24,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="fields">
 			<form method="post" action="<?php echo site_url('b/literature_and_fiction')?>">
 				<?php 
-					//First Name--------------------------------------------------
+					//First Name--------------------------------------------------			
+					echo '<div class="Checkout-div">';
 					if (isset($data['productNameParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="Product Name" name="productNameParam" value="'.$data['productNameParam'].'" required>';
+						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" value="'.$data['productNameParam'].'" required>';
 					}
+/*					else if (isset($customer_information_result->customer_email_address)) {
+						echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
+					}*/
 					else { //default
-						echo '<input type="text" class="Request-input" placeholder="Product Name" name="productNameParam" required>';
+						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" required>';
 					}
+					echo '<span class="floating-label">Product Name</span>';
+					echo '</div>';				
 					//-----------------------------------------------------------
 
 					//Last Name--------------------------------------------------
+					echo '<div class="Checkout-div">';
 					if (isset($data['productLinkParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="Product Link" name="productLinkParam" value="'.$data['productLinkParam'].'" required>';
+						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" value="'.$data['productLinkParam'].'" required>';
 					}
+					/*					else if (isset($customer_information_result->customer_email_address)) {
+					 echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
+					 }*/
 					else { //default
-						echo '<input type="text" class="Request-input" placeholder="Product Link" name="productLinkParam" required>';
+						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" required>';
 					}
+					echo '<span class="floating-label">Product Link</span>';
+					echo '</div>';
 					//-----------------------------------------------------------
-
+					
 					echo '<label class="Checkout-input-mode-of-payment">-Product Type-</label>';
 					$isUsedChecked=true;
 					if (isset($data['productTypeParam'])) {
@@ -63,18 +75,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					if ($isUsedChecked==true) {
 						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="productTypeParam" value="0" checked>Used</label>';
+						echo '<label><input type="radio" name="modeOfPaymentParam" value="0" checked>Used</label>';
 						echo '</div>';
 						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="productTypeParam" value="1">New</label>';
+						echo '<label><input type="radio" name="modeOfPaymentParam" value="1">New</label>';
 						echo '</div>';
 					}
 					else {
 						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="productTypeParam" value="0">Used</label>';
+						echo '<label><input type="radio" name="modeOfPaymentParam" value="0">Used</label>';
 						echo '</div>';
 						echo '<div class="radio Checkout-input-mode-of-payment">';
-						echo '<label><input type="radio" name="productTypeParam" value="1" checked>New</label>';
+						echo '<label><input type="radio" name="modeOfPaymentParam" value="1" checked>New</label>';
 						echo '</div>';
 					}
 					?>
@@ -83,12 +95,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<input type="tel" id="quantityParam" class="Request-quantity-textbox no-spin"
 								value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>
 					<?php 		
-					
+/*					
 					echo '<label class="Checkout-input-mode-of-payment">-Total Budget (for all copies/units)-</label>';
 					$checkedBudgetId=0;
 					if (isset($data['totalBudgetParam'])) {
 						$checkedBudgetId = $data['totalBudgetParam'];
-					}/*
+					}
+*/					
+					/*
 					else if (isset($customer_information_result->mode_of_payment_id)) {
 					if ($customer_information_result->mode_of_payment_id==0) {
 					$isBankDepositChecked=true;
@@ -97,58 +111,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$isBankDepositChecked=false;
 					}
 					}*/
-					
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="0" checked>Less than 50pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="1">Less than 100pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="2">Less than 200pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="3">Less than 300pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="4">Less than 400pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="5">Less than 500pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="6">Less than 1000pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="7">Less than 2000pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="8">Less than 3000pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="9">Less than 5000pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="10">Less than 7500pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="11">Less than 10000pesos</label>';
-					echo '</div>';
-					echo '<div class="radio Checkout-input-mode-of-payment">';
-					echo '<label><input type="radio" name="totalBudgetParam" value="12">More than 10000pesos</label>';
-					echo '</div>';
-					
-					echo '<br>';
-					
-					//Comments (optional)--------------------------------------------------
-					if (isset($data['commentsParam'])) {
-						echo '<textarea rows="3" class="Request-input" placeholder="Comments (optional)" name="commentsParam" value="'.$data['commentsParam'].'></textarea>';
+					//Last Name--------------------------------------------------
+					echo '<div class="Checkout-div">';
+					if (isset($data['totalBudgetParam'])) {
+						echo '<input type="text" class="Request-input" placeholder="" name="totalBudgetParam" value="'.$data['totalBudgetParam'].'" required>';
 					}
+					/*					else if (isset($customer_information_result->customer_email_address)) {
+					 echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
+					 }*/
 					else { //default
-						echo '<textarea rows="3" class="Request-input" placeholder="Comments (optional)" name="commentsParam" required></textarea>';
+						echo '<input type="text" class="Request-input" placeholder="" name="totalBudgetParam" required>';
 					}
+					echo '<span class="floating-label">Total Budget (for all copies/units in Philippine &#x20B1;)</span>';
+					echo '</div>';
 					//-----------------------------------------------------------
-										
+															
+					//Comments (optional)--------------------------------------------------
+					echo '<div class="Checkout-div">';
+					if (isset($data['commentsParam'])) {
+						echo '<textarea class="Request-textarea" placeholder="" name="commentsParam" value="'.$data['commentsParam'].'></textarea>';
+					}
+					/*					else if (isset($customer_information_result->customer_email_address)) {
+					 echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
+					 }*/
+					else { //default
+						echo '<textarea class="Request-textarea" placeholder="" name="commentsParam" required></textarea>';
+					}
+					echo '<span class="floating-label">Comments (optional)</span>';
+					echo '</div>';
+					//-----------------------------------------------------------
+															
 					//reset the session values to null
 					$this->session->set_flashdata('errors', null);
 					$this->session->set_flashdata('data', null); //added by Mike, 20170619

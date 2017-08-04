@@ -40,8 +40,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 				<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 				<?php
-					if (($productType=="books") || ($productType=="textbooks")
-							|| ($productType=="manga") || ($productType=="childrens")) {
+				if (($productType=="books") || ($productType=="childrens") || ($productType=="textbooks")
+							|| ($productType=="manga") || ($productType=="comics")) {
 				?>						
 				<div class="row Product-format">
 					<?php
