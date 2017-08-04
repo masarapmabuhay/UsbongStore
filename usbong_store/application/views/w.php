@@ -58,6 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo 'Language: <b>'.$result->language.'</b>';						
 					?>
 				</div>
+				<div class="row Product-pages">
+					<?php
+					if (isset($result->pages)) {
+						echo 'Pages: <b>'.$result->pages.'</b>';					
+					}
+					?>
+				</div>
 				<?php 	
 					}
 				?>

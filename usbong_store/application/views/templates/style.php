@@ -904,6 +904,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-align: left;
 	}
 
+	.Product-pages {
+		color: #312f2d;
+		font-size: 16px;
+		margin-top: 6px;
+		margin-left: 32px;
+		text-align: left;
+	}
+
 	.Product-purchase-button {
 		color: #4b4b4b;
 		font-size: 16px;
