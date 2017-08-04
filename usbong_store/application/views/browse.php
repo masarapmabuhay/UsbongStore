@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if ($resultCount==0) {
 			echo '<div class="Search-noResult">';
 			echo 'Your search <b>- '.$param.' -</b> did not match any of our products.';
-			echo '<br><br>Suggesion:';
+			echo '<br><br>Suggestion:';
 			echo '<br>&#x25CF; Make sure that all words are spelled correctly.';				
 			echo '</div>';
 		}
