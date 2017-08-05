@@ -395,7 +395,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 20px;
 		display:table;
   		margin:0 auto;
-  		
+  		z-index: -1;
 	}
 
 	.categories-navbar li a {
