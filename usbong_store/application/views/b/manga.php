@@ -5,6 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
+	<div class="Image-offers">
+	<img class="Image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
+	<img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>">
+	</div>
+
 	<h2 class="header">Manga</h2>
 	<br>
 	<div class="container">
