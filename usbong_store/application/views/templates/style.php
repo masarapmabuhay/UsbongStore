@@ -781,13 +781,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #4b4b4b;		
 		background-color: #efe6ca;
 	}
+
+	.Order-summary-order-total {
+		color: #b88a1b;	
+	}
 	
 	.Fulfilled-Status-OK {
 		background-color: #77b043;
+		color: #4b4b4b;
 	}
 
 	.Fulfilled-Status-Not-OK {
 		background-color: #e04949;
+		color: #4b4b4b;
 	}
 
 	.Order-details {
@@ -812,19 +818,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-align: right;
 	}
 
+	.Order-details-amount {
+		color: #b88a1b;
+	}
+
 	.Order-details-align-right-order-total {
 		text-align: right;
 		background-color: #efe6ca;
+		color: #b88a1b;
 	}
 	
 	.Order-details-order-number-link {
 		font-size: 18px;  
-		color: #4b4b4b;
+		color: #77b043;
 	}
 
 	.Order-details-order-number-link:hover {
 		font-size: 18px;  
-		color: #4b4b4b;
+		color: #77b043;
 	}
 	
 	.Popup-product-details {

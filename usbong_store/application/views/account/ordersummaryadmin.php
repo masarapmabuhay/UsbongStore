@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a>';
+												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -76,8 +76,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo "Accepted";
 												echo '</div>';
 												
+												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
+												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												echo '&#x20B1;'.$value['order_total_price'];
+												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
@@ -100,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a>';											
+												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';											
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
@@ -111,8 +113,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo "Accepted";
 												echo '</div>';
 												
-												echo '<div class="col-sm-2 Order-summary">';
-												echo '&#x20B1;'.$value['order_total_price'];
+												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
+												
+												echo '<div class="col-sm-2 Order-summary">';											
+												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
 												echo '</div>';			
 												
 												echo '<div class="col-sm-2 Order-summary">';

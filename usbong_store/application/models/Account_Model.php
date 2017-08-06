@@ -101,7 +101,7 @@ class Account_Model extends CI_Model
 	}
 	
 	public function getCustomerOrdersAdmin() {
-		$this->db->select('added_datetime_stamp, customer_id, quantity, status_accepted, order_total_price, fulfilled_status');
+		$this->db->select('added_datetime_stamp, customer_id, quantity, status_accepted, order_total_price, fulfilled_status, order_total_discount');
 		$this->db->where('status_accepted', 1);
 		$this->db->order_by('added_datetime_stamp', 'DESC');
 		$query = $this->db->get('customer_order');
@@ -125,7 +125,7 @@ class Account_Model extends CI_Model
 	}
 
 	public function getOrderDetails($customerId, $addedDateTimeStamp) {
-		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price');
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.order_total_discount');
 		$this->db->from('cart as t1');
 		$this->db->join('customer_order as t2', 't1.customer_order_id = t2.customer_order_id', 'LEFT');
 		$this->db->join('product as t3', 't1.product_id = t3.product_id', 'LEFT');	
@@ -139,7 +139,7 @@ class Account_Model extends CI_Model
 	}	
 	
 	public function getOrderDetailsAdmin($customerId, $addedDateTimeStamp) {
-		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.customer_id');
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.customer_id, t2.order_total_discount');
 		$this->db->from('cart as t1');
 		$this->db->join('customer_order as t2', 't1.customer_order_id = t2.customer_order_id', 'LEFT');
 		$this->db->join('product as t3', 't1.product_id = t3.product_id', 'LEFT');

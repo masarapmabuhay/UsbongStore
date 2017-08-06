@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											echo	'</a>';
 											echo 	'</div>';
 											echo	'<div class="col-sm-3 Order-details">';
-											echo	'<div class="Order-details-align-right">&#x20B1;'.$value['price'].'</div>';
+											echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['price'].'</div>';
 											echo	'</div>';
 											echo '</div>';
 											
@@ -78,10 +78,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'<div class="Order-details-align-right">Order Subtotal</div>';
 									echo 	'</div>';
 									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right">&#x20B1;'.$value['order_total_price'].'</div>';
+									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';
 									echo	'</div>';
 									echo '</div>';
-									
+
+									echo '<div class="row">';
+									echo	'<div class="col-sm-6 Order-details">';
+									echo	'<div class="Order-details-align-right">Less &#x20B1;25 promo</div>';
+									echo 	'</div>';
+									echo	'<div class="col-sm-5 Order-details">';
+									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$value['order_total_discount'].'</div>';
+									echo	'</div>';
+									echo '</div>';
+																											
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Shipping (PH)</div>';
@@ -91,12 +100,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'</div>';
 									echo '</div>';
 									
+									$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
+																		
 									echo '<div class="row Order-details-product">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo    '<div class="Order-details-align-right">Order Total</div>';
 									echo 	'</div>';
 									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$value['order_total_price'].'</div>';
+									echo	'<div class="Order-details-align-right-order-total">&#x20B1;'.$orderTotal.'</div>';
 									echo	'</div>';
 									echo '</div>';
 									
