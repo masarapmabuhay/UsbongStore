@@ -387,7 +387,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.navbar {
 		background-color: #1a0d00;
 		margin: 0;
-		z-index: 0;		
+		z-index: 1;		
 	}
 
 	.categories-navbar {	
@@ -395,7 +395,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 20px;
 		display:table;
   		margin:0 auto;
-  		z-index: -1;
+  		z-index: 0;
 	}
 
 	.categories-navbar li a {
@@ -702,6 +702,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Cart-order-total-row {
 		color: #4b4b4b;
+	}
+
+	.Cart-order-discount-row {
+		color: #4b4b4b;
+	}
+
+	.Cart-order-discount {
+		color: #b88a1b;
 	}
 
 	.Cart-order-total-with-checkout-row {

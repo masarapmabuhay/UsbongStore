@@ -317,6 +317,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php //echo '&#x20B1; '.$orderTotal?>		
 							</div>								
 						</div>
+						<div class="row Cart-order-discount-row">
+								<div class="col-sm-6">		
+									Less &#x20B1;25 promo
+								</div>
+								<div class="col-sm-6 Cart-order-discount">		
+									<?php 
+										if ($totalQuantity>1) {
+											$totalDiscount = ($totalQuantity-1)*25;
+										}
+										else {
+											$totalDiscount=0;
+										}
+										
+										echo '-&#x20B1;'.$totalDiscount;
+									?>	
+								</div>		
+						</div>	
 						<div class="row Cart-order-total-row">
 							<div class="col-sm-6">		
 								Shipping (PH)
@@ -330,9 +347,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								Order Total
 							</div>
 							<div class="col-sm-6 Cart-order-price">		
-							    <?php echo '<label>&#x20B1;<span id="orderTotalId2">'.$orderTotal.'</span></label>';?>
-
-								<?php //echo '&#x20B1; '.$orderTotal?>		
+								<?php 
+									$orderTotal-=$totalDiscount;								    
+							    	echo '<label>&#x20B1;<span id="orderTotalId2">'.$orderTotal.'</span></label>';
+							    ?>	
 							</div>								
 						</div>
 						<br>

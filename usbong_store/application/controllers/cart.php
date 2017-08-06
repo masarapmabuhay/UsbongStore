@@ -195,6 +195,12 @@ class Cart extends MY_Controller {
 			$totalQuantity+=$value['quantity'];
 		}
 		
+		//added by Mike, 20170806
+		$orderTotalDiscount=0;
+		if ($totalQuantity>1) {
+			$orderTotalDiscount = ($totalQuantity-1)*25;
+		}		
+				
 		date_default_timezone_set('Asia/Hong_Kong');
 		$dateTimeStamp = date('Y/m/d H:i:s');				
 		
@@ -203,6 +209,7 @@ class Cart extends MY_Controller {
 						'quantity' => $totalQuantity,
 						'status_accepted' => 1,
 						'order_total_price' => $orderTotalPrice,
+						'order_total_discount' => $orderTotalDiscount,				
 						'added_datetime_stamp' => $dateTimeStamp
 				);		
 
@@ -245,6 +252,11 @@ class Cart extends MY_Controller {
 		
 		foreach ($fields as $field)
 		{
+			//added by Mike, 20170806
+			if (!isset($_POST[$field])) {
+				redirect(site_url(''));	//redirect to home page
+			}
+
 			$data[$field] = $_POST[$field];
 		}
 		

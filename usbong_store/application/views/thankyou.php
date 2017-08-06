@@ -38,9 +38,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 					?>
 			</div>
-			<div class="col-sm-3 Thankyou-order-details">		
+			<div class="col-sm-2 Thankyou-order-details">		
 			</div>
-			<div class="col-sm-3 Thankyou-order-details">		
+			<div class="col-sm-4 Thankyou-order-details">		
 				<b>Order Summary</b>
 				<div class="Cart-order-total">
 					<div class="row Cart-order-total-row">
@@ -63,6 +63,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php //echo '&#x20B1; '.$orderTotal?>		
 						</div>								
 					</div>
+					<div class="row Cart-order-discount-row">
+							<div class="col-sm-6">		
+								Less &#x20B1;25 promo
+							</div>
+							<div class="col-sm-6 Cart-order-discount">		
+								<?php 
+									if ($quantity>1) {
+										$totalDiscount = ($quantity-1)*25;
+									}
+									else {
+										$totalDiscount=0;
+									}
+									
+									echo '-&#x20B1;'.$totalDiscount;
+								?>	
+							</div>		
+					</div>		
 					<div class="row Cart-order-total-row">
 						<div class="col-sm-6">		
 							Shipping (PH)
@@ -76,9 +93,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							Order Total
 						</div>
 						<div class="col-sm-6 Cart-order-price">		
-						    <?php echo '<label>&#x20B1;<span id="orderTotalId2">'.$order_total_price.'</span></label>';?>
-
-							<?php //echo '&#x20B1; '.$orderTotal?>		
+						    <?php 
+						    	$order_total_price-=$totalDiscount;						    
+						    	echo '<label>&#x20B1;<span id="orderTotalId2">'.$order_total_price.'</span></label>';
+						    ?>
 						</div>								
 					</div>
 				  </div>
