@@ -539,7 +539,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    max-width: 75%;
     	height: auto;
 	}
+
+	.Image-offers {
+		position: absolute;
+    	right: 0px;
+	}
+
+	.Image-offers-save-more {
+		position: relative;
+		display:block;		
+	}
 	
+	.Image-offers-buy-back {
+		position: relative;
+		display:block;		
+	}
+
 	.Product-item {
 		border-radius: 4px;	
 		color: #222222;
