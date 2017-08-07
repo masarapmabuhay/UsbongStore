@@ -542,7 +542,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Image-offers {
 		position: absolute;
-    	right: 0px;
+    	right: 12px;
 	}
 
 	.Image-offers-save-more {
