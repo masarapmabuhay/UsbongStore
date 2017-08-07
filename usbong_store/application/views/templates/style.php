@@ -1003,7 +1003,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.container {
-		margin-left: 142px;
+		margin-left: 100px;
 		margin-bottom: 156px;
 	}	
 	
