@@ -1452,6 +1452,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  opacity: 1;
 	}	
 	
+	.Request-input-mode-of-payment {
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin: 0;		    
+	}
+	
 	
 	.Request-quantity-label {
 	    font-size: 16px;    			
@@ -1468,6 +1475,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 12px;
 	}
 	
+	.Request-success {		
+		max-width: 40%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+	
+		font-size: 20px;
+		color: #496d28;		
+		background-color: #77b043;
+		border-top: 1px solid #90d94f;	
+		border-right: 1px solid #90d94f;	
+		border-left: 1px solid #90d94f;		
+
+		border-bottom: 1px solid #90d94f;					
+		margin-bottom: -1px;
+	}			
 	
 	.floating-label {
 	  bottom: 40px;
