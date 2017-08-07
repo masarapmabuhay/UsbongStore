@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo 'Your search <b>- '.$param.' -</b> did not match any of our products.';
 			echo '<br><br>Suggestion:';
 			echo '<br>&#x25CF; Make sure that all words are spelled correctly.';				
+			echo '<br>&#x25CF; You may send us a request for the product item <a class="Request-link" href="'.site_url('request/').'">here</a>.';		
 			echo '</div>';
 		}
 		else {

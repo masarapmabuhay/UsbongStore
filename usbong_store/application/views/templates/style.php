@@ -1492,6 +1492,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: -1px;
 	}			
 	
+	.Request-link {
+		font-size: 18px;  
+		color: #77b043;
+	}
+
+	.Request-link:hover {
+		font-size: 18px;  
+		color: #77b043;
+	}
+	
+	.Request-input-product-type {
+	    font-size: 16px;    			
+	    padding: 6px;
+	    width: 100%;
+	    margin: 0;		    
+	}
+	
 	.floating-label {
 	  bottom: 40px;
 	  position: absolute;
