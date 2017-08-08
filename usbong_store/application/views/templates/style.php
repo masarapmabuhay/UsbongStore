@@ -995,6 +995,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #d4be00;
 	}
 
+	.Button-merchant {
+		padding: 2px 2px 2px 2px;
+		background:url(<?php echo base_url('assets/images/sand.jpg');?>) no-repeat;
+		color: #e8e8e8;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+		margin-bottom: 4px;
+	}
+
+	.Button-merchant:hover {
+ 		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+	}
+
+
 	.Button-continue-to-checkout {
 		padding: 8px 24px 8px 24px;
 		background-color: #ffe400;
