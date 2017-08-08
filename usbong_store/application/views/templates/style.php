@@ -569,6 +569,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		display:block;		
 	}
 
+	.Image-offers-buy-back:hover {
+ 		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+   	}
+
+	.Image-offers-request {
+		position: relative;
+		display:block;		
+	}
+
+	.Image-offers-request:hover {
+ 		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+   	}
+
 	.Product-item {
 		border-radius: 4px;	
 		color: #222222;

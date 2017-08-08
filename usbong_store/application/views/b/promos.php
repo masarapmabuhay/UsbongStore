@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="Image-offers">
 	<img class="Image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
 	<br>	
-	<img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>">
+	<a class="Request-link" href="<?php echo site_url('sell/')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>"></a>
 	<br>
 	<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersRequest.jpg')?>"></a>
 	</div>
