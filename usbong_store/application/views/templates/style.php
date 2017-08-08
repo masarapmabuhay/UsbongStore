@@ -997,8 +997,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Button-merchant {
 		padding: 2px 2px 2px 2px;
-		background:url(<?php echo base_url('assets/images/sand.jpg');?>) no-repeat;
-		color: #e8e8e8;
+		background-color: #efe6ca;
+		color: #313131;
 		font-weight: bold;
 		border: 0px solid;		
 		border-radius: 4px;
