@@ -1051,6 +1051,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 100px;
 		margin-bottom: 156px;
 	}	
+
+	.container-product-item {
+		margin-left: 10px;
+		margin-bottom: 156px;
+	}	
 	
 	
 	.Cart-container {

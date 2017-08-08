@@ -6,8 +6,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<br>
-	<div class="container">
+	<div class="container-product-item">
 		<div class="row">
+			<div class="col-sm-2 Account-settings">
+				<a href="<?php echo site_url('sell/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/usbongSpecialtyBookstore.jpg')?>"></a>
+			</div>
 			<div class="col-sm-3">	
 				<?php 
 				
@@ -69,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 				?>
 			</div>
-			<div class="col-sm-5">	
+			<div class="col-sm-4">	
 				<div class="row Product-name">
 					<?php
 						echo $result->name;
