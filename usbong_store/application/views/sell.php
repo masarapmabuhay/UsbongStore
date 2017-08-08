@@ -67,23 +67,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					echo '<div class="radio Request-input-product-type">';
 					echo '<label><input type="radio" name="productTypeParam" value="1">New</label>';
-					echo '</div>';
-					
+					echo '</div>';					
 					?>
 					
 					<label class="Request-quantity-label">Quantity:</label>
 					<input type="tel" id="quantityParam" name="quantityParam" class="Request-quantity-textbox no-spin"
-								value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>
+								value="1" min="1" max="99" onKeyUp="mySellQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>
+					<label class="Request-quantity-label">x <span class="Sell-cost">&#x20B1;50</span></label>
 					<?php 		
 					//Total Cost--------------------------------------------------
 					echo '<div class="Checkout-div">';
-					echo '<input type="tel" class="Request-input" placeholder="" name="totalCostParam" required>';
-					echo '<span class="floating-label">Total Cost (for all copies/units in Philippine &#x20B1;)</span>';
+					echo '<label>Total Cost (for all copies/units)</label>';					
+					echo '<br><label class="Sell-total-cost-label">&#x20B1;</label><input id="totalCost" type="text" class="Sell-total-cost-input" placeholder="50" name="totalCostParam" required>';
 					echo '</div>';
 					//-----------------------------------------------------------
-															
+																	
 					//Comments--------------------------------------------------
-					echo '<div class="Checkout-div">';
+					echo '<div class="Checkout-div Sell-comments-div">';					
 					echo '<input type="text" class="Request-input" placeholder="" name="commentsParam" required>';
 					echo '<span class="floating-label">Comments</span>';
 					echo '</div>';

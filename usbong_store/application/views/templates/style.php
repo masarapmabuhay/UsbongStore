@@ -314,6 +314,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 
 	<script>
+		//added by Mike, 20170808
+		function mySellQuantityFunction(quantity, id) {								
+			var totalCostField = document.getElementById("totalCost");
+
+			if (Number.isNaN(quantity)) {
+				quantity = 0;
+			}
+			
+			var subTotal = quantity * 50;
+			totalCostField.value = subTotal;
+		}
+	</script>
+	
+	<script>
 		//added by Mike, 20170626
 		function removeProductItemFunction(id) {			
 //			alert("hello"+id);
@@ -1452,12 +1466,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 100%;
 	    margin: 0;		    
 	}
-	
-	
+		
 	.Request-quantity-label {
 	    font-size: 16px;    			
 	}
+
+	.Request-total-cost-label {
+	    font-weight: normal;    			
+	    color: #b88a1b;	    
+	}
+
+	.Sell-total-cost-label {
+	    font-weight: normal;    			
+	    color: #b88a1b;	    
+	}
+
+	.Sell-total-cost-input {
+	    color: #b88a1b;	    
+	}
 	
+	input#totalCost::-webkit-input-placeholder {color: #b88a1b;}
+	input#totalCost::-moz-placeholder          {color: #b88a1b;}
+	input#totalCost:-moz-placeholder           {color: #b88a1b;}
+	input#totalCost:-ms-input-placeholder      {color: #b88a1b;}
+
+	.Sell-comments-div {
+		margin-top: 10px;
+	}
+
 	.Request-quantity-textbox { 
 		background-color: #fCfCfC;
 	    color: #68502b;
@@ -1501,6 +1537,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    padding: 6px;
 	    width: 100%;
 	    margin: 0;		    
+	}
+
+	.Sell-cost {
+		color: #b88a1b;	    		
 	}
 	
 	.floating-label {
