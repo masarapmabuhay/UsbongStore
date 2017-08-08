@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h2 class="header">Request</h2>
+	<h2 class="header">Sell</h2>
 	<br>
 	<div>
 	<?php 
@@ -16,14 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 		//Success Message
 		if (isset($data['is_success'])) {
-			echo '<div class="Request-success">&#x2714; You have successfully sent us your request.</div>';
+			echo '<div class="Request-success">&#x2714; You have successfully sent us your product details.</div>';
 		}	
 	?>
 
 	<div class="request">
 		<div class="request-text"><b>Product Information</b></div>
 		<div class="fields">
-			<form method="post" action="<?php echo site_url('request/confirm')?>">
+			<form method="post" action="<?php echo site_url('sell/confirm')?>">
 				<?php 							
 				
 					//First Name--------------------------------------------------			
@@ -53,45 +53,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					 }
 					else { //default
 */					
-						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" required>';
+						echo '<input type="text" class="Request-input" placeholder="" name="productImageLinkParam" required>';
 /*					}
  */
-					echo '<span class="floating-label">Product Link</span>';
+					echo '<span class="floating-label">Product Image Link</span>';
 					echo '</div>';
 					//-----------------------------------------------------------
 					
 					echo '<label class="Checkout-input-product-type">-Product Type-</label>';
-/*					$isUsedChecked=true;
-					if (isset($data['productTypeParam'])) {
-						if ($data['productTypeParam']==0) {
-							$isUsedChecked=true;
-						}
-						else {
-							$isUsedChecked=false;
-						}
-					}
-					if ($isUsedChecked==true) {
-						echo '<div class="radio Request-input-product-type">';
-						echo '<label><input type="radio" name="productTypeParam" value="0" checked>Used</label>';
-						echo '</div>';
-						echo '<div class="radio Request-input-product-type">';
-						echo '<label><input type="radio" name="productTypeParam" value="1">New</label>';
-						echo '</div>';
-					}
-					else {
-						echo '<div class="radio Request-input-product-type">';
-						echo '<label><input type="radio" name="productTypeParam" value="0">Used</label>';
-						echo '</div>';
-						echo '<div class="radio Request-input-product-type">';
-						echo '<label><input type="radio" name="productTypeParam" value="1" checked>New</label>';
-						echo '</div>';
-					}
-*/					
+			
 					echo '<div class="radio Request-input-product-type">';
-					echo '<label><input type="radio" name="productTypeParam" value="0">Used</label>';
+					echo '<label><input type="radio" name="productTypeParam" value="0" checked>Used</label>';
 					echo '</div>';
 					echo '<div class="radio Request-input-product-type">';
-					echo '<label><input type="radio" name="productTypeParam" value="1" checked>New</label>';
+					echo '<label><input type="radio" name="productTypeParam" value="1">New</label>';
 					echo '</div>';
 					
 					?>
@@ -100,20 +75,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<input type="tel" id="quantityParam" name="quantityParam" class="Request-quantity-textbox no-spin"
 								value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>
 					<?php 		
-					//Total Budget--------------------------------------------------
+					//Total Cost--------------------------------------------------
 					echo '<div class="Checkout-div">';
-					echo '<input type="tel" class="Request-input" placeholder="" name="totalBudgetParam" required>';
-					echo '<span class="floating-label">Total Budget (for all copies/units in Philippine &#x20B1;)</span>';
+					echo '<input type="tel" class="Request-input" placeholder="" name="totalCostParam" required>';
+					echo '<span class="floating-label">Total Cost (for all copies/units in Philippine &#x20B1;)</span>';
 					echo '</div>';
 					//-----------------------------------------------------------
-								
+															
 					//Comments--------------------------------------------------
 					echo '<div class="Checkout-div">';
 					echo '<input type="text" class="Request-input" placeholder="" name="commentsParam" required>';
 					echo '<span class="floating-label">Comments</span>';
 					echo '</div>';
 					//-----------------------------------------------------------
-					
 					
 					//reset the session values to null
 					$this->session->set_flashdata('errors', null);
@@ -122,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<button type="submit" class="Button-login">
 <!-- <img src="<?php echo base_url('assets/images/cart_icon.png'); ?>">	
  -->					
- 				Request
+ 				Sell
 				</button>
 			</form>
 		</div>		

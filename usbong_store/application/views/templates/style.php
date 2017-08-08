@@ -1410,14 +1410,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 12px;				
 	}
 	
-	.Request-input {
-/*	    font-size: 16px;    			
-	    padding: 6px;
-	    width: 100%;
-	    margin-bottom: 12px;	
-	    margin-top: 6px;	    
-	    resize: none;
-*/
+	.Request-input,
+	.Request-comments-input {
 	    font-size: 16px;    			
 	    padding: 16px 6px 6px 8px;
 		margin-bottom: 12px;

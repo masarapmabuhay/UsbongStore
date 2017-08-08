@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Request extends MY_Controller {
+class Sell extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -31,7 +31,7 @@ class Request extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
-		$this->load->view('request');
+		$this->load->view('sell');
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
@@ -45,15 +45,15 @@ class Request extends MY_Controller {
 			redirect('account/login'); //home page
 		}
 	
-		$fields = array('productNameParam', 'productLinkParam', 'productTypeParam', 'quantityParam', 'totalBudgetParam', 'commentsParam');
+		$fields = array('productNameParam', 'productImageLinkParam', 'productTypeParam', 'quantityParam', 'totalCostParam', 'commentsParam');
 		
 		foreach ($fields as $field)
 		{
 			$data[$field] = $_POST[$field];
 		}
 		
-		$this->load->model('Request_Model');
-		$data["is_success"] = $this->Request_Model->insertRequest($data, $customer_id);
+		$this->load->model('Sell_Model');
+		$data["is_success"] = $this->Sell_Model->insertSell($data, $customer_id);
 				
 		$this->session->set_flashdata('data', $data);
 		
@@ -65,7 +65,7 @@ class Request extends MY_Controller {
 		$this->load->library('session');
 		$this->load->library('form_validation');
 								
-		$this->load->view('request');
+		$this->load->view('sell');
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');

@@ -1,22 +1,22 @@
 <?php 
-class Request_Model extends CI_Model
+class Sell_Model extends CI_Model
 {
-	public function insertRequest($param, $customerId)
+	public function insertSell($param, $customerId)
 	{		
 		$data = array(
 				'customer_id' => $customerId,
 				'product_name' => $param['productNameParam'],
-				'product_link' => $param['productLinkParam'],
+				'product_image_link' => $param['productImageLinkParam'],
 				'product_type' => $param['productTypeParam'],
 				'quantity' => $param['quantityParam'],
-				'request_total_budget' => $param['totalBudgetParam'],
-				'comments' => $param['commentsParam']		
+				'sell_total_cost' => $param['totalCostParam'],
+				'comments' => $param['commentsParam']				
 		);
 		//'comments' => $param['commentsParam']
 		
-		$this->db->insert('customer_request', $data);
+		$this->db->insert('customer_sell', $data);
 		
 		return $this->db->insert_id(); //customer_request_id
-	}
+	}		
 }
 ?>
