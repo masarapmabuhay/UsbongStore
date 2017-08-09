@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container-product-item">
 		<div class="row">
 			<div class="col-sm-2 Account-settings">
-				<a href="<?php echo site_url('sell/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/usbongSpecialtyBookstore.jpg')?>"></a>
+				<a href="<?php echo site_url('sell/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></a>
 			</div>
 			<div class="col-sm-3">	
 				<?php 
