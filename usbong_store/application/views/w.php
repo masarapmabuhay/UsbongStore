@@ -8,8 +8,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 	<div class="container-product-item">
 		<div class="row">
-			<div class="col-sm-2 Account-settings">
-				<a href="<?php echo site_url('sell/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></a>
+			<div class="col-sm-2 Merchant-category">
+				<div class="row Merchant-category-image"><a href="<?php echo site_url('sell/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></a></div>
+				<?php 
+					foreach ($categories as $value) {
+						$fileFriendlyMerchantName = str_replace("'","",
+													str_replace(" & ","_and_",
+														strtolower($value['product_type_name'])));
+						echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyMerchantName).'">'.strtoupper($value['product_type_name']).'</a></div>';
+					}
+				?>
 			</div>
 			<div class="col-sm-3">	
 				<?php 

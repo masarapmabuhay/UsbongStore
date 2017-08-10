@@ -1264,6 +1264,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Account-settings-subject-content-link:hover {
 		color: #1a0d00;		  			
 	}
+
+	.Merchant-category {	
+	}
+		
+	.Merchant-category-image {	
+		margin-left: 10px;
+		margin-bottom: 12px;
+	}
+	
+	.Merchant-category-content {
+		text-align: center;
+		margin-left: 6px;
+    	font-size: 15px;
+    	color: #291f1a;    	
+    	border: .2px dotted #4b3b2c;    	
+    	background-color: white;  
+    	padding: 2px;  	    	
+    	font-weight: bold;
+	}
+		
+	.Merchant-category-content-link {
+		text-align: center;
+		margin-left: 6px;
+		font-size: 15px;  
+		color: #291f1a;		  			
+    	padding: 2px;  	    	
+	}
+
+	.Merchant-category-content-link:hover {
+		color: #291f1a;		  			
+	}
 		
 	.login-and-create {
 		max-width: 30%;		
