@@ -167,9 +167,24 @@ class B extends MY_Controller {
 		//--------------------------------------------
 				
 //		$data['content'] = 'category/Books';
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Books_Model');
+		if (isset($merchant_id)) {
+			$data['books'] = $this->Books_Model->getBooks($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['books'] = $this->Books_Model->getBooks(null);
+		}
+/*		
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();
 //		$this->load->view('templates/general_template',$data);
+ */
 		$this->load->view('b/books',$data);
 
 		//--------------------------------------------
@@ -186,8 +201,23 @@ class B extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Textbooks_Model');
+		if (isset($merchant_id)) {
+			$data['textbooks'] = $this->Textbooks_Model->getTextbooks($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['textbooks'] = $this->Textbooks_Model->getTextbooks(null);
+		}
+/*		
 		$this->load->model('Textbooks_Model');
 		$data['books'] = $this->Textbooks_Model->getTextbooks();
+*/		
 		$this->load->view('b/textbooks',$data);
 		
 		//--------------------------------------------
@@ -237,9 +267,24 @@ class B extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
-//		$data['content'] = 'category/Combos';
+		$merchant_id = $this->uri->segment(3);
+		
 		$this->load->model('Promos_Model');
+		if (isset($merchant_id)) {
+			$data['promos'] = $this->Promos_Model->getPromos($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['promos'] = $this->Promos_Model->getPromos(null);
+		}
+		
+//		$data['content'] = 'category/Combos';
+/*		$this->load->model('Promos_Model');
 		$data['promos'] = $this->Promos_Model->getPromos();
+*/		
 		//		$this->load->view('templates/general_template',$data);
 		$this->load->view('b/promos',$data);
 
@@ -257,9 +302,24 @@ class B extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Beverages_Model');
+		if (isset($merchant_id)) {
+			$data['beverages'] = $this->Beverages_Model->getBeverages($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['beverages'] = $this->Beverages_Model->getBeverages(null);
+		}
+/*		
 		$this->load->model('Beverages_Model');
 		$data['beverages'] = $this->Beverages_Model->getBeverages();
 		//		$this->load->view('templates/general_template',$data);
+*/
 		$this->load->view('b/beverages',$data);
 		
 		//--------------------------------------------
@@ -275,10 +335,25 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+
+		$merchant_id = $this->uri->segment(3);
 		
+		$this->load->model('Comics_Model');
+		if (isset($merchant_id)) {
+			$data['comics'] = $this->Comics_Model->getComics($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['comics'] = $this->Comics_Model->getComics(null);
+		}
+/*		
 		$this->load->model('Comics_Model');
 		$data['comics'] = $this->Comics_Model->getComics();
 		//		$this->load->view('templates/general_template',$data);
+*/
 		$this->load->view('b/comics',$data);
 		
 		//--------------------------------------------
@@ -293,11 +368,27 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
+		//--------------------------------------------	
 		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Manga_Model');
+		if (isset($merchant_id)) {
+			$data['manga'] = $this->Manga_Model->getManga($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['manga'] = $this->Manga_Model->getManga(null);
+		}
+		
+/*		
 		$this->load->model('Manga_Model');
 		$data['manga'] = $this->Manga_Model->getManga();
 		//		$this->load->view('templates/general_template',$data);
+*/
 		$this->load->view('b/manga',$data);
 		
 		//--------------------------------------------
@@ -314,9 +405,25 @@ class B extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Toys_and_Collectibles_Model');
+		if (isset($merchant_id)) {
+			$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles(null);
+		}
+		
+/*		
 		$this->load->model('Toys_and_Collectibles_Model');
 		$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles();
 		//		$this->load->view('templates/general_template',$data);
+*/
 		$this->load->view('b/toys_and_collectibles',$data);
 		
 		//--------------------------------------------

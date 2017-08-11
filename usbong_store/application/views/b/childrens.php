@@ -115,9 +115,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}*/
 			}
 			echo '</div>';
+			echo '</div>';
 			
 			if (isset($categories)) {
-				echo '</div>';
+				echo '</div><br>';
 			}
 	?>
 	</div>	

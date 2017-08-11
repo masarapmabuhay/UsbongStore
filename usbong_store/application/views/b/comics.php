@@ -7,15 +7,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<div class="Image-offers">
 	<img class="Image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
-	<br>	
+	<br>
 	<a class="Request-link" href="<?php echo site_url('sell/')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>"></a>
 	<br>
-	<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersRequest.jpg')?>"></a>
+	<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest.jpg')?>"></a>
 	</div>
 
-	<h2 class="header">Comics</h2>
+	<h2 class="header">Comics</h2>	
 	<br>
-	<div class="container">
+	<?php 
+		if (isset($categories)) {
+			echo '<div class="container-merchant">';		
+		}
+		else {
+			echo '<div class="container">';			
+		}
+	?>
+		<div class="row">
+				<?php 
+					if (isset($categories)) {
+						echo '<div class="col-sm-2 Merchant-category-b">';
+						
+							echo '<div class="row Merchant-category-image"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></div>';
+							
+							foreach ($categories as $value) {
+								$fileFriendlyCategoryName = str_replace("'","",
+										str_replace(" & ","_and_",
+												strtolower($value['product_type_name'])));
+								echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
+							}
+							
+						echo '</div>';
+						
+						echo '<div class="col-sm-9 Merchant-products">';						
+					}					
+				?>	
 	<?php
 			$colCounter = 0;
 			foreach ($comics as $value) {
@@ -39,9 +65,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row">';	
 					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
+/*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
+*/
 					echo '<img class="Image-item" src="'.base_url('assets/images/comics/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';
+//					echo $value['author'];
 					
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
@@ -49,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</label>';					
 					}
 					else {
-						echo '<label class="Product-item-price">out of stock</label>';					
+						echo '<br><label class="Product-item-price">out of stock</label>';					
 						echo '</label>';
 					}			
 					echo '</a>';
@@ -59,9 +88,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else if ($colCounter<5){
 					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
+/*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
+*/
 					echo '<img class="Image-item" src="'.base_url('assets/images/comics/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';					
+//					echo $value['author'];
 					
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
@@ -69,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</label>';
 					}
 					else {
-						echo '<label class="Product-item-price">out of stock</label>';
+						echo '<br><label class="Product-item-price">out of stock</label>';
 						echo '</label>';
 					}
 					echo '</a>';
@@ -85,8 +117,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter=0;
 				}*/
-			}
+			}			
+			echo '</div>';		
 			echo '</div>';
+			
+			if (isset($categories)) {
+				echo '</div><br>';
+			}			
 	?>
 	</div>	
 </body>
