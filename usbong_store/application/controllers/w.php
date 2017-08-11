@@ -16,8 +16,8 @@ class W extends MY_Controller {
 			
 		$this->load->model('W_Model');
 		$data['result'] = $this->W_Model->getProduct($productId);
-		$data['categories'] = $this->W_Model->getMerchantCategories($data['result']->merchant_id);
-	
+		$data['categories'] = $this->W_Model->getMerchantCategories($data['result']->merchant_id);		
+		
 //		$data['result'] = $this->W_Model->getProduct($param);
 		
 		$this->load->view('w', $data);

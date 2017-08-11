@@ -15,10 +15,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<h2 class="header">Children's Books</h2>
 	<br>
-	<div class="container">
+	<?php 
+		if (isset($categories)) {
+			echo '<div class="container-merchant">';		
+		}
+		else {
+			echo '<div class="container">';			
+		}
+	?>
+		<div class="row">
+				<?php 
+					if (isset($categories)) {
+						echo '<div class="col-sm-2 Merchant-category-b">';
+						
+							echo '<div class="row Merchant-category-image"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></div>';
+							
+							foreach ($categories as $value) {
+								$fileFriendlyCategoryName = str_replace("'","",
+										str_replace(" & ","_and_",
+												strtolower($value['product_type_name'])));
+								echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
+							}
+							
+						echo '</div>';
+						
+						echo '<div class="col-sm-9 Merchant-products">';						
+					}					
+				?>
 	<?php
 			$colCounter = 0;
-			foreach ($books as $value) {
+			foreach ($childrens as $value) {
 				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				$URLFriendlyReformattedProductName = str_replace("(","",
 														str_replace(")","",
@@ -89,6 +115,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}*/
 			}
 			echo '</div>';
+			
+			if (isset($categories)) {
+				echo '</div>';
+			}
 	?>
 	</div>	
 </body>

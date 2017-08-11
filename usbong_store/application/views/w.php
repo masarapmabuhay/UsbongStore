@@ -12,10 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row Merchant-category-image"><a href="<?php echo site_url('sell/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></a></div>
 				<?php 
 					foreach ($categories as $value) {
-						$fileFriendlyMerchantName = str_replace("'","",
+						$fileFriendlyCategoryName = str_replace("'","",
 													str_replace(" & ","_and_",
 														strtolower($value['product_type_name'])));
-						echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyMerchantName).'">'.strtoupper($value['product_type_name']).'</a></div>';
+						echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
 					}
 				?>
 			</div>

@@ -205,8 +205,21 @@ class B extends MY_Controller {
 		//--------------------------------------------
 		
 		//		$data['content'] = 'category/Books';
-		$this->load->model('Childrens_Model');
-		$data['books'] = $this->Childrens_Model->getChildrens();
+		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Childrens_Model');		
+		if (isset($merchant_id)) {
+			$data['childrens'] = $this->Childrens_Model->getChildrens($merchant_id);
+
+			$this->load->model('W_Model');		
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);		
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);			
+		}
+		else {
+			$data['childrens'] = $this->Childrens_Model->getChildrens(null);
+		}
+		
 		//		$this->load->view('templates/general_template',$data);
 		$this->load->view('b/childrens',$data);
 		

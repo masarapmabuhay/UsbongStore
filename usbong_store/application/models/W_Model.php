@@ -23,7 +23,7 @@ class W_Model extends CI_Model
 	
 	public function getMerchantCategories($merchantId)
 	{
-		$this->db->select('t3.product_type_name');
+		$this->db->select('t3.product_type_name, t1.merchant_id');
 		$this->db->from('merchant_product_type as t1');
 		$this->db->join('merchant as t2', 't1.merchant_id = t2.merchant_id', 'LEFT');
 		$this->db->join('product_type as t3', 't1.product_type_id = t3.product_type_id', 'LEFT');	
@@ -33,5 +33,14 @@ class W_Model extends CI_Model
 		
 		return $query->result_array();
 	}	
+	
+	public function getMerchantName($merchantId) {
+		$this->db->select('merchant_name');
+		$this->db->from('merchant');
+		$this->db->where('merchant_id', $merchantId);
+		$query = $this->db->get();
+		
+		return $query->row();		
+	}
 }
 ?>

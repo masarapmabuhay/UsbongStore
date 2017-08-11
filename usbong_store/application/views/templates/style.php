@@ -1052,6 +1052,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 156px;
 	}	
 
+	.container-merchant {
+		margin-left: 10px;
+		margin-bottom: 156px;
+	}	
+
 	.container-product-item {
 		margin-left: 10px;
 		margin-bottom: 156px;
@@ -1267,6 +1272,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Merchant-category {	
 	}
+
+	.Merchant-category-b {	
+	}
 		
 	.Merchant-category-image {	
 		margin-left: 10px;
@@ -1295,6 +1303,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Merchant-category-content-link:hover {
 		color: #291f1a;		  			
 	}
+
+	.Merchant-products {
+		margin-left: 40px;	
+	}
+		
 		
 	.login-and-create {
 		max-width: 30%;		
