@@ -608,6 +608,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #b88a1b;
 	}
 
+	.Product-item-previous-price {
+		color: #e72e16;
+	}
+
 			
 	.Product-image {
 	    max-width: 75%;
