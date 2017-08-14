@@ -3,7 +3,7 @@ class Toys_and_Collectibles_Model extends CI_Model
 {
 	public function getToys_and_Collectibles($merchant_id)
 	{
-		$this->db->select('product_id, name, author, price, quantity_in_stock');
+		$this->db->select('product_id, name, author, price, previous_price, quantity_in_stock');
 		$this->db->where('product_type_id','8'); //8 is for type: toys & collectibles
 		
 		if ($merchant_id!=null) {

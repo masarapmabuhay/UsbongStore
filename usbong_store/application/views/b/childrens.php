@@ -73,6 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
 						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+						}
+						
 						echo '</label>';					
 					}
 					else {
@@ -94,6 +99,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
 						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+						}
+						
 						echo '</label>';
 					}
 					else {
