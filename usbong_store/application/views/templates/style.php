@@ -1297,7 +1297,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-content:hover {
-		background-color: #f3f3f3;			
+		background-color: #efe6ca;			
 	}
 		
 	.Merchant-category-content-link {
