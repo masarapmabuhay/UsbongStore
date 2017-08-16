@@ -429,4 +429,39 @@ class B extends MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}	
+	
+	//---------------------------------------------------------
+	// FOOD Category
+	//---------------------------------------------------------
+	public function food()
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Food_Model');
+		if (isset($merchant_id)) {
+			$data['food'] = $this->Food_Model->getFood($merchant_id);
+			
+			$this->load->model('W_Model');
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['food'] = $this->Food_Model->getFood(null);
+		}
+		
+		/*
+		 $this->load->model('Toys_and_Collectibles_Model');
+		 $data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles();
+		 //		$this->load->view('templates/general_template',$data);
+		 */
+		$this->load->view('b/food',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}	
 }
