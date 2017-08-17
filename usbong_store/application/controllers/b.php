@@ -466,7 +466,7 @@ class B extends MY_Controller {
 	}	
 	
 	//---------------------------------------------------------
-	// MISCELLANEOUSCategory
+	// MISCELLANEOUS Category
 	//---------------------------------------------------------
 	public function miscellaneous()
 	{
