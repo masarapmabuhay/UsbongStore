@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest.jpg')?>"></a>
 	</div>
 
-	<h2 class="header">Food</h2>	
+	<h2 class="header">Miscellaneous</h2>	
 	<br>
 	<?php 
 		if (isset($categories)) {
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>	
 	<?php
 			$colCounter = 0;
-			foreach ($food as $value) {
+			foreach ($miscellaneous as $value) {
 				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				$URLFriendlyReformattedProductName = str_replace("(","",
 														str_replace(")","",
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="col-sm-2 Product-item">';
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
-					echo '<img class="Image-item" src="'.base_url('assets/images/food/'.$reformattedProductName.'.jpg').'">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/miscellaneous/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';
 //					echo $value['author'];
@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="col-sm-2 Product-item">';
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */
-					echo '<img class="Image-item" src="'.base_url('assets/images/food/'.$reformattedProductName.'.jpg').'">';
+					echo '<img class="Image-item" src="'.base_url('assets/images/miscellaneous/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';					
 //					echo $value['author'];

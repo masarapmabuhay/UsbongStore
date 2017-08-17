@@ -124,6 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <li><a href = "<?php echo site_url('b/comics/')?>">COMICS</a></li>
 		  <li><a href = "<?php echo site_url('b/manga/')?>">MANGA</a></li>
 		  <li><a href = "<?php echo site_url('b/toys-and-collectibles/')?>">TOYS & COLLECTIBLES</a></li>
+		  <li><a href = "<?php echo site_url('b/miscellaneous/')?>">MISCELLANEOUS</a></li>
 		</ul>
 	</nav>	
 </body>

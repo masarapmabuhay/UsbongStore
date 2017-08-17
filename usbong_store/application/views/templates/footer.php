@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/comics/')?>">COMICS</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/manga/')?>">MANGA</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/toys-and-collectibles/')?>">TOYS & COLLECTIBLES</a></li>
+				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/Miscellaneous/')?>">MISCELLANEOUS</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-4">
