@@ -37,10 +37,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 														str_replace('/','-',
 														$value['author'])))))); //replace "&", " ", and "-"
 				
-				if ($colCounter==0) {
-					echo '<div class="row">';	
+				if ($colCounter==0) {					
+					echo '<div class="row no-gutter">';						
+					
+					echo '<div class="col-sm-1">';
+					echo '<br><br><br><button class="Front-page-left-arrow-button"><</button>';					
+					echo '</div>';
+					
+					echo '<div class="col-sm-10">';				
+					echo '<div>';
+					echo '<div class="col-sm-2 Product-item">';					
 					echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
-					echo '<div class="col-sm-2 Product-item">';
+					
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
@@ -94,10 +102,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if (($colCounter==5) || ($colCounter==count($books))){
+					if (($colCounter==5) || ($colCounter==count($books))){												
+						
+						echo '</div>';
+						
+						echo '<div col-sm-1>';						
+						echo '<br><br><br><button class="Front-page-right-arrow-button">></button>';
+						echo '</div>';
+						
 						echo '</div>';
 						$colCounter=0;
-						
+												
 						//added by Mike, 20170818
 						echo '<hr class="FrontPage-hr">';
 						break;

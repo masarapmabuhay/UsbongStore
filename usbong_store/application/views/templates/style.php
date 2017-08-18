@@ -1061,8 +1061,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}	
 
 	.container-frontPage {
-		margin-left: 100px;
+		margin-left: 30px;
 		margin-bottom: 20px;
+		width: 100%;
 	}	
 
 	.container-merchant {
@@ -1643,6 +1644,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.FrontPage-header-link:hover {
 		color: #77b043;
 	}	
+
+	.Front-page-left-arrow-button {
+		float: right;
+		background-color: #77b043;
+		color: #222222;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+		
+		font-family:Arial;
+		font-size: 20px;		
+   	}
+   	   	
+	.Front-page-right-arrow-button {
+		float: left;
+		background-color: #77b043;
+		color: #222222;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+		
+		font-family:Arial;
+		font-size: 20px;		
+   	}
+
+	.no-gutter > [class*='col-'] {
+	    padding-right:0;
+	    padding-left:0;
+	}
 
 	.Sell-cost {
 		color: #b88a1b;	    		
