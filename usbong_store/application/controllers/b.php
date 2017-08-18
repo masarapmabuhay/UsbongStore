@@ -49,8 +49,9 @@ class B extends MY_Controller {
 				);
 					
 				$this->session->set_userdata($newdata);
-				$this->books();
-					
+//				$this->books();
+				$this->frontPage();
+				
 // 					$this->home($data);					
 			}
 			else {
@@ -76,9 +77,33 @@ class B extends MY_Controller {
 			}				
 		}
 		else {
-			$this->books();		
+//			$this->books();		
+			$this->frontPage();			
 		}
 	}
+	
+	//---------------------------------------------------------
+	// Front Page
+	//---------------------------------------------------------
+	public function frontPage()
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		//		$data['content'] = 'category/Books';
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Books_Model');
+		$data['books'] = $this->Books_Model->getBooks(null);
+
+			
+		$this->load->view('b/frontPage',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}	
 	
 	//---------------------------------------------------------
 	// Account Creation Successful

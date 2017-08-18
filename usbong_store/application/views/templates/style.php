@@ -457,6 +457,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin: 10px 10px 10px 10px;
 	}
 
+	hr.FrontPage-hr {
+		border: 1px solid #6d8f48;
+		margin: 6px 200px 6px 0px;
+	}
 	
 	p {
 		 padding:0;
@@ -1626,6 +1630,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 100%;
 	    margin: 0;		    
 	}
+	
+	.FrontPage-header-link {
+		color: #77b043;
+	}
+
+	.FrontPage-header-link:hover {
+		color: #77b043;
+	}	
 
 	.Sell-cost {
 		color: #b88a1b;	    		
