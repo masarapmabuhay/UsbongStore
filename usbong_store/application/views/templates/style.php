@@ -1060,6 +1060,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 156px;
 	}	
 
+	.container-frontPage {
+		margin-left: 100px;
+		margin-bottom: 20px;
+	}	
+
 	.container-merchant {
 		margin-left: 10px;
 		margin-bottom: 156px;
@@ -1632,7 +1637,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.FrontPage-header-link {
-		color: #77b043;
+		color: #1a0d00;
 	}
 
 	.FrontPage-header-link:hover {

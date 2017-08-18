@@ -98,7 +98,36 @@ class B extends MY_Controller {
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks(null);
 
-			
+		$this->load->model('Childrens_Model');
+		$data['childrens'] = $this->Childrens_Model->getChildrens(null);
+		
+		$this->load->model('Textbooks_Model');
+		$data['textbooks'] = $this->Textbooks_Model->getTextbooks(null);
+
+		$this->load->model('Promos_Model');
+		$data['promos'] = $this->Promos_Model->getPromos(null);
+
+		$this->load->model('Food_Model');
+		$data['food'] = $this->Food_Model->getFood(null);
+		
+		//recommended shops
+		
+		$this->load->model('Beverages_Model');
+		$data['beverages'] = $this->Beverages_Model->getBeverages(null);
+		
+		$this->load->model('Comics_Model');
+		$data['comics'] = $this->Comics_Model->getComics(null);
+
+		$this->load->model('Manga_Model');
+		$data['manga'] = $this->Manga_Model->getManga(null);
+		
+		$this->load->model('Toys_and_Collectibles_Model');
+		$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles(null);
+		
+		$this->load->model('Miscellaneous_Model');
+		$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneous(null);
+		
+		
 		$this->load->view('b/frontPage',$data);
 		
 		//--------------------------------------------
