@@ -590,7 +590,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>	
 	
 	<!-- ################################################################################# -->
-	<h2 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/beverages/')?>">Beverages</a></h2>	
+	<h2 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/comics/')?>">Comics</a></h2>	
 	<br>	
 		<div class="container-frontPage">		
 		<div class="row">
