@@ -1663,10 +1663,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-family:Arial;
 		font-size: 20px;		
    	}
+
+	.Front-page-left-arrow-button:hover {
+		float: right;
+		background-color: #588232;
+		color: #222222;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+		
+		font-family:Arial;
+		font-size: 20px;		
+   	}
+
    	   	
 	.Front-page-right-arrow-button {
 		float: left;
 		background-color: #77b043;
+		color: #222222;
+		font-weight: bold;
+		border: 0px solid;		
+		border-radius: 4px;
+		
+		font-family:Arial;
+		font-size: 20px;		
+   	}
+
+	.Front-page-right-arrow-button:hover {
+		float: left;
+		background-color: #588232;
 		color: #222222;
 		font-weight: bold;
 		border: 0px solid;		
