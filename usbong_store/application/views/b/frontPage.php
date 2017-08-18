@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($books))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -186,7 +186,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($childrens))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -286,7 +286,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($textbooks))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -382,7 +382,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($promos))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -478,7 +478,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($food))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -574,7 +574,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($beverages))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -585,7 +585,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}
 			}			
 			echo '</div>';		
-			echo '</div>';			
+			echo '</div>';
 	?>
 	</div>	
 	
@@ -670,7 +670,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($comics))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -766,7 +766,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($manga))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -862,7 +862,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($toys_and_collectibles))){
 						echo '</div>';
 						$colCounter=0;
 						
@@ -958,7 +958,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if ($colCounter==5) {
+					if (($colCounter==5) || ($colCounter==count($miscellaneous))){
 						echo '</div>';
 						$colCounter=0;
 						
