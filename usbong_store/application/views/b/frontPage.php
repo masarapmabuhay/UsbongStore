@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					echo '<br><br><br><button class="Front-page-left-arrow-button"><</button>';					
+					echo '<br><br><br><button onclick="myLeftArrowFunction()" class="Front-page-left-arrow-button">‹</button>';					
 					echo '</div>';
 					
 					echo '<div class="col-sm-10">';				
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
 					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
 					echo '<label class="Product-item-details">';
-					echo $value['author'];
+					echo '<span>'.$value['author'].'</span>';
 					
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';						
-						echo '<br><br><br><button class="Front-page-right-arrow-button">></button>';
+						echo '<br><br><br><button class="Front-page-right-arrow-button">›</button>';
 						echo '</div>';
 						
 						echo '</div>';

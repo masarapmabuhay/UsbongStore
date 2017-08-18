@@ -44,6 +44,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 	
 	<script>
+		function myLeftArrowFunction() {
+			alert("Hello");
+		}
+		
+	</script>
+	
+	<script>
 		//-----------------------------------------------------------
 		//PRODUCT ITEM PAGE
 		//-----------------------------------------------------------
