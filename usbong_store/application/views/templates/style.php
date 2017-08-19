@@ -43,10 +43,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	</script>
 	
-	<script>
-		function myLeftArrowFunction() {
+	<script type="text/javascript">
+		function myLeftArrowFunction(value) {
+//			var productName = document.getElementById("nameId");
+
+//			.innerHTML
+
+//			alert("Hello "+value.name);
 			alert("Hello");
+//JSON.parse(response)
 		}
+
 		
 	</script>
 	
