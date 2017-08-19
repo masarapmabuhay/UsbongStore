@@ -44,17 +44,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 	
 	<script type="text/javascript">
-		function myLeftArrowFunction(data) {
-//			var productName = document.getElementById("nameId");
-
-//			.innerHTML
-
-//			alert("Hello "+value.name);
-			alert("Hello"+data[6].name);
-//JSON.parse(response)
-		}
-
+		var clickNum = 0;
 		
+		function myLeftArrowFunction(data) {
+			lastProductItemOfRow = data.length-1 - (clickNum)*5;
+
+//			alert("lastProductItemOfRow "+lastProductItemOfRow);				    					
+			
+			var totalColumns = 5;
+		    var i;
+		    var offset=0;
+		    for (i = 0; i < totalColumns; i++) { //5 product items per row only
+			    if (lastProductItemOfRow-i<0) {
+			    	lastProductItemOfRow=data.length-1;
+			    	offset=i;
+			    }
+
+		    	colNum = totalColumns - i -1; //column numbering starts at 0
+//				alert("Hello "+colNum);				    					
+
+		    	var productName = document.getElementById("nameId~"+colNum);
+				var rowNum = lastProductItemOfRow-i-offset;
+//				alert("Hello "+rowNum);				    					
+
+				productName.innerHTML = data[rowNum].name;		
+				//alert("Hello "+clickNum);				    					
+		    }
+
+			clickNum++;
+		}
 	</script>
 	
 	<script>
