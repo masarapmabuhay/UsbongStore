@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					echo "<br><br><br><button onclick='myLeftArrowFunction(".json_encode($value).")' class='Front-page-left-arrow-button'>‹</button>";
+					echo "<br><br><br><button onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').")' class='Front-page-left-arrow-button'>‹</button>";
 					echo '</div>';
 					
 					echo '<div class="col-sm-10">';				
