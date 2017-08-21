@@ -78,9 +78,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	colNum = totalColumns - i -1; //column numbering starts at 0
 //				alert("Hello "+colNum);				    					
 
+		    	//-----------------------------------------------
+		    	//product name
+		    	//-----------------------------------------------		    	
 		    	var productName = document.getElementById("nameId~"+colNum);
 				productName.innerHTML = data[index].name;		
 
+		    	//-----------------------------------------------
+		    	//image name
+		    	//-----------------------------------------------		    					
 				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
 				
 		    	var imageName = document.getElementById("imageId~"+colNum);				
@@ -89,7 +95,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				imageName.src = my_url;
 
-				
+		    	//-----------------------------------------------
+		    	//author name
+		    	//-----------------------------------------------		    								
+		    	var authorName = document.getElementById("authorId~"+colNum);
+				authorName.innerHTML = data[index].author;		
+
+		    	//-----------------------------------------------
+		    	//price name
+		    	//-----------------------------------------------		    								
+		    	var priceName = document.getElementById("priceId~"+colNum);			    			    	
+//				alert("priceName: "+priceName.innerText);
+		    	
+//				alert("quantity_in_stock: "+data[index].quantity_in_stock);
+//				alert("price: "+data[index].price);
+		    	if (data[index].quantity_in_stock!=0) {
+					priceName.innerText = "₱" + data[index].price;		
+		    	}
+		    	else {
+					priceName.innerText = "out of stock";		
+		    	}
+		    	
+		    	
 				index++;
 //				index=(index+1)%data.length;
 		    }
