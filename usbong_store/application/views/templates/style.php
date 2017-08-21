@@ -47,7 +47,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		var leftArrowClickNum = 0;
 		var rightArrowClickNum = 1; //starts at 1
 				
-		function myLeftArrowFunction(data) {
+		function myLeftArrowFunction(data, productTypeId) {	
+
+//			alert("hello "+productTypeId);
+			var productType;
+			switch (productTypeId) {
+				case 2:
+					productType = "books";
+					break;
+			}
+					
 			//reverse the order of the array
 			data.reverse();
 
@@ -70,8 +79,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //				alert("Hello "+colNum);				    					
 
 		    	var productName = document.getElementById("nameId~"+colNum);
-
 				productName.innerHTML = data[index].name;		
+
+				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
+				
+		    	var imageName = document.getElementById("imageId~"+colNum);				
+				var base_url = "<?php echo site_url('assets/images/');?>";
+				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
+
+				imageName.src = my_url;
+
+				
 				index++;
 //				index=(index+1)%data.length;
 		    }
