@@ -44,21 +44,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 	
 	<script type="text/javascript">
-		var clickNum = 0;
-		
+		var leftArrowClickNum = 0;
+		var rightArrowClickNum = 1; //starts at 1
+				
 		function myLeftArrowFunction(data) {
 			//reverse the order of the array
 			data.reverse();
 
+			var index;
+
 			//why 5? there is always 5 product items in a row
-			var sum = ((clickNum*5)+5); //+1
+			var sum = ((leftArrowClickNum*5)+5); //+1
 			if (sum > data.length) {
 				index = (5 - sum % data.length) - 1; //starts at 0
-				clickNum = 0;
+				leftArrowClickNum = 1; //starts at 1
 			}
 			else {
-				index = clickNum*5;
-				clickNum++;
+				index = leftArrowClickNum*5;
+				leftArrowClickNum++;
 			}			
 			
 			var totalColumns = 5;
@@ -67,6 +70,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //				alert("Hello "+colNum);				    					
 
 		    	var productName = document.getElementById("nameId~"+colNum);
+
+				productName.innerHTML = data[index].name;		
+				index++;
+//				index=(index+1)%data.length;
+		    }
+		}
+
+		function myRightArrowFunction(data) {
+			//reverse the order of the array
+			//data.reverse();
+
+			var index;
+						
+			//why 5? there is always 5 product items in a row
+			var sum = ((rightArrowClickNum*5)+5); //+1
+			if (sum > data.length) {
+				index = (5 - sum % data.length) - 1; //starts at 0
+				rightArrowClickNum = 0;
+			}
+			else {
+				index = rightArrowClickNum*5;
+				rightArrowClickNum++;
+			}			
+			
+			var totalColumns = 5;
+		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
+//		    	colNum = totalColumns - i -1; //column numbering starts at 0
+//				alert("Hello "+colNum);				    					
+
+		    	var productName = document.getElementById("nameId~"+i);
 
 				productName.innerHTML = data[index].name;		
 				index++;
