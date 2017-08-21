@@ -105,24 +105,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//price name
 		    	//-----------------------------------------------		    								
 		    	var priceName = document.getElementById("priceId~"+colNum);			    			    	
-//				alert("priceName: "+priceName.innerText);
-		    	
-//				alert("quantity_in_stock: "+data[index].quantity_in_stock);
-//				alert("price: "+data[index].price);
 		    	if (data[index].quantity_in_stock!=0) {
 					priceName.innerText = "₱" + data[index].price;		
 		    	}
 		    	else {
 					priceName.innerText = "out of stock";		
 		    	}
-		    	
-		    	
+		    			    	
 				index++;
-//				index=(index+1)%data.length;
 		    }
 		}
 
-		function myRightArrowFunction(data) {
+		function myRightArrowFunction(data, productTypeId) {
+//			alert("hello "+productTypeId);
+			var productType;
+			switch (productTypeId) {
+				case 2:
+					productType = "books";
+					break;
+			}
+			
 			//reverse the order of the array
 			//data.reverse();
 
@@ -132,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var sum = ((rightArrowClickNum*5)+5); //+1
 			if (sum > data.length) {
 				index = (5 - sum % data.length) - 1; //starts at 0
-				rightArrowClickNum = 0;
+				rightArrowClickNum = 1; //starts at 1
 			}
 			else {
 				index = rightArrowClickNum*5;
@@ -143,12 +145,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
 //				alert("Hello "+colNum);				    					
+				colNum = i;
+		    	//-----------------------------------------------
+		    	//product name
+		    	//-----------------------------------------------		    	
+		    	var productName = document.getElementById("nameId~"+colNum);
+		    	productName.innerHTML = data[index].name;		
+				
+		    	//-----------------------------------------------
+		    	//image name
+		    	//-----------------------------------------------		    					
+				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
+				
+		    	var imageName = document.getElementById("imageId~"+colNum);				
+				var base_url = "<?php echo site_url('assets/images/');?>";
+				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
 
-		    	var productName = document.getElementById("nameId~"+i);
+				imageName.src = my_url;
 
-				productName.innerHTML = data[index].name;		
+		    	//-----------------------------------------------
+		    	//author name
+		    	//-----------------------------------------------		    								
+		    	var authorName = document.getElementById("authorId~"+colNum);
+				authorName.innerHTML = data[index].author;		
+
+		    	//-----------------------------------------------
+		    	//price name
+		    	//-----------------------------------------------		    								
+		    	var priceName = document.getElementById("priceId~"+colNum);			    			    	
+		    	if (data[index].quantity_in_stock!=0) {
+					priceName.innerText = "₱" + data[index].price;		
+		    	}
+		    	else {
+					priceName.innerText = "out of stock";		
+		    	}
+		    			    	
 				index++;
-//				index=(index+1)%data.length;
 		    }
 		}
 	</script>
