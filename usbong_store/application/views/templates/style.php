@@ -47,31 +47,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		var clickNum = 0;
 		
 		function myLeftArrowFunction(data) {
-			lastProductItemOfRow = data.length-1 - (clickNum)*5;
+			//reverse the order of the array
+			data.reverse();
 
-//			alert("lastProductItemOfRow "+lastProductItemOfRow);				    					
+			//why 5? there is always 5 product items in a row
+			var sum = ((clickNum*5)+5); //+1
+			if (sum > data.length) {
+				index = (5 - sum % data.length) - 1; //starts at 0
+				clickNum = 0;
+			}
+			else {
+				index = clickNum*5;
+				clickNum++;
+			}			
 			
 			var totalColumns = 5;
-		    var i;
-		    var offset=0;
-		    for (i = 0; i < totalColumns; i++) { //5 product items per row only
-			    if (lastProductItemOfRow-i<0) {
-			    	lastProductItemOfRow=data.length-1;
-			    	offset=i;
-			    }
-
+		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 		    	colNum = totalColumns - i -1; //column numbering starts at 0
 //				alert("Hello "+colNum);				    					
 
 		    	var productName = document.getElementById("nameId~"+colNum);
-				var rowNum = lastProductItemOfRow-i-offset;
-//				alert("Hello "+rowNum);				    					
 
-				productName.innerHTML = data[rowNum].name;		
-				//alert("Hello "+clickNum);				    					
+				productName.innerHTML = data[index].name;		
+				index++;
+//				index=(index+1)%data.length;
 		    }
-
-			clickNum++;
 		}
 	</script>
 	
