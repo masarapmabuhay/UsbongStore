@@ -63,6 +63,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 10:
 					productType = "childrens";
 					break;					
+				case 9:
+					productType = "textbooks";
+					break;					
 			}
 					
 			//reverse the order of the array
@@ -149,7 +152,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	else {
 					priceName.innerText = "out of stock";		
 		    	}
-		    			    	
+
+		    	//-----------------------------------------------
+		    	//previous price name
+		    	//-----------------------------------------------		    								
+				var previousPriceName = document.getElementById("previousPriceId~"+colNum+"~"+productTypeId);			    			    	
+
+		    	if (data[index].previous_price!=null) {
+		    		previousPriceName.innerHTML = "&ensp;(" + data[index].previous_price + ")";					
+				}
+		    	else {
+		    		previousPriceName.innerHTML = "";					
+		    	}
+		    	
 				index++;
 		    }
 		}
@@ -169,6 +184,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 10:
 					productType = "childrens";
 					break;
+				case 9:
+					productType = "textbooks";
+					break;
 			}
 			
 			//reverse the order of the array
@@ -180,8 +198,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if (clickNum>0) {
 				//why 5? there is always 5 product items in a row
 				var sum = ((clickNum*5)+5); //+1
+
 				if (sum > data.length) {
 					index = (5 - sum % data.length) - 1; //starts at 0
+
+					if (index==-1) { //happens when data.length is exactly a multiple of 5
+						index=0;
+					}
+					
 					clickNum = 1; //starts at 1
 				}
 				else {
@@ -258,7 +282,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	else {
 					priceName.innerText = "out of stock";		
 		    	}
-		    			    	
+
+		    	//-----------------------------------------------
+		    	//previous price name
+		    	//-----------------------------------------------		    								
+				var previousPriceName = document.getElementById("previousPriceId~"+colNum+"~"+productTypeId);			    			    	
+
+		    	if (data[index].previous_price!=null) {
+		    		previousPriceName.innerHTML = "&ensp;(" + data[index].previous_price + ")";					
+				}
+		    	else {
+		    		previousPriceName.innerHTML = "";					
+		    	}
+		    			    			    	
 				index++;
 		    }
 		}
