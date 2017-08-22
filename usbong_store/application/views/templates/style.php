@@ -881,6 +881,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-radius: 4px;	
 	}
 	
+	.Image-usbong-store-logo {
+ 		opacity: 0.9;
+    	filter: alpha(opacity=90); /* For IE8 and earlier */
+	}
+	
+	.Image-usbong-store-logo:hover {
+ 		opacity: 1;
+    	filter: alpha(opacity=100); /* For IE8 and earlier */
+   	}	
+		
 	.Image-item {
 	    max-width: 75%;
     	height: auto;

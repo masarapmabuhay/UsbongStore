@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<nav class="navbar navbar-inverse navbar-static-top">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
-		  <li><div class="usbongLogo"><a href = "<?php echo site_url('/')?>"><img src="<?php echo base_url('assets/images/usbongStoreBrandLogo.png'); ?>"></a></div></li>
+		  <li><div class="usbongLogo"><a href = "<?php echo site_url('/')?>"><img class="Image-usbong-store-logo" src="<?php echo base_url('assets/images/usbongStoreBrandLogo.png'); ?>"></a></div></li>
 		  <li><div class="input-group Search-container">
 					<form method="get" action="<?php echo site_url('browse/search')?>">
 					<?php if ((isset($param)) && ($param!="")) {
