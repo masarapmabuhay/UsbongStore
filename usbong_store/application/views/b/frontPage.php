@@ -85,8 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
-					echo '<a id="linkId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					echo '<div class="col-sm-2 Product-item">';
+					echo '<a id="linkId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
+					
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
@@ -134,9 +135,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo '</div>';		
 			echo '</div>';
 	?>
-	</div>	
+	</div>		
 	
-<!-- ################################################################################# -->
+	<!-- ################################################################################# -->
 	<h2 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/childrens/')?>">Children's Books</a></h2>	
 	<br>
 		<div class="container-frontPage">	

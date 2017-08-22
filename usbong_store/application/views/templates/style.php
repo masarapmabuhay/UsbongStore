@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //		var rightArrowClickNum = 1; //starts at 1
 		var clickNum = 0;
 					
-		function myLeftArrowFunction(data, productTypeId) {	
+		function myLeftArrowFunction(data, productTypeId) {				
 //			alert("clickNum: "+clickNum);
 			if ((clickNum==0) || (clickNum==1)) {
 				clickNum=-1;
@@ -100,6 +100,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				colNum = i;
 //				alert("Hello "+colNum);				    					
 
+				//-----------------------------------------------
+				//formatting
+				//-----------------------------------------------								
+				var reformattedProductName = data[index].name.replace(new RegExp(':', 'g'),'').replace(new RegExp('\'', 'g'),'');
+
+				var urlFriendlyReformattedProductName = reformattedProductName.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+				var urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+		    	
 		    	//-----------------------------------------------
 		    	//product name
 		    	//-----------------------------------------------		    	
@@ -107,10 +115,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				productName.innerHTML = data[index].name;		
 
 		    	//-----------------------------------------------
-		    	//image name
-		    	//-----------------------------------------------		    					
-				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
+		    	//link name
+		    	//-----------------------------------------------		    	
+		    	var linkName = document.getElementById("linkId~"+colNum+"~"+productTypeId);
+				var site_url = "<?php echo site_url('w/');?>";				
+				var link_url = site_url.concat(urlFriendlyReformattedProductName,"-",urlFriendlyReformattedAuthor,"/",data[index].product_id);			    	
+				linkName.href = link_url;		
+//				alert("colNum"+colNum+"~"+productTypeId);
+//				alert("linkName.href: "+linkName.href);
 				
+		    	//-----------------------------------------------
+		    	//image name
+		    	//-----------------------------------------------		    									
 		    	var imageName = document.getElementById("imageId~"+colNum+"~"+productTypeId);				
 				var base_url = "<?php echo site_url('assets/images/');?>";
 				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
@@ -190,11 +206,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
 //				alert("Hello "+colNum);				    					
 				colNum = i;
+
+				//-----------------------------------------------
+				//formatting
+				//-----------------------------------------------								
+				var reformattedProductName = data[index].name.replace(new RegExp(':', 'g'),'').replace(new RegExp('\'', 'g'),'');
+
+				var urlFriendlyReformattedProductName = reformattedProductName.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+				var urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+				
 		    	//-----------------------------------------------
 		    	//product name
 		    	//-----------------------------------------------		    	
 		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
 		    	productName.innerHTML = data[index].name;		
+
+		    	//-----------------------------------------------
+		    	//link name
+		    	//-----------------------------------------------		    	
+		    	var linkName = document.getElementById("linkId~"+colNum+"~"+productTypeId);
+				var site_url = "<?php echo site_url('w/');?>";				
+				var link_url = site_url.concat(urlFriendlyReformattedProductName,"-",urlFriendlyReformattedAuthor,"/",data[index].product_id);			    	
+				linkName.href = link_url;		
+//				alert("colNum"+colNum+"~"+productTypeId);
+//				alert("linkName.href: "+linkName.href);
 				
 		    	//-----------------------------------------------
 		    	//image name
