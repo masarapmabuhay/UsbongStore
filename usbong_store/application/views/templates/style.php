@@ -1505,7 +1505,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.header {
 		margin: 0px 10px 0px 10px;	
-		color: #1d1d1d;
+		color: #3a1d00;		
 	}
 
 	.Thankyou-header {
