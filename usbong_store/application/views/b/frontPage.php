@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 <!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>">Recommended Books</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>">Recommended <span class="Front-page-cat-name"> <span class="Front-page-cat-name">Books</span></span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -47,7 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					if (count($books)>=15) {						
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					}
 					echo '</div>';
 					
 					echo '<div class="col-sm-10">';				
@@ -119,8 +121,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 						echo '</div>';
 						
-						echo '<div col-sm-1>';						
-						echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						echo '<div col-sm-1>';	
+						if (count($books)>=15) {							
+							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						}
 						echo '</div>';
 						
 						echo '</div>';
@@ -138,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/childrens/')?>">Recommended Children's Books</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/childrens/')?>">Recommended <span class="Front-page-cat-name"> Children's Books</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -171,7 +175,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					if (count($childrens)>=15) {						
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					}
 					echo '</div>';
 					
 					echo '<div class="col-sm-10">';				
@@ -243,8 +249,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 						echo '</div>';
 						
-						echo '<div col-sm-1>';						
-						echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						echo '<div col-sm-1>';		
+						if (count($childrens)>=15) {							
+							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						}
 						echo '</div>';
 						
 						echo '</div>';
@@ -262,7 +270,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 
 <!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/textbooks/')?>">Recommended Textbooks</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/textbooks/')?>">Recommended <span class="Front-page-cat-name"> Textbooks</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -295,7 +303,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					if (count($textbooks)>=15) {						
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					}
 					echo '</div>';
 					
 					echo '<div class="col-sm-10">';				
@@ -368,7 +378,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';						
-						echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						if (count($textbooks)>=15) {							
+							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						}
 						echo '</div>';
 						
 						echo '</div>';
@@ -386,7 +398,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/promos/')?>">Recommended Promos</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/promos/')?>">Recommended <span class="Front-page-cat-name"> Promos</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -419,7 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($promos)>=10) {
+					if (count($promos)>=15) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -494,7 +506,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($promos)>=10) {							
+						if (count($promos)>=15) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -514,7 +526,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/food/')?>">Recommended Food</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/food/')?>">Recommended <span class="Front-page-cat-name"> Food</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -547,7 +559,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($food)>=10) {
+					if (count($food)>=15) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -622,7 +634,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($food)>=10) {							
+						if (count($food)>=15) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -642,7 +654,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/beverages/')?>">Recommended Beverages</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/beverages/')?>">Recommended <span class="Front-page-cat-name"> Beverages</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -675,7 +687,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($beverages)>=10) {
+					if (count($beverages)>=15) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -750,7 +762,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($beverages)>=10) {							
+						if (count($beverages)>=15) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -770,7 +782,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/comics/')?>">Recommended Comics</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/comics/')?>">Recommended <span class="Front-page-cat-name"> Comics</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -898,7 +910,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/manga/')?>">Recommended Manga</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/manga/')?>">Recommended <span class="Front-page-cat-name"> Manga</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1026,7 +1038,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/toys-and-collectibles/')?>">Recommended Toys & Collectibles</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/toys-and-collectibles/')?>">Recommended <span class="Front-page-cat-name"> Toys & Collectibles</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1154,7 +1166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/miscellaneous/')?>">Recommended Miscellaneous Items</a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/miscellaneous/')?>">Recommended <span class="Front-page-cat-name"> Miscellaneous Items</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">

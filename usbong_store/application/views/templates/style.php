@@ -1948,7 +1948,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.FrontPage-header-link {
-		color: #1a0d00;
+		color: #3a1d00;
 	}
 
 	.FrontPage-header-link:hover {
@@ -2003,6 +2003,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-family:Arial;
 		font-size: 20px;		
    	}
+
+	.Front-page-cat-name {
+		font-weight: bold;
+	}
 
 	.no-gutter > [class*='col-'] {
 	    padding-right:0;
