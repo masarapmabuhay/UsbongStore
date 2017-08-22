@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 <!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>">Recommended <span class="Front-page-cat-name"> <span class="Front-page-cat-name">Books</span></span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>">Recommended <span class="Front-page-cat-name">Books</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1206,7 +1206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					echo '<div class="col-sm-10">';				
 					echo '<div>';
-					echo '<div class="col-sm-2 Product-item">';					
+					echo '<div class="col-sm-2 Product-item" id="Product-item">';					
 					echo '<a id="linkId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
@@ -1239,7 +1239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
-					echo '<div class="col-sm-2 Product-item">';
+					echo '<div class="col-sm-2 Product-item" id="Product-item">';
 					echo '<a id="linkId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 					
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				

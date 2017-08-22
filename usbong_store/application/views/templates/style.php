@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="icon" type="image/ico" href="<?=base_url()?>/favicon.ico"> 
 	
@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//product name
 		    	//-----------------------------------------------		    	
 		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
-				productName.innerHTML = data[index].name;		
+				productName.innerHTML = data[index].name;					
 
 		    	//-----------------------------------------------
 		    	//link name
@@ -195,7 +195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				index++;
 		    }
 		}
-
+		
 		function myRightArrowFunction(data, productTypeId) {		
 			if (clickNum==0) {
 				clickNum=1;
@@ -289,7 +289,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if (data[index].author!=null) {
 					urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
 				}
-				
+
+		    	//-----------------------------------------------				
+				//product item 
+				//-----------------------------------------------
+//				var productItem = document.getElementById('Product-item');
+				//productItem.style.left = parseFloat(getComputedStyle(this).left) + 42 + 'px';
+/*
+				$("#ProductItem").animate({
+		            left: '250px',
+		            height: '+=150px',
+		            width: '+=150px'
+		        });
+*/
+
 		    	//-----------------------------------------------
 		    	//product name
 		    	//-----------------------------------------------		    	
@@ -768,8 +781,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	hr.FrontPage-hr {
-		border: 1px solid #6d8f48;
-		margin: 6px 200px 6px 0px;
+		border: 1px dotted #6d8f48;
+		margin: 6px 200px 6px 30px;
 	}
 	
 	p {
@@ -876,11 +889,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-offers-save-more {
 		position: relative;
 		display:block;		
+		z-index: 1;
 	}
 	
 	.Image-offers-buy-back {
 		position: relative;
 		display:block;		
+		z-index: 1;
 	}
 
 	.Image-offers-buy-back:hover {
@@ -900,7 +915,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Product-item {
 		border-radius: 4px;	
-		color: #222222;
+		color: #222222;		
 	}
 
 	.Product-item:hover {
