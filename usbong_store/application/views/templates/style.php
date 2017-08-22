@@ -65,7 +65,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					break;					
 				case 9:
 					productType = "textbooks";
-					break;					
+					break;				
+				case 5:
+					productType = "promos";
+					break;						
+				case 11:
+					productType = "food";
+					break;						
+				case 3:
+					productType = "beverages";
+					break;						
+				case 6:
+					productType = "comics";
+					break;						
+				case 7:
+					productType = "manga";
+					break;																		
+				case 8:
+					productType = "toys_and_collectibles";
+					break;																		
+				case 12:
+					productType = "miscellaneous";
+					break;																							
 			}
 					
 			//reverse the order of the array
@@ -109,8 +130,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var reformattedProductName = data[index].name.replace(new RegExp(':', 'g'),'').replace(new RegExp('\'', 'g'),'');
 
 				var urlFriendlyReformattedProductName = reformattedProductName.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
-				var urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
-		    	
+
+				var urlFriendlyReformattedAuthor;
+				if (data[index].author!=null) {
+					urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+				}
+				
 		    	//-----------------------------------------------
 		    	//product name
 		    	//-----------------------------------------------		    	
@@ -138,10 +163,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		    	//-----------------------------------------------
 		    	//author name
-		    	//-----------------------------------------------		    								
-		    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
-				authorName.innerHTML = data[index].author;		
-
+		    	//-----------------------------------------------		 
+		    	if (data[index].author!=null) {  								
+			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
+					authorName.innerHTML = data[index].author;		
+		    	}
+		    	
 		    	//-----------------------------------------------
 		    	//price name
 		    	//-----------------------------------------------		    								
@@ -187,13 +214,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 9:
 					productType = "textbooks";
 					break;
+				case 5:
+					productType = "promos";
+					break;
+				case 11:
+					productType = "food";					
+					break;				
+				case 3:
+					productType = "beverages";
+					break;						
+				case 6:
+					productType = "comics";
+					break;																		
+				case 7:
+					productType = "manga";
+					break;																		
+				case 8:
+					productType = "toys_and_collectibles";
+					break;																		
+				case 12:
+					productType = "miscellaneous";
+					break;																		
 			}
 			
 			//reverse the order of the array
 			//data.reverse();
 
 			var index;
-//			alert("clickNum: "+clickNum);
 
 			if (clickNum>0) {
 				//why 5? there is always 5 product items in a row
@@ -224,7 +271,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					clickNum++;
 				}
 			}
-			
+					
 			var totalColumns = 5;
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
@@ -237,7 +284,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var reformattedProductName = data[index].name.replace(new RegExp(':', 'g'),'').replace(new RegExp('\'', 'g'),'');
 
 				var urlFriendlyReformattedProductName = reformattedProductName.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
-				var urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+
+				var urlFriendlyReformattedAuthor;
+				if (data[index].author!=null) {
+					urlFriendlyReformattedAuthor = data[index].author.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
+				}
 				
 		    	//-----------------------------------------------
 		    	//product name
@@ -268,9 +319,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		    	//-----------------------------------------------
 		    	//author name
-		    	//-----------------------------------------------		    								
-		    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
-				authorName.innerHTML = data[index].author;		
+		    	//-----------------------------------------------				    	    								
+		    	if (data[index].author!=null) {
+			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
+			    	authorName.innerHTML = data[index].author;		
+		    	}
 
 		    	//-----------------------------------------------
 		    	//price name

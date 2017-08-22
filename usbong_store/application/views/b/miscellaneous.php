@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest.jpg')?>"></a>
 	</div>
 
-	<h2 class="header">Miscellaneous</h2>	
+	<h2 class="header">Miscellaneous Items</h2>	
 	<br>
 	<?php 
 		if (isset($categories)) {
