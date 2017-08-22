@@ -728,7 +728,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.categories-navbar {	
-		background-color: #f6f6f6; <!-- #281e1a -->
+		background-color: #f6f6f6;
 		margin-bottom: 20px;
 		display:table;
   		margin:0 auto;
@@ -737,11 +737,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.categories-navbar li a {
 		color: #281e1a;
+		padding-bottom: 6px;
+		font-weight: bold;
 	}
 
 
 	.categories-navbar li a:hover {
-		color: #747372;
+		color: #3a1d00;
+		background-color: #efe6ca;
+		border-bottom: 3px solid #77b043;
+		font-weight: bold;
 	}
 	
 	a {
