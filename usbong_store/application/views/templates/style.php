@@ -44,44 +44,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 	
 	<script type="text/javascript">
-		var leftArrowClickNum = 0;
-		var rightArrowClickNum = 1; //starts at 1
-				
+//		var leftArrowClickNum = 0;
+//		var rightArrowClickNum = 1; //starts at 1
+		var clickNum = 0;
+					
 		function myLeftArrowFunction(data, productTypeId) {	
-
 //			alert("hello "+productTypeId);
 			var productType;
 			switch (productTypeId) {
 				case 2:
 					productType = "books";
 					break;
+				case 10:
+					productType = "childrens";
+					break;					
 			}
 					
 			//reverse the order of the array
-			data.reverse();
+//			data.reverse();
 
 			var index;
 
-			//why 5? there is always 5 product items in a row
-			var sum = ((leftArrowClickNum*5)+5); //+1
-			if (sum > data.length) {
-				index = (5 - sum % data.length) - 1; //starts at 0
-				leftArrowClickNum = 1; //starts at 1
+			if (clickNum>0) { //postive number
+				//why 5? there is always 5 product items in a row
+				var sum = ((clickNum*5)-5); //+1
+				if (sum < 0) {
+					index = data.length - 1;
+					clickNum = -1;
+				}
+				else {
+					index = sum-5;
+					clickNum--;
+				}			
 			}
-			else {
-				index = leftArrowClickNum*5;
-				leftArrowClickNum++;
-			}			
-			
+						
 			var totalColumns = 5;
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
-		    	colNum = totalColumns - i -1; //column numbering starts at 0
+//		    	colNum = totalColumns - i -1; //column numbering starts at 0
+				colNum = i;
 //				alert("Hello "+colNum);				    					
 
 		    	//-----------------------------------------------
 		    	//product name
 		    	//-----------------------------------------------		    	
-		    	var productName = document.getElementById("nameId~"+colNum);
+		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
 				productName.innerHTML = data[index].name;		
 
 		    	//-----------------------------------------------
@@ -89,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------		    					
 				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
 				
-		    	var imageName = document.getElementById("imageId~"+colNum);				
+		    	var imageName = document.getElementById("imageId~"+colNum+"~"+productTypeId);				
 				var base_url = "<?php echo site_url('assets/images/');?>";
 				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
 
@@ -98,13 +104,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------		    								
-		    	var authorName = document.getElementById("authorId~"+colNum);
+		    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 				authorName.innerHTML = data[index].author;		
 
 		    	//-----------------------------------------------
 		    	//price name
 		    	//-----------------------------------------------		    								
-		    	var priceName = document.getElementById("priceId~"+colNum);			    			    	
+		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
 		    	if (data[index].quantity_in_stock!=0) {
 					priceName.innerText = "₱" + data[index].price;		
 		    	}
@@ -116,12 +122,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    }
 		}
 
-		function myRightArrowFunction(data, productTypeId) {
+		function myRightArrowFunction(data, productTypeId) {		
+			if (clickNum==0) {
+				clickNum=1;
+			}
+
+				
 //			alert("hello "+productTypeId);
 			var productType;
 			switch (productTypeId) {
 				case 2:
 					productType = "books";
+					break;
+				case 10:
+					productType = "childrens";
 					break;
 			}
 			
@@ -131,14 +145,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var index;
 						
 			//why 5? there is always 5 product items in a row
-			var sum = ((rightArrowClickNum*5)+5); //+1
+			var sum = ((clickNum*5)+5); //+1
 			if (sum > data.length) {
 				index = (5 - sum % data.length) - 1; //starts at 0
-				rightArrowClickNum = 1; //starts at 1
+				clickNum = 1; //starts at 1
 			}
 			else {
-				index = rightArrowClickNum*5;
-				rightArrowClickNum++;
+				index = clickNum*5;
+				clickNum++;
 			}			
 			
 			var totalColumns = 5;
@@ -149,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//product name
 		    	//-----------------------------------------------		    	
-		    	var productName = document.getElementById("nameId~"+colNum);
+		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
 		    	productName.innerHTML = data[index].name;		
 				
 		    	//-----------------------------------------------
@@ -157,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------		    					
 				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
 				
-		    	var imageName = document.getElementById("imageId~"+colNum);				
+		    	var imageName = document.getElementById("imageId~"+colNum+"~"+productTypeId);				
 				var base_url = "<?php echo site_url('assets/images/');?>";
 				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
 
@@ -166,13 +180,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------		    								
-		    	var authorName = document.getElementById("authorId~"+colNum);
+		    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 				authorName.innerHTML = data[index].author;		
 
 		    	//-----------------------------------------------
 		    	//price name
 		    	//-----------------------------------------------		    								
-		    	var priceName = document.getElementById("priceId~"+colNum);			    			    	
+		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
 		    	if (data[index].quantity_in_stock!=0) {
 					priceName.innerText = "₱" + data[index].price;		
 		    	}
