@@ -49,6 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		var clickNum = 0;
 					
 		function myLeftArrowFunction(data, productTypeId) {	
+//			alert("clickNum: "+clickNum);
+			if ((clickNum==0) || (clickNum==1)) {
+				clickNum=-1;
+			}
+			
 //			alert("hello "+productTypeId);
 			var productType;
 			switch (productTypeId) {
@@ -77,7 +82,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					clickNum--;
 				}			
 			}
-						
+			else { //negative number
+				sum = Math.abs(clickNum)*5 +5;
+				if (sum > data.length) {
+					index = 0;
+					clickNum = 0;
+				}
+				else {
+					index = data.length - sum+5;
+					clickNum--;
+				}
+			}
+			
 			var totalColumns = 5;
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
@@ -143,17 +159,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//data.reverse();
 
 			var index;
-						
-			//why 5? there is always 5 product items in a row
-			var sum = ((clickNum*5)+5); //+1
-			if (sum > data.length) {
-				index = (5 - sum % data.length) - 1; //starts at 0
-				clickNum = 1; //starts at 1
+//			alert("clickNum: "+clickNum);
+
+			if (clickNum>0) {
+				//why 5? there is always 5 product items in a row
+				var sum = ((clickNum*5)+5); //+1
+				if (sum > data.length) {
+					index = (5 - sum % data.length) - 1; //starts at 0
+					clickNum = 1; //starts at 1
+				}
+				else {
+					index = clickNum*5;
+					clickNum++;
+				}			
 			}
-			else {
-				index = clickNum*5;
-				clickNum++;
-			}			
+			else { //negative number				
+				sum = (clickNum+1)*5 +5;
+				if (sum >= 0) {
+					index = 0;
+					clickNum = 0;
+				}
+				else {
+					index = data.length + sum;
+					clickNum++;
+				}
+			}
 			
 			var totalColumns = 5;
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
