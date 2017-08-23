@@ -911,6 +911,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	filter: alpha(opacity=90); /* For IE8 and earlier */
 	}
 
+	.Image-usbong-icon {
+	    width: 3.5%;
+    	height: auto;		
+	}
 		
 	.Image-item {
 	    max-width: 75%;
@@ -1536,6 +1540,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.header-banner {
 		padding: 6px;	
 		color: white;		
+	}
+
+	a.header-banner-link {
+		color: #f2f2f2;
+	}
+	
+	a.header-banner-link:hover {
+		color: #f2f2f2;
+ 		opacity: 0.8;
+    	filter: alpha(opacity=80); /* For IE8 and earlier */
 	}
 	
 	.header-banner-span {
