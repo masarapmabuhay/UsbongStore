@@ -7,16 +7,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>		
 	<div class="header-banner">
 	<a class="header-banner-link" href = "http://usbong.ph" target="_blank">	
-		&ensp;<img src="<?php echo base_url('assets/images/banner_icons/dahon.png'); ?>">
-		<span class="header-banner-span">&ensp;&ensp;UPLIFTING APPS FROM&ensp;&ensp;</span><img class="Image-usbong-logo" src="<?php echo base_url('assets/images/usbongLogo.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/pagtsing.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/juanT.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/gamugamu.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/malansangisda.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/paspas.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/whenyoudontknow.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/pinya.png'); ?>">
-		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/tiyaga.png'); ?>">
+		<ul>
+			<li class="header-banner-li"><img class="Image-usbong-first-icon" src="<?php echo base_url('assets/images/banner_icons/dahon.png'); ?>">
+			<span class="header-banner-span">&ensp;&ensp;UPLIFTING APPS FROM&ensp;&ensp;</span><img class="Image-usbong-logo" src="<?php echo base_url('assets/images/usbongLogo.png'); ?>">
+			</li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/pagtsing.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/juanT.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/gamugamu.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/pinya.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/paspas.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/whenyoudontknow.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/malansangisda.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/tiyaga.png'); ?>"></li>
+		</ul>
 	</a>
 	</div>
 	<nav class="navbar navbar-inverse navbar-static-top">

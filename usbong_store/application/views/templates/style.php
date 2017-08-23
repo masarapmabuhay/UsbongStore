@@ -915,6 +915,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 3.5%;
     	height: auto;		
 	}
+
+	.Image-usbong-first-icon {
+	}
 		
 	.Image-item {
 	    max-width: 75%;
@@ -1538,8 +1541,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.header-banner {
-		padding: 6px;	
+		padding: 6px 6px 0px 6px;	
 		color: white;		
+	}
+
+	.header-banner-li {
+		display: inline;
+		margin-left: 40px;
 	}
 
 	a.header-banner-link {
