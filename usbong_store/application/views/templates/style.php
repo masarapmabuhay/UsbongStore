@@ -919,7 +919,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-offers-save-more {
 		position: relative;
 		display:block;		
-		z-index: 1;
 	}
 	
 	.Image-offers-buy-back {
@@ -1688,6 +1687,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	display: block;
     	margin: 0 auto;
     	margin-bottom: 20px;
+    	margin-top: 16px;
     	font-size: 24px;    	
     	padding: 16px;
     	border: 1px solid #4b3b2c;

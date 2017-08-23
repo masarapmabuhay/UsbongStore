@@ -7,7 +7,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<h2 class="header">Account Settings</h2>
 	<br>
-	<br>
 	<div>
 		<div class="row">
 			<div class="col-sm-3 Account-settings">
