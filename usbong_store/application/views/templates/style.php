@@ -46,15 +46,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript">
 //		var leftArrowClickNum = 0;
 //		var rightArrowClickNum = 1; //starts at 1
-		var clickNum = 0;
-					
+
+//		var clickNumArray[productTypeId] = 0;
+
+		var clickNumArray = [];
+		for (var i=0; i<12; i++) {
+			clickNumArray.push(0);
+		}
+		
 		function myLeftArrowFunction(data, productTypeId) {				
-//			alert("clickNum: "+clickNum);
-			if ((clickNum==0) || (clickNum==1)) {
-				clickNum=-1;
-			}
-			
-//			alert("hello "+productTypeId);
 			var productType;
 			switch (productTypeId) {
 				case 2:
@@ -87,34 +87,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 12:
 					productType = "miscellaneous";
 					break;																							
+			}			 
+						
+//			alert("clickNumArray[productTypeId]: "+clickNumArray[productTypeId]);
+			if ((clickNumArray[productTypeId]==0) || (clickNumArray[productTypeId]==1)) {
+				clickNumArray[productTypeId]=-1;
 			}
+			
+//			alert("hello "+productTypeId);
 					
 			//reverse the order of the array
 //			data.reverse();
 
 			var index;
 
-			if (clickNum>0) { //postive number
+			if (clickNumArray[productTypeId]>0) { //postive number
 				//why 5? there is always 5 product items in a row
-				var sum = ((clickNum*5)-5); //+1
+				var sum = ((clickNumArray[productTypeId]*5)-5); //+1
 				if (sum < 0) {
 					index = data.length - 1;
-					clickNum = -1;
+					clickNumArray[productTypeId] = -1;
 				}
 				else {
 					index = sum-5;
-					clickNum--;
+					clickNumArray[productTypeId]--;
 				}			
 			}
 			else { //negative number
-				sum = Math.abs(clickNum)*5 +5;
+				sum = Math.abs(clickNumArray[productTypeId])*5 +5;
 				if (sum > data.length) {
 					index = 0;
-					clickNum = 0;
+					clickNumArray[productTypeId] = 0;
 				}
 				else {
 					index = data.length - sum+5;
-					clickNum--;
+					clickNumArray[productTypeId]--;
 				}
 			}
 			
@@ -197,12 +204,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		function myRightArrowFunction(data, productTypeId) {		
-			if (clickNum==0) {
-				clickNum=1;
-			}
-
-				
-//			alert("hello "+productTypeId);
 			var productType;
 			switch (productTypeId) {
 				case 2:
@@ -236,15 +237,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					productType = "miscellaneous";
 					break;																		
 			}
+
+			if (clickNumArray[productTypeId]==0) {
+				clickNumArray[productTypeId]=1;
+			}
+
+//			alert("hello "+productTypeId);
 			
 			//reverse the order of the array
 			//data.reverse();
 
 			var index;
 
-			if (clickNum>0) {
+			if (clickNumArray[productTypeId]>0) {
 				//why 5? there is always 5 product items in a row
-				var sum = ((clickNum*5)+5); //+1
+				var sum = ((clickNumArray[productTypeId]*5)+5); //+1
 
 				if (sum > data.length) {
 					index = (5 - sum % data.length) - 1; //starts at 0
@@ -253,22 +260,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						index=0;
 					}
 					
-					clickNum = 1; //starts at 1
+					clickNumArray[productTypeId] = 1; //starts at 1
 				}
 				else {
-					index = clickNum*5;
-					clickNum++;
+					index = clickNumArray[productTypeId]*5;
+					clickNumArray[productTypeId]++;
 				}			
 			}
 			else { //negative number				
-				sum = (clickNum+1)*5 +5;
+				sum = (clickNumArray[productTypeId]+1)*5 +5;
 				if (sum >= 0) {
 					index = 0;
-					clickNum = 0;
+					clickNumArray[productTypeId] = 0;
 				}
 				else {
 					index = data.length + sum;
-					clickNum++;
+					clickNumArray[productTypeId]++;
 				}
 			}
 					
