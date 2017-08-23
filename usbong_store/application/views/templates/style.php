@@ -1545,6 +1545,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: white;		
 	}
 
+	.header-banner:hover {
+		opacity: .8;
+    	filter: alpha(opacity=80); /* For IE8 and earlier */		
+	}
+
 	.header-banner-li {
 		display: inline;
 		margin-left: 40px;
@@ -1556,8 +1561,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	a.header-banner-link:hover {
 		color: #f2f2f2;
- 		opacity: 0.8;
-    	filter: alpha(opacity=80); /* For IE8 and earlier */
 	}
 	
 	.header-banner-span {
