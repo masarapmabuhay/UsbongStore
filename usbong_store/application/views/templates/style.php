@@ -903,6 +903,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		opacity: 1;
     	filter: alpha(opacity=100); /* For IE8 and earlier */
    	}	
+
+	.Image-usbong-logo {
+	    max-width: 75%;
+    	height: auto;		
+ 		opacity: 0.9;
+    	filter: alpha(opacity=90); /* For IE8 and earlier */
+	}
+
 		
 	.Image-item {
 	    max-width: 75%;
@@ -1523,6 +1531,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.header {
 		margin: 12px 12px 0px 12px;	
 		color: #3a1d00;		
+	}
+
+	.header-banner {
+		padding: 6px;	
+		color: white;		
+	}
+	
+	.header-banner-span {
+		color: #3a1d00;		
+		font-size: 16px;
+		font-weight: bold;	
 	}
 
 	.Thankyou-header {

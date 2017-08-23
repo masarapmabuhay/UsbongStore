@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>		
+	<div class="header-banner">
+	<span class="header-banner-span">UPLIFTING APPS FROM&ensp;&ensp;</span><a href = "http://usbong.ph"><img class="Image-usbong-logo" src="<?php echo base_url('assets/images/usbongLogo.png'); ?>"></a>
+	</div>
 	<nav class="navbar navbar-inverse navbar-static-top">
 	  <div class="container-fluid">
 		<ul class="nav navbar-nav">
