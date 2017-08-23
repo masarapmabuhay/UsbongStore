@@ -731,22 +731,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.navbar {
 		background-color: #1a0d00;
-		margin: 0;
-		z-index: 1;		
+		z-index: 1;
+		margin-bottom: 0 !important;
+		padding-bottom: 0 !important;
 	}
-
+	
 	.categories-navbar {	
 		background-color: #efe6ca;
 		padding-left: 60px;
-		display:table;
   		z-index: 0;
   		width: 100%;  		
 	}
 
 	.categories-navbar li a {
 		color: #281e1a;
-		padding-bottom: 6px;
+		padding-top: 6px;		
+		padding-bottom: 10px;
 		font-weight: bold;
+		font-size: 14px;
 	}
 
 
@@ -755,6 +757,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #efe6ca;
 		border-bottom: 3px solid #77b043;
 		font-weight: bold;
+		padding-bottom: 6px;
 	}
 	
 	a {
