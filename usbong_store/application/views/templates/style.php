@@ -719,13 +719,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	::selection { background-color: #f07746; color: #fff; }
 	::-moz-selection { background-color: #f07746; color: #fff; }
-	
+		
 	body {
 		background-color:  #f6f6f6;
 		margin: 0px 0px 0px 0px;
 		max-width: 100%;
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
 		color: #808080;
+		position: relative;		
 	}
 	
 	.navbar {
@@ -735,11 +736,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.categories-navbar {	
-		background-color: #f6f6f6;
-		margin-bottom: 20px;
+		background-color: #efe6ca;
+		padding-left: 60px;
 		display:table;
-  		margin:0 auto;
   		z-index: 0;
+  		width: 100%;  		
 	}
 
 	.categories-navbar li a {
@@ -819,6 +820,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background: #52493f;
 		color:#fff;
 		padding: 42px 20px 42px 120px; 
+		z-index: 2;		
+		position: relative;
 	}
 	
 	.Footer-container-list{		
@@ -905,7 +908,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Image-offers {
 		position: absolute;
-    	right: 12px;
+    	right: 0;
+		padding-top: 12px;	
+    	padding-right: 12px;
+    	padding-left: 12px;
+    	height: 90%;
+    	background-color: #edebeb;
 	}
 
 	.Image-offers-save-more {
@@ -917,7 +925,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-offers-buy-back {
 		position: relative;
 		display:block;		
-		z-index: 1;
+		z-index: 2;
 	}
 
 	.Image-offers-buy-back:hover {
@@ -1511,7 +1519,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.header {
-		margin: 0px 10px 0px 10px;	
+		margin: 12px 12px 0px 12px;	
 		color: #3a1d00;		
 	}
 
