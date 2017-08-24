@@ -91,6 +91,8 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		//		$data['content'] = 'category/Books';
 		$merchant_id = $this->uri->segment(3);
@@ -185,9 +187,10 @@ class B extends MY_Controller {
 			//from application/core/MY_Controller
 			$this::initStyle();
 			$this::initHeader();
-			
 			//--------------------------------------------
-							
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+										
 			$this->load->model('Books_Model');
 			$data['books'] = $this->Books_Model->getBooks();
 			$this->load->view('b/books',$data);			
@@ -222,7 +225,9 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
-				
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
+		
 //		$data['content'] = 'category/Books';
 		$merchant_id = $this->uri->segment(3);
 		
@@ -257,6 +262,8 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -290,6 +297,8 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		//		$data['content'] = 'category/Books';
 		
@@ -322,6 +331,8 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
+		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -358,6 +369,8 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -392,7 +405,9 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
-
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
+		
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Comics_Model');
@@ -425,7 +440,9 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------	
+		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -460,6 +477,8 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
+		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -496,6 +515,8 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -529,9 +550,11 @@ class B extends MY_Controller {
 	{
 		//from application/core/MY_Controller
 		$this::initStyle();
-		$this::initHeader();
+		$this::initHeader();		
 		//--------------------------------------------
-		
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
+				
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Miscellaneous_Model');
