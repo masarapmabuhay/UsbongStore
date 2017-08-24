@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
+	<div class="Uplift-container">
+	<button onclick="upliftFunction()" class="Uplift-button" >Uplift</button>	
+	</div>
 	<div class="Footer-container">
 		<div class="row">
 			<div class="col-sm-4">						

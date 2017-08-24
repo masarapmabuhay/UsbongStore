@@ -43,6 +43,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	</script>
 	
+	<script>
+		//Reference: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp;
+		//last accessed: 20170824
+		function upliftFunction() {
+		    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+		    document.documentElement.scrollTop = 0; // For IE and Firefox
+		}	
+	</script>
+	
+	
 	<script type="text/javascript">
 //		var leftArrowClickNum = 0;
 //		var rightArrowClickNum = 1; //starts at 1
@@ -816,9 +826,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 0 10px 0 10px;
 	}
 
+	.Uplift-container {		
+		line-height: 32px;
+		padding: 6px 20px 6px 20px; 
+		z-index: 2;		
+		position: relative;
+		text-align: center;
+		background: #77b043;
+	}
+
+	.Uplift-button {		
+		font-size: 16px;
+		color:#fff;
+		background-color: Transparent;
+	    border: none;
+	}
+
 	.Footer-container {		
 		font-size: 18px;
-		border-top: 1px solid #d0d0d0;
 		line-height: 32px;
 		background: #52493f;
 		color:#fff;
