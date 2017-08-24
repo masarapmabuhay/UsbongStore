@@ -938,6 +938,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		position: relative;
 		display:block;		
 	}
+
+	.Image-offers-be-a-merchant {
+		position: relative;
+		display:block;		
+	}
 	
 	.Image-offers-buy-back {
 		position: relative;

@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a class="Request-link" href="<?php echo site_url('sell/')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>"></a>
 	<br>
 	<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest.jpg')?>"></a>
+	<br>
+	<a class="Request-link"><img class="Image-offers-be-a-merchant" src="<?php echo base_url('assets/images/usbongOffersBecomeAMerchant.jpg')?>"></a>
 	</div>
 
 <!-- ################################################################################# -->
