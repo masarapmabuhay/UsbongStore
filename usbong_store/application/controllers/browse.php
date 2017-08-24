@@ -26,6 +26,8 @@ class Browse extends MY_Controller {
 		$this::initStyle();
 		$this::initHeaderWith($data);
 		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
 		
 		$this->load->model('Search_Model');
 		$data['result'] = $this->Search_Model->getSearchResult($this->input->get('param'));//$param);

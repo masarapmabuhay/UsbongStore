@@ -1469,6 +1469,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 330px;
 	}	
 
+	.container-search {
+		margin-left: 50px;
+		margin-bottom: 330px;
+	}	
+
 	.container-frontPage {
 		margin-left: 30px;
 		margin-bottom: 20px;

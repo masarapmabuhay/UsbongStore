@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo '<div class="Search-result"><b>'.count($result).'</b> results found.</div>';			
 			}
 	?>
-		<div class="container">
+		<div class="container-search">
 			<?php
 				$colCounter = 0;
 				$itemCounter = 0;
@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-sm-3">	
 							<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 						</div>
-						<div class="col-sm-5">	
+						<div class="col-sm-4">	
 							<div class="row Product-name">							
 								<?php
 									echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
