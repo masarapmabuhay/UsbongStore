@@ -837,6 +837,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Uplift-button {		
 		font-size: 16px;
+		color:#f7f7f7;
+		background-color: Transparent;
+	    border: none;
+	}
+
+	.Uplift-button:hover {		
+		font-size: 16px;
 		color:#fff;
 		background-color: Transparent;
 	    border: none;
