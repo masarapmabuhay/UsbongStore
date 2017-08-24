@@ -1434,7 +1434,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.container {
 		margin-left: 100px;
-		margin-bottom: 156px;
+		margin-bottom: 330px;
 	}	
 
 	.container-frontPage {
