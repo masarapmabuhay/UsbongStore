@@ -1695,6 +1695,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 10px;
 		margin-bottom: 12px;
 	}
+
+	.Merchant-category-image:hover {
+ 		opacity: 0.9;
+    	filter: alpha(opacity=90); /* For IE8 and earlier */
+	}
 	
 	.Merchant-category-content {
 		text-align: center;
