@@ -96,36 +96,36 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Books_Model');
-		$data['books'] = $this->Books_Model->getBooks(null);
+		$data['books'] = $this->Books_Model->getBooksOnly(null);
 
 		$this->load->model('Childrens_Model');
-		$data['childrens'] = $this->Childrens_Model->getChildrens(null);
+		$data['childrens'] = $this->Childrens_Model->getChildrensOnly(null);
 		
 		$this->load->model('Textbooks_Model');
-		$data['textbooks'] = $this->Textbooks_Model->getTextbooks(null);
+		$data['textbooks'] = $this->Textbooks_Model->getTextbooksOnly(null);
 
 		$this->load->model('Promos_Model');
-		$data['promos'] = $this->Promos_Model->getPromos(null);
+		$data['promos'] = $this->Promos_Model->getPromosOnly(null);
 
 		$this->load->model('Food_Model');
-		$data['food'] = $this->Food_Model->getFood(null);
+		$data['food'] = $this->Food_Model->getFoodOnly(null);
 		
 		//recommended shops
 		
 		$this->load->model('Beverages_Model');
-		$data['beverages'] = $this->Beverages_Model->getBeverages(null);
+		$data['beverages'] = $this->Beverages_Model->getBeveragesOnly(null);
 		
 		$this->load->model('Comics_Model');
-		$data['comics'] = $this->Comics_Model->getComics(null);
+		$data['comics'] = $this->Comics_Model->getComicsOnly(null);
 
 		$this->load->model('Manga_Model');
-		$data['manga'] = $this->Manga_Model->getManga(null);
+		$data['manga'] = $this->Manga_Model->getMangaOnly(null);
 		
 		$this->load->model('Toys_and_Collectibles_Model');
-		$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles(null);
+		$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_CollectiblesOnly(null);
 		
 		$this->load->model('Miscellaneous_Model');
-		$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneous(null);
+		$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneousOnly(null);
 		
 		//added by Mike, 20170824
 		$this->load->model('B_Model');
