@@ -42,5 +42,21 @@ class W_Model extends CI_Model
 		
 		return $query->row();		
 	}
+	
+	public function incrementViewNum($productId) {
+		$this->db->select('product_view_num');
+		$this->db->from('product');
+		$this->db->where('product_id', $productId);
+		$query = $this->db->get();
+		
+		$viewNum = $query->row()->product_view_num;
+		$viewNum++;
+
+		$updateData = array(
+				'product_view_num' => $viewNum
+		);
+		$this->db->where('product_id', $productId);
+		$this->db->update('product', $updateData);
+	}
 }
 ?>
