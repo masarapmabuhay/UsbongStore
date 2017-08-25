@@ -31,6 +31,21 @@ class Browse extends MY_Controller {
 		
 		$this->load->model('Search_Model');
 		$data['result'] = $this->Search_Model->getSearchResult($this->input->get('param'));//$param);
+
+		//added by Mike, 20170825
+		$customer_id = $this->session->userdata('customer_id');
+
+		if ($customer_id==null) {
+			$customer_id=-1;
+		}
+		
+		$searchData = array(
+				'customer_id' => $customer_id,
+				'searched_item' => $this->input->get('param')
+		);
+		
+		$this->Search_Model->addSearchedField($searchData);
+		
 		
 		$this->load->view('browse', $data);
 		
