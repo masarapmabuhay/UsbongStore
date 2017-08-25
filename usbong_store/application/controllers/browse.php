@@ -39,9 +39,13 @@ class Browse extends MY_Controller {
 			$customer_id=-1;
 		}
 		
+		date_default_timezone_set('Asia/Hong_Kong');
+		$dateTimeStamp = date('Y/m/d H:i:s');
+				
 		$searchData = array(
 				'customer_id' => $customer_id,
-				'searched_item' => $this->input->get('param')
+				'searched_item' => $this->input->get('param'),
+				'added_datetime_stamp' => $dateTimeStamp
 		);
 		
 		$this->Search_Model->addSearchedField($searchData);
