@@ -1224,6 +1224,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #77b043;
 		font-weight: bold;	
 	}
+
+	.Privacy-content {
+		margin-left: 40px;
+		margin-right: 40px;
+		font-size: 16px;
+		color: black;		
+	}
 	
 	.Order-summary {
 		font-size: 18px;
