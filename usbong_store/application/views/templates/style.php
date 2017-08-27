@@ -1762,7 +1762,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-content:hover {
-		background-color: #efe6ca;			
+		background-color: #efe6ca;
 	}
 		
 	.Merchant-category-content-link {
@@ -1770,11 +1770,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 		font-size: 15px;  
 		color: #291f1a;		  			
-    	padding: 2px;  	    	
+    	padding: 2px;  	    	    	
 	}
 
 	.Merchant-category-content-link:hover {
 		color: #1a0d00;		  
+		text-decoration: underline;
+    	text-decoration-color: #77b043;
 	}
 
 	.Merchant-products {
