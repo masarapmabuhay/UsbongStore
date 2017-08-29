@@ -41,7 +41,7 @@ class Account_Model extends CI_Model
 	}	
 
 	public function getCustomerInformation($customerId) {
-		$this->db->select('customer_email_address, customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id, is_admin');
+		$this->db->select('customer_email_address, customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id, is_admin, merchant_id');
 		$this->db->where('customer_id', $customerId);		
 		$query = $this->db->get('customer');
 		$row = $query->row();
@@ -107,6 +107,17 @@ class Account_Model extends CI_Model
 		$query = $this->db->get('customer_order');
 		return $query->result_array();
 	}
+	
+	public function getCustomerOrdersMerchant($merchantId) {
+		$this->db->select('t1.purchased_datetime_stamp, t1.customer_id, t1.quantity, t1.price, t1.fulfilled_status, t2.name');
+		$this->db->from('cart as t1');
+		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
+		$this->db->where('t2.merchant_id', $merchantId);		
+		$this->db->order_by('t1.purchased_datetime_stamp', 'DESC');
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
 		
 	public function updateCustomerOrderAdmin($fulfilledStatus, $addedDatetimeStamp, $productCustomerId) {
 		$updateData = array(
@@ -117,8 +128,24 @@ class Account_Model extends CI_Model
 		$this->db->update('customer_order', $updateData);
 	}
 	
+	public function updateCustomerOrderMerchant($fulfilledStatus, $purchasedDatetimeStamp, $productId) {
+		$updateData = array(
+				'fulfilled_status' => $fulfilledStatus
+		);
+		$this->db->where('product_id', $productId);
+		$this->db->where('purchased_datetime_stamp', $purchasedDatetimeStamp);
+		$this->db->update('cart', $updateData);
+	}
+	
 	public function getCustomerEmailAddress($customerId) {
 		$this->db->select('customer_email_address');
+		$this->db->where('customer_id', $customerId);
+		$query = $this->db->get('customer');
+		return $query->row();
+	}
+	
+	public function getCustomerName($customerId) {
+		$this->db->select('customer_first_name, customer_last_name');
 		$this->db->where('customer_id', $customerId);
 		$query = $this->db->get('customer');
 		return $query->row();
@@ -152,5 +179,17 @@ class Account_Model extends CI_Model
 		return $query->result_array();
 	}
 	
+	public function getOrderDetailsMerchant($merchantId, $purchasedDateTimeStamp) {
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.customer_id, t1.product_id, t1.quantity, t1.price, t2.name, t2.author, t2.product_type_id, t2.price');
+		$this->db->from('cart as t1');
+		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
+		$this->db->where('t2.merchant_id', $merchantId);
+		$this->db->where('t1.purchased_datetime_stamp', $purchasedDateTimeStamp);
+		$this->db->order_by('t1.purchased_datetime_stamp', 'DESC');
+		$query = $this->db->get();
+		
+//		return $query->result_array();
+		return $query->row();		
+	}
 }
 ?>

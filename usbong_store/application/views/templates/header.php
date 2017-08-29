@@ -62,7 +62,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  	echo '<li><a href = "'.site_url('account/settings/').'">My Account</a></li>';				
 
 								  	if ($this->session->userdata('is_admin')=="1") { //true
-								  		echo '<li><a href = "'.site_url('account/ordersummaryadmin/').'">Order Summary (Admin)</a></li>';								  	
+								  		
+								  		if ($this->session->userdata('merchant_id')=="0") { //true								  			
+								  			echo '<li><a href = "'.site_url('account/ordersummaryadmin/').'">Order Summary (Admin)</a></li>';								  	
+								  		}
+								  		else {
+								  			echo '<li><a href = "'.site_url('account/ordersummarymerchant/').'">Order Summary (Merchant Admin)</a></li>';								  		
+								  		}
 								  	}
 								  	
 								  	echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  

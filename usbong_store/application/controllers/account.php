@@ -107,6 +107,45 @@ class Account extends MY_Controller {
 		$this->load->view('templates/footer');
 	}
 	
+	public function ordersummarymerchant() {
+		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
+		$merchant_id = $this->session->userdata('merchant_id');
+		
+		if ((!isset($customer_id)) ||
+		//			($customer_id!="12")) {
+				($is_admin!="1") ||
+				($merchant_id=="0")) {
+					redirect('account/login'); //home page
+				}
+				
+				//from application/core/MY_Controller
+				$this::initStyle();
+				$this::initHeader();
+				//--------------------------------------------
+				
+				$this->load->model('Account_Model');
+				$fulfilled_status = $this->uri->segment(3);
+				if ($fulfilled_status!==null) {
+					date_default_timezone_set('Asia/Hong_Kong');
+					$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(4));
+					$productId = $this->uri->segment(5);
+					
+					$this->Account_Model->updateCustomerOrderMerchant($fulfilled_status, $addedDateTimeStamp, $productId);
+				}
+				
+				$data['order_summary'] = $this->Account_Model->getCustomerOrdersMerchant($merchant_id);				
+				
+				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+
+				$data['merchant_name'] = $this->Account_Model->getCustomerName($customer_id)->customer_first_name." ".$this->Account_Model->getCustomerName($customer_id)->customer_last_name;
+				
+				$this->load->view('account/ordersummarymerchant', $data);
+				
+				//--------------------------------------------
+				$this->load->view('templates/footer');
+	}
+	
 	public function orderdetails() {
 		$customer_id = $this->session->userdata('customer_id');
 		
@@ -164,6 +203,42 @@ class Account extends MY_Controller {
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');
+	}
+	
+	public function orderdetailsmerchant() {
+		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
+		$merchant_id = $this->session->userdata('merchant_id');
+		
+		if ((!isset($customer_id)) ||
+		//			($customer_id!="12")) {
+				($is_admin!="1") ||
+				($merchant_id=="0")) {
+					redirect('account/login'); //home page
+				}
+				
+				//from application/core/MY_Controller
+				$this::initStyle();
+				$this::initHeader();
+				//--------------------------------------------
+				
+				date_default_timezone_set('Asia/Hong_Kong');
+				$purchasedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3));
+				//		echo 'hello '.$addedDateTimeStamp.'<br>';
+				
+				$product_id = $this->uri->segment(4);
+				
+				$this->load->model('Account_Model');
+				$data['order_details'] = $this->Account_Model->getOrderDetailsMerchant($merchant_id, $purchasedDateTimeStamp);
+				
+				$data['result'] = $this->Account_Model->getCustomerInformation($data['order_details']->customer_id);
+								
+				$data['merchant_name'] = $this->Account_Model->getCustomerName($customer_id)->customer_first_name." ".$this->Account_Model->getCustomerName($customer_id)->customer_last_name;
+								
+				$this->load->view('account/orderdetailsmerchant', $data);
+				
+				//--------------------------------------------
+				$this->load->view('templates/footer');
 	}
 	
 	public function logout() {
