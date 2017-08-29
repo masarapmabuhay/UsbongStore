@@ -192,7 +192,7 @@ class B extends MY_Controller {
 			//--------------------------------------------
 										
 			$this->load->model('Books_Model');
-			$data['books'] = $this->Books_Model->getBooks();
+			$data['books'] = $this->Books_Model->getBooks(null);
 			$this->load->view('b/books',$data);			
 
 			//--------------------------------------------
