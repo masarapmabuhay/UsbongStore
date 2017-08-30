@@ -300,13 +300,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var sum = ((clickNumArray[productTypeId]*5)+5); //+1
 
 				if (sum > data.length) {
-					index = (5 - sum % data.length) - 1; //starts at 0
-
+//					index = (5 - sum % data.length) - 1; //starts at 0
+					index = sum - 5;
+/*
 					if (index==-1) { //happens when data.length is exactly a multiple of 5
 						index=0;
 					}
 					
 					clickNumArray[productTypeId] = 1; //starts at 1
+*/					
 				}
 				else {
 					index = clickNumArray[productTypeId]*5;
@@ -324,7 +326,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					clickNumArray[productTypeId]++;
 				}
 			}
-					
+
+			var hasReachedDataLength=false;
 			var totalColumns = 5;
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
@@ -360,7 +363,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//product name
 		    	//-----------------------------------------------		    	
 		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
-		    	productName.innerHTML = data[index].name;		
+
+				if (!hasReachedDataLength) {
+					productName.innerHTML = data[index].name;		
+				}
+				else {
+					productName.innerHTML = '';		
+				}
 
 		    	//-----------------------------------------------
 		    	//link name
@@ -368,7 +377,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	var linkName = document.getElementById("linkId~"+colNum+"~"+productTypeId);
 				var site_url = "<?php echo site_url('w/');?>";				
 				var link_url = site_url.concat(urlFriendlyReformattedProductName,"-",urlFriendlyReformattedAuthor,"/",data[index].product_id);			    	
-				linkName.href = link_url;		
+
+				if (!hasReachedDataLength) {
+					linkName.href = link_url;		
+				}
+				else {
+					linkName.href = '';		
+				}
+									
 //				alert("colNum"+colNum+"~"+productTypeId);
 //				alert("linkName.href: "+linkName.href);
 				
@@ -383,41 +399,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				//edited by Mike, 20170830
 //				imageName.src = my_url;
-				imgAddresses.push(my_url);
-				imgIds.push(imageName);
-
+				if (!hasReachedDataLength) {				
+					imgAddresses.push(my_url);
+					imgIds.push(imageName);
+				}
+				else {
+					imageName.src = '';
+				}
+				
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------				    	    								
 		    	if (data[index].author!=null) {
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
-			    	authorName.innerHTML = data[index].author;		
+
+					if (!hasReachedDataLength) {
+			    		authorName.innerHTML = data[index].author;		
+					}
+					else {
+			    		authorName.innerHTML = '';		
+					}					
 		    	}
 
 		    	//-----------------------------------------------
 		    	//price name
 		    	//-----------------------------------------------		    								
 		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
-		    	if (data[index].quantity_in_stock!=0) {
-					priceName.innerText = "₱" + data[index].price;		
-		    	}
-		    	else {
-					priceName.innerText = "out of stock";		
-		    	}
-
+				if (!hasReachedDataLength) {				    	
+			    	if (data[index].quantity_in_stock!=0) {
+						priceName.innerText = "₱" + data[index].price;		
+			    	}
+			    	else {
+						priceName.innerText = "out of stock";		
+			    	}
+				}
+				else {
+					priceName.innerText = '';
+				}
+				
 		    	//-----------------------------------------------
 		    	//previous price name
 		    	//-----------------------------------------------		    								
 				var previousPriceName = document.getElementById("previousPriceId~"+colNum+"~"+productTypeId);			    			    	
 
-		    	if (data[index].previous_price!=null) {
-		    		previousPriceName.innerHTML = "&ensp;(" + data[index].previous_price + ")";					
+				if (!hasReachedDataLength) {				    				    	
+			    	if (data[index].previous_price!=null) {
+			    		previousPriceName.innerHTML = "&ensp;(" + data[index].previous_price + ")";					
+					}
+			    	else {
+			    		previousPriceName.innerHTML = "";					
+			    	}
 				}
-		    	else {
-		    		previousPriceName.innerHTML = "";					
-		    	}
+				else {
+		    		previousPriceName.innerHTML = '';					
+				}
 		    			    			    	
 				index++;
+
+				if (index == data.length) {
+					clickNumArray[productTypeId] = -1; //starts at 0					
+					hasReachedDataLength=true;
+					index = 5 - (colNum+1);
+				}
 		    }
 
 		    imgAddresses.reverse();
