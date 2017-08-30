@@ -105,6 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}			 
 						
 //			alert("clickNumArray[productTypeId]: "+clickNumArray[productTypeId]);
+
 			if ((clickNumArray[productTypeId]==0) || (clickNumArray[productTypeId]==1)) {
 				clickNumArray[productTypeId]=-1;
 			}
@@ -120,8 +121,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				//why 5? there is always 5 product items in a row
 				var sum = ((clickNumArray[productTypeId]*5)-5); //+1
 				if (sum < 0) {
+					index = sum + 5;
+/*					
 					index = data.length - 1;
 					clickNumArray[productTypeId] = -1;
+*/					
 				}
 				else {
 					index = sum-5;
@@ -129,17 +133,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}			
 			}
 			else { //negative number
-				sum = Math.abs(clickNumArray[productTypeId])*5 +5;
-				if (sum > data.length) {
-					index = 0;
-					clickNumArray[productTypeId] = 0;
+				
+				sum = data.length - Math.abs(clickNumArray[productTypeId])*5 +5;
+
+//				alert("hello: "+clickNumArray[productTypeId]);
+//				alert("sum: "+sum);
+
+				if (sum < 0) {
+					index = data.length - (5+sum);
+					clickNumArray[productTypeId]=-1;
 				}
-				else {
-					index = data.length - sum+5;
-					clickNumArray[productTypeId]--;
+				else if (sum == data.length) {
+					index = data.length - data.length%5;
+//					clickNumArray[productTypeId]--;
 				}
+				else {					
+					index = sum -1;					
+//					index = data.length - sum+5;
+				}
+				clickNumArray[productTypeId]--;
+				
 			}
-			
+
+			var hasReachedDataLength=false;			
 			var totalColumns = 5;
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
@@ -162,7 +178,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//product name
 		    	//-----------------------------------------------		    	
 		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
-				productName.innerHTML = data[index].name;					
+		    	
+				if (!hasReachedDataLength) {			    	
+		    		productName.innerHTML = data[index].name;					
+				}
+				else {
+					productName.innerHTML = '';					
+				}
 
 		    	//-----------------------------------------------
 		    	//link name
@@ -170,7 +192,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	var linkName = document.getElementById("linkId~"+colNum+"~"+productTypeId);
 				var site_url = "<?php echo site_url('w/');?>";				
 				var link_url = site_url.concat(urlFriendlyReformattedProductName,"-",urlFriendlyReformattedAuthor,"/",data[index].product_id);			    	
-				linkName.href = link_url;		
+
+				if (!hasReachedDataLength) {			    	
+					linkName.href = link_url;		
+				}
+				else {
+					linkName.href = '';		
+				}
+				
 //				alert("colNum"+colNum+"~"+productTypeId);
 //				alert("linkName.href: "+linkName.href);
 				
@@ -183,41 +212,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				//edited by Mike, 20170830
 //				imageName.src = my_url;
-				imgAddresses.push(my_url);
-				imgIds.push(imageName);
+				if (!hasReachedDataLength) {			    					
+					imgAddresses.push(my_url);
+					imgIds.push(imageName);
+				}
+				else {
+					imageName.src = '';						
+				}
 
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------		 
 		    	if (data[index].author!=null) {  								
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
-					authorName.innerHTML = data[index].author;		
+
+					if (!hasReachedDataLength) {			    					
+						authorName.innerHTML = data[index].author;		
+					}
+					else {
+						authorName.innerHTML = '';		
+					}
 		    	}
 		    	
 		    	//-----------------------------------------------
 		    	//price name
 		    	//-----------------------------------------------		    								
 		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
-		    	if (data[index].quantity_in_stock!=0) {
-					priceName.innerText = "₱" + data[index].price;		
-		    	}
-		    	else {
-					priceName.innerText = "out of stock";		
-		    	}
 
+				if (!hasReachedDataLength) {			    					
+			    	if (data[index].quantity_in_stock!=0) {
+						priceName.innerText = "₱" + data[index].price;		
+			    	}
+			    	else {
+						priceName.innerText = "out of stock";		
+			    	}
+				}
+				else {
+					priceName.innerText = '';		
+				}
+				
 		    	//-----------------------------------------------
 		    	//previous price name
 		    	//-----------------------------------------------		    								
 				var previousPriceName = document.getElementById("previousPriceId~"+colNum+"~"+productTypeId);			    			    	
 
-		    	if (data[index].previous_price!=null) {
-		    		previousPriceName.innerHTML = "&ensp;(" + data[index].previous_price + ")";					
+				if (!hasReachedDataLength) {			    								    	
+			    	if (data[index].previous_price!=null) {
+			    		previousPriceName.innerHTML = "&ensp;(" + data[index].previous_price + ")";					
+					}
+			    	else {
+			    		previousPriceName.innerHTML = "";					
+			    	}
 				}
-		    	else {
-		    		previousPriceName.innerHTML = "";					
-		    	}
+				else {
+		    		previousPriceName.innerHTML = '';					
+				}
 		    	
 				index++;
+
+				if (index == data.length) {
+					hasReachedDataLength=true;
+					index = 5 - (colNum+1);
+				}
 		    }
 
 //		    imgAddresses.reverse();
