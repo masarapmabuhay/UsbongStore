@@ -63,8 +63,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		for (var i=0; i<12; i++) {
 			clickNumArray.push(0);
 		}
+
+		//added by Mike, 20170830
+		var imgIds = [];
+		var imgAddresses = [];
 		
 		function myLeftArrowFunction(data, productTypeId) {				
+
 			var productType;
 			switch (productTypeId) {
 				case 2:
@@ -176,7 +181,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var base_url = "<?php echo site_url('assets/images/');?>";
 				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
 
-				imageName.src = my_url;
+				//edited by Mike, 20170830
+//				imageName.src = my_url;
+				imgAddresses.push(my_url);
+				imgIds.push(imageName);
 
 		    	//-----------------------------------------------
 		    	//author name
@@ -211,6 +219,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	
 				index++;
 		    }
+
+//		    imgAddresses.reverse();
+//		    imgIds.reverse();
+		    loadImage(0);		    
+		}
+
+		//Reference: https://stackoverflow.com/questions/4211519/controlling-image-load-order-in-html;
+		//last accessed: 20170830
+		//answer by: Ben; Edited by: Ploink
+		//added by Mike, 20170830
+		function loadImage(counter) {
+			  //Break out if no more images
+			  if (counter==imgAddresses.length) { 
+				 //empty the arrays
+				 imgIds = [];
+				 imgAddresses = [];
+
+				 return; 
+			  }
+
+			  //Grab an image obj
+			  var I = imgIds[counter];
+
+			  //Monitor load or error events, moving on to next image in either case
+			  I.onload = I.onerror = function() { loadImage(counter+1); }
+
+			  //Change source (then wait for event)
+			  I.src = imgAddresses[counter];
 		}
 		
 		function myRightArrowFunction(data, productTypeId) {		
@@ -345,7 +381,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var base_url = "<?php echo site_url('assets/images/');?>";
 				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
 
-				imageName.src = my_url;
+				//edited by Mike, 20170830
+//				imageName.src = my_url;
+				imgAddresses.push(my_url);
+				imgIds.push(imageName);
 
 		    	//-----------------------------------------------
 		    	//author name
@@ -380,6 +419,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    			    			    	
 				index++;
 		    }
+
+		    imgAddresses.reverse();
+		    imgIds.reverse();		    
+		    loadImage(0); //added by Mike, 20170830
 		}
 	</script>
 	
