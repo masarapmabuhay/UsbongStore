@@ -151,6 +151,13 @@ class Account_Model extends CI_Model
 		return $query->row();
 	}
 
+	public function getCustomerMerchantName($merchantId) {
+		$this->db->select('customer_first_name, customer_last_name');
+		$this->db->where('merchant_id', $merchantId);
+		$query = $this->db->get('customer');
+		return $query->row();
+	}
+	
 	public function getOrderDetails($customerId, $addedDateTimeStamp) {
 		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.order_total_discount');
 		$this->db->from('cart as t1');

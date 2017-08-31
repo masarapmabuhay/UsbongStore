@@ -233,7 +233,7 @@ class Account extends MY_Controller {
 				
 				$data['result'] = $this->Account_Model->getCustomerInformation($data['order_details']->customer_id);
 								
-				$data['merchant_name'] = $this->Account_Model->getCustomerName($customer_id)->customer_first_name." ".$this->Account_Model->getCustomerName($customer_id)->customer_last_name;
+				$data['merchant_name'] = $this->Account_Model->getCustomerMerchantName($merchant_id)->customer_first_name." ".$this->Account_Model->getCustomerMerchantName($merchant_id)->customer_last_name;
 								
 				$this->load->view('account/orderdetailsmerchant', $data);
 				
