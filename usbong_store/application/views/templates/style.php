@@ -135,24 +135,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else { //negative number
 				
 				sum = data.length - Math.abs(clickNumArray[productTypeId])*5 +5;
-
-//				alert("hello: "+clickNumArray[productTypeId]);
-//				alert("sum: "+sum);
-
-				if (sum < 0) {
-					index = data.length - (5+sum);
-					clickNumArray[productTypeId]=-1;
+/*
+//				alert("data.length: "+data.length);				
+				alert("hello: "+clickNumArray[productTypeId]);
+				alert("sum: "+sum);
+*/
+				if (data.length%5==0) {
+					if (sum <= 0) {
+						index = data.length - 5;
+						clickNumArray[productTypeId]=-1;
+					}
+					else if (sum == data.length) {
+						index = data.length - 5;
+					}
+					else {					
+						index = sum - 5;					
+					}
 				}
-				else if (sum == data.length) {
-					index = data.length - data.length%5;
-//					clickNumArray[productTypeId]--;
-				}
-				else {					
-					index = sum -1;					
-//					index = data.length - sum+5;
-				}
+				else {
+					if (sum <= 0) {
+						index = data.length - (data.length%5);
+						clickNumArray[productTypeId]=-1;
+					}
+					else if (sum == data.length) {
+						index = data.length - (data.length%5);
+//						clickNumArray[productTypeId]--;
+					}
+					else {					
+						index = sum - data.length%5;
+//						index = data.length - sum+5;
+					}
+				}				
 				clickNumArray[productTypeId]--;
-				
+//				alert("index: "+index);				
 			}
 
 			var hasReachedDataLength=false;			
@@ -160,8 +175,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    for (var i = 0; i < totalColumns; i++) { //5 product items per row only
 //		    	colNum = totalColumns - i -1; //column numbering starts at 0
 				colNum = i;
-//				alert("Hello "+colNum);				    					
-
+/*				
+				alert("Hello "+colNum);				    					
+				alert("index "+index);				    					
+*/
 				//-----------------------------------------------
 				//formatting
 				//-----------------------------------------------								
@@ -269,8 +286,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}
 		    	
 				index++;
+//				alert("index: "+index);
 
 				if (index == data.length) {
+//					alert("hello");
 					hasReachedDataLength=true;
 					index = 5 - (colNum+1);
 				}
