@@ -69,7 +69,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['name'];
+												$trimmedName = "";
+												if (strlen($value['name'])>10) {
+													$trimmedName = trim(substr($value['name'],0,10))."...";
+													echo $trimmedName;
+												}
+												else {
+													echo $value['name'];
+												}
 												echo '</div>';
 																								
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -106,7 +113,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['name'];
+												
+												$trimmedName = "";
+												if (strlen($value['name'])>10) {
+													$trimmedName = trim(substr($value['name'],0,10))."...";
+													echo $trimmedName;												
+												}
+												else {
+													echo $value['name'];												
+												}
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
