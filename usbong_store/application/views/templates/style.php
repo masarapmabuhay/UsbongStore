@@ -369,6 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//data.reverse();
 
 			var index;
+//			alert("clickNumArray[productTypeId]: "+clickNumArray[productTypeId]);
 
 			if (clickNumArray[productTypeId]>0) {
 				//why 5? there is always 5 product items in a row
@@ -390,16 +391,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					clickNumArray[productTypeId]++;
 				}			
 			}
-			else { //negative number				
+			else { //negative number								
 				sum = (clickNumArray[productTypeId]+1)*5 +5;
-				if (sum >= 0) {
-					index = 0;
-					clickNumArray[productTypeId] = 0;
+//				alert("sum "+sum);
+
+				if (data.length%5==0) {
+					if (sum >= 0) {
+						index = 0;
+						clickNumArray[productTypeId] = 0;
+					}
+					else {
+						index = data.length + sum;
+						clickNumArray[productTypeId]++;
+					}
 				}
 				else {
-					index = data.length + sum;
-					clickNumArray[productTypeId]++;
+//					alert("sum "+sum);
+					if (sum >= 0) {
+						index = 0;
+						clickNumArray[productTypeId] = 0;
+					}
+					else {
+						index = data.length - data.length%5  + (sum+5);
+
+//						alert("index "+index);
+
+						clickNumArray[productTypeId]++;
+					}
 				}
+//				alert("clickNumArray[productTypeId] "+clickNumArray[productTypeId]);
+				
 			}
 
 			var hasReachedDataLength=false;
@@ -532,7 +553,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				index++;
 
 				if (index == data.length) {
-					clickNumArray[productTypeId] = -1; //starts at 0					
+//					alert("hello");
+					clickNumArray[productTypeId] = -2; //starts at 0					
 					hasReachedDataLength=true;
 					index = 5 - (colNum+1);
 				}
