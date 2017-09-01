@@ -214,7 +214,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					linkName.href = link_url;		
 				}
 				else {
-					linkName.href = '';		
+//					linkName.href = '';		
+//					linkName.removeAttribute("href");
+//					linkName.innerHTML = "";		
+//					linkName.disabled = true;
+//					linkName.remove();
+					linkName.style.pointerEvents="none";
+					linkName.style.cursor="default";
 				}
 				
 //				alert("colNum"+colNum+"~"+productTypeId);
@@ -234,7 +240,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					imgIds.push(imageName);
 				}
 				else {
-					imageName.src = '';						
+//					imageName.src = '#';
+//					imageName.remove();
+					imgAddresses.push(base_url.concat("blank_image.png"));
+					imgIds.push(imageName);					
 				}
 
 		    	//-----------------------------------------------
@@ -478,7 +487,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					linkName.href = link_url;		
 				}
 				else {
-					linkName.href = '';		
+//					linkName.href = 'javascript: void(0)';		
+//					linkName.removeAttribute("href");
+//					linkName.innerHTML = "";		
+//					linkName.disabled = true;
+//					linkName.remove();
+					linkName.style.pointerEvents="none";
+					linkName.style.cursor="default";
 				}
 									
 //				alert("colNum"+colNum+"~"+productTypeId);
@@ -500,7 +515,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					imgIds.push(imageName);
 				}
 				else {
-					imageName.src = '';
+//					imageName.src = '#';
+//					imageName.remove();
+					imgAddresses.push(base_url.concat("blank_image.png"));
+					imgIds.push(imageName);
 				}
 				
 		    	//-----------------------------------------------

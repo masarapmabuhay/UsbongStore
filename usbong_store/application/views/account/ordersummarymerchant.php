@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row Account-settings-subject-header">Orders</div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummarymerchant/')?>">Order Summary (Merch.)</a></div>				
 					<div class="row Account-settings-subject-header">Settings</div>
-					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settings/')?>">Update Information</a></div>
-					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settingsmerchant/')?>">Update Information</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepasswordmerchant/')?>">Update Password</a></div>
 			</div>
 			<div class="col-sm-9">		
 				<?php 

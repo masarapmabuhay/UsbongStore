@@ -291,6 +291,12 @@ class Account extends MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}
+
+	public function settingsmerchant()
+	{
+		//TODO: fix this
+		$this->settings();
+	}
 	
 	public function save()
 	{				
