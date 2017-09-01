@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($books)>=15) {						
+					if (count($books)>5) {						
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
 					}
 					echo '</div>';
@@ -115,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';	
-						if (count($books)>=15) {							
+						if (count($books)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -168,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($childrens)>=15) {						
+					if (count($childrens)>5) {						
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
 					}
 					echo '</div>';
@@ -243,7 +243,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';		
-						if (count($childrens)>=15) {							
+						if (count($childrens)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -296,7 +296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($textbooks)>=15) {						
+					if (count($textbooks)>5) {						
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
 					}
 					echo '</div>';
@@ -371,7 +371,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';						
-						if (count($textbooks)>=15) {							
+						if (count($textbooks)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -424,8 +424,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($promos)>=15) {
-						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
+					if (count($promos)>5) {						
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
 					}
 					echo '</div>';
 					
@@ -443,7 +443,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 //					if ($value['price']!=null) {
 
-					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
+					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
 						echo '&#x20B1;'.$value['price'];
@@ -474,7 +474,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label class="Product-item-details">';					
 //					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$value['author'].'</span>';
 					
-					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
+					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
 						echo '&#x20B1;'.$value['price'];
@@ -498,8 +498,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 						echo '</div>';
 						
-						echo '<div col-sm-1>';			
-						if (count($promos)>=15) {							
+						echo '<div col-sm-1>';		
+						if (count($promos)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -517,6 +517,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo '</div>';
 	?>
 	</div>		
+
 	
 	<!-- ################################################################################# -->
 	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/food/')?>">Recommended <span class="Front-page-cat-name"> Food</span></a></h3>	
@@ -552,7 +553,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($food)>=15) {
+					if (count($food)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -627,7 +628,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($food)>=15) {							
+						if (count($food)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -680,7 +681,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($beverages)>=15) {
+					if (count($beverages)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -755,7 +756,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($beverages)>=15) {							
+						if (count($beverages)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -808,7 +809,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($comics)>=15) {
+					if (count($comics)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -883,7 +884,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($comics)>=15) {							
+						if (count($comics)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -936,7 +937,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($manga)>=15) {
+					if (count($manga)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -1011,7 +1012,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($manga)>=15) {							
+						if (count($manga)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -1064,7 +1065,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($manga)>=15) {
+					if (count($manga)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -1139,7 +1140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($toys_and_collectibles)>=15) {							
+						if (count($toys_and_collectibles)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -1192,7 +1193,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($miscellaneous)>=15) {
+					if (count($miscellaneous)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -1267,7 +1268,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($toys_and_collectibles)>=15) {							
+						if (count($toys_and_collectibles)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
