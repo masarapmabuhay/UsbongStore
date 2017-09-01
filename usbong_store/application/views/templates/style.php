@@ -249,7 +249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------		 
-		    	if ((data[index].author!=null) && (productType != "promos")) {  								
+		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") && (productType != "manga") && (productType != "beverages") && (productType != "toys_and_collectibles")) {  								
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 
 					if (!hasReachedDataLength) {			    					
@@ -524,7 +524,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------				    	    								
-		    	if ((data[index].author!=null) && (productType != "promos")) {  								
+		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") && (productType != "manga") && (productType != "beverages") && (productType != "toys_and_collectibles")) {  								
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 
 					if (!hasReachedDataLength) {
