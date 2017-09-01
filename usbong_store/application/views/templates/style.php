@@ -69,6 +69,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		var imgAddresses = [];
 		
 		function myLeftArrowFunction(data, productTypeId) {				
+			if (imgIds.length > 0) { //imgAddresses
+				return;
+			}
 
 			var productType;
 			switch (productTypeId) {
@@ -334,6 +337,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		function myRightArrowFunction(data, productTypeId) {		
+			if (imgIds.length > 0) { //imgAddresses
+				return;
+			}
+
 			var productType;
 			switch (productTypeId) {
 				case 2:
