@@ -55,16 +55,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
 					
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>32) {
+						$trimmedAuthor = trim(substr($value['author'],0,32))."...";
 					}
 					
 					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
@@ -100,16 +100,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
 					
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>32) {
+						$trimmedAuthor = trim(substr($value['author'],0,32))."...";
 					}
 					
 					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
@@ -207,16 +207,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/childrens/'.$reformattedProductName.'.jpg').'">';
 					
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>32) {
+						$trimmedAuthor = trim(substr($value['author'],0,32))."...";
 					}
 					
 					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
@@ -252,16 +252,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/childrens/'.$reformattedProductName.'.jpg').'">';
 					
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>32) {
+						$trimmedAuthor = trim(substr($value['author'],0,32))."...";
 					}
 					
 					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
@@ -359,16 +359,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/textbooks/'.$reformattedProductName.'.jpg').'">';
 					
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>32) {
+						$trimmedAuthor = trim(substr($value['author'],0,32))."...";
 					}
 										
 					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
@@ -404,16 +404,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/textbooks/'.$reformattedProductName.'.jpg').'">';
 					
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>32) {
+						$trimmedAuthor = trim(substr($value['author'],0,32))."...";
 					}
 					
 					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
@@ -511,8 +511,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -551,8 +551,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -652,8 +652,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/food/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -690,8 +690,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/food/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -790,8 +790,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/beverages/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -828,8 +828,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/beverages/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -928,8 +928,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/comics/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -966,8 +966,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/comics/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -1066,8 +1066,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -1104,8 +1104,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -1204,8 +1204,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/toys_and_collectibles/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -1242,8 +1242,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/toys_and_collectibles/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -1342,8 +1342,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/miscellaneous/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
@@ -1380,8 +1380,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/miscellaneous/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
 					}
 					
 					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';

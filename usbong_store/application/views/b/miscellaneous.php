@@ -60,10 +60,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/miscellaneous/'.$reformattedProductName.'.jpg').'">';
-					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
+
+					//edited by Mike, 20170902
+					$trimmedName = $value['name'];
+					if (strlen($value['name'])>40) {
+						$trimmedName = trim(substr($value['name'],0,40))."...";
+					}
+					echo '<br><div id="Product-item-titleOnly" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
-//					echo $value['author'];
-					
+										
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
 						echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
@@ -88,10 +93,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/miscellaneous/'.$reformattedProductName.'.jpg').'">';
-					echo '<br><div class="Product-item-titleOnly">'.$value['name'].'</div>';
-					echo '<label class="Product-item-details">';					
-//					echo $value['author'];
-					
+
+					//edited by Mike, 20170902
+					$trimmedName = $value['name'];
+					if (strlen($value['name'])>40) {
+						$trimmedName = trim(substr($value['name'],0,40))."...";
+					}
+					echo '<br><div id="Product-item-titleOnly" class="Product-item-titleOnly">'.$trimmedName.'</div>';
+					echo '<label class="Product-item-details">';
+															
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
 						echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';

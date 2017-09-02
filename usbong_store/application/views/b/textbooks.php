@@ -63,15 +63,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					//edited by Mike, 20170902
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>40) {
+						$trimmedName = trim(substr($value['name'],0,40))."...";
 					}					
 					echo '<br><div id="Product-item-titleOnly" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>40) {
+						$trimmedAuthor = trim(substr($value['author'],0,40))."...";
 					}
 					echo '<span>'.$trimmedAuthor.'</span>';					
 										
@@ -102,15 +102,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					//edited by Mike, 20170902
 					$trimmedName = $value['name'];
-					if (strlen($value['name'])>30) {
-						$trimmedName = trim(substr($value['name'],0,30))."...";
+					if (strlen($value['name'])>40) {
+						$trimmedName = trim(substr($value['name'],0,40))."...";
 					}
 					echo '<br><div id="Product-item-titleOnly" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
 					
 					$trimmedAuthor = $value['author'];
-					if (strlen($value['author'])>30) {
-						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					if (strlen($value['author'])>40) {
+						$trimmedAuthor = trim(substr($value['author'],0,40))."...";
 					}
 					echo '<span>'.$trimmedAuthor.'</span>';
 										
