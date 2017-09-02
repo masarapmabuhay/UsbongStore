@@ -309,9 +309,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/textbooks/'.$reformattedProductName.'.jpg').'">';
-					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$value['name'].'</div>';
+					
+					$trimmedName = $value['name'];
+					if (strlen($value['name'])>30) {
+						$trimmedName = trim(substr($value['name'],0,30))."...";
+					}
+					
+					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
 					echo '<label class="Product-item-details">';
-					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$value['author'].'</span>';
+					
+					$trimmedAuthor = $value['author'];
+					if (strlen($value['author'])>30) {
+						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					}
+										
+					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
 					
 //					if ($value['price']!=null) {
 
@@ -342,10 +354,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */
 					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/textbooks/'.$reformattedProductName.'.jpg').'">';
-					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$value['name'].'</div>';
-					echo '<label class="Product-item-details">';					
-					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$value['author'].'</span>';
 					
+					$trimmedName = $value['name'];
+					if (strlen($value['name'])>30) {
+						$trimmedName = trim(substr($value['name'],0,30))."...";
+					}
+					
+					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
+					echo '<label class="Product-item-details">';
+					
+					$trimmedAuthor = $value['author'];
+					if (strlen($value['author'])>30) {
+						$trimmedAuthor = trim(substr($value['author'],0,30))."...";
+					}
+					
+					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$trimmedAuthor.'</span>';
+															
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
