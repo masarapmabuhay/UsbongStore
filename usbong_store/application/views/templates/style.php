@@ -198,9 +198,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//product name
 		    	//-----------------------------------------------		    	
 		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
-		    	
+
 				if (!hasReachedDataLength) {			    	
-		    		productName.innerHTML = data[index].name;					
+					//edited by Mike, 20170902
+					var trimmedName = data[index].name;
+					if (data[index].name.length>30) {
+						trimmedName = trimmedName.substr(0,30).trim().concat("...");
+					}
+		    		productName.innerHTML = trimmedName;					
 				}
 				else {
 					productName.innerHTML = '';					
@@ -255,8 +260,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") && (productType != "manga") && (productType != "beverages") && (productType != "toys_and_collectibles")) {  								
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 
-					if (!hasReachedDataLength) {			    					
-						authorName.innerHTML = data[index].author;		
+					if (!hasReachedDataLength) {			
+						//edited by Mike, 20170902
+						var trimmedAuthor = data[index].author;
+						if (data[index].author.length>30) {
+							trimmedAuthor = data[index].author.substr(0,30).trim().concat("...");
+						}
+						authorName.innerHTML = trimmedAuthor;		
 					}
 					else {
 						authorName.innerHTML = '';		
@@ -477,7 +487,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	var productName = document.getElementById("nameId~"+colNum+"~"+productTypeId);
 
 				if (!hasReachedDataLength) {
-					productName.innerHTML = data[index].name;		
+					//edited by Mike, 20170902
+					var trimmedName = data[index].name;
+					if (data[index].name.length>30) {
+						trimmedName = data[index].name.substr(0,30).trim().concat("...");
+					}
+		    		productName.innerHTML = trimmedName;					
 				}
 				else {
 					productName.innerHTML = '';		
@@ -535,7 +550,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 
 					if (!hasReachedDataLength) {
-			    		authorName.innerHTML = data[index].author;		
+						//edited by Mike, 20170902
+						var trimmedAuthor = data[index].author;
+						if (data[index].author.length>30) {
+							trimmedAuthor = data[index].author.substr(0,30).trim().concat("...");
+						}
+						authorName.innerHTML = trimmedAuthor;		
 					}
 					else {
 			    		authorName.innerHTML = '';		
