@@ -9,8 +9,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container-product-item">
 		<div class="row">
 			<div class="col-sm-2 Merchant-category">
-				<div class="row Merchant-category-image"><a href="<?php echo site_url('request/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></a></div>
-				<?php 
+<?php 
+				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($categories)['product_type_name'])); //remove ":" and "'"
+				$URLFriendlyReformattedCategoryName = str_replace("(","",
+						str_replace(")","",
+						str_replace("&","and",
+						str_replace(',','',
+						str_replace(' ','-',
+						str_replace('/','-',
+						$reformattedCategoryName)))))); //replace "&", " ", and "-"
+									
+				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$result->merchant_id).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
+
 					foreach ($categories as $value) {
 						$fileFriendlyCategoryName = str_replace("'","",
 													str_replace(" & ","_and_",
