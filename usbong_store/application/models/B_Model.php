@@ -18,5 +18,16 @@ class B_Model extends CI_Model
 		$this->db->where('product_type_id', $productTypeId);
 		$this->db->update('product_type', $updateData);
 	}
+	
+	public function getMerchants()
+	{
+		$this->db->select('merchant_id, merchant_name, merchant_motto');
+		$this->db->where('merchant_id !=', 0);
+		
+		$this->db->order_by('merchant_name', 'ASEC');
+		$query = $this->db->get('merchant');
+		
+		return $query->result_array();
+	}
 }
 ?>

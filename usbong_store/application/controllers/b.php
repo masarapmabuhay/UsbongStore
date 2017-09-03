@@ -129,8 +129,10 @@ class B extends MY_Controller {
 		$this->load->model('Miscellaneous_Model');
 		$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneousOnly(null);
 		
-		//added by Mike, 20170824
+		//edited by Mike, 20170903
 		$this->load->model('B_Model');
+		$data['merchants'] = $this->B_Model->getMerchants();
+				
 		$this->B_Model->incrementViewNum();
 				
 		$this->load->view('b/frontPage',$data);
