@@ -27,7 +27,21 @@ class B_Model extends CI_Model
 		$this->db->order_by('merchant_name', 'ASEC');
 		$query = $this->db->get('merchant');
 		
-		return $query->result_array();
+		$d = $query->result_array();
+				
+		foreach ($d as &$value) {
+//			echo "hello ".$value['merchant_name'];
+			$this->db->select('t3.product_type_name');
+			$this->db->from('merchant_product_type as t1');
+			$this->db->join('merchant as t2', 't1.merchant_id = t2.merchant_id', 'LEFT');
+			$this->db->join('product_type as t3', 't1.product_type_id = t3.product_type_id', 'LEFT');
+			$this->db->where('t1.merchant_id', $value['merchant_id']);
+//		$this->db->order_by('t3.product_type_name', 'ASC');
+			$query = $this->db->get();
+			$value['product_type_name'] = $query->row()->product_type_name;
+		}
+						
+		return $d;		
 	}
 }
 ?>

@@ -880,7 +880,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php /*echo site_url('b/beverages/')*/?>">Recommended <span class="Front-page-cat-name"> Merchants</span></a></h3>
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/1')?>">Recommended <span class="Front-page-cat-name"> Merchants</span></a></h3>
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -893,7 +893,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			
 			foreach ($merchants as $value) {				
-				if ($colCounter==0) {										
+				$reformattedCategoryName = str_replace(':','',str_replace('\'','',$value['product_type_name'])); //remove ":" and "'"
+				$URLFriendlyReformattedCategoryName = str_replace("(","",
+						str_replace(")","",
+						str_replace("&","and",
+						str_replace(',','',
+						str_replace(' ','-',
+						str_replace('/','-',
+						$reformattedCategoryName)))))); //replace "&", " ", and "-"
+				
+				if ($colCounter==0) {															
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
@@ -905,13 +914,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="col-sm-10">';				
 					echo '<div>';
 					echo '<div class="col-sm-2 Product-item">';		
-					echo '<div class="row Merchant-category-image"><img class="" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'"></div>';					
+					echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$value['merchant_id']).'"><img class="" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'"></a></div>';					
 					echo '</div>';
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
 					echo '<div class="col-sm-2 Product-item">';
-					echo '<div class="row Merchant-category-image"><img class="" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'"></div>';
+					echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$value['merchant_id']).'"><img class="" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'"></a></div>';
 					echo '</div>';
 					$colCounter++;
 					
