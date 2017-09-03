@@ -16,25 +16,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	?>
 		<div class="row">
-				<?php 
-					if (isset($categories)) {
-						echo '<div class="col-sm-2 Merchant-category-b">';
-						
-							echo '<div class="row Merchant-category-image"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></div>';
-							
-							foreach ($categories as $value) {
-								$fileFriendlyCategoryName = str_replace("'","",
-										str_replace(" & ","_and_",
-												strtolower($value['product_type_name'])));
-								echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
-							}
-							
-						echo '</div>';
-						
-						echo '<div class="col-sm-9 Merchant-products">';						
-					}					
-				?>	
-	<?php
+		<?php 				
+			if (isset($categories)) {						
+				//added by Mike, 20170903
+				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($categories)['product_type_name'])); //remove ":" and "'"
+				$URLFriendlyReformattedCategoryName = str_replace("(","",
+				str_replace(")","",
+				str_replace("&","and",
+				str_replace(',','',
+				str_replace(' ','-',
+				str_replace('/','-',
+				$reformattedCategoryName)))))); //replace "&", " ", and "-"
+																
+				echo '<div class="col-sm-2 Merchant-category-b">';						
+				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$this->uri->segment(3)).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
+				
+					foreach ($categories as $value) {
+						$fileFriendlyCategoryName = str_replace("'","",
+								str_replace(" & ","_and_",
+										strtolower($value['product_type_name'])));
+						echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
+					}
+					
+				echo '</div>';
+				
+				echo '<div class="col-sm-9 Merchant-products">';						
+			}					
+
 			$colCounter = 0;
 			foreach ($food as $value) {
 				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
