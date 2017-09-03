@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container-product-item">
 		<div class="row">
 			<div class="col-sm-2 Merchant-category">
-				<div class="row Merchant-category-image"><a href="<?php echo site_url('request/')?>"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></a></div>
+				<div class="row Merchant-category-image"><img class="" src="<?php echo base_url('assets/images/merchants/'.$result->merchant_name.'.jpg')?>"></div>
 				<?php 
 					foreach ($categories as $value) {
 						$fileFriendlyCategoryName = str_replace("'","",

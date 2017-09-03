@@ -1974,8 +1974,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-image:hover {
- 		opacity: 0.9;
-    	filter: alpha(opacity=90); /* For IE8 and earlier */
+		/*opacity: 0.9;
+    	filter: alpha(opacity=90);*/ /* For IE8 and earlier */
+    	
 	}
 	
 	.Merchant-category-content {
