@@ -193,8 +193,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								echo '</div>';
 								//-----------------------------------------------------------
 								
+								//Shipping Address--------------------------------------------------							
+								//added by Mike, 20170909
+								echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSC" value="0" onClick="enableShipToMOSCFunction()">&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';
 								
-								//Shipping Address--------------------------------------------------
+								
+								
 								echo '<div class="Checkout-div">';						
 								if (isset($data['shippingAddressParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
@@ -203,7 +207,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$customer_information_result->customer_shipping_address.'" required>';
 								}
 								else { //default
-									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="" required>';
 								}
 								echo '<span class="floating-label">Shipping Address</span>';
 								echo '</div>';

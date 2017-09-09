@@ -51,8 +51,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    document.documentElement.scrollTop = 0; // For IE and Firefox
 		}	
 	</script>
-	
-	
+
+	<script>
+		function enableShipToMOSCFunction() {
+			alert("hello");
+			
+			var shippingAddressParam = document.getElementsByName("shippingAddressParam");
+			shippingAddressParam.value = '2 E. Rodriguez Ave. Sto. Niño';
+//			alert("shippingAddressParam.value: "+shippingAddressParam.value);
+		}	
+	</script>
+		
 	<script type="text/javascript">
 //		var leftArrowClickNum = 0;
 //		var rightArrowClickNum = 1; //starts at 1
@@ -280,7 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				if (!hasReachedDataLength) {			    					
 			    	if (data[index].quantity_in_stock!=0) {
-						priceName.innerText = "₱" + data[index].price;		
+						priceName.innerText = "竄ｱ" + data[index].price;		
 			    	}
 			    	else {
 						priceName.innerText = "out of stock";		
@@ -568,7 +577,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
 				if (!hasReachedDataLength) {				    	
 			    	if (data[index].quantity_in_stock!=0) {
-						priceName.innerText = "₱" + data[index].price;		
+						priceName.innerText = "竄ｱ" + data[index].price;		
 			    	}
 			    	else {
 						priceName.innerText = "out of stock";		
@@ -2155,6 +2164,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: -1px;
 	}		
 
+	input[type="radio"] {
+	  transform:scale(1.5, 1.5);
+	}
+
+	input[type="checkbox"] {
+	  transform:scale(1.5, 1.5);
+	}
+
+	.Checkbox-label-shippingToMOSC {
+	    font-size: 18px;    			
+	    padding: 16px 6px 6px 8px;
+		color: #3a3a3a;
+	}
+
 	.Checkout-div {
 		margin: 0px;
 		padding: 0px;
@@ -2172,7 +2195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Checkout-input-mode-of-payment {
-	    font-size: 16px;    			
+	    font-size: 18px;    			
 	    padding: 6px;
 	    width: 100%;
 	    margin: 0;		    
