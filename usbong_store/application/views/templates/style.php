@@ -1218,9 +1218,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-offers-request {
 		position: relative;
 		display:block;		
+		z-index: 2;		
 	}
 
 	.Image-offers-request:hover {
+ 		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+   	}
+
+	.Image-offers-MOSC {
+		position: relative;
+		display:block;		
+		z-index: 2;		
+	}
+
+	.Image-offers-MOSC:hover {
  		opacity: 0.6;
     	filter: alpha(opacity=60); /* For IE8 and earlier */
    	}
