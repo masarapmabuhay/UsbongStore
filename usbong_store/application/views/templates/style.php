@@ -53,12 +53,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 
 	<script>
-		function enableShipToMOSCFunction() {
-			alert("hello");
+//		var isEnabled = false;
+		
+		function clickShipToMOSCFunction(isEnabled) {
+//			alert("hello");
+
+			if (isEnabled==0) {
+				document.getElementById("shippingAddressId").value = '2 E. Rodriguez Ave. Sto. Niño';
+				document.getElementById("cityId").value = 'Marikina City';
+				document.getElementById("countryId").value = 'Philippines';
+				document.getElementById("postalCodeId").value = '1800';
+//				isEnabled=true;
+				document.getElementById("shippingToMOSCId").value = '1';				
+			}
+			else {
+				document.getElementById("shippingAddressId").value = '';
+				document.getElementById("cityId").value = '';
+				document.getElementById("countryId").value = '';
+				document.getElementById("postalCodeId").value = '';					
+//				isEnabled=false;				
+				document.getElementById("shippingToMOSCId").value = '0';				
+			}
+
+//			alert("hello: "+document.getElementById("shippingAddressId").value);
 			
-			var shippingAddressParam = document.getElementsByName("shippingAddressParam");
-			shippingAddressParam.value = '2 E. Rodriguez Ave. Sto. Niño';
-//			alert("shippingAddressParam.value: "+shippingAddressParam.value);
 		}	
 	</script>
 		
@@ -894,7 +912,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		//added by Mike, 20170808
 		function mySellQuantityFunction(quantity, id) {								
 			var totalCostField = document.getElementById("totalCost");
-
 			if (Number.isNaN(quantity)) {
 				quantity = 0;
 			}
@@ -2164,6 +2181,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: -1px;
 	}		
 
+	input:disabled {
+	    background: #dddddd;
+	}
+
 	input[type="radio"] {
 	  transform:scale(1.5, 1.5);
 	}
@@ -2174,7 +2195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Checkbox-label-shippingToMOSC {
 	    font-size: 18px;    			
-	    padding: 16px 6px 6px 8px;
+	    padding: 6px 6px 6px 8px;
 		color: #3a3a3a;
 	}
 

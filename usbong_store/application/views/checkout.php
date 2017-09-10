@@ -195,19 +195,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								
 								//Shipping Address--------------------------------------------------							
 								//added by Mike, 20170909
-								echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSC" value="0" onClick="enableShipToMOSCFunction()">&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';
+								if ((!isset($data['shippingAddressParam'])) && (!isset($customer_information_result->customer_shipping_address))) {
+									echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSCId" value="0" onClick="clickShipToMOSCFunction(this.value)">&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';									
+								}
+								else {
+									echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSCId" value="1" onClick="clickShipToMOSCFunction(this.value)">&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';									
+								}
 								
-								
-								
+																							
 								echo '<div class="Checkout-div">';						
 								if (isset($data['shippingAddressParam'])) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="shippingAddressId" name="shippingAddressParam" value="'.$data['shippingAddressParam'].'" required>';
 								}
 								else if (isset($customer_information_result->customer_shipping_address)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="'.$customer_information_result->customer_shipping_address.'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="shippingAddressId" name="shippingAddressParam" value="'.$customer_information_result->customer_shipping_address.'" required>';
 								}
 								else { //default
-									echo '<input type="text" class="Checkout-input" placeholder="" name="shippingAddressParam" value="" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="shippingAddressId" name="shippingAddressParam" value="" required>';
 								}
 								echo '<span class="floating-label">Shipping Address</span>';
 								echo '</div>';
@@ -216,13 +220,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								//City--------------------------------------------------
 								echo '<div class="Checkout-div">';						
 								if (isset($data['cityParam'])) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$data['cityParam'].'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="cityId" name="cityParam" value="'.$data['cityParam'].'" required>';
 								}
 								else if (isset($customer_information_result->customer_city)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" value="'.$customer_information_result->customer_city.'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="cityId" name="cityParam" value="'.$customer_information_result->customer_city.'" required>';
 								}
 								else { //default
-									echo '<input type="text" class="Checkout-input" placeholder="" name="cityParam" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="cityId" name="cityParam" required>';
 								}
 								echo '<span class="floating-label">City</span>';
 								echo '</div>';
@@ -232,13 +236,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								//Country--------------------------------------------------
 								echo '<div class="Checkout-div">';
 								if (isset($data['countryParam'])) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$data['countryParam'].'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="countryId" name="countryParam" value="'.$data['countryParam'].'" required>';
 								}
 								else if (isset($customer_information_result->customer_country)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" value="'.$customer_information_result->customer_country.'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="countryId" name="countryParam" value="'.$customer_information_result->customer_country.'" required>';
 								}
 								else { //default
-									echo '<input type="text" class="Checkout-input" placeholder="" name="countryParam" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="countryId" name="countryParam" required>';
 								}
 								echo '<span class="floating-label">Country</span>';
 								echo '</div>';
@@ -251,13 +255,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								}
 								//Postal Code--------------------------------------------------
 								if (isset($data['postalCodeParam'])) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="postalCodeId" name="postalCodeParam" value="'.$data['postalCodeParam'].'" required>';
 								}
 								else if (isset($customer_information_result->customer_postal_code)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" value="'.$customer_information_result->customer_postal_code.'" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="postalCodeId" name="postalCodeParam" value="'.$customer_information_result->customer_postal_code.'" required>';
 								}
 								else { //default
-									echo '<input type="text" class="Checkout-input" placeholder="" name="postalCodeParam" required>';
+									echo '<input type="text" class="Checkout-input" placeholder="" id="postalCodeId" name="postalCodeParam" required>';
 								}
 								echo '<span class="floating-label">Postal Code</span>';
 								echo '</div>';
