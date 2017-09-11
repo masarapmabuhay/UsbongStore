@@ -864,7 +864,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var priceField = document.getElementById("priceId"+trimmedId);
 
 			if (Number.isNaN(quantity)) {
-				quantity = 0;
+				quantity = 1;
 			}
 			
 			var subTotal = quantity * parseInt(priceField.innerHTML);
@@ -896,23 +896,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				var q = document.getElementById("quantityId"+i+"~"+totalItemsInCart);				
 				totalQuantity += parseInt(q.value);
 			}
-			totalQuantityField.innerHTML = totalQuantity;
+			
+			//edited by Mike, 20170911			
+			if (Number.isNaN(totalQuantity)) {
+				totalQuantityField.innerHTML = '1 item';
+			}									
+			else if (totalQuantity>1) {	
+				totalQuantityField.innerHTML = totalQuantity + ' items';
+			}
+			else {
+				totalQuantityField.innerHTML = totalQuantity + " item";
+			}	
+
+
+			//-----------------------------------------------------------------------
+			//update Less 25pesos promo
+			//-----------------------------------------------------------------------			
+			var less25pesosPromoField = document.getElementById("less25pesosPromoId");
+			alert("totalQuantity: "+totalQuantity);
+			if(totalQuantity>1) {
+				var discount = (totalQuantity-1)*25;
+				less25pesosPromoField.innerHTML = discount;
+			}
+			else {
+				less25pesosPromoField.innerHTML = 0;
+			}
+			
+			//-----------------------------------------------------------------------
+			//update Order Total (less 25pesos)
+			//-----------------------------------------------------------------------			
+			var orderTotalField = document.getElementById("orderTotalId2");
+			orderTotalField.innerHTML = orderTotalField.innerHTML-less25pesosPromoField.innerHTML;
+			
+			
+//			totalQuantityField.innerHTML = totalQuantity;
 
 			//update the DB as well
 			var product_id = document.getElementById("productId"+trimmedId).value;
 			
 			var site_url = "<?php echo site_url('cart/shoppingcart/');?>";
 			var my_url = site_url.concat(product_id, "/", quantity);
-			
+/*			
 			$.ajax({
 		        type:"POST",
 		        url:my_url,
 
 		        success:function() {		
+			        
 					window.location.href = "<?php echo site_url('cart/shoppingcart/');?>";			        	        			        				        
 		       	}
 		    });
 			event.preventDefault();
+*/			
 		}
 	</script>
 

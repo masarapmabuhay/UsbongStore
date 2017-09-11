@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label class="Quantity-label">Quantity:</label>
 									<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount;?>" class="Quantity-textbox no-spin" 
 											name="quantityParam<?php echo $itemCounter;?>"
-											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
+											value="<?php echo $value['quantity']?>" min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length>=2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    
 								
 									<input type="hidden" id="productId<?php echo $itemCounter?>" value="<?php echo $value['product_id'];?>">
 								</div>
@@ -157,11 +157,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="row Cart-order-total-row">
 								<div class="col-sm-7">		
 									<?php 
-										if ($totalQuantity>1) {	
-											echo '<span id="totalQuantityId">'.$totalQuantity.'</span> items';
+										if (is_naN($totalQuantity)) {
+											echo '<span id="totalQuantityId">1 item</span>';											
+										}									
+										else if ($totalQuantity>1) {	
+											echo '<span id="totalQuantityId">'.$totalQuantity.' items</span>';
 										}
 										else {
-											echo '<span id="totalQuantityId">'.$totalQuantity.'</span> item';
+											echo '<span id="totalQuantityId">'.$totalQuantity.' item</span>';
 										}
 									?>		
 								</div>
@@ -184,7 +187,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											$totalDiscount=0;
 										}
 										
-										echo '-&#x20B1;'.$totalDiscount;
+										echo '-&#x20B1;<span id="less25pesosPromoId">'.$totalDiscount.'</span>';
 									?>	
 								</div>		
 							</div>			
