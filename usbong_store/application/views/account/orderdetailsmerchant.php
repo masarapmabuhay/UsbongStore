@@ -145,8 +145,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if ($result->mode_of_payment_id==0) {
 									echo 'Bank Deposit<br>';
 								}
+								else if ($result->mode_of_payment_id==1) {
+									echo 'Paypal<br>';
+								}
 								else {
-									echo 'Paypal<br>';					
+									echo 'Cash upon Meetup at MOSC<br>(Marikina Orthopedic Specialty Clinic)<br>';
 								}
 							?>
 						</div>
