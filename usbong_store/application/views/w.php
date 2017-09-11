@@ -186,8 +186,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */										
 										echo '<b>'.$result->name.'</b>!'
 									?>
-									<br><b>Order Total: </b>
-									<label class="Popup-product-price">&#x20B1;<?php echo $result->price;?></label>
+									<br><b>Total Amt: </b>
+									<label class="Popup-product-price">&#x20B1;<span id="productPriceId"><?php echo $result->price;?></span></label>
 									<label class="Popup-product-free-delivery"><br>[Free Delivery]</label> 												
 								<form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
 									<button type="submit" class="Button-view-cart">

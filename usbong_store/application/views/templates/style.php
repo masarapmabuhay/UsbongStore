@@ -673,6 +673,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 					quantityField.innerHTML = "Added <b>1</b> unit of ";
 				}
+
+				var productPriceField = document.getElementById("productPriceId");
+				var totalPrice = quantity*price;
+				productPriceField.innerHTML = totalPrice;								
 				//-----------------------------------------------------------
 				
 				totalItemsInCart+=parseInt(quantity);
