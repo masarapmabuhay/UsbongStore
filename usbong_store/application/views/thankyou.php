@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = $this->session->flashdata('data');
 		}
 	?>
+	<br>
 	<h2 class="Thankyou-header">&#x2714; Thank you<?php echo ', '.$data['firstNameParam'];?>! Your order is confirmed.</h2>
 	<p class="Thankyou-text"> We've accepted your order, and are now processing it. You will receive a confirmation email from us with the next steps.</p>
 	<br>
