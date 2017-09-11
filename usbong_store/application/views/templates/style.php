@@ -307,7 +307,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				if (!hasReachedDataLength) {			    					
 			    	if (data[index].quantity_in_stock!=0) {
-						priceName.innerText = "竄ｱ" + data[index].price;		
+						priceName.innerText = "₱" + data[index].price;		
 			    	}
 			    	else {
 						priceName.innerText = "out of stock";		
@@ -595,7 +595,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
 				if (!hasReachedDataLength) {				    	
 			    	if (data[index].quantity_in_stock!=0) {
-						priceName.innerText = "竄ｱ" + data[index].price;		
+						priceName.innerText = "₱" + data[index].price;		
 			    	}
 			    	else {
 						priceName.innerText = "out of stock";		
