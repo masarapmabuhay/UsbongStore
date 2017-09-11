@@ -405,6 +405,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									?>	
 								</div>		
 						</div>	
+						<div class="row Cart-order-discount-row">
+								<div class="col-sm-6">		
+									Meetup at MOSC
+								</div>
+								<div id="meetupAtMOSCDiscountId" class="col-sm-6 Cart-order-discount">		
+									<?php
+										if (isset($data['shippingAddressParam']) && ($data['shippingAddressParam']=="2 E. Rodriguez Ave. Sto. Niño")) {
+											echo '-&#x20B1;70';											
+										}
+										else if (isset($customer_information_result->customer_shipping_address) && ($customer_information_result->customer_shipping_address=="2 E. Rodriguez Ave. Sto. Niño")) {
+											echo '-&#x20B1;70';
+										}
+										else {
+											echo '-&#x20B1;0';										
+										}
+									?>	
+								</div>		
+						</div>	
 						<div class="row Cart-order-total-row">
 							<div class="col-sm-6">		
 								Shipping (PH)
@@ -419,6 +437,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="col-sm-6 Cart-order-price">		
 								<?php 
+									//added by Mike, 20170911
+									if (isset($data['shippingAddressParam']) && ($data['shippingAddressParam']=="2 E. Rodriguez Ave. Sto. Niño")) {
+										$orderTotal-=70;
+									}
+									else if (isset($customer_information_result->customer_shipping_address) && ($customer_information_result->customer_shipping_address=="2 E. Rodriguez Ave. Sto. Niño")) {
+										$orderTotal-=70;
+									}
+									else {
+										//do nothing
+									}								
+								
 									$orderTotal-=$totalDiscount;								    
 							    	echo '<label>&#x20B1;<span id="orderTotalId2">'.$orderTotal.'</span></label>';
 							    ?>	

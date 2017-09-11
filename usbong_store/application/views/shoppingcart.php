@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-sm-3">		
 						<div class="Cart-order-total">
 							<div class="row Cart-order-total-row">
-								<div class="col-sm-6">		
+								<div class="col-sm-7">		
 									<?php 
 										if ($totalQuantity>1) {	
 											echo '<span id="totalQuantityId">'.$totalQuantity.'</span> items';
@@ -165,17 +165,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										}
 									?>		
 								</div>
-								<div class="col-sm-6 Cart-order-price">		
+								<div class="col-sm-5 Cart-order-price">		
 								    <?php echo '<label>&#x20B1;<span id="orderTotalId1">'.$orderTotal.'</span></label>';?>
 								
 									<?php //echo '&#x20B1; '.$orderTotal?>		
 								</div>								
 							</div>
 							<div class="row Cart-order-discount-row">
-								<div class="col-sm-6">		
+								<div class="col-sm-7">		
 									Less &#x20B1;25 promo
 								</div>
-								<div class="col-sm-6 Cart-order-discount">		
+								<div class="col-sm-5 Cart-order-discount">		
 									<?php 
 										if ($totalQuantity>1) {
 											$totalDiscount = ($totalQuantity-1)*25;
@@ -187,20 +187,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										echo '-&#x20B1;'.$totalDiscount;
 									?>	
 								</div>		
-							</div>						
+							</div>			
+							<div class="row Cart-order-discount-row">
+								<div class="col-sm-7">		
+									Meetup at MOSC
+								</div>
+								<div id="meetupAtMOSCDiscountId" class="col-sm-5 Cart-order-discount">		
+									<?php
+										echo '-&#x20B1;0';										
+									?>	
+								</div>		
+							</div>				
 							<div class="row Cart-order-total-row">
-								<div class="col-sm-6">		
+								<div class="col-sm-7">		
 									Shipping (PH)
 								</div>
-								<div class="col-sm-6">		
+								<div class="col-sm-5">		
 									FREE
 								</div>		
 							</div>						
 							<div class="row Cart-order-total-with-checkout-row">
-								<div class="col-sm-6">		
+								<div class="col-sm-7">		
 									Order Total
 								</div>
-								<div class="col-sm-6 Cart-order-price">		
+								<div class="col-sm-5 Cart-order-price">		
 								    <?php 
 										$orderTotal-=$totalDiscount;								    
 								    	echo '<label>&#x20B1;<span id="orderTotalId2">'.$orderTotal.'</span></label>';

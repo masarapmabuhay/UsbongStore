@@ -65,6 +65,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				document.getElementById("postalCodeId").value = '1800';
 //				isEnabled=true;
 				document.getElementById("shippingToMOSCId").value = '1';				
+
+				//added by Mike, 20170911
+				document.getElementById("meetupAtMOSCDiscountId").innerHTML = '-&#x20B1;70';				
+				document.getElementById("orderTotalId2").innerHTML = parseInt(document.getElementById("orderTotalId2").innerHTML)-70;		
 			}
 			else {
 				document.getElementById("shippingAddressId").value = '';
@@ -73,6 +77,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				document.getElementById("postalCodeId").value = '';					
 //				isEnabled=false;				
 				document.getElementById("shippingToMOSCId").value = '0';				
+
+				//added by Mike, 20170911
+				document.getElementById("meetupAtMOSCDiscountId").innerHTML = '-&#x20B1;0';				
+				document.getElementById("orderTotalId2").innerHTML = parseInt(document.getElementById("orderTotalId2").innerHTML)+70;		
 			}
 
 //			alert("hello: "+document.getElementById("shippingAddressId").value);
