@@ -34,8 +34,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						if ($data['modeOfPaymentParam']==0) {
 							echo 'Bank Deposit';
 						}
-						else {
+						else if ($data['modeOfPaymentParam']==1) {
 							echo 'Paypal';
+						}						
+						else {
+							echo 'Cash upon Meetup at MOSC<br>(Marikina Orthopedic Specialty Clinic)';
 						}
 					?>
 			</div>
