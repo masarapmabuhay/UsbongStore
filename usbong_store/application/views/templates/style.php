@@ -913,7 +913,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//update Less 25pesos promo
 			//-----------------------------------------------------------------------			
 			var less25pesosPromoField = document.getElementById("less25pesosPromoId");
-			alert("totalQuantity: "+totalQuantity);
 			if(totalQuantity>1) {
 				var discount = (totalQuantity-1)*25;
 				less25pesosPromoField.innerHTML = discount;
@@ -927,8 +926,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//-----------------------------------------------------------------------			
 			var orderTotalField = document.getElementById("orderTotalId2");
 			orderTotalField.innerHTML = orderTotalField.innerHTML-less25pesosPromoField.innerHTML;
-			
-			
+						
 //			totalQuantityField.innerHTML = totalQuantity;
 
 			//update the DB as well
@@ -936,18 +934,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			var site_url = "<?php echo site_url('cart/shoppingcart/');?>";
 			var my_url = site_url.concat(product_id, "/", quantity);
-/*			
+			
 			$.ajax({
 		        type:"POST",
 		        url:my_url,
 
-		        success:function() {		
-			        
-					window.location.href = "<?php echo site_url('cart/shoppingcart/');?>";			        	        			        				        
+		        success:function() {					        
+					window.location.href = my_url;			        	        			        				        
 		       	}
 		    });
 			event.preventDefault();
-*/			
 		}
 	</script>
 
