@@ -870,10 +870,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if (Number.isNaN(quantity)) {
 				quantity = 1;
 			}
-			
+
 			var subTotal = quantity * parseInt(priceField.innerHTML);
 			subTotalField.innerHTML = "&#x20B1;" + subTotal;
-
+			
 			//-----------------------------------------------------------------------
 			//update Order Total
 			//-----------------------------------------------------------------------
@@ -934,8 +934,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //			totalQuantityField.innerHTML = totalQuantity;
 
 			//update the DB as well
-			var product_id = document.getElementById("productId"+trimmedId).value;
-			
+			var product_id = document.getElementById("productId"+trimmedId).value;			
 			var site_url = "<?php echo site_url('cart/shoppingcart/');?>";
 			var my_url = site_url.concat(product_id, "/", quantity);
 			
@@ -947,7 +946,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					window.location.href = my_url;			        	        			        				        
 		       	}
 		    });
-			event.preventDefault();
+			event.preventDefault();			
 		}
 	</script>
 

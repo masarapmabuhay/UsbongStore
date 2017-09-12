@@ -44,7 +44,8 @@ class Cart extends MY_Controller {
 				$this->Cart_Model->removeItemInCart($customer_id, $product_id);
 			}
 		}		
-		if ($customer_id!="") {						
+		
+		if ($customer_id!="") {					
 			$this->load->model('Cart_Model');
 			$data['result'] = $this->Cart_Model->getCart($customer_id);
 

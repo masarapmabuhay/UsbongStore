@@ -100,7 +100,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo '&#x20B1;'.$value['order_total_price'];
+
+												$discountedPrice = $value['order_total_price']-$value['order_total_discount'];
+												
+												echo '&#x20B1;'.$discountedPrice;
 												echo '</div>';									
 											}
 											

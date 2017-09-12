@@ -92,7 +92,7 @@ class Account_Model extends CI_Model
 	}
 	
 	public function getCustomerOrders($customerId) {
-		$this->db->select('added_datetime_stamp, quantity, status_accepted, order_total_price');
+		$this->db->select('added_datetime_stamp, quantity, status_accepted, order_total_price, order_total_discount');
 		$this->db->where('customer_id', $customerId);
 		$this->db->where('status_accepted', 1);
 		$this->db->order_by('added_datetime_stamp', 'DESC');
