@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //		var clickNumArray[productTypeId] = 0;
 
 		var clickNumArray = [];
-		for (var i=0; i<12; i++) {
+		for (var i=0; i<15; i++) {
 			clickNumArray.push(0);
 		}
 
@@ -292,7 +292,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------		 
-		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") && (productType != "manga") && (productType != "beverages") && (productType != "toys_and_collectibles")) {  								
+		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") 
+				    	&& (productType != "manga") && (productType != "beverages") 
+				    	&& (productType != "toys_and_collectibles") && (productType != "miscellaneous")) {  								
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 
 					if (!hasReachedDataLength) {			
@@ -381,10 +383,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  I.src = imgAddresses[counter];
 		}
 		
-		function myRightArrowFunction(data, productTypeId) {		
+		function myRightArrowFunction(data, productTypeId) {	
 			if (imgIds.length > 0) { //imgAddresses
 				return;
-			}
+			}			
 
 			var productType;
 			switch (productTypeId) {
@@ -493,7 +495,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				//-----------------------------------------------
 				//formatting
-				//-----------------------------------------------								
+				//-----------------------------------------------						
 				var reformattedProductName = data[index].name.replace(new RegExp(':', 'g'),'').replace(new RegExp('\'', 'g'),'');
 
 				var urlFriendlyReformattedProductName = reformattedProductName.replace(new RegExp('[(),]', 'g'),'').replace(new RegExp('[ /]', 'g'),'-').replace(new RegExp('[&]', 'g'),'and');
@@ -577,11 +579,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					imgAddresses.push(base_url.concat("blank_image.png"));
 					imgIds.push(imageName);
 				}
-				
-		    	//-----------------------------------------------
+
+				//-----------------------------------------------
 		    	//author name
 		    	//-----------------------------------------------				    	    								
-		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") && (productType != "manga") && (productType != "beverages") && (productType != "toys_and_collectibles")) {  								
+		    	if ((data[index].author!=null) && (productType != "promos") && (productType != "comics") 
+				    	&& (productType != "manga") && (productType != "beverages") 
+				    	&& (productType != "toys_and_collectibles") && (productType != "miscellaneous")) {  								
 			    	var authorName = document.getElementById("authorId~"+colNum+"~"+productTypeId);
 
 					if (!hasReachedDataLength) {

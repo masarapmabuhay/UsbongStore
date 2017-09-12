@@ -1259,7 +1259,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($manga)>5) {
+					if (count($toys_and_collectibles)>5) {
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
@@ -1364,15 +1364,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/comics/')?>">Recommended <span class="Front-page-cat-name"> Miscellaneous</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/miscellaneous/')?>">Recommended <span class="Front-page-cat-name"> Miscellaneous</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
-	<?php
+	<?php	
 			$colCounter = 0;
 			
 			$d = array();
-			foreach ($miscellaneous as $value) {
+			foreach ($miscellaneous as $value) {				
 				$d[] = $value;			
 			}
 			
@@ -1397,8 +1397,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($miscellaneous)>5) {						
-						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					if (count($miscellaneous)>5) {
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
 					
@@ -1481,7 +1481,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 						echo '</div>';
 						
-						echo '<div col-sm-1>';		
+						echo '<div col-sm-1>';			
 						if (count($miscellaneous)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
@@ -1499,6 +1499,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo '</div>';		
 			echo '</div>';
 	?>
-	</div>		
+	</div>			
 </body>
 </html>
