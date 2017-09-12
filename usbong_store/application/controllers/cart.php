@@ -199,7 +199,18 @@ class Cart extends MY_Controller {
 		if ($totalQuantity>1) {
 			$orderTotalDiscount = ($totalQuantity-1)*25;
 		}		
-				
+		
+		//added by Mike, 20170912
+		$this->load->model('Account_Model');
+		$data['customer_information'] = $this->Account_Model->getCustomerInformation($customer_id);
+		
+		if (( strpos( $data['customer_information']->customer_shipping_address, '2 E. Rodriguez Ave. Sto. Niño') !== false ) || 
+			( strpos( $data['customer_information']->customer_shipping_address, '2 E. Rodriguez Ave. Sto. Nino') !== false )) {					
+
+			$orderTotalDiscount+=70;
+			
+		}
+		
 		date_default_timezone_set('Asia/Hong_Kong');
 		$dateTimeStamp = date('Y/m/d H:i:s');				
 		
