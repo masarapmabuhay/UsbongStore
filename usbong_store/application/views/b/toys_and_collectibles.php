@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</label>';					
 					}
 					else {
-						echo '<br><label class="Product-item-price">out of stock</label>';					
+						echo '<label class="Product-item-price">out of stock</label>';					
 						echo '</label>';
 					}			
 					echo '</a>';
@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</label>';
 					}
 					else {
-						echo '<br><label class="Product-item-price">out of stock</label>';
+						echo '<label class="Product-item-price">out of stock</label>';
 						echo '</label>';
 					}
 					echo '</a>';
