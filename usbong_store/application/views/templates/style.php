@@ -1133,6 +1133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		position: relative;
 		text-align: center;
 		background: #77b043;
+		margin-top: 400px;
 	}
 
 	.Uplift-button {		
@@ -1785,7 +1786,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.container {
 		margin-left: 100px;
-		margin-bottom: 460px;
+		margin-bottom: 0px;
 	}	
 
 	.container-search {
