@@ -1785,7 +1785,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.container {
 		margin-left: 100px;
-		margin-bottom: 330px;
+		margin-bottom: 460px;
 	}	
 
 	.container-search {
