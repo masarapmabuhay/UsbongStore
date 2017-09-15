@@ -52,27 +52,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					$productType="books"; //default
 					switch($value['product_type_id']) {
-						case 3: //beverages
-							$productType="beverages";
+						case 2:
+							$productType = "books";
 							break;
-						case 5: //combos
-							$productType="promos";
+						case 10:
+							$productType = "childrens";
 							break;
-						case 6: //comics
-							$productType="comics";
+						case 9:
+							$productType = "textbooks";
 							break;
-						case 7: //manga
-							$productType="manga";
+						case 5:
+							$productType = "promos";
 							break;
-						case 8: //toys & collectibles
-							$productType="toy_and_collectibles";
+						case 11:
+							$productType = "food";
 							break;
-						case 9: //textbooks
-							$productType="textbooks";
+						case 3:
+							$productType = "beverages";
 							break;
-						case 10: //childrens
-							$productType="childrens";
-							break;							
+						case 6:
+							$productType = "comics";
+							break;
+						case 7:
+							$productType = "manga";
+							break;
+						case 8:
+							$productType = "toys_and_collectibles";
+							break;
+						case 12:
+							$productType = "miscellaneous";
+							break;
 					}
 				?>
 					<div class="row">
