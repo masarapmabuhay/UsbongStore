@@ -169,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 						<div>					
 						<br>
-							<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
+							<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore_L.jpg')?>">
 						</div>															
 						
 						<div id="myPopup" class="popup-content">
