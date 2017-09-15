@@ -164,8 +164,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								echo '<input type="hidden" id="customer_idParam" value="'.$this->session->userdata('customer_id').'" required>';										
 // 								echo '<input type="hidden" id="quantityParam" value="'.$quantity.'" required>';
 								echo '<input type="hidden" id="priceParam" value="'.$result->price.'" required>';							
-						?>						
+						?>												
 						<button onclick="myPopupFunction()" class="Button-purchase">ADD TO CART</button>				
+						
+						<div>					
+						<br>
+							<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
+						</div>															
+						
 						<div id="myPopup" class="popup-content">
 							<div class="row">
 								<div class="col-sm-4">									
@@ -197,7 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 						</div>					
-					</div>				
+					</div>												
 				<?php 
 					}
 				?>				

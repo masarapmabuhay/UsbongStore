@@ -1271,6 +1271,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		position: relative;
 		display:block;		
 	}
+	
+	.Product-item-page-image-offers-save-more {
+		margin-left: 20px;
+	}
 
 	.Image-offers-be-a-merchant {
 		position: relative;
