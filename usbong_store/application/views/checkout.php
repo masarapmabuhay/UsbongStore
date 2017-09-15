@@ -390,12 +390,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="row Cart-order-discount-row">
 								<div class="col-sm-6">		
-									Less &#x20B1;25 promo
+									Less &#x20B1;70 promo
 								</div>
 								<div class="col-sm-6 Cart-order-discount">		
 									<?php 
 										if ($totalQuantity>1) {
-											$totalDiscount = ($totalQuantity-1)*25;
+											$totalDiscount = ($totalQuantity-1)*70;
 										}
 										else {
 											$totalDiscount=0;

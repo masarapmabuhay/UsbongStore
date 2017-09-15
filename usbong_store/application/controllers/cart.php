@@ -194,10 +194,10 @@ class Cart extends MY_Controller {
 			$totalQuantity+=$value['quantity'];
 		}
 		
-		//added by Mike, 20170806
+		//edited by Mike, 20170915
 		$orderTotalDiscount=0;
 		if ($totalQuantity>1) {
-			$orderTotalDiscount = ($totalQuantity-1)*25;
+			$orderTotalDiscount = ($totalQuantity-1)*70;
 		}		
 		
 		//added by Mike, 20170912

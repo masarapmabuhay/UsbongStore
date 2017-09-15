@@ -620,7 +620,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------
 		    	//previous price name
 		    	//-----------------------------------------------		    								
-				var previousPriceName = document.getElementById("previousPriceId~"+colNum+"~"+productTypeId);			    			    	
+				var previousPriceName = document.getElementById("previousPriceId~"+colNum+"~"+productTypeId);
 
 				if (!hasReachedDataLength) {				    				    	
 			    	if (data[index].previous_price!=null) {
@@ -918,22 +918,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 			//-----------------------------------------------------------------------
-			//update Less 25pesos promo
+			//update Less 70pesos promo
 			//-----------------------------------------------------------------------			
-			var less25pesosPromoField = document.getElementById("less25pesosPromoId");
+			var less70pesosPromoField = document.getElementById("less70pesosPromoId");
 			if(totalQuantity>1) {
-				var discount = (totalQuantity-1)*25;
-				less25pesosPromoField.innerHTML = discount;
+				var discount = (totalQuantity-1)*70;
+				less70pesosPromoField.innerHTML = discount;
 			}
 			else {
-				less25pesosPromoField.innerHTML = 0;
+				less70pesosPromoField.innerHTML = 0;
 			}
 			
 			//-----------------------------------------------------------------------
-			//update Order Total (less 25pesos)
+			//update Order Total (less 70pesos)
 			//-----------------------------------------------------------------------			
 			var orderTotalField = document.getElementById("orderTotalId2");
-			orderTotalField.innerHTML = orderTotalField.innerHTML-less25pesosPromoField.innerHTML;
+			orderTotalField.innerHTML = orderTotalField.innerHTML-less70pesosPromoField.innerHTML;
 						
 //			totalQuantityField.innerHTML = totalQuantity;
 
