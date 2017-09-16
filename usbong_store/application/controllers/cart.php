@@ -22,10 +22,6 @@ class Cart extends MY_Controller {
 	{
 //		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 		
-		//from application/core/MY_Controller
-		$this::initStyle();
-		$this::initHeader();
-		//--------------------------------------------
 		$customer_id = $this->session->userdata('customer_id');
 		$data['result'] = '';
 
@@ -48,10 +44,17 @@ class Cart extends MY_Controller {
 		if ($customer_id!="") {					
 			$this->load->model('Cart_Model');
 			$data['result'] = $this->Cart_Model->getCart($customer_id);
-
 			$data['result'] = $this->mergeOutput($data['result']);
 		}
-
+/*		
+		//added by Mike, 20170916
+		$data['totalItemsInCart'] = count($data['result']);
+*/		
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
 		$this->load->view('shoppingcart', $data);
 		
 		//--------------------------------------------

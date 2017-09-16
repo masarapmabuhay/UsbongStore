@@ -873,10 +873,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			if (Number.isNaN(quantity)) {
 				quantity = 1;
-			}
+			}			
 
 			var subTotal = quantity * parseInt(priceField.innerHTML);
-			subTotalField.innerHTML = "&#x20B1;" + subTotal;
+//1//subTotalField.innerHTML = "&#x20B1;" + subTotal;
 			
 			//-----------------------------------------------------------------------
 			//update Order Total
@@ -891,20 +891,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				orderTotal += parseInt(sField.innerHTML.substring(1, sField.innerHTML.length));
 			}
 
-			orderTotalField1.innerHTML = orderTotal;
-			orderTotalField2.innerHTML = orderTotal;	
+//2//orderTotalField1.innerHTML = orderTotal;
+//3//orderTotalField2.innerHTML = orderTotal;	
 
 			//-----------------------------------------------------------------------
 			//update Total Quantity		
 			//-----------------------------------------------------------------------			
 			var totalQuantityField = document.getElementById("totalQuantityId");
 			var totalQuantity = 0;
+
+			var quantityArray = [];
 			
 			for (i=0; i<totalItemsInCart; i++) {
 				var q = document.getElementById("quantityId"+i+"~"+totalItemsInCart);				
 				totalQuantity += parseInt(q.value);
+
+				//added by Mike, 20170916
+				quantityArray.push(q.value);
 			}
-			
+//5			
+/*
 			//edited by Mike, 20170911			
 			if (Number.isNaN(totalQuantity)) {
 				totalQuantityField.innerHTML = '1 item';
@@ -915,12 +921,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else {
 				totalQuantityField.innerHTML = totalQuantity + " item";
 			}	
-
+*/
 
 			//-----------------------------------------------------------------------
 			//update Less 70pesos promo
 			//-----------------------------------------------------------------------			
 			var less70pesosPromoField = document.getElementById("less70pesosPromoId");
+//6
+/*
 			if(totalQuantity>1) {
 				var discount = (totalQuantity-1)*70;
 				less70pesosPromoField.innerHTML = discount;
@@ -928,26 +936,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else {
 				less70pesosPromoField.innerHTML = 0;
 			}
-			
+*/			
 			//-----------------------------------------------------------------------
 			//update Order Total (less 70pesos)
 			//-----------------------------------------------------------------------			
 			var orderTotalField = document.getElementById("orderTotalId2");
-			orderTotalField.innerHTML = orderTotalField.innerHTML-less70pesosPromoField.innerHTML;
+//7//orderTotalField.innerHTML = orderTotalField.innerHTML-less70pesosPromoField.innerHTML;
 						
-//			totalQuantityField.innerHTML = totalQuantity;
-
 			//update the DB as well
 			var product_id = document.getElementById("productId"+trimmedId).value;			
 			var site_url = "<?php echo site_url('cart/shoppingcart/');?>";
-			var my_url = site_url.concat(product_id, "/", quantity);
+			var my_url = site_url.concat(product_id, "/", quantity, "/", totalQuantity);
 			
 			$.ajax({
 		        type:"POST",
 		        url:my_url,
 
-		        success:function() {					        
+		        success:function() {	
 					window.location.href = my_url;			        	        			        				        
+					/*
+					//added by Mike, 20170916
+					for (i=0; i<totalItemsInCart; i++) {
+						var q = document.getElementById("quantityId"+i+"~"+totalItemsInCart);				
+						totalQuantity += parseInt(q.value);
+
+						var orderTotalField = document.getElementById("orderTotalId2");
+
+						
+						alert("hello "+ q.value);
+					}					
+*/				
+					subTotalField.innerHTML = "&#x20B1;" + subTotal;
+					orderTotalField1.innerHTML = orderTotal;
+					orderTotalField2.innerHTML = orderTotal;	
+
+					//edited by Mike, 20170911			
+					if (Number.isNaN(totalQuantity)) {
+						totalQuantityField.innerHTML = '1 item';
+					}									
+					else if (totalQuantity>1) {	
+						totalQuantityField.innerHTML = totalQuantity + ' items';
+					}
+					else {
+						totalQuantityField.innerHTML = totalQuantity + " item";
+					}	
+
+					if(totalQuantity>1) {
+						var discount = (totalQuantity-1)*70;
+						less70pesosPromoField.innerHTML = discount;
+					}
+					else {
+						less70pesosPromoField.innerHTML = 0;
+					}
+
+					orderTotalField.innerHTML = orderTotalField.innerHTML-less70pesosPromoField.innerHTML;
+
+					//added by Mike, 20170916
+					var totalItemsInCartField = document.getElementById("totalItemsInCartId");
+					totalItemsInCartField.value = totalQuantity;
+				
+					var totalItemsInCartField = document.getElementById("Text-cartId");
+					var totalItemsInCart2digitsField = document.getElementById("Text-cart-2digitsId");
+					var totalItemsInCart3digitsField = document.getElementById("Text-cart-3digitsId");
+
+					if (totalQuantity<10) {
+						totalItemsInCartField.innerHTML = totalQuantity;
+					}
+					
+					if ((totalQuantity>9) && (totalQuantity<100)) {
+						totalItemsInCart2digitsField.innerHTML = totalQuantity;
+					}
+
+					if (totalQuantity>99) {
+						totalItemsInCart3digitsField.innerHTML = totalQuantity;
+					}
 		       	}
 		    });
 			event.preventDefault();			

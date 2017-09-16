@@ -100,7 +100,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											?>"				
 					>
 					<button type="submit" class="Button-cart">
-							<input type="hidden" id="totalItemsInCartId" value="<?php echo $totalItemsInCart;?>">
+							<input type="hidden" id="totalItemsInCartId" 
+									value="<?php
+												//edited by Mike, 20170916
+												$totalQuantity = $this->uri->segment(5);
+												if (isset($totalQuantity)) {
+													$totalItemsInCart = $totalQuantity;													
+												}
+												else {
+													echo $totalItemsInCart;
+												}												
+											?>">
 
 							<label class="Text-cart" id="Text-cartId">
 								<?php 

@@ -48,7 +48,7 @@ class Cart_Model extends CI_Model
 		);
 		$this->db->where('product_id', $productId);
 		$this->db->where('customer_id', $customerId);
-		$this->db->limit(1);
+//		$this->db->limit(1); //edited by Mike, 20170916
 		$this->db->update('cart', $updateData);
 		
 	}
@@ -88,7 +88,14 @@ class Cart_Model extends CI_Model
 		$this->db->update('cart', $updateData); 
 	}
 	
+	//edited by Mike, 20170916
 	public function getTotalItemsInCart($param) {
+/*		$data['result'] = $this->getCart($param);		
+		$data['result'] = $this->mergeOutput($data['result']);
+		
+		return count($data['result']);
+*/		
+		
 		$this->db->select('quantity');
 		$this->db->where('customer_id', $param);
 		$this->db->where('customer_order_id', null);		
@@ -111,5 +118,40 @@ class Cart_Model extends CI_Model
 		
 		return $totalNum;
 	}
+/*	
+	//added by Mike, 20170711
+	public function mergeOutput($d) {
+		//merge all product items that are the same
+		//increment quantity field accordingly
+		$mergeOutput = array(); //$data['result'];//
+		
+		foreach ($d as $value) {
+			if ($this->in_array_r($value['name'], $mergeOutput, false)) {
+				$mergeOutput[$value['name']]['quantity'] += $value['quantity'];
+				//					echo "in array".$mergeOutput[$value['name']]['quantity']."<br>";
+			}
+			else {
+				$mergeOutput[$value['name']] = $value;
+				//					echo "new ".$value['name']."<br>";
+			}
+			
+		}
+		//		$data['result'] = $finalOutput;//$mergeOutput;
+		return $mergeOutput;
+	}
+	
+	//Reference: https://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array;
+	//last accessed: 20170702
+	//answer by: jwueller
+	public function in_array_r($needle, $haystack, $strict = false) {
+		foreach ($haystack as $item) {
+			if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && $this->in_array_r($needle, $item, $strict))) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+*/	
 }
 ?>
