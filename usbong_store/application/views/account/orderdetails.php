@@ -81,16 +81,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';
 									echo	'</div>';
 									echo '</div>';
-
+									
+									//edited by Mike, 20170918
+									$totalQuantity = $value['quantity']-1;
+									$totalBuyMoreSaveMoreDiscount = $totalQuantity*70;
+									
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Less &#x20B1;70 promo</div>';
 									echo 	'</div>';
 									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$value['order_total_discount'].'</div>';
+									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$totalBuyMoreSaveMoreDiscount.'</div>';
 									echo	'</div>';
 									echo '</div>';
-																											
+
+									//added by Mike, 20170918
+									$totalMeetupAtMOSCPromoDiscount = $value['order_total_discount'] - $totalBuyMoreSaveMoreDiscount;
+									
+									echo '<div class="row">';
+									echo	'<div class="col-sm-6 Order-details">';
+									echo	'<div class="Order-details-align-right">Meetup at MOSC</div>';
+									echo 	'</div>';
+									echo	'<div class="col-sm-5 Order-details">';
+									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$totalMeetupAtMOSCPromoDiscount.'</div>';
+									echo	'</div>';
+									echo '</div>';																		
+									
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Shipping (PH)</div>';
