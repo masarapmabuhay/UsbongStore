@@ -69,6 +69,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				//added by Mike, 20170911
 				document.getElementById("meetupAtMOSCDiscountId").innerHTML = '-&#x20B1;70';				
 				document.getElementById("orderTotalId2").innerHTML = parseInt(document.getElementById("orderTotalId2").innerHTML)-70;		
+
+				//added by Mike, 20170918
+				document.getElementById("modeOfPaymentBankDepositId").checked = false;				
+				document.getElementById("modeOfPaymentPaypalId").checked = false;		
+				document.getElementById("modeOfPaymentMeetupAtMOSCId").checked = true;		
 			}
 			else {
 				document.getElementById("shippingAddressId").value = '';
@@ -81,6 +86,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				//added by Mike, 20170911
 				document.getElementById("meetupAtMOSCDiscountId").innerHTML = '-&#x20B1;0';				
 				document.getElementById("orderTotalId2").innerHTML = parseInt(document.getElementById("orderTotalId2").innerHTML)+70;		
+
+				//added by Mike, 20170918
+				document.getElementById("modeOfPaymentBankDepositId").checked = true;				
+				document.getElementById("modeOfPaymentPaypalId").checked = false;		
+				document.getElementById("modeOfPaymentMeetupAtMOSCId").checked = false;		
 			}
 
 //			alert("hello: "+document.getElementById("shippingAddressId").value);

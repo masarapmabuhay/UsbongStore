@@ -163,8 +163,8 @@ class Account extends MY_Controller {
 //		echo 'hello '.$addedDateTimeStamp.'<br>';
 
 		$this->load->model('Account_Model');
-		$data['order_details'] = $this->Account_Model->getOrderDetails($customer_id, $addedDateTimeStamp);
-		
+		$data['order_details'] = $this->Account_Model->getOrderDetails($customer_id, $addedDateTimeStamp);				
+				
 		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);		
 		
 		$this->load->view('account/orderdetails', $data);
