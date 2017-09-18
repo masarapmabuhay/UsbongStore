@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '</div>';
 									
 									//edited by Mike, 20170918
-									$totalQuantity = $value['quantity']-1;
+									$totalQuantity = $count-1;
 									$totalBuyMoreSaveMoreDiscount = $totalQuantity*70;
 									
 									echo '<div class="row">';
@@ -149,9 +149,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h3><b>Shipped To:</b></h3>
 							<?php 
 								echo $result->customer_first_name.' '.$result->customer_last_name.'<br>';				
-								echo $result->customer_shipping_address.'<br>';
-								echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
-								echo $result->customer_country.'<br>';					
+								
+								if ($totalMeetupAtMOSCPromoDiscount==0) {
+									echo $result->customer_shipping_address.'<br>';
+									echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
+									echo $result->customer_country.'<br>';									
+								}
+								else {
+									echo '2 E. Rodriguez Ave. Sto. Niño<br>';
+									echo 'Marikina City, 1800,<br>';
+									echo 'Philippines<br>';											
+								}
 							?>
 						</div>
 					</div>
