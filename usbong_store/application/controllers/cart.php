@@ -222,9 +222,13 @@ class Cart extends MY_Controller {
 						'quantity' => $totalQuantity,
 						'status_accepted' => 1,
 						'order_total_price' => $orderTotalPrice,
-						'order_total_discount' => $orderTotalDiscount,				
-						'added_datetime_stamp' => $dateTimeStamp
-				);		
+						'order_total_discount' => $orderTotalDiscount,
+						'added_datetime_stamp' => $dateTimeStamp,
+						'customer_shipping_address' => $data['customer_information']->customer_shipping_address,
+						'customer_city' => $data['customer_information']->customer_city,
+						'customer_country' => $data['customer_information']->customer_country,
+						'customer_postal_code' => $data['customer_information']->customer_postal_code
+		);		
 
 /*		
 		$data = array_merge($data, array(
