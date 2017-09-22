@@ -48,6 +48,13 @@ class Account_Model extends CI_Model
 		return $row;
 	}
 	
+	public function getCustomerAddressFromCustomerOrder($customerOrderId) {
+		$this->db->select('customer_shipping_address, customer_city, customer_country, customer_postal_code');
+		$this->db->where('customer_order_id', $customerOrderId);
+		$query = $this->db->get('customer_order');
+		$row = $query->row();
+		return $row;
+	}
 	
 	public function updateAccount($customerId, $data) {				
 		//step 1: change the quantity of all cart rows with the same productId and customerId to 0

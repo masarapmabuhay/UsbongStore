@@ -165,7 +165,17 @@ class Account extends MY_Controller {
 		$this->load->model('Account_Model');
 		$data['order_details'] = $this->Account_Model->getOrderDetails($customer_id, $addedDateTimeStamp);				
 				
-		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);		
+		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
+
+		//added by Mike, 20170922
+		$first_row;
+		foreach($data['order_details'] as $row)
+		{
+			$first_row = $row;
+			break;
+		}
+
+		$data['customer_address_at_the_time_of_purchase'] = $this->Account_Model->getCustomerAddressFromCustomerOrder($first_row['customer_order_id']);
 		
 		$this->load->view('account/orderdetails', $data);
 
