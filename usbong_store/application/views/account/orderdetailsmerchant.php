@@ -85,6 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo 	'</div>';
 									echo	'<div class="col-sm-5 Order-details">';
 									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$orderSubtotal.'</div>';
+//									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';									
 									echo	'</div>';
 									echo '</div>';
 /*
@@ -96,7 +97,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$value['order_total_discount'].'</div>';
 									echo	'</div>';
 									echo '</div>';
-*/																											
+*/													
+									//edited by Mike, 20170918
+									$totalQuantity = $count-1;
+									$totalBuyMoreSaveMoreDiscount = $totalQuantity*70;
+									
+									echo '<div class="row">';
+									echo	'<div class="col-sm-6 Order-details">';
+									echo	'<div class="Order-details-align-right">Less &#x20B1;70 promo</div>';
+									echo 	'</div>';
+									echo	'<div class="col-sm-5 Order-details">';
+									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$totalBuyMoreSaveMoreDiscount.'</div>';
+									echo	'</div>';
+									echo '</div>';
+									
+									//added by Mike, 20170918
+									$totalMeetupAtMOSCPromoDiscount = $order_details->order_total_discount - $totalBuyMoreSaveMoreDiscount;
+									
+									echo '<div class="row">';
+									echo	'<div class="col-sm-6 Order-details">';
+									echo	'<div class="Order-details-align-right">Meetup at MOSC</div>';
+									echo 	'</div>';
+									echo	'<div class="col-sm-5 Order-details">';
+									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$totalMeetupAtMOSCPromoDiscount.'</div>';
+									echo	'</div>';
+									echo '</div>';		
+									
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Shipping (PH)</div>';
@@ -106,8 +132,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'</div>';
 									echo '</div>';
 									
-									$orderTotal = $order_details->price*$order_details->quantity;
-																		
+//									$orderTotal = $order_details->price*$order_details->quantity;
+									$orderTotal = ($order_details->order_total_price-$order_details->order_total_discount);
+									
 									echo '<div class="row Order-details-product">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo    '<div class="Order-details-align-right">Order Total</div>';
@@ -158,9 +185,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h3><b>Shipped To:</b></h3>
 							<?php 
 								echo $result->customer_first_name.' '.$result->customer_last_name.'<br>';				
-								echo $result->customer_shipping_address.'<br>';
-								echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
-								echo $result->customer_country.'<br>';					
+								
+								if ($totalMeetupAtMOSCPromoDiscount==0) {
+									echo $result->customer_shipping_address.'<br>';
+									echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
+									echo $result->customer_country.'<br>';									
+								}
+								else {
+									echo '2 E. Rodriguez Ave. Sto. Niño<br>';
+									echo 'Marikina City, 1800,<br>';
+									echo 'Philippines<br>';											
+								}
 							?>
 						</div>
 					</div>
