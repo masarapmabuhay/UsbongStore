@@ -209,6 +209,16 @@ class Account extends MY_Controller {
 		
 		$data['result'] = $this->Account_Model->getCustomerInformation($product_customer_id);
 		
+		//added by Mike, 20170922
+		$first_row;
+		foreach($data['order_details'] as $row)
+		{
+			$first_row = $row;
+			break;
+		}
+		
+		$data['customer_address_at_the_time_of_purchase'] = $this->Account_Model->getCustomerAddressFromCustomerOrder($first_row['customer_order_id']);		
+		
 		$this->load->view('account/orderdetailsadmin', $data);
 		
 		//--------------------------------------------
@@ -242,6 +252,16 @@ class Account extends MY_Controller {
 				$data['order_details'] = $this->Account_Model->getOrderDetailsMerchant($merchant_id, $purchasedDateTimeStamp);
 				
 				$data['result'] = $this->Account_Model->getCustomerInformation($data['order_details']->customer_id);
+/*
+				//added by Mike, 20170922
+				$first_row;
+				foreach($data['order_details'] as $row)
+				{
+					$first_row = $row;
+					break;
+				}
+*/				
+				$data['customer_address_at_the_time_of_purchase'] = $this->Account_Model->getCustomerAddressFromCustomerOrder($data['order_details']->customer_order_id);
 								
 				$data['merchant_name'] = $this->Account_Model->getCustomerMerchantName($merchant_id)->customer_first_name." ".$this->Account_Model->getCustomerMerchantName($merchant_id)->customer_last_name;
 								

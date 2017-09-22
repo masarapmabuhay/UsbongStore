@@ -152,9 +152,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h3><b>Shipped To:</b></h3>
 							<?php 
 								echo $result->customer_first_name.' '.$result->customer_last_name.'<br>';				
-								echo $result->customer_shipping_address.'<br>';
-								echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
-								echo $result->customer_country.'<br>';					
+								
+								if ($totalMeetupAtMOSCPromoDiscount==0) {
+/*									
+									echo $result->customer_shipping_address.'<br>';
+									echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
+									echo $result->customer_country.'<br>';									
+*/
+									echo $customer_address_at_the_time_of_purchase->customer_shipping_address.'<br>';
+									echo $customer_address_at_the_time_of_purchase->customer_city.', '.$customer_address_at_the_time_of_purchase->customer_postal_code.',<br>';
+									echo $customer_address_at_the_time_of_purchase->customer_country.'<br>';
+								}
+								else {
+									echo '2 E. Rodriguez Ave. Sto. Niño<br>';
+									echo 'Marikina City, 1800,<br>';
+									echo 'Philippines<br>';											
+								}
 							?>
 						</div>
 					</div>
