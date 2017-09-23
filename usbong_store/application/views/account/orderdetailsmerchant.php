@@ -96,10 +96,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$totalBuyMoreSaveMoreDiscount.'</div>';
 									echo	'</div>';
 									echo '</div>';
-									
+*/									
 									//added by Mike, 20170918
 									$totalMeetupAtMOSCPromoDiscount = $value['order_total_discount'] - $totalBuyMoreSaveMoreDiscount;
-									
+/*									
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Meetup at MOSC</div>';

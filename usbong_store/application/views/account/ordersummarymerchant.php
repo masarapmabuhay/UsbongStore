@@ -53,7 +53,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 								<?php 
 									$counter=0;
-									foreach ($order_summary as $value) {
+									$currentPurchasedDateTimeStamp = "";//added by Mike, 20170923
+									
+									foreach ($order_summary as $value) {										
+										//added by Mike, 20170923
+										if ($currentPurchasedDateTimeStamp==$value['purchased_datetime_stamp']) {
+											continue;
+										}
+										else {
+											$currentPurchasedDateTimeStamp = $value['purchased_datetime_stamp'];										
+										}
+									
 										echo '<div class="row">';
 											if ($counter!=0) {
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -80,10 +90,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 																								
 												echo '<div class="col-sm-2 Order-summary-alternate">';
+/*
+												$count=0;
+												foreach ($value as $v) {
+													$count+=$v['quantity'];
+												}
+*/												
 												echo $value['quantity'];
+/*												echo $count;
+*/												
 												echo '</div>';
 												
-												$orderTotal = $value['price'];
+												$orderTotal = $value['order_total_price'];
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
@@ -128,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo $value['quantity'];
 												echo '</div>';
 																								
-												$orderTotal = $value['price'];
+												$orderTotal = $value['order_total_price'];
 												
 												echo '<div class="col-sm-2 Order-summary">';											
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
