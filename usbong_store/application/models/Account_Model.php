@@ -204,8 +204,8 @@ class Account_Model extends CI_Model
 		$this->db->order_by('t1.purchased_datetime_stamp', 'DESC');
 		$query = $this->db->get();
 		
-//		return $query->result_array();
-		return $query->row();		
+		return $query->result_array();
+//		return $query->row();		
 	}
 }
 ?>

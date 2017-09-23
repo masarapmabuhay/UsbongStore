@@ -24,12 +24,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<div class="Order-details-purchased-datetime-stamp">'.$addedDateTimeStamp.'</div>';
 						
 							//					echo count($order_details).'items';
-								$count=$order_details->quantity;
-/*								
+/*								$count=$order_details->quantity;
+ */
+								$count=0;
 								foreach ($order_details as $value) {
 									$count+=$value['quantity'];
 								}
-*/
 						
 								if ($count>1) {
 									echo $count." items";						
@@ -44,11 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '</div>';
 								}
 								else {
-//									foreach ($order_details as $value) {
-										
+									foreach ($order_details as $value) {										
 										$counter = 0;
-										while ($counter<$order_details->quantity) {
-											$reformattedBookName = str_replace(':','',str_replace('\'','',$order_details->name)); //remove ":" and "'"
+										while ($counter<$value['quantity']) {
+											$reformattedBookName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 											$URLFriendlyReformattedBookName = str_replace("(","",
 											str_replace(")","",
 											str_replace("&","and",
@@ -60,48 +59,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											str_replace("&","and",
 											str_replace(',','',
 											str_replace(' ','-',
-											$order_details->author))))); //replace "&", " ", and "-"
+											$value['author']))))); //replace "&", " ", and "-"
 											
 											echo '<div class="row Order-details-product">';
 											echo	'<div class="col-sm-8 Order-details">';
-											echo 	'<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$order_details->product_id).'">';
-											echo	'<b>'.$order_details->name.'</b>';
+											echo 	'<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedBookName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
+											echo	'<b>'.$value['name'].'</b>';
 											echo	'</a>';
 											echo 	'</div>';
 											echo	'<div class="col-sm-3 Order-details">';
-											echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$order_details->price.'</div>';
+											echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['price'].'</div>';
 											echo	'</div>';
 											echo '</div>';
 											
 											$counter++;
 										}
-//									}
-
-									$orderSubtotal = $order_details->price*$order_details->quantity;
-										
+									}
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Order Subtotal</div>';
 									echo 	'</div>';
 									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$orderSubtotal.'</div>';
-//									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';									
+									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';
 									echo	'</div>';
 									echo '</div>';
-/*
-									echo '<div class="row">';
-									echo	'<div class="col-sm-6 Order-details">';
-									echo	'<div class="Order-details-align-right">Less &#x20B1;25 promo</div>';
-									echo 	'</div>';
-									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$value['order_total_discount'].'</div>';
-									echo	'</div>';
-									echo '</div>';
-*/													
-									//edited by Mike, 20170918
-									$totalQuantity = $count-1;
-									$totalBuyMoreSaveMoreDiscount = $totalQuantity*70;
 									
+									//edited by Mike, 20170918
+									$totalQuantity = $value['quantity']-1;
+									$totalBuyMoreSaveMoreDiscount = $totalQuantity*70;
+/*									
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
 									echo	'<div class="Order-details-align-right">Less &#x20B1;70 promo</div>';
@@ -112,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '</div>';
 									
 									//added by Mike, 20170918
-									$totalMeetupAtMOSCPromoDiscount = $order_details->order_total_discount - $totalBuyMoreSaveMoreDiscount;
+									$totalMeetupAtMOSCPromoDiscount = $value['order_total_discount'] - $totalBuyMoreSaveMoreDiscount;
 									
 									echo '<div class="row">';
 									echo	'<div class="col-sm-6 Order-details">';
@@ -121,19 +107,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'<div class="col-sm-5 Order-details">';
 									echo	'<div class="Order-details-align-right Order-details-amount">-&#x20B1;'.$totalMeetupAtMOSCPromoDiscount.'</div>';
 									echo	'</div>';
-									echo '</div>';		
-									
-									echo '<div class="row">';
-									echo	'<div class="col-sm-6 Order-details">';
-									echo	'<div class="Order-details-align-right">Shipping (PH)</div>';
-									echo 	'</div>';
-									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right"><b>FREE</b></div>';
-									echo	'</div>';
 									echo '</div>';
 									
-//									$orderTotal = $order_details->price*$order_details->quantity;
-									$orderTotal = ($order_details->order_total_price-$order_details->order_total_discount);
+									$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
+*/
+									$orderTotal = ($value['order_total_price']);
 									
 									echo '<div class="row Order-details-product">';
 									echo	'<div class="col-sm-6 Order-details">';
@@ -147,25 +125,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									//added by Mike, 20170718
 									echo '<br>';
 									echo '<div class="Order-Details-admin-fulfilled">';
-									echo "Fulfilled?&ensp;&ensp;";			
-									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummarymerchant/0').'/'.$this->uri->segment(3).'/'.$order_details->product_id.'">';									
-										echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+									echo "Fulfilled?&ensp;&ensp;";
+									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/0').'/'.$this->uri->segment(3).'/'.$value['customer_id'].'">';
+									echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 									echo '</a>';
-									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummarymerchant/1').'/'.$this->uri->segment(3).'/'.$order_details->product_id.'">';
-										echo '<span class="Fulfilled-Status-OK">&ensp;&ensp;&ensp;OK&ensp;&ensp;&ensp;</span>';
+									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/1').'/'.$this->uri->segment(3).'/'.$value['customer_id'].'">';
+									echo '<span class="Fulfilled-Status-OK">&ensp;&ensp;&ensp;OK&ensp;&ensp;&ensp;</span>';
 									echo '</a>';
 									echo '</div>';
 								}
-						?>
+								?>
 					</div>
 					<div class="col-sm-4 Order-details">		
-						<div class="Order-details-shipping-address">
-							<h3><b>Customer Email:</b></h3>
-							<?php 
-								echo $result->customer_email_address;
-							?>
-						</div>
-					
 						<div class="Order-details-shipping-address">
 							<h3><b>Payment Method:</b></h3>
 							<?php 
