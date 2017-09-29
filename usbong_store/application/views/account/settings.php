@@ -169,6 +169,92 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								//-----------------------------------------------------------
 								
 								echo '<label class="Checkout-input-mode-of-payment">-Mode of Payment-</label>';
+								//edited by Mike, 20170929
+								if (isset($data['modeOfPaymentParam'])) {
+									if ($data['modeOfPaymentParam']==0) { //bank deposit
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0" checked>Bank Deposit</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1">Paypal</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2">Cash upon Meetup at MOSC</label>';
+										echo '</div>';
+									}
+									else if ($data['modeOfPaymentParam']==1) { //paypal
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0">Bank Deposit</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1" checked>Paypal</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2">Cash upon Meetup at MOSC</label>';
+										echo '</div>';
+									}
+									else {
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0">Bank Deposit</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1">Paypal</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2" checked>Cash upon Meetup at MOSC</label>';
+										echo '</div>';
+									}
+								}
+								else if (isset($result->mode_of_payment_id)) {
+									if ($result->mode_of_payment_id==0) {
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0" checked>Bank Deposit</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1">Paypal</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2">Cash upon Meetup at MOSC</label>';
+										echo '</div>';
+									}
+									else if ($result->mode_of_payment_id==1) {
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0">Bank Deposit</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1" checked>Paypal</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2">Cash upon Meetup at MOSC</label>';
+										echo '</div>';
+									}
+									else {
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0">Bank Deposit</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1">Paypal</label>';
+										echo '</div>';
+										echo '<div class="radio Checkout-input-mode-of-payment">';
+										echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2" checked>Cash upon Meetup at MOSC</label>';
+										echo '</div>';
+									}
+								}
+								else {
+									echo '<div class="radio Checkout-input-mode-of-payment">';
+									echo '<label><input type="radio" id="modeOfPaymentBankDepositId" name="modeOfPaymentParam" value="0" checked>Bank Deposit</label>';
+									echo '</div>';
+									echo '<div class="radio Checkout-input-mode-of-payment">';
+									echo '<label><input type="radio" id="modeOfPaymentPaypalId" name="modeOfPaymentParam" value="1">Paypal</label>';
+									echo '</div>';
+									echo '<div class="radio Checkout-input-mode-of-payment">';
+									echo '<label><input type="radio" id="modeOfPaymentMeetupAtMOSCId" name="modeOfPaymentParam" value="2">Cash upon Meetup at MOSC</label>';
+									echo '</div>';
+								}
+								
+								
+								
+/*								
 								$isBankDepositChecked=true;												
 								if (isset($data['modeOfPaymentParam'])) {
 									if ($data['modeOfPaymentParam']==0) {
@@ -203,7 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '<label><input type="radio" name="modeOfPaymentParam" value="1" checked>Paypal</label>';
 									echo '</div>';							
 								}
-								
+*/								
 								echo '<br>';
 								
 								//reset the session values to null
