@@ -27,9 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-4">
 				<ul class="Footer-container-list">
-					<li><span class="Footer-list-header"><b>Mobile Apps</b></span></li>					
-					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.specialty_bookstore&hl=en" target="_blank">Usbong Specialty Bookstore App</a></li>					
-					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.store_app" target="_blank">Usbong Store App</a></li>					
+					<li><span class="Footer-list-header"><b>Mobile App</b></span></li>					
+					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.store_app" target="_blank">Usbong Store App</a></li>
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
 					<li><span class="Footer-list-header"><b>My Account</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('account/settings/')?>">Settings</a></li>	
