@@ -55,7 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									$counter=0;
 									$currentPurchasedDateTimeStamp = "";//added by Mike, 20170923
 									
-									foreach ($order_summary as $value) {										
+//									foreach ($order_summary as $value) {										
+									foreach ($order_details as $value) {								
 										//added by Mike, 20170923
 										if ($currentPurchasedDateTimeStamp==$value['purchased_datetime_stamp']) {
 											continue;
@@ -94,11 +95,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$count=0;
 												foreach ($value as $v) {
 													$count+=$v['quantity'];
-												}
+												}																			
 */												
 												echo $value['quantity'];
-/*												echo $count;
-*/												
+//												echo $count;
+												
 												echo '</div>';
 												
 												$orderTotal = $value['order_total_price'];
@@ -143,6 +144,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
+/*
+												$count=0;
+												foreach ($value as $v) {
+													$count+=$v['quantity'];
+												}
+												echo $count;																								
+*/												
 												echo $value['quantity'];
 												echo '</div>';
 																								

@@ -198,7 +198,7 @@ class Account_Model extends CI_Model
 	
 	public function getOrderDetailsMerchant($merchantId, $purchasedDateTimeStamp) {
 //		$this->db->select('t1.customer_order_id, t1.cart_id, t1.customer_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.price');
-		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.customer_id, t2.order_total_discount');	
+		$this->db->select('t1.customer_order_id, t1.cart_id, t1.product_id, t1.quantity, t1.price, t1.purchased_datetime_stamp, t1.fulfilled_status, t3.name, t3.author, t3.product_type_id, t2.order_total_price, t2.customer_id, t2.order_total_discount');	
 		$this->db->from('cart as t1');
 		$this->db->join('customer_order as t2', 't1.customer_order_id = t2.customer_order_id', 'LEFT');	
 		$this->db->join('product as t3', 't1.product_id = t3.product_id', 'LEFT');

@@ -133,9 +133,19 @@ class Account extends MY_Controller {
 					
 					$this->Account_Model->updateCustomerOrderMerchant($fulfilled_status, $addedDateTimeStamp, $productId);
 				}
-				
+								
 				$data['order_summary'] = $this->Account_Model->getCustomerOrdersMerchant($merchant_id);				
 				
+				//added by Mike, 20171001
+				$data['order_details'] = [];
+				foreach ($data['order_summary'] as $value) {
+					$data['order_details'] += $this->Account_Model->getOrderDetailsMerchant($merchant_id, $value['purchased_datetime_stamp']);
+				}
+/*
+				foreach ($data['order_details'] as $value) {
+					echo 'hello '.$value['quantity'];
+				}
+*/				
 				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
 
 				$data['merchant_name'] = $this->Account_Model->getCustomerName($customer_id)->customer_first_name." ".$this->Account_Model->getCustomerName($customer_id)->customer_last_name;
