@@ -135,12 +135,24 @@ class Account extends MY_Controller {
 				}
 								
 				$data['order_summary'] = $this->Account_Model->getCustomerOrdersMerchant($merchant_id);				
-				
+/*
+				foreach ($data['order_summary'] as $value) {
+					foreach ($value as $v) {
+						echo 'hey '.$v.'<br>';
+					}
+					
+					echo 'space <br>';				
+				}
+*/				
+				/*				
 				//added by Mike, 20171001
 				$data['order_details'] = [];
 				foreach ($data['order_summary'] as $value) {
+//					$result = $this->Account_Model->getOrderDetailsMerchant($merchant_id, $value['purchased_datetime_stamp']);
+//					echo 'hey '.count($result);					
 					$data['order_details'] += $this->Account_Model->getOrderDetailsMerchant($merchant_id, $value['purchased_datetime_stamp']);
 				}
+*/				
 /*
 				foreach ($data['order_details'] as $value) {
 					echo 'hello '.$value['quantity'];
