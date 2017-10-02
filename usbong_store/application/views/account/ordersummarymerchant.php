@@ -99,14 +99,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}																			
 */												
 												$count=0;
+												$orderTotal=0;
 												foreach ($order_summary as $v1) {
 													$i=0;
+													$isSamePurchaseOrder=false;
 													foreach ($v1 as $v2) {
 														if ($i==0) {
 															if ($v2==$value['purchased_datetime_stamp']) {
 																$count++;
+																$isSamePurchaseOrder=true;
 															}
 														}
+														
+														if (($isSamePurchaseOrder) && ($i==3)) {
+															$orderTotal+=$v2;
+														}														
 														$i++;
 													}
 												}
@@ -117,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */												
 												echo '</div>';
 												
-												$orderTotal = $value['order_total_price'];
+//												$orderTotal = $value['order_total_price'];
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
@@ -162,23 +169,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '<div class="col-sm-2 Order-summary">';
 
 												$count=0;
+												$orderTotal=0;
 												foreach ($order_summary as $v1) {
-													$i=0;					
+													$i=0;
+													$isSamePurchaseOrder=false;
 													foreach ($v1 as $v2) {
 														if ($i==0) {
 															if ($v2==$value['purchased_datetime_stamp']) {
 																$count++;
-															}																
+																$isSamePurchaseOrder=true;
+															}
+														}
+														
+														if (($isSamePurchaseOrder) && ($i==3)) {
+															$orderTotal+=$v2;
 														}
 														$i++;
 													}
 												}
-												echo $count;																								
-
+												echo $count;
+												
 //												echo $value['quantity'];
 												echo '</div>';
 																								
-												$orderTotal = $value['order_total_price'];
+//												$orderTotal = $value['order_total_price'];
 												
 												echo '<div class="col-sm-2 Order-summary">';											
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
