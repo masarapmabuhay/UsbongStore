@@ -95,7 +95,6 @@ class Autoemail extends CI_Controller {
         log_message($this->log_level, $this->log_marker.' |--> protocol               = '.$this->ctrl['sendmail']['protocol']);
         log_message($this->log_level, $this->log_marker.' |--> smtp_host              = '.$this->ctrl['sendmail']['smtp_host']);
         log_message($this->log_level, $this->log_marker.' |--> smtp_user              = '.$this->ctrl['sendmail']['smtp_user']);
-        log_message($this->log_level, $this->log_marker.' |--> smtp_pass              = '.$this->ctrl['sendmail']['smtp_pass']);
         log_message($this->log_level, $this->log_marker.' |--> smtp_crypto            = '.$this->ctrl['sendmail']['smtp_crypto']);
         log_message($this->log_level, $this->log_marker.' |--> smtp_port              = '.$this->ctrl['sendmail']['smtp_port']);
         log_message($this->log_level, $this->log_marker.' |--> mailpath               = '.$this->ctrl['sendmail']['mailpath']);
