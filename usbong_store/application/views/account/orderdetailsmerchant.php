@@ -44,6 +44,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '</div>';
 								}
 								else {
+									//added by Mike, 20171001
+									$orderSubtotal=0;
+									
 									foreach ($order_details as $value) {										
 										$counter = 0;
 										while ($counter<$value['quantity']) {
@@ -72,6 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											echo	'</div>';
 											echo '</div>';
 											
+											//added by Mike, 20171001
+											$orderSubtotal+=$value['price'];
+											
 											$counter++;
 										}
 									}
@@ -80,7 +86,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'<div class="Order-details-align-right">Order Subtotal</div>';
 									echo 	'</div>';
 									echo	'<div class="col-sm-5 Order-details">';
-									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';
+//									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$value['order_total_price'].'</div>';
+									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$orderSubtotal.'</div>';								
 									echo	'</div>';
 									echo '</div>';
 									
@@ -111,7 +118,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									
 									$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
 */
-									$orderTotal = ($value['order_total_price']);
+									$totalLess70pesos= ($count)*70;
+
+									echo '<div class="row Order-details-product">';
+									echo	'<div class="col-sm-6 Order-details">';
+									echo    '<div class="Order-details-align-right">Total less &#x20B1;70 each item</div>';
+									echo 	'</div>';
+									echo	'<div class="col-sm-5 Order-details">';
+									echo	'<div class="Order-details-align-right Order-details-amount">&#x20B1;'.$totalLess70pesos.'</div>';
+									echo	'</div>';
+									echo '</div>';									
+									
+									//edited by Mike, 20171001
+									$orderTotal = $orderSubtotal - $totalLess70pesos;
+//									$orderTotal = ($value['order_total_price']);
 									
 									echo '<div class="row Order-details-product">';
 									echo	'<div class="col-sm-6 Order-details">';
