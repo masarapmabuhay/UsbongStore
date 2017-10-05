@@ -27,11 +27,11 @@ class Autoemail extends CI_Controller {
         //------------------------//
 
         // load models
-        $this->load->model('Auto_Email_Setting_Model');
-        $this->load->model('Auto_Email_Schedule_Model');
-        $this->load->model('Auto_Email_Model');
-        $this->load->model('Auto_Email_Sent_Model');
-        $this->load->model('Auto_Email_Product_Model');
+        $this->load->model('auto-email/Auto_Email_Setting_Model');
+        $this->load->model('auto-email/Auto_Email_Schedule_Model');
+        $this->load->model('auto-email/Auto_Email_Model');
+        $this->load->model('auto-email/Auto_Email_Sent_Model');
+        $this->load->model('auto-email/Auto_Email_Product_Model');
 
         // load libraries
         $this->load->library('email');
