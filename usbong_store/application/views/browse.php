@@ -42,13 +42,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															str_replace("&","and",
 															str_replace(',','',
 																str_replace(' ','-',
-																	$reformattedProductName))))); //replace "&", " ", and "-"
+																str_replace('/','-',															
+																$reformattedProductName)))))); //replace "&", " ", and "-"
 					$URLFriendlyReformattedProductAuthor = str_replace("(","",
 														str_replace(")","",
 															str_replace("&","and",
 																str_replace(',','',
 																str_replace(' ','-',
-																	$value['author']))))); //replace "&", " ", and "-"
+																str_replace('/','-',
+																	$value['author'])))))); //replace "&", " ", and "-"
 					
 					$productType="books"; //default
 					switch($value['product_type_id']) {
