@@ -27,11 +27,11 @@ class Autoemail extends CI_Controller {
         //------------------------//
 
         // load models
-        $this->load->model('Auto_Email_Setting_Model');
-        $this->load->model('Auto_Email_Schedule_Model');
-        $this->load->model('Auto_Email_Model');
-        $this->load->model('Auto_Email_Sent_Model');
-        $this->load->model('Auto_Email_Product_Model');
+        $this->load->model('auto-email/Auto_Email_Setting_Model');
+        $this->load->model('auto-email/Auto_Email_Schedule_Model');
+        $this->load->model('auto-email/Auto_Email_Model');
+        $this->load->model('auto-email/Auto_Email_Sent_Model');
+        $this->load->model('auto-email/Auto_Email_Product_Model');
 
         // load libraries
         $this->load->library('email');
@@ -138,14 +138,16 @@ class Autoemail extends CI_Controller {
                     log_message($this->log_level, $this->log_marker.'Sending email to '.$customer['customer_email_address']);
                 }
 
+                // append custmer specifc data as needed
+                $this->data['customer']['customer_first_name'] = $customer['customer_first_name'];
+
                 // send transaction
                 $this->email->set_newline("\r\n"); // this is needed for gmail smtp to parse content, without this email server rejects request
                 $this->email->from($this->ctrl['sendmail']['smtp_user'], $this->ctrl['sendmail']['sender_alias']);
                 $this->email->to($customer['customer_email_address']);
                 $this->email->subject($this->data['email']->subject);
                 $this->email->message(
-                    'Hello '.$customer['customer_first_name'].' '.$customer['customer_last_name'].', '."\r\n".
-                    print_r($this->data['products'], TRUE)
+                    $this->load->view('auto-email/'.$this->data['email']->view, $this->data, TRUE)
                 );
 
                 try {
@@ -213,5 +215,4 @@ class Autoemail extends CI_Controller {
             $this->Auto_Email_Schedule_Model->setStatus($this->ctrl['auto_email_schedule']->auto_email_schedule_id, 'QUEUED');
         }
     }
-
 }
