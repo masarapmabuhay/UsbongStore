@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  		
 								  		if ($this->session->userdata('merchant_id')=="0") { //true								  			
 								  			echo '<li><a href = "'.site_url('account/ordersummaryadmin/').'">Order Summary (Admin)</a></li>';								  	
+								  			echo '<li><a href = "'.site_url('account/carthistoryadmin/').'">Cart History (Admin)</a></li>'; //added by Mike, 20171009								  			
 								  		}
 								  		else {
 								  			echo '<li><a href = "'.site_url('account/ordersummarymerchant/').'">Order Summary (Merchant Admin)</a></li>';								  		
