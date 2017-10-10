@@ -239,7 +239,7 @@ class Account extends MY_Controller {
 				
 				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
 				
-				$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
+				$data['result'] = $this->Account_Model->getCustomerInformation($customerBuyerId);
 				
 				$this->load->view('account/customerdetailsadmin', $data);
 				
