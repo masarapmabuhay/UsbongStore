@@ -5,9 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 </head>
 <body>
-	<h2 class="header">Cart History (Admin)</h2>
-	<br>
-	<div>
+	<h2 class="header">Customer Details (Admin) | Customer: <?php echo $customer_email_address;?></h2>
+	<br>		
 		<div class="row">
 			<div class="col-sm-3 Account-settings">
 					<div class="row Account-settings-subject-header">Orders</div>
@@ -21,22 +20,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php 
 					if (count($cart_history)==0) {
 						echo '<div class="Order-Summary-noResult">';
-						echo 'No customer has made any orders yet.';
+						echo 'The customer has made no orders yet.';
 						echo '</div>';
 					}
 					else {
 				?>
+					<div class="Customer-details-container">
 					<div class="row">
-						<div class="col-sm-1 Order-summary">		
-						</div>
-						<div class="col-sm-10 Order-summary">		
+						<div class="col-sm-9 Customer-order-summary">		
 							<h3>Orders</h3>
 							<div>
 								<div class="row">
-									<div class="col-sm-2 Order-summary">		
+									<div class="col-sm-2 Order-summary col-sm-offset-2">		
 										<b>Date Added</b>
 									</div>
-									<div class="col-sm-2 Order-summary">		
+									<div class="col-sm-3 Order-summary">		
 										<b>Product Name</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
@@ -44,9 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Price</b>
-									</div>
-									<div class="col-sm-2 Order-summary">		
-										<b>Customer Email</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Purchased?</b>
@@ -75,11 +70,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																				
 										echo '<div class="row">';
 											if ($counter!=0) {
-												echo '<div class="col-sm-2 Order-summary-alternate">';
+												echo '<div class="col-sm-2 Order-summary-alternate col-sm-offset-2">';
 												echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
 												echo '</div>';
 												
-												echo '<div class="col-sm-2 Order-summary-alternate">';
+												echo '<div class="col-sm-3 Order-summary-alternate">';
 			//									echo strtotime($value['added_datetime_stamp']);
 //												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 //												$timestamp = $date->format('U');
@@ -87,8 +82,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';	
 												
 												$trimmedName = "";
-												if (strlen($value['name'])>10) {
-													$trimmedName = trim(substr($value['name'],0,10))."...";
+												if (strlen($value['name'])>16) {
+													$trimmedName = trim(substr($value['name'],0,16))."...";
 													echo $trimmedName;
 												}
 												else {
@@ -107,27 +102,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																								
 												$orderTotal = $value['quantity']*$value['price'];
 												
-												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+												echo '<div class="col-sm-2 Order-summary-alternate">';
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
 												echo '</div>';
-												
-												
-												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
-												
-												if (strlen($value['customer_email_address'])>14) {
-													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
-													echo $trimmedName;
-												}
-												else {
-													echo $value['customer_email_address'];
-												}												
-												
-												echo '</a>';
-												echo '</div>';
 																								
-												
-												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+												echo '<div class="col-sm-2 Order-summary-alternate">';
 												if ($value['purchased_datetime_stamp']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 												}
@@ -140,11 +119,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												
 											}
 											else {
-												echo '<div class="col-sm-2 Order-summary">';
+												echo '<div class="col-sm-2 Order-summary col-sm-offset-2">';
 												echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
 												echo '</div>';
 												
-												echo '<div class="col-sm-2 Order-summary">';
+												echo '<div class="col-sm-3 Order-summary">';
 			//									echo strtotime($value['added_datetime_stamp']);
 /*												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
@@ -154,8 +133,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 												
 												$trimmedName = "";
-												if (strlen($value['name'])>10) {
-													$trimmedName = trim(substr($value['name'],0,10))."...";
+												if (strlen($value['name'])>16) {
+													$trimmedName = trim(substr($value['name'],0,16))."...";
 													echo $trimmedName;
 												}
 												else {
@@ -175,23 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '<div class="col-sm-2 Order-summary">';
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
 												echo '</div>';
-												
-												
-												echo '<div class="col-sm-2 Order-summary">';
-												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
-												
-//												echo "Accepted";
-												if (strlen($value['customer_email_address'])>14) {
-													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
-													echo $trimmedName;
-												}
-												else {
-													echo $value['customer_email_address'];
-												}
-												//												echo $value['customer_email_address'];												
-												echo '</a>';
-												echo '</div>';
-																								
+																																				
 												echo '<div class="col-sm-2 Order-summary">';
 												if ($value['purchased_datetime_stamp']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
@@ -211,10 +174,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								?>					
 							</div>
 						</div>
+						<div class="col-sm-3 Customer-details">		
+								<div class="Order-details-shipping-address">
+									<h3><b>Payment Method:</b></h3>
+									<?php 
+										if ($result->mode_of_payment_id==0) {
+											echo 'Bank Deposit<br>';
+										}
+										else if ($result->mode_of_payment_id==1) {
+											echo 'Paypal<br>';
+										}
+										else {
+											echo 'Cash upon Meetup at MOSC<br>(Marikina Orthopedic Specialty Clinic)<br>';
+										}
+									?>
+								</div>
+							
+								<div class="Order-details-shipping-address">
+									<h3><b>Shipped To:</b></h3>
+									<?php 
+										echo $result->customer_first_name.' '.$result->customer_last_name.'<br>';				
+										
+										echo $result->customer_shipping_address.'<br>';
+										echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
+										echo $result->customer_country.'<br>';									
+									?>
+								</div>
+						</div>
+					</div>
 					</div>
 				<?php		
 					}
 				?>		
+			</div>
+			
+					
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1620,6 +1620,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 16px;
 		color: black;		
 	}
+
+	.Customer-order-summary {
+		font-size: 18px;
+		color: #4b4b4b;
+		margin:0;
+		padding:0;
+	}
 	
 	.Order-summary {
 		font-size: 18px;
@@ -1637,6 +1644,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 18px;
 		color: #4b4b4b;		
 		background-color: #efe6ca;
+		margin:0px;
+		padding:0px;
 	}
 
 	.Order-summary-order-total {
@@ -1652,6 +1661,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #e04949;
 		color: #4b4b4b;
 	}
+
+	.Customer-details {
+		font-size: 16px;
+		color: #4b4b4b;
+		margin: 0;
+		padding: 0;
+	}
+
 
 	.Order-details {
 		font-size: 18px;
@@ -1863,6 +1880,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.container {
 		margin-left: 100px;
 		margin-bottom: 0px;
+	}	
+
+	.Customer-details-container {
+		margin-left: 50px;
+		margin-bottom: 0px;
+		margin-right: 10px;
 	}	
 
 	.container-search {

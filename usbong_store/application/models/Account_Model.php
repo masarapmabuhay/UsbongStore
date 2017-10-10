@@ -117,13 +117,26 @@ class Account_Model extends CI_Model
 	
 	//added by Mike, 20171009
 	public function getCartHistoryAdmin() {
-		$this->db->select('t1.added_datetime_stamp, t1.purchased_datetime_stamp, t1.product_id, t2.name, t2.author, t1.quantity, t1.price, t3.customer_email_address');
+		$this->db->select('t1.added_datetime_stamp, t1.purchased_datetime_stamp, t1.product_id, t2.name, t2.author, t1.quantity, t1.price, t3.customer_email_address, t3.customer_id');
 		$this->db->from('cart as t1');
 		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
 		$this->db->join('customer as t3', 't1.customer_id = t3.customer_id', 'LEFT');
 		$this->db->order_by('t1.added_datetime_stamp', 'DESC');
 		$query = $this->db->get();
 
+		return $query->result_array();
+	}
+
+	//added by Mike, 20171010
+	public function getCustomerCartHistoryAdmin($customerId) {
+		$this->db->select('t1.added_datetime_stamp, t1.purchased_datetime_stamp, t1.product_id, t2.name, t2.author, t1.quantity, t1.price, t3.customer_email_address, t3.customer_id');
+		$this->db->from('cart as t1');
+		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
+		$this->db->join('customer as t3', 't1.customer_id = t3.customer_id', 'LEFT');
+		$this->db->where('t1.customer_id', $customerId);		
+		$this->db->order_by('t1.added_datetime_stamp', 'DESC');
+		$query = $this->db->get();
+		
 		return $query->result_array();
 	}
 	
