@@ -237,7 +237,7 @@ class Account extends MY_Controller {
 				
 				$data['cart_history'] = $this->Account_Model->getCustomerCartHistoryAdmin($customerBuyerId);
 				
-				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customerBuyerId)->customer_email_address;
 				
 				$data['result'] = $this->Account_Model->getCustomerInformation($customerBuyerId);
 				
