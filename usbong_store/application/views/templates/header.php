@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="header-banner">
 	<a class="header-banner-link" href = "http://usbong.ph" target="_blank">	
 		<ul>
-			<li class="header-banner-li"><img class="Image-usbong-first-icon" src="<?php echo base_url('assets/images/banner_icons/dahon.png'); ?>">
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/dahon.png'); ?>">
 			<span class="header-banner-span">&ensp;&ensp;UPLIFTING APPS FROM&ensp;&ensp;</span><img class="Image-usbong-logo" src="<?php echo base_url('assets/images/usbongLogo.png'); ?>">
 			</li>
 			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/pagtsing.png'); ?>"></li>
