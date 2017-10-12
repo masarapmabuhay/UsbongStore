@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<h2 class="header">Website Security</h2>
 	<div>
 		<div class="row">
@@ -17,5 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>	
 	</div>	
+<!-- 
 </body>
 </html>
+-->

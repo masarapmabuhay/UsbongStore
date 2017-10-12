@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>		
+-->
 	<div class="Image-offers">
 		<img class="Image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
 		<br>
@@ -16,5 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<br>
 		<img class="Image-offers-be-a-merchant" src="<?php echo base_url('assets/images/usbongOffersBecomeAMerchant.jpg')?>">
 	</div>	
+<!-- 
 </body>
 </html>
+-->

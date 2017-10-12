@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<h2 class="header">Shopping Cart</h2>
 	<br>
 	<?php 
@@ -257,5 +259,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  }
 			?>					
 			</form>
+<!--  
 </body>
 </html>
+-->

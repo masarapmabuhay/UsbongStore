@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<div class="login-and-create">
 		<div class="login-text"><b>Sign In</b></div>
 		<div class="register-text"><a href = "<?php echo site_url('account/create/')?>"><b>Create New Account</b></a></div>
@@ -50,5 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</form>
 		</div>		
 	</div>
+<!-- 
 </body>
 </html>
+ -->

@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<br>
 	<div class="container-product-item">
 		<div class="row">
@@ -210,5 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>	
 	</div>		
+<!-- 
 </body>
 </html>
+-->

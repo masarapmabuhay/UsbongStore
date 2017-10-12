@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
-
+-->
 <!-- ################################################################################# -->
 	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>">Recommended <span class="Front-page-cat-name">Books</span></a></h3>	
 	<br>
@@ -1500,5 +1501,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo '</div>';
 	?>
 	</div>			
+<!-- 
 </body>
 </html>
+-->

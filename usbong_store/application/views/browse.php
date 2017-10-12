@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<h2 class="header">Search</h2>
 	<br>
 	<?php 
@@ -201,5 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php 
 		}		
 		?>
+<!-- 
 </body>
 </html>
+-->

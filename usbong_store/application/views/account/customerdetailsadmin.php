@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<h2 class="header">Customer Details (Admin) | Customer: <?php echo $customer_email_address;?></h2>
 	<br>		
 		<div class="row">
@@ -214,5 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 	<br>
+<!-- 
 </body>
 </html>
+-->

@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>		
+-->
 	<div class="header-banner">
 	<a class="header-banner-link" href = "http://usbong.ph" target="_blank">	
 		<ul>
@@ -162,5 +164,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul>
 	  </div>
 	</nav>	
+<!-- 
 </body>
 </html>
+-->

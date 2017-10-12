@@ -1205,7 +1205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		position: relative;
 		text-align: center;
 		background: #77b043;
-		margin-top: 400px;
+		margin-top: 450px;
 	}
 
 	.Uplift-button {		
@@ -2709,6 +2709,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </style>
 </head>
+<!-- 
 <body>
 </body>
 </html>
+ -->

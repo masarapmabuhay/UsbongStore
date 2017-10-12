@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<?php 
 		$data=[];
 		if ($this->session->flashdata('data')) {
@@ -129,5 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>			
 		</div>		
 	</div>
+<!-- 
 </body>
 </html>
+-->

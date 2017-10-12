@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+<!-- 
 <html lang="en">
 <head>
 </head>
 <body>
+-->
 	<h2 class="header">Privacy Policy</h2>
 	<div class="Privacy-content">
 	<h3>Your privacy matters to us</h3>
@@ -58,5 +60,7 @@ The Usbong Store welcomes your questions and comments about privacy. You may con
 <br>
 <br>
 </div>
+<!-- 
 </body>
 </html>
+-->
