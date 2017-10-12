@@ -26,9 +26,9 @@
             'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.fi&hl=en',
         ],
         1 => [
-            'name'  => 'Gamugamu',
-            'image' => base_url('assets/images/auto-email/gamugamoIcon148x148.jpg'),
-            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.gamugamo',
+            'name'  => 'Pagtsing',
+            'image' => base_url('assets/images/banner_icons/pagtsing.png'),
+            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.pagtsing',
         ],
         2 => [
             'name'  => 'JuanT',
@@ -36,36 +36,11 @@
             'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.juant',
         ],
         3 => [
-            'name'  => 'Malansang Isda',
-            'image' => base_url('assets/images/banner_icons/malansangisda.png'),
-            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.malansang_isda',
-        ],
-        4 => [
-            'name'  => 'O',
-            'image' => base_url('assets/images/banner_icons/o.jpg'),
-            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.themissingpiecesbecomethebigo',
-        ],
-        5 => [
-            'name'  => 'Pagtsing',
-            'image' => base_url('assets/images/banner_icons/pagtsing.png'),
-            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.pagtsing',
-        ],
-        6 => [
-            'name'  => 'Paspas',
-            'image' => base_url('assets/images/banner_icons/paspas.png'),
-            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.paspas',
-        ],
-        7 => [
             'name'  => 'Pinya',
             'image' => base_url('assets/images/banner_icons/pinya.png'),
             'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.pinya',
         ],
-        8 => [
-            'name'  => 'Tiyaga',
-            'image' => base_url('assets/images/banner_icons/tiyaga.png'),
-            'url'   => site_url(),
-        ],
-        9 => [
+        4 => [
             'name'  => 'When You Dont Know',
             'image' => base_url('assets/images/banner_icons/whenyoudontknow.png'),
             'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.when_you_dont_know',
@@ -181,7 +156,7 @@
                                     </a>
                                 </td>
                                 <td width="480" align="center" valign="top">
-                                    <!--App Table: 5 Col x 2 Rows-->
+                                    <!--App Table: 5 Col x 1 Rows-->
                                     <table width="480" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:480px; width:100%;" bgcolor="#FFFFFF">
                                         <tr>
                                             <td align="center" valign="top">
@@ -190,11 +165,12 @@
                                                         <?php for ($x = 0; $x <= 4; $x++) { ?>
                                                             <td width="96" align="center" valign="top">
                                                                 <a href="<?php echo $header['apps'][$x]['url'];?>" target="_blank">
-                                                                    <img width="20px" height="20px" src="<?php echo $header['apps'][$x]['image'];?>" style="margin:0; padding:0; border:none; display:block;" border="0" alt="<?php echo $header['apps'][$x]['name'];?>" />
+                                                                    <img width="40px" height="40px" src="<?php echo $header['apps'][$x]['image'];?>" style="margin:0; padding:0; border:none; display:block;" border="0" alt="<?php echo $header['apps'][$x]['name'];?>" />
                                                                 </a>
                                                             </td>
                                                         <?php } ?>
                                                     </tr>
+<!--
                                                     <tr>
                                                         <?php for ($x = 5; $x <= 9; $x++) { ?>
                                                             <td width="96" align="center" valign="top">
@@ -204,6 +180,7 @@
                                                             </td>
                                                         <?php } ?>
                                                     </tr>
+-->
                                                 </table>
                                             </td>
                                         </tr>
