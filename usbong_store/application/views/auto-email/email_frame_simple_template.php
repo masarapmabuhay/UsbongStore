@@ -80,10 +80,11 @@
     $inline_product_headline_store_name_style = 'font-size: 1em; color: #222222; font-weight: bold; text-decoration: none;';
 
     // css: product
-    $inline_product_style = 'color: #222222; font-weight: bold; text-decoration:none;';
-    $inline_author_style  = 'color: #5c534b; text-decoration:none;';
-    $inline_button_style  = 'padding: 5px 5px 5px 5px; text-align: center; background-color: #84c44b; color: #222222; border: 0px solid; border-radius: 4px; font-weight: bold;';
+    $inline_product_style = 'font-size: 1.1em; color: #222222; font-weight: bold; text-decoration:none;';
+    $inline_author_style  = 'font-size: 1.1em; color: #5c534b; text-decoration:none;';
+    $inline_button_style  = 'padding: 5px 5px 5px 5px; text-align: center; background-color: #ffe400; color: #222222; border: 0px solid; border-radius: 4px; font-weight: bold;';
     $inline_anchor_style  = 'color:#222222; text-decoration:none;';
+    $inline_price_style  = 'font-size: 1.1em; color:#b88a1b; text-decoration:none;';
     $inline_link_style    = 'color:#222222; text-decoration:underline;';
 
     // css: social
@@ -191,8 +192,7 @@
                     </td>
                 </tr>
                 <!-- Row 2: horizontal bar -->
-                <tr style="<?php echo $inline_logo_horizontal_bar_style; ?>">
-                    &nbsp;
+                <tr style="<?php echo $inline_logo_horizontal_bar_style; ?> ;padding:5px;">
                 </tr>
             </table>
 
@@ -202,15 +202,17 @@
                     <td align="center" valign="top">
                         <table width="600" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:600px; width:100%;">
                             <tr>
-                                <td align="left" valign="top" style="padding:10px;">
+                                <td align="left" valign="top" style="padding:10px;font-size: 1.5em;color: #222222;">
                                     Hi <?php echo $customer['customer_first_name'].',';?>
                                 </td>
                             </tr>
+<!--
                             <tr>
                                 <td align="left" valign="top" style="padding:10px;">
                                     <?php echo $email->data_01;?>
                                 </td>
                             </tr>
+-->
                         </table>
                     </td>
                 </tr>
@@ -266,6 +268,7 @@
                                             <!-- Optional Author -->
                                             <?php if (!empty($products[$x]['author'])) { ?>
                                                 <br />
+                        <br />
                                                 <a href="<?php echo $products[$x]['product_url'];?>" title="<?php echo $products[$x]['name'];?>" style="<?php echo $inline_author_style; ?>">
                                                     <?php if (strlen($products[$x]['author']) > $max_char_author) { ?>
                                                         <span style="$inline_author_style">
@@ -278,19 +281,30 @@
                                                     <?php } ?>
                                                 </a>
                                             <?php } ?>
+                        <br />
+                        <br />
+                         <!-- Price -->
+                                            <a href="<?php echo $products[$x]['product_url'];?>" title="<?php echo $products[$x]['name'];?>" style="<?php echo $inline_product_style; ?>">
+                                                
+                                                    <span style="<?php echo $inline_price_style; ?>">
+                                                        <?php echo '&#8369;'.number_format($products[$x]['price'], 0 ,'.', ','); ?>
+                                                    </span>
+                                            </a>
+                        
                                         </td>
                                     <?php } ?>
                                 </tr>
-                                <!-- Price -->
+                                <!-- Add to Cart -->
+<!--
                                 <tr>
                                     <?php for ($x = ($w * 3); $x <= (3*$w + 2); $x++) { ?>
                                         <td width="200" align="center" valign="top" style="padding:10px 10px 20px 10px;">
-                                            <table border="0" cellpadding="0" cellspacing="0" summary="" align="center" width="50%">
+                                            <table border="0" cellpadding="0" cellspacing="0" summary="" align="center" width="70%">
                                                 <tr>
                                                     <td style="<?php echo $inline_button_style;?>">
                                                         <a href="<?php echo $products[$x]['product_url'];?>" title="<?php echo $products[$x]['name'];?>" style="<?php echo $inline_anchor_style;?>">
                                                             <div>
-                                                                <?php echo '&#8369;'.number_format($products[$x]['price'], 0 ,'.', ',');?>
+                                                                <?php echo 'Add to Cart';?>
                                                             </div>
                                                         </a>
                                                     </td>
@@ -299,6 +313,7 @@
                                         </td>
                                     <?php } ?>
                                 </tr>
+-->
                             <?php } ?>
                         </table>
                     </td>
@@ -346,7 +361,7 @@
             <table width="640" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:640px; width:100%;" bgcolor="#FFFFFF">
                 <!-- Divier Row -->
                 <tr style="<?php echo $inline_footer_horizontal_bar_style; ?>">
-                    <td align="center" valign="top" style="padding:10px;">
+                    <td align="center" valign="top" style="padding:5px;">
                         &nbsp;
                     </td>
                 </tr>
@@ -355,8 +370,8 @@
                     <td align="center" valign="top" style="padding:10px;">
                         <div style="padding: 5px;">
                             <a href="<?php echo $footer['contact'];?>" target="_blank" style="<?php echo $inline_footer_horizontal_anchor_style;?>">
-                                Contact Us
-                            </a>
+                                Contact Us</a>
+&nbsp;ATTN: Customer Service
                         </div>
                         <div style="padding: 5px;">
                             Copyright &copy; 2011~<?php echo date('Y', time());?>. Usbong Social Systems, Inc.
