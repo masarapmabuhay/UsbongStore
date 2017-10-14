@@ -5,19 +5,15 @@
     //     - Doc: http://emailframe.work/
     // (2) To debug the grid, please uncomment the line below
     //     - /*table td { border:1px solid cyan; }*/
-
     // text control fields
     $max_char_product = 32;
     $max_char_author  = 29;
-
     // logo fields
     $logo['logo_title'] = 'Usbong';
     $logo['logo_image'] = base_url('assets/images/usbongLogo.png');
     $logo['logo_url']   = site_url();
-
     // footer fields
     $footer['contact']  = site_url('contact');
-
     // header elements
     $header['apps'] = [
         0 => [
@@ -46,7 +42,6 @@
             'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.when_you_dont_know',
         ],
     ];
-
     // footer elements
     $footer['social'] = [
         0 => [
@@ -71,14 +66,11 @@
             'height' => '32px',
         ],
     ];
-
     // css: logo
     $inline_logo_horizontal_bar_style = 'background-color: #1a0d00;';
-
     // css: product headline
     $inline_product_headline_style            = 'font-size: 1.5em; color: #222222;';
     $inline_product_headline_store_name_style = 'font-size: 1em; color: #222222; font-weight: bold; text-decoration: none;';
-
     // css: product
     $inline_product_style = 'font-size: 1.1em; color: #222222; font-weight: bold; text-decoration:none;';
     $inline_author_style  = 'font-size: 1.1em; color: #5c534b; text-decoration:none;';
@@ -86,10 +78,8 @@
     $inline_anchor_style  = 'color:#222222; text-decoration:none;';
     $inline_price_style  = 'font-size: 1.1em; color:#b88a1b; text-decoration:none;';
     $inline_link_style    = 'color:#222222; text-decoration:underline;';
-
     // css: social
     $inline_social_text_style = 'color: #5c534b; font-size: 1.5em;';
-
     // css: footer
     $inline_footer_horizontal_bar_style    = 'background-color: #77b043;';
     $inline_footer_horizontal_style        = 'background-color: #52493f; color: #ffffff;';

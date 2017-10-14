@@ -178,6 +178,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="col-sm-3 Customer-details">		
 								<div class="Order-details-shipping-address">
+									<h3><b>Contact Number:</b></h3>
+									<?php 
+										echo $result->customer_contact_number.'<br>';				
+									?>
+								</div>
+
+								<div class="Order-details-shipping-address">
 									<h3><b>Payment Method:</b></h3>
 									<?php 
 										if ($result->mode_of_payment_id==0) {
