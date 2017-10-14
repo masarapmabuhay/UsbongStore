@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 -->
-	<h2 class="header">Order #<?php echo $this->uri->segment(3);?> (Admin) | Customer: <?php echo $result->customer_email_address;?></h2>
+	<h2 class="header">Order #<?php echo $this->uri->segment(3);?> (Admin) | Customer: <?php echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$result->customer_id).'">'.$result->customer_email_address.'</a></u>';?></h2>
 	<br>
 	<div>
 		<div class="row">
@@ -135,6 +135,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						?>
 					</div>
 					<div class="col-sm-4 Order-details">		
+						<div class="Order-details-shipping-address">
+							<h3><b>Contact Number:</b></h3>
+							<?php 
+								echo $result->customer_contact_number.'<br>';				
+							?>
+						</div>
+					
 						<div class="Order-details-shipping-address">
 							<h3><b>Payment Method:</b></h3>
 							<?php 
