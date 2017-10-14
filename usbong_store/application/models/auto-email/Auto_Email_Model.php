@@ -29,6 +29,7 @@ class Auto_Email_Model extends CI_Model
                 'datetime'      => '2017-10-01 00:00:00 ',
                 'batches'       => 1,
                 'batches_sent'  => 1,
+                'batches_paused'=> 0,
                 'batches_error' => 0,
             ],
             .
@@ -41,6 +42,7 @@ class Auto_Email_Model extends CI_Model
                 'datetime'      => '2017-10-01 00:00:00 ',
                 'batches'       => 1,
                 'batches_sent'  => 1,
+                'batches_paused'=> 0,
                 'batches_error' => 0,
             ],
         ]
@@ -75,6 +77,13 @@ class Auto_Email_Model extends CI_Model
             '        auto_email.auto_email_id   = auto_email_schedule.auto_email_id AND '.
             '        auto_email_schedule.status = "DONE" '.
             ') AS batches_sent, '.
+            '( '.
+            '    SELECT COUNT(*) '.
+            '    FROM auto_email_schedule '.
+            '    WHERE '.
+            '        auto_email.auto_email_id   = auto_email_schedule.auto_email_id AND '.
+            '        auto_email_schedule.status = "PAUSED" '.
+            ') AS batches_paused, '.
             '( '.
             '    SELECT COUNT(*) '.
             '    FROM auto_email_schedule '.

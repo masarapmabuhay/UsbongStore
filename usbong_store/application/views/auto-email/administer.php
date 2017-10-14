@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td>Template</td>
                 <td>Date Created</td>
                 <td>Batches Sent</td>
+                <td>Batches Paused</td>
                 <td>Batches Error</td>
                 <td>Action</td>
             </tr>
@@ -28,6 +29,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $obj['batches_sent'] != 0
                 ) { ?>
                     <tr class="success">
+                <?php } elseif (
+                    $obj['batches_paused'] > 0
+                ) { ?>
+                    <tr class="warning">
                 <?php } else { ?>
                     <tr>
                 <?php } ?>
@@ -36,6 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $obj['view']; ?>                              </td>
                     <td><?php echo $obj['datetime']; ?>                          </td>
                     <td><?php echo $obj['batches_sent'].'/'.$obj['batches']; ?>  </td>
+                    <td><?php echo $obj['batches_paused'].'/'.$obj['batches'];?> </td>
                     <td><?php echo $obj['batches_error'].'/'.$obj['batches']; ?> </td>
                     <td>
                         <div class="btn-group-xs" role="group" aria-label="...">
