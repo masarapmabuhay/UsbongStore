@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Order-details-order-number-link" href="'.site_url('account/orderdetails/'.$timestamp).'">'.$timestamp.'</a>';
+												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetails/'.$timestamp).'">'.$timestamp.'</a></b>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Order-details-order-number-link" href="'.site_url('account/orderdetails/'.$timestamp).'">'.$timestamp.'</a>';											
+												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetails/'.$timestamp).'">'.$timestamp.'</a></b>';											
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
