@@ -54,3 +54,14 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;//FALSE;
 //$route['w/(:any)'] = 'w/index/$1'; //added by Mike, 20170623
 $route['w/(:any)/(:any)'] = 'w/index/$1/$2'; //added by Mike, 20170623
+
+// routing for auto-email controller
+// routing rules are needed cause auto-email controllers are located in controllers/auto-email instead of controllers/
+$route['auto-email']                               = 'auto-email/administer/index';
+$route['auto-email/administer/(:num)']             = 'auto-email/administer/index/$1';
+$route['auto-email/queue/(:num)/(:num)']           = 'auto-email/administer/queue/$1/$2';
+$route['auto-email/create/template/(:num)']        = 'auto-email/administer/create/template/$1';
+$route['auto-email/create/data']                   = 'auto-email/administer/create/data';
+$route['auto-email/create/products/(:num)/(:any)'] = 'auto-email/administer/create/products/$1/$2';
+$route['auto-email/create/products/(:num)']        = 'auto-email/administer/create/products/$1';
+$route['auto-email/create/save']                   = 'auto-email/administer/create/save';

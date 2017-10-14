@@ -1,0 +1,28 @@
+/* Containers: step_row */
+
+.step_row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+form.auto_email_inline_form {
+    display: inline-block;
+}
+
+.header_check {
+    color: #77b043;
+}
+
+.form_row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.auto_email_save_container {
+    margin-top: 10px;
+}
