@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="table-responsive">
 
         <!-- Create Button -->
-        <button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Email</button>
+        <a href="<?php echo site_url('auto-email/create/template/1'); ?>" class="btn btn-success navbar-btn" role="button" data-toggle="tooltip" data-placement="top" title="Create New Email"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Email</a>
 
         <!-- Data Table -->
         <table class="table table-striped">
