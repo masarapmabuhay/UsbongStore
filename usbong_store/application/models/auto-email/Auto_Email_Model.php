@@ -1,24 +1,19 @@
 <?php 
-
 class Auto_Email_Model extends CI_Model
 {
     //------------------------//
     // Constants
     //------------------------//
-
     const LIMIT  = 30;
-
     //------------------------//
     // Get
     //------------------------//
-
     public function get($auto_email_id) {
         $this->db->from('auto_email');
         $this->db->join('auto_email_template', 'auto_email.auto_email_template_id = auto_email_template.auto_email_template_id', 'left');
         $this->db->where('auto_email_id', $auto_email_id);
         return $this->db->get()->row();
     }
-
     /*
         returns a page worth of data
         [
@@ -57,7 +52,6 @@ class Auto_Email_Model extends CI_Model
         } else {
             $offset = 0;
         }
-
         $this->db->select(
             // auto_email
             'auto_email.auto_email_id, auto_email.subject, auto_email.datetime, '.
@@ -98,17 +92,14 @@ class Auto_Email_Model extends CI_Model
         $this->db->order_by('auto_email_id', 'DESC');
         return $this->db->get()->result_array();
     }
-
     public function getMaxPage() {
         return ceil(
             $this->db->count_all_results('auto_email') / self::LIMIT
         );
     }
-
     //------------------------//
     // Set
     //------------------------//
-
     // creates a new email
     // (1) input $auto_email_model
     //    [
@@ -137,10 +128,8 @@ class Auto_Email_Model extends CI_Model
             'error'         => '',
             'auto_email_id' => ''
         ];
-
         // start transaction
         $this->db->trans_start();
-
         // insert data to table auto_email
         $auto_email_model['datetime'] = date('Y-m-d H:i:s');
         $this->db->insert('auto_email', $auto_email_model);
@@ -165,13 +154,10 @@ class Auto_Email_Model extends CI_Model
                 }
             }
         }
-
         // close transaction
         $this->db->trans_complete();
-
         // init output
         $output['success'] = $this->db->trans_status();
-
         return $output;
     }
 }

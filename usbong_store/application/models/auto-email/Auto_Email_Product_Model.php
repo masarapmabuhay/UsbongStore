@@ -1,17 +1,13 @@
 <?php 
-
 class Auto_Email_Product_Model extends CI_Model
 {
     //------------------------//
     // Constants
     //------------------------//
-
     const LIMIT  = 30;
-
     //------------------------//
     // Get
     //------------------------//
-
     // get the products ascociated with a specific $auto_email_id
     /*
         Array
@@ -26,7 +22,6 @@ class Auto_Email_Product_Model extends CI_Model
                     [image_location] =>
                     [product_type_name] => Books
                 )
-
             [1] => Array
                 (
                     [auto_email_product_id] => 2
@@ -37,7 +32,6 @@ class Auto_Email_Product_Model extends CI_Model
                     [image_location] =>
                     [product_type_name] => Beverages
                 )
-
         )
     */
     public function getAllProducts($auto_email_id) {
@@ -54,7 +48,6 @@ class Auto_Email_Product_Model extends CI_Model
         $this->db->order_by('auto_email_product.auto_email_product_id', 'ASC');
         return $this->db->get()->result_array();
     }
-
     /*
         returns a page worth of data
         [
@@ -75,7 +68,6 @@ class Auto_Email_Product_Model extends CI_Model
         } else {
             $offset = 0;
         }
-
         $this->db->select('product_id, name, price');
         $this->db->from('product');
         if (isset($filter)) {
@@ -85,7 +77,6 @@ class Auto_Email_Product_Model extends CI_Model
         $this->db->order_by('product_id', 'ASC');
         return $this->db->get()->result_array();
     }
-
     public function getMaxPage($filter = NULL) {
         if (isset($filter)) {
             $this->db->like('name', $filter, 'both');
@@ -94,6 +85,5 @@ class Auto_Email_Product_Model extends CI_Model
             $this->db->count_all_results('product') / self::LIMIT
         );
     }
-
 }
 ?>

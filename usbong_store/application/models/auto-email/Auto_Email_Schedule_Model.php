@@ -1,5 +1,4 @@
 <?php 
-
 class Auto_Email_Schedule_Model extends CI_Model
 {
     // constants for Auto_Email_Schedule
@@ -9,11 +8,9 @@ class Auto_Email_Schedule_Model extends CI_Model
     // constants for Auto_Email_Sent
     const SENT   = 'SENT';
     const LIMIT  = 30;
-
     //------------------------//
     // Get
     //------------------------//
-
     // get the first row with the highest priority
     /*
         (
@@ -36,7 +33,6 @@ class Auto_Email_Schedule_Model extends CI_Model
         $this->db->order_by('auto_email_schedule_id', 'ASC');
         return $this->db->get()->row();
     }
-
     // using the inputs, these parses tables auto_email_sent and tables customer for a list of users that should be engaged
     /*
         (
@@ -99,7 +95,6 @@ class Auto_Email_Schedule_Model extends CI_Model
         $this->db->limit($max);
         return $this->db->get()->result_array();
     }
-
     /*
         returns a page worth of data
         [
@@ -144,7 +139,6 @@ class Auto_Email_Schedule_Model extends CI_Model
         } else {
             $offset = 0;
         }
-
         $this->db->select(
             // auto_email_schedule
             'auto_email_schedule.auto_email_schedule_id, auto_email_schedule.start_customer_id, auto_email_schedule.end_customer_id, auto_email_schedule.start_datetime, auto_email_schedule.status, '.
@@ -166,17 +160,14 @@ class Auto_Email_Schedule_Model extends CI_Model
         $this->db->order_by('auto_email_schedule_id', 'DESC');
         return $this->db->get()->result_array();
     }
-
     public function getMaxPage($auto_email_id) {
         return ceil(
             $this->db->where('auto_email_id', $auto_email_id)->count_all_results('auto_email_schedule') / self::LIMIT
         );
     }
-
     //------------------------//
     // Set
     //------------------------//
-
     public function setStatus($auto_email_schedule_id, $status) {
         $data = array(
             'status' => $status
@@ -184,7 +175,6 @@ class Auto_Email_Schedule_Model extends CI_Model
         $this->db->where('auto_email_schedule_id', $auto_email_schedule_id);
         $this->db->update('auto_email_schedule', $data);
     }
-
     // this function only allows three transitions
     // - QUEUED to PAUSED
     // - PAUSED to QUEUED
@@ -201,25 +191,21 @@ class Auto_Email_Schedule_Model extends CI_Model
             'success' => FALSE,
             'error'   => '',
         ];
-
         // check if new status is valid
         if (!in_array($status, [self::PAUSED, self::QUEUED])) {
             $output['error'] = 'Status '.$status.' is not valid.';
             return $output;
         }
-
         // get current status
         $this->db->select('status');
         $this->db->from('auto_email_schedule');
         $this->db->where('auto_email_schedule_id', $auto_email_schedule_id);
         $old_data = $this->db->get()->row();
-
         // check if database entry exists
         if (!isset($old_data)) {
             $output['error'] = 'Entry auto_email_schedule_id = '.$auto_email_schedule_id.' does not exist.';
             return $output;
         }
-
         // check if transition is allowed
         // - QUEUED to PAUSED
         if (
@@ -229,7 +215,6 @@ class Auto_Email_Schedule_Model extends CI_Model
             $output['error'] = 'Setting status from '.$old_data->status.' to '.$status.' is not allowed.';
             return $output;
         }
-
         // check if transition is allowed
         // - PAUSED to QUEUED
         // - ERROR  to QUEUED
@@ -240,20 +225,16 @@ class Auto_Email_Schedule_Model extends CI_Model
             $output['error'] = 'Setting status from '.$old_data->status.' to '.$status.' is not allowed.';
             return $output;
         }
-
         // update database
         $data['status'] = $status;
         $this->db->where('auto_email_schedule_id', $auto_email_schedule_id);
         $this->db->update('auto_email_schedule', $data);
-
         // check if update was success
         if ($this->db->affected_rows() > 0) {
             $output['success'] = TRUE;
         }
-
         return $output;
     }
-
     // adds a row of data to database
     // returns the following:
     // [
@@ -266,7 +247,6 @@ class Auto_Email_Schedule_Model extends CI_Model
             'success' => FALSE,
             'error'   => '',
         ];
-
         // add row to database
         $this->db->insert(
             'auto_email_schedule',
@@ -278,7 +258,6 @@ class Auto_Email_Schedule_Model extends CI_Model
                 'status'            => self::QUEUED,
             ]
         );
-
         // check if update was success
         if ($this->db->affected_rows() > 0) {
             $output['success'] = TRUE;
@@ -287,9 +266,7 @@ class Auto_Email_Schedule_Model extends CI_Model
             // $output['error'] = $sql_error_obj['message'];
             $output['error'] = 'Please check if the ids used exist in your database.';
         }
-
         return $output;
     }
-
 }
 ?>
