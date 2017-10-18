@@ -1,23 +1,18 @@
 <?php 
-
 class Auto_Email_Template_Model extends CI_Model
 {
     //------------------------//
     // Constants
     //------------------------//
-
     const LIMIT  = 30;
-
     //------------------------//
     // Get
     //------------------------//
-
     public function get($auto_email_template_id) {
         $this->db->from('auto_email_template');
         $this->db->where('auto_email_template_id', $auto_email_template_id);
         return $this->db->get()->row_array();
     }
-
     /*
         returns a page worth of data
         [
@@ -40,13 +35,11 @@ class Auto_Email_Template_Model extends CI_Model
         } else {
             $offset = 0;
         }
-
         $this->db->from('auto_email_template');
         $this->db->limit(self::LIMIT, $offset);
         $this->db->order_by('auto_email_template_id', 'DESC');
         return $this->db->get()->result_array();
     }
-
     public function getMaxPage() {
         return ceil(
             $this->db->count_all_results('auto_email_template') / self::LIMIT

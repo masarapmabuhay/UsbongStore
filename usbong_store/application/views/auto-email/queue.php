@@ -163,4 +163,3 @@ echo link_tag('assets/css/auto-email/queue.css');
 
     </div>
 </div>
-

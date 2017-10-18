@@ -49,4 +49,3 @@ echo link_tag('assets/css/auto-email/create.css');
     </nav>
 
 </div>
-
