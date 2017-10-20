@@ -161,17 +161,6 @@
                                                             </td>
                                                         <?php } ?>
                                                     </tr>
-<!--
-                                                    <tr>
-                                                        <?php for ($x = 5; $x <= 9; $x++) { ?>
-                                                            <td width="96" align="center" valign="top">
-                                                                <a href="<?php echo $header['apps'][$x]['url'];?>" target="_blank">
-                                                                    <img width="20px" height="20px" src="<?php echo $header['apps'][$x]['image'];?>" style="margin:0; padding:0; border:none; display:block;" border="0" alt="<?php echo $header['apps'][$x]['name'];?>" />
-                                                                </a>
-                                                            </td>
-                                                        <?php } ?>
-                                                    </tr>
--->
                                                 </table>
                                             </td>
                                         </tr>
