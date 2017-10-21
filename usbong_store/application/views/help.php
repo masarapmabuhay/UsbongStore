@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				The email address is: <span class="Help-paypal-email-address">masarapmabuhay (at) gmail (dot) com</span>
 				</li><br>
 				<li><span class="Help-subheader">Cash upon Meetup at the Marikina Orthopedic Specialty Clinic (MOSC)</span><br>
-					The address is: 2 E. Rodriguez Ave. Sto. Niño Marikina City, 1800, Philippines
+					The address is: 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.) Sto. Niño Marikina City, 1800, Philippines
 				</li>				
 			</ul>
 			After confirming your purchase order, the Usbong Store will email you the details regarding the next steps.
