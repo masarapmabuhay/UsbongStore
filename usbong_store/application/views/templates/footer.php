@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><a class="Footer-list-item" href ="<?php echo site_url('privacy/')?>" target="_blank">Privacy Policy</a></li>					
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
 					<li><span class="Footer-list-header"><b>Quick Help</b></span></li>					
+					<li><a class="Footer-list-item" href = "<?php echo site_url('help/')?>">Help & Support</a></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('sell/')?>">Sell Item</a></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('request/')?>">Request Item</a></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('contact/')?>">Contact Usbong</a></li>					
