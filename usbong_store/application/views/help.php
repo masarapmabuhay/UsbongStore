@@ -39,6 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li><span class="Help-subheader">How do I find a product?</span><br>
 				You can search our inventory of products, which include books, textbooks, promos, food, beverages, comics, manga, toys & collectibles, and miscellaneous items, using our search engine located near the top-left portion of all <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b> pages. You can enter keywords such as the product name and book author.
 				</li><br>
+				<li><span class="Help-subheader">How do I place an order?</span><br>
+				Purchasing any of the available products on our website is fast, easy, and secure. First, find the product item you want to purchase. Click the product name to see its product overview, the available format, its condition, and/or the language in one place. You can then instantly add the copy you want to purchase to your shopping cart by clicking the yellow “ADD TO CART” button.				
+				<br><br>
+				After you have added all the product items you want to purchase to your shopping cart, you can see the contents by clicking on the Shopping Cart icon at the top-right corner of your screen. From here you can view your items and add or delete items. When you are ready to checkout, simply click on the “CONTINUE TO CHECKOUT” button at the right-hand portion of your screen and follow the prompts.				
+				</li><br>
 			</ul>
 			</div>			
 		</div>					
