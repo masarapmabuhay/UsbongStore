@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<ul>
 				<li><span class="Help-subheader">Do you have an actual brick-and-mortar store?</span><br>
 					At present, we accept payment and receiving of online purchases at the Marikina Orthopedic Specialty Clinic (MOSC), which is located at 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.) Sto. Niño Marikina City, 1800, Philippines.
-					To view our available products, you may access <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b>. The prices already included free delivery.
+					To view our available products, you may access <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b>. The prices already include free delivery.
 				</li><br>
 				<li><span class="Help-subheader">How do I find a product?</span><br>
 				You can search our inventory of products, which include books, textbooks, promos, food, beverages, comics, manga, toys & collectibles, and miscellaneous items, using our search engine located near the top-left portion of all <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b> pages. You can enter keywords such as the product name and book author.
