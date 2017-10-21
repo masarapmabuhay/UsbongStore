@@ -1620,21 +1620,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #3a1d00;				
 	}
 
-	.Help-subheader {
-		width:60%;
-		font-size: 22px;
-		font-weight: bold;
-		color: #4b4b4b;
-		margin-left:40px;
-		margin-top:20px;
-		padding:0px;
-		color: #3a1d00;				
-	}
-
 	.Help {
 		font-size: 20px;
 		color: #4b4b4b;
 		margin-left:40px;
+		margin-right: 100px;		
 		margin-top:20px;
 		padding:0px;
 	}
@@ -1645,17 +1635,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}	
 	
 	.Help-contact-email-address {
-		color: #77b043;
+		color: #d7c52e;
 		font-weight: bold;	
 	}
 	
-	.Help-payment-method {
-		color: #d7c52e;
+	.Help-subheader {
+		color: #77b043;
 		font-weight: bold;			
 	}
 	
 	.Help-paypal-email-address {
-		color: #77b043;
+		color: #d7c52e;
 		font-weight: bold;	
 	}
 
