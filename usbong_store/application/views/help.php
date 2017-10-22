@@ -46,6 +46,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li><br>
 			</ul>
 			</div>			
+			<hr>
+			<div class="Help-header">Customer Service
+			</div>			
+			<div class="Help">
+			<ul>
+				<li><span class="Help-subheader">How do I cancel my order?</span><br>
+					Email us at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span> and notify us that you would want to cancel your order.<br><br>
+					Please include your order number in the body of the email as well as type the phrase "Cancel Order" in the subject line.<br><br>				
+					If there is anything that we can do prior to cancelling your order that will fix the problem for you, we will do our best to accomodate your wishes.
+				</li><br>
+				<li><span class="Help-subheader">Where do I find my order number?</span><br>
+					You can find the order number in the order summary page of your account. To access the order summary page, click the Order Summary link in the dropdown menu located to left of your shopping cart.
+				</li><br>
+			</ul>
+			</div>		
 		</div>					
 	</div>	
 <!-- 
