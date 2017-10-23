@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					If there is anything that we can do prior to cancelling your order that will fix the problem for you, we will do our best to accomodate your wishes.
 				</li><br>
 				<li><span class="Help-subheader">Where do I find my order number?</span><br>
-					You can find the order number in the order summary page of your account. To access the order summary page, click the Order Summary link in the dropdown menu located to left of your shopping cart.
+					You can find the order number in the order summary page of your account. To access the order summary page, click the Order Summary link in the dropdown menu located to the left of your shopping cart.
 				</li><br>
 				<li><span class="Help-subheader">Damaged or incorrect items</span><br>
 					If you receive a damaged or incorrect product item, or are unsatisfied with your order for any reason, please contact our customer service team at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span>. One of our dedicated Customer Service Representatives will work with you to resolve any issues you may have with your order.
