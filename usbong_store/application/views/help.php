@@ -59,6 +59,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li><span class="Help-subheader">Where do I find my order number?</span><br>
 					You can find the order number in the order summary page of your account. To access the order summary page, click the Order Summary link in the dropdown menu located to left of your shopping cart.
 				</li><br>
+				<li><span class="Help-subheader">Damaged or incorrect items</span><br>
+					If you receive a damaged or incorrect product item, or are unsatisfied with your order for any reason, please contact our customer service team at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span>. One of our dedicated Customer Service Representatives will work with you to resolve any issues you may have with your order.
+				</li><br>
+				<li><span class="Help-subheader">Missing items</span><br>
+					If you have not received your order by the end of the estimated delivery time, we always suggest that you check with anyone in your office or household who may have received the package and neglected to tell you. If there is no indication of the current delivery status and you still have not received the package, please contact us at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span> and one of our Customer Service Representatives will be happy to assist you.
+				</li><br>
 			</ul>
 			</div>		
 		</div>					
