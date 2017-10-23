@@ -10,6 +10,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h2 class="header">Help & Support</h2>
 	<div class="Help-container">
 		<div class="row">
+			<div class="Help-header">Shipping
+			</div>			
+			<div class="Help">
+			<ul>
+				<li><span class="Help-subheader">What are your shipping rates/delivery times?</span><br>
+					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take one week after you've sent us a copy of your deposit slip.
+				</li><br>
+				<li><span class="Help-subheader">Can I combine more than one item in a single shipment?</span><br>
+					Yes, as a matter of fact, the Usbong Store is designed to specifically cater to customers interested in purchasing more than one item at a time. We even offer discounts for each additional product item a customer purchases.
+				</li><br>
+				<li><span class="Help-subheader">Incorrect Shipping Address</span><br>
+					If you need to update your shipping address, you can go to the My Account page located to the left of your shopping cart.
+				</li><br>
+				<li><span class="Help-subheader">Can I get a discount on a large order?</span><br>
+					We strive to offer the best prices on the Internet. Moreover, we offer discounts for each additional product a customer purchases. The prices also already cover the shipping cost, so the customer need not have to pay additional fees. Even better, if the customer picks up the product items at the Marikina Orthopedic Specialty Clinic (MOSC), the customer receives a promo discount.
+				</li><br>
+			</ul>
+			</div>		
+			<hr>
 			<div class="Help-header">Billing (Payment Methods)
 			</div>			
 			<div class="Help">
@@ -42,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li><span class="Help-subheader">How do I place an order?</span><br>
 				Purchasing any of the available products on our website is fast, easy, and secure. First, find the product item you want to purchase. Click the product name to see its product overview, the available format, its condition, and/or the language in one place. You can then instantly add the copy you want to purchase to your shopping cart by clicking the yellow “ADD TO CART” button.				
 				<br><br>
-				After you have added all the product items you want to purchase to your shopping cart, you can see the contents by clicking on the Shopping Cart icon at the top-right corner of your screen. From here you can view your items and add or delete items. When you are ready to checkout, simply click on the “CONTINUE TO CHECKOUT” button at the right-hand portion of your screen and follow the prompts.				
+				After you have added all the product items you want to purchase to your shopping cart, you can see the contents by clicking on the Shopping Cart icon at the top-right corner of your screen. From here you can view your items and add or delete items. When you are ready to checkout, simply click on the “CONTINUE TO CHECKOUT” button at the right-hand portion of your screen and follow the prompts.
 				</li><br>
 			</ul>
 			</div>			
