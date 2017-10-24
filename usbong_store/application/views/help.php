@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					Yes, as a matter of fact, the Usbong Store is designed to specifically cater to customers interested in purchasing more than one item at a time. We even offer discounts for each additional product item a customer purchases.
 				</li><br>
 				<li><span class="Help-subheader">Incorrect Shipping Address</span><br>
-					If you need to update your shipping address, you can go to the My Account page located to the left of your shopping cart.
+					If you need to update your shipping address, you can go to the link to the My Account page located to the left of your shopping cart.
 				</li><br>
 				<li><span class="Help-subheader">Can I get a discount on a large order?</span><br>
 					We strive to offer the best prices on the Internet. Moreover, we offer discounts for each additional product a customer purchases. The prices also already cover the shipping cost, so the customer need not have to pay additional fees. Even better, if the customer picks up the product items at the Marikina Orthopedic Specialty Clinic (MOSC), the customer receives a promo discount.
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<ul>
 				<li><span class="Help-subheader">Do you have an actual brick-and-mortar store?</span><br>
 					At present, we accept payment and receiving of online purchases at the Marikina Orthopedic Specialty Clinic (MOSC), which is located at 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.) Sto. Niño Marikina City, 1800, Philippines.
-					To view our available products, you may access <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b>. The prices already include free delivery.
+					To view our available products, you may access <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b>. The prices already include the shipping cost.
 				</li><br>
 				<li><span class="Help-subheader">How do I find a product?</span><br>
 				You can search our inventory of products, which include books, textbooks, promos, food, beverages, comics, manga, toys & collectibles, and miscellaneous items, using our search engine located near the top-left portion of all <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b> pages. You can enter keywords such as the product name and book author.
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li><span class="Help-subheader">How do I place an order?</span><br>
 				Purchasing any of the available products on our website is fast, easy, and secure. First, find the product item you want to purchase. Click the product name to see its product overview, the available format, its condition, and/or the language in one place. You can then instantly add the copy you want to purchase to your shopping cart by clicking the yellow “ADD TO CART” button.				
 				<br><br>
-				After you have added all the product items you want to purchase to your shopping cart, you can see the contents by clicking on the Shopping Cart icon at the top-right corner of your screen. From here you can view your items and add or delete items. When you are ready to checkout, simply click on the “CONTINUE TO CHECKOUT” button at the right-hand portion of your screen and follow the prompts.
+				After you have added all the product items you want to purchase to your shopping cart, you can see the contents by clicking the Shopping Cart icon at the top-right corner of your screen. From here you can view your items and add or delete items. When you are ready to checkout, simply click on the “CONTINUE TO CHECKOUT” button at the right-hand portion of your screen and follow the prompts.
 				</li><br>
 			</ul>
 			</div>			
