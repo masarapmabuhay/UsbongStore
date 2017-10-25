@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="fIE_s1RlOUpi0n7Yi2lEawdU_P6W003_QNSF1hKGu1A" />
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -1650,6 +1652,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Privacy-content {
+		margin-left: 40px;
+		margin-right: 40px;
+		font-size: 16px;
+		color: black;		
+	}
+
+	.Terms-content {
 		margin-left: 40px;
 		margin-right: 40px;
 		font-size: 16px;
