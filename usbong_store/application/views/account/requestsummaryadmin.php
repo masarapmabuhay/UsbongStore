@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 -->
-	<h2 class="header">Order Summary (Admin)</h2>
+	<h2 class="header">Request Summary (Admin)</h2>
 	<br>
 	<div>
 		<div class="row">
@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-9">		
 				<?php 
-					if (count($order_summary)==0) {
+					if (count($request_summary)==0) {
 						echo '<div class="Order-Summary-noResult">';
-						echo 'No customer has made any orders yet.';
+						echo 'No customer has made any requests yet.';
 						echo '</div>';
 					}
 					else {
@@ -40,16 +40,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<b>Date</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Order #</b>
+										<b>Product Name</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b># of Items</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Status</b>
+										<b>Total Budget</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Price</b>
+										<b>Customer Email</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Fulfilled?</b>
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 								<?php 
 									$counter=0;
-									foreach ($order_summary as $value) {
+									foreach ($request_summary as $value) {
 										echo '<div class="row">';
 											if ($counter!=0) {
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -69,7 +69,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
+												echo $value['product_name'];												
+//												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
+//												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -77,13 +79,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo "Accepted";
+												echo $value['request_total_budget'];
 												echo '</div>';
 												
-												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
-												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
+												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
+												
+												if (strlen($value['customer_email_address'])>14) {
+													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
+													echo $trimmedName;
+												}
+												else {
+													echo $value['customer_email_address'];
+												}											
+												
+												echo '</a>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
@@ -106,7 +116,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';											
+												echo $value['product_name'];
+//												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';											
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
@@ -114,13 +125,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo "Accepted";
+												echo $value['request_total_budget'];
 												echo '</div>';
 												
-												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
 												
-												echo '<div class="col-sm-2 Order-summary">';											
-												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
+												echo '<div class="col-sm-2 Order-summary">';		
+												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
+												
+												if (strlen($value['customer_email_address'])>14) {
+													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
+													echo $trimmedName;
+												}
+												else {
+													echo $value['customer_email_address'];
+												}
+												
+												echo '</a>';
 												echo '</div>';			
 												
 												echo '<div class="col-sm-2 Order-summary">';

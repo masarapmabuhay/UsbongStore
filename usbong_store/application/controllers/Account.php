@@ -372,6 +372,41 @@ class Account extends MY_Controller {
 				$this->load->view('templates/footer');
 	}
 	
+	public function requestsummaryadmin() {
+		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
+		
+		if ((!isset($customer_id)) ||
+		//			($customer_id!="12")) {
+				($is_admin!="1")) {
+					redirect('account/login'); //home page
+				}
+				
+				//from application/core/MY_Controller
+				$this::initStyle();
+				$this::initHeader();
+				//--------------------------------------------
+				
+				$this->load->model('Account_Model');
+				$fulfilled_status = $this->uri->segment(3);
+				if ($fulfilled_status!==null) {
+					date_default_timezone_set('Asia/Hong_Kong');
+					$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(4));
+					$productCustomerId = $this->uri->segment(5);
+					
+					$this->Account_Model->updateCustomerRequestAdmin($fulfilled_status, $addedDateTimeStamp, $productCustomerId);
+				}
+				
+				$data['request_summary'] = $this->Account_Model->getCustomerRequestAdmin();
+
+				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+				
+				$this->load->view('account/requestsummaryadmin', $data);
+				
+				//--------------------------------------------
+				$this->load->view('templates/footer');
+	}
+	
 	public function logout() {
 		session_destroy();
 		
