@@ -125,11 +125,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									//added by Mike, 20170718
 									echo '<br>';
 									echo '<div class="Order-Details-admin-fulfilled">';
-									echo "Fulfilled?&ensp;&ensp;";			
-									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/0').'/'.$this->uri->segment(3).'/'.$value['customer_id'].'">';									
+									echo "Fulfilled?&ensp;&ensp;";
+									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/0').'/'.$value['customer_request_id'].'">';
 										echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 									echo '</a>';
-									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/1').'/'.$this->uri->segment(3).'/'.$value['customer_id'].'">';
+									echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/1').'/'.$value['customer_request_id'].'">';
 										echo '<span class="Fulfilled-Status-OK">&ensp;&ensp;&ensp;OK&ensp;&ensp;&ensp;</span>';
 									echo '</a>';
 									echo '</div>';

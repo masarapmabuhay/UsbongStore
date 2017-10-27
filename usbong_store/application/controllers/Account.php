@@ -389,17 +389,15 @@ class Account extends MY_Controller {
 				
 				$this->load->model('Account_Model');
 				$fulfilled_status = $this->uri->segment(3);
-				if ($fulfilled_status!==null) {
-					date_default_timezone_set('Asia/Hong_Kong');
-					$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(4));
-					$productCustomerId = $this->uri->segment(5);
-					
-					$this->Account_Model->updateCustomerRequestAdmin($fulfilled_status, $addedDateTimeStamp, $productCustomerId);
+				$customer_request_id = $this->uri->segment(4);
+				
+				if ($fulfilled_status!==null) {					
+					$this->Account_Model->updateCustomerRequestAdmin($fulfilled_status, $customer_request_id);
 				}
 				
 				$data['request_summary'] = $this->Account_Model->getCustomerRequestAdmin();
 
-				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+//				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
 				
 				$this->load->view('account/requestsummaryadmin', $data);
 				

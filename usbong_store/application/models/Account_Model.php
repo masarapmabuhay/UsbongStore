@@ -237,7 +237,7 @@ class Account_Model extends CI_Model
 	}
 	
 	public function getCustomerRequestAdmin() {
-		$this->db->select('t1.added_datetime_stamp, t1.customer_id, t2.customer_email_address, t1.quantity, t1.product_name, t1.product_link, t1.product_type, t1.quantity, t1.request_total_budget, t1.comments, t1.fulfilled_status');
+		$this->db->select('t1.customer_request_id, t1.added_datetime_stamp, t1.customer_id, t2.customer_email_address, t1.quantity, t1.product_name, t1.product_link, t1.product_type, t1.quantity, t1.request_total_budget, t1.comments, t1.fulfilled_status');
 		$this->db->from('customer_request as t1');
 		$this->db->join('customer as t2', 't1.customer_id = t2.customer_id', 'LEFT');		
 		$this->db->order_by('added_datetime_stamp', 'DESC');
@@ -245,5 +245,13 @@ class Account_Model extends CI_Model
 		
 		return $query->result_array();
 	}
+	
+	public function updateCustomerRequestAdmin($fulfilledStatus, $customerRequestId) {
+		$updateData = array(
+				'fulfilled_status' => $fulfilledStatus
+		);
+		$this->db->where('customer_request_id', $customerRequestId);
+		$this->db->update('customer_request', $updateData);
+	}	
 }
 ?>

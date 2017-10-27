@@ -91,18 +91,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}
 												else {
 													echo $value['customer_email_address'];
-												}											
-												
+												}																							
 												echo '</a>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
 												if ($value['fulfilled_status']==0) {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/1').'/'.$value['customer_request_id'].'">';
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+													echo '</a>';
 												}
 												else {
-													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';												
-												}												
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/0').'/'.$value['customer_request_id'].'">';
+													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '</a>';
+												}
 												echo '</div>';
 												
 											}
@@ -145,10 +148,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												
 												echo '<div class="col-sm-2 Order-summary">';
 												if ($value['fulfilled_status']==0) {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/1').'/'.$value['customer_request_id'].'">';
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+													echo '</a>';
 												}
 												else {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/0').'/'.$value['customer_request_id'].'">';
 													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '</a>';												
 												}
 												echo '</div>';												
 											}
