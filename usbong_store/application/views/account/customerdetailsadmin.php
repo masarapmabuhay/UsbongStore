@@ -157,7 +157,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '<div class="col-sm-2 Order-summary">';
 												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
 												echo '</div>';
-																																				
+																								
+												echo '<div class="col-sm-2 Order-summary">';
+												if ($value['purchased_datetime_stamp']==0) {
+													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+												}
+												else {
+													echo '<span class="Fulfilled-Status-OK">';
+													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');
+													echo '</span>';
+												}				
+												echo '</div>';
+/*												
+//												echo "Fulfilled?&ensp;&ensp;";
+												echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/0').'/'.$this->uri->segment(3).'/'.$value['customer_id'].'">';
+												echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+												echo '</a>';
+												echo '<a class="Order-details-order-number-link" href="'.site_url('account/ordersummaryadmin/1').'/'.$this->uri->segment(3).'/'.$value['customer_id'].'">';
+												echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');												
+//												echo '<span class="Fulfilled-Status-OK">&ensp;&ensp;&ensp;OK&ensp;&ensp;&ensp;</span>';
+												echo '</a>';
+												echo '</div>';
+*/												
+/*																								
 												echo '<div class="col-sm-2 Order-summary">';
 												if ($value['purchased_datetime_stamp']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
@@ -168,6 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo '</span>';
 												}
 												echo '</div>';												
+*/												
 											}
 											
 											$counter=($counter+1)%2;
