@@ -83,8 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
-												
+												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
 												if (strlen($value['customer_email_address'])>14) {
 													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
 													echo $trimmedName;
@@ -103,7 +102,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}
 												else {
 													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/0').'/'.$value['customer_request_id'].'">';
-													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
 													echo '</a>';
 												}
 												echo '</div>';
@@ -133,16 +133,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												
 												
 												echo '<div class="col-sm-2 Order-summary">';		
-												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
-												
+												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
 												if (strlen($value['customer_email_address'])>14) {
 													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
 													echo $trimmedName;
 												}
 												else {
 													echo $value['customer_email_address'];
-												}
-												
+												}												
 												echo '</a>';
 												echo '</div>';			
 												
@@ -154,7 +152,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}
 												else {
 													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/0').'/'.$value['customer_request_id'].'">';
-													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
 													echo '</a>';												
 												}
 												echo '</div>';												
