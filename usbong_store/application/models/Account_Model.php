@@ -253,5 +253,23 @@ class Account_Model extends CI_Model
 		$this->db->where('customer_request_id', $customerRequestId);
 		$this->db->update('customer_request', $updateData);
 	}	
+
+	public function getCustomerSellAdmin() {
+		$this->db->select('t1.customer_sell_id, t1.added_datetime_stamp, t1.customer_id, t2.customer_email_address, t1.quantity, t1.product_name, t1.product_image_link, t1.product_type, t1.quantity, t1.sell_total_cost, t1.comments, t1.fulfilled_status, t1.fulfilled_datetime_stamp');
+		$this->db->from('customer_sell as t1');
+		$this->db->join('customer as t2', 't1.customer_id = t2.customer_id', 'LEFT');
+		$this->db->order_by('added_datetime_stamp', 'DESC');
+		$query = $this->db->get();
+		
+		return $query->result_array();
+	}
+	
+	public function updateCustomerSellAdmin($fulfilledStatus, $customerSellId) {
+		$updateData = array(
+				'fulfilled_status' => $fulfilledStatus
+		);
+		$this->db->where('customer_sell_id', $customerSellId);
+		$this->db->update('customer_sell', $updateData);
+	}
 }
 ?>

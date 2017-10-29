@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 -->
-	<h2 class="header">Cart History (Admin)</h2>
+	<h2 class="header">Sell Summary (Admin)</h2>
 	<br>
 	<div>
 		<div class="row">
@@ -16,16 +16,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummaryadmin/')?>">Order Summary (Admin)</a></div>				
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/carthistoryadmin/')?>">Cart History (Admin)</a></div>				
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/requestsummaryadmin/')?>">Requests (Admin)</a></div>				
-					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/sellsummaryadmin/')?>">Sell (Admin)</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/sellsummaryadmin/')?>">Sell (Admin)</a></div>				
 					<div class="row Account-settings-subject-header">Settings</div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settings/')?>">Update Information</a></div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>
 			</div>
 			<div class="col-sm-9">		
 				<?php 
-					if (count($cart_history)==0) {
+					if (count($sell_summary)==0) {
 						echo '<div class="Order-Summary-noResult">';
-						echo 'No customer has made any orders yet.';
+						echo 'No customer has made any sell requests yet.';
 						echo '</div>';
 					}
 					else {
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div>
 								<div class="row">
 									<div class="col-sm-2 Order-summary">		
-										<b>Date Added</b>
+										<b>Date</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Product Name</b>
@@ -47,36 +47,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<b># of Items</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Price</b>
+										<b>Total Est. Cost</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Customer Email</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Purchased?</b>
+										<b>Fulfilled?</b>
 									</div>
 								</div>
 								<?php 
 									$counter=0;
-									foreach ($cart_history as $value) {										
-										//added by Mike, 20171009
-										$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
-										$URLFriendlyReformattedProductName = str_replace("(","",
-																				str_replace(")","",
-																				str_replace("&","and",
-																				str_replace(',','',
-																				str_replace(' ','-',
-																				str_replace('/','-',
-																				$reformattedProductName)))))); //replace "&", " ", and "-"
-
-										$URLFriendlyReformattedProductAuthor = str_replace("(","",
-																				str_replace(")","",
-																				str_replace("&","and",
-																				str_replace(',','',
-																				str_replace(' ','-',
-																				str_replace('/','-',
-																				$value['author'])))))); //replace "&", " ", and "-"																							
-																				
+									foreach ($sell_summary as $value) {
 										echo '<div class="row">';
 											if ($counter!=0) {
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -85,61 +67,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
 			//									echo strtotime($value['added_datetime_stamp']);
-//												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
-//												$timestamp = $date->format('U');
+												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
+												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';	
-												
-												$trimmedName = "";
-												if (strlen($value['name'])>10) {
-													$trimmedName = trim(substr($value['name'],0,10))."...";
-													echo $trimmedName;
-												}
-												else {
-													echo $value['name'];
-												}														
-//												echo '<b>'.$value['name'].'</b>';
-
-												echo '</a>';
+												echo $value['product_name'];												
+//												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
+//												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
 												echo $value['quantity'];
 												echo '</div>';
-
-//												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
-																								
-												$orderTotal = $value['quantity']*$value['price'];
-												
-												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
-												echo '</div>';
-												
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
+												echo $value['sell_total_cost'];
+												echo '</div>';
 												
+												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
 												if (strlen($value['customer_email_address'])>14) {
 													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
 													echo $trimmedName;
 												}
 												else {
 													echo $value['customer_email_address'];
-												}												
-												
+												}																							
 												echo '</a>';
 												echo '</div>';
-																								
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												if ($value['purchased_datetime_stamp']==0) {
+												if ($value['fulfilled_status']==0) {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/1').'/'.$value['customer_sell_id'].'">';
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+													echo '</a>';
 												}
 												else {
-													echo '<span class="Fulfilled-Status-OK">';
-													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');													
-													echo '</span>';												
-												}												
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/0').'/'.$value['customer_sell_id'].'">';
+//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
+													echo '</a>';
+												}
 												echo '</div>';
 												
 											}
@@ -150,60 +117,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												
 												echo '<div class="col-sm-2 Order-summary">';
 			//									echo strtotime($value['added_datetime_stamp']);
-/*												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
+												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
-*/												
 //												echo $timestamp;
+												echo $value['product_name'];
 //												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';											
-												echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
-												
-												$trimmedName = "";
-												if (strlen($value['name'])>10) {
-													$trimmedName = trim(substr($value['name'],0,10))."...";
-													echo $trimmedName;
-												}
-												else {
-													echo $value['name'];
-												}												
-//												echo '<b>'.$value['name'].'</b>';												
-												echo '</a>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
 												echo $value['quantity'];
 												echo '</div>';
 												
-//												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
-												$orderTotal = $value['quantity']*$value['price'];
-												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
+												echo $value['sell_total_cost'];
 												echo '</div>';
 												
 												
-												echo '<div class="col-sm-2 Order-summary">';
-												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
-												
-//												echo "Accepted";
+												echo '<div class="col-sm-2 Order-summary">';		
+												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
 												if (strlen($value['customer_email_address'])>14) {
 													$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
 													echo $trimmedName;
 												}
 												else {
 													echo $value['customer_email_address'];
-												}
-												//												echo $value['customer_email_address'];												
+												}												
 												echo '</a>';
-												echo '</div>';
-																								
+												echo '</div>';			
+												
 												echo '<div class="col-sm-2 Order-summary">';
-												if ($value['purchased_datetime_stamp']==0) {
+												if ($value['fulfilled_status']==0) {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/1').'/'.$value['customer_sell_id'].'">';
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+													echo '</a>';
 												}
 												else {
-													echo '<span class="Fulfilled-Status-OK">';
-													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');
-													echo '</span>';
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/0').'/'.$value['customer_sell_id'].'">';
+//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
+													echo '</a>';												
 												}
 												echo '</div>';												
 											}
