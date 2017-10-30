@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					//Total Cost--------------------------------------------------
 					echo '<div class="Checkout-div">';
 					echo '<label>Total Cost (for all copies/units)</label>';					
-					echo '<br><label class="Sell-total-cost-label">&#x20B1;</label><input id="totalCost" type="text" class="Sell-total-cost-input" placeholder="50" name="totalCostParam" required>';
+					echo '<br><label class="Sell-total-cost-label">&#x20B1;</label><input id="totalCost" type="text" class="Sell-total-cost-input" placeholder="50" name="totalCostParam">';
 					echo '</div>';
 					//-----------------------------------------------------------
 																	

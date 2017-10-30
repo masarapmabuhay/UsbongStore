@@ -52,6 +52,11 @@ class Sell extends MY_Controller {
 			$data[$field] = $_POST[$field];
 		}
 		
+		 //added by Mike, 20171030
+		if ($data['totalCostParam']==0) {
+		  $data['totalCostParam']=50;
+		}
+		
 		$this->load->model('Sell_Model');
 		$data["is_success"] = $this->Sell_Model->insertSell($data, $customer_id);
 				

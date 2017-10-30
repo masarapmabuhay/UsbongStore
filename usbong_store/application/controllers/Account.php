@@ -430,7 +430,7 @@ class Account extends MY_Controller {
 				
 				$data['sell_summary'] = $this->Account_Model->getCustomerSellAdmin();
 				
-				//				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+//				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
 				
 				$this->load->view('account/sellsummaryadmin', $data);
 				
