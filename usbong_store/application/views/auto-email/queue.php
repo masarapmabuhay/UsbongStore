@@ -46,7 +46,7 @@ echo link_tag('assets/css/auto-email/queue.css');
             </div>
             <div class="form-group">
                 <label for="datetime">Target Kick</label>
-                <input type="datetime-local" class="form-control" name="start_datetime" value="<?php echo $default_datetime;?>" placeholder="<?php echo date('Y-m-d H:i:s'); ?>">
+                <input type="datetime" class="form-control" name="start_datetime" value="<?php echo $default_datetime;?>" placeholder="<?php echo date('Y-m-d H:i:s'); ?>">
             </div>
             <button name="create_button" type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Batch</button>
         </form>
