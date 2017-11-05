@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 -->
-	<h2 class="header">Order Summary (Admin)</h2>
+	<h2 class="header">Search History (Admin)</h2>
 	<br>
 	<div>
 		<div class="row">
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-sm-9">		
 				<?php 
-					if (count($order_summary)==0) {
+					if (count($search_history)==0) {
 						echo '<div class="Order-Summary-noResult">';
 						echo 'No customer has made any orders yet.';
 						echo '</div>';
@@ -41,98 +41,104 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-sm-2 Order-summary">		
 										<b>Date</b>
 									</div>
-									<div class="col-sm-2 Order-summary">		
-										<b>Order #</b>
+									<div class="col-sm-4 Order-summary">		
+										<b>Searched Item</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b># of Items</b>
+										<b>Customer Email</b>
 									</div>
-									<div class="col-sm-2 Order-summary">		
-										<b>Status</b>
-									</div>
-									<div class="col-sm-2 Order-summary">		
-										<b>Price</b>
-									</div>
+<!-- 
 									<div class="col-sm-2 Order-summary">		
 										<b>Fulfilled?</b>
 									</div>
+-->									
 								</div>
 								<?php 
 									$counter=0;
-									foreach ($order_summary as $value) {
+									foreach ($search_history as $value) {
 										echo '<div class="row">';
 											if ($counter!=0) {
 												echo '<div class="col-sm-2 Order-summary-alternate">';
 												echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
 												echo '</div>';
 												
-												echo '<div class="col-sm-2 Order-summary-alternate">';
-			//									echo strtotime($value['added_datetime_stamp']);
-												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
-												$timestamp = $date->format('U');
-//												echo $timestamp;
-												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
+												echo '<div class="col-sm-4 Order-summary-alternate">';
+												echo $value['searched_item'];
 												echo '</div>';
 												
-												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['quantity'];
-												echo '</div>';
-												
-												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo "Accepted";
-												echo '</div>';
-												
-												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
-												
-												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
-												echo '</div>';
-												
-												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												if ($value['fulfilled_status']==0) {
-													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+												echo '<div class="col-sm-2 Order-summary-alternate">';												
+												if ($value['customer_id']!=-1) {
+													echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
+													if (strlen($value['customer_email_address'])>14) {
+														$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
+														echo $trimmedName;
+													}
+													else {
+														echo $value['customer_email_address'];
+													}
+													echo '</a>';
 												}
 												else {
-													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';												
+													echo 'N/A';												
 												}												
 												echo '</div>';
-												
+/*												
+												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+												if ($value['fulfilled_status']==0) {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/1').'/'.$value['customer_request_id'].'">';
+													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+													echo '</a>';
+												}
+												else {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/0').'/'.$value['customer_request_id'].'">';
+													//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
+													echo '</a>';
+												}
+												echo '</div>';																								
+*/												
 											}
 											else {
 												echo '<div class="col-sm-2 Order-summary">';
 												echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
 												echo '</div>';
 												
-												echo '<div class="col-sm-2 Order-summary">';
-			//									echo strtotime($value['added_datetime_stamp']);
-												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
-												$timestamp = $date->format('U');
-//												echo $timestamp;
-												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';											
+												echo '<div class="col-sm-4 Order-summary">';
+												echo $value['searched_item'];
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['quantity'];
-												echo '</div>';
-												
-												echo '<div class="col-sm-2 Order-summary">';
-												echo "Accepted";
-												echo '</div>';
-												
-												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
-												
-												echo '<div class="col-sm-2 Order-summary">';											
-												echo '<span class="Order-summary-order-total">&#x20B1;'.$orderTotal.'</span>';
-												echo '</div>';			
-												
-												echo '<div class="col-sm-2 Order-summary">';
-												if ($value['fulfilled_status']==0) {
-													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+												if ($value['customer_id']!=-1) {													
+													echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
+													if (strlen($value['customer_email_address'])>14) {
+														$trimmedName = trim(substr($value['customer_email_address'],0,14))."...";
+														echo $trimmedName;
+													}
+													else {
+														echo $value['customer_email_address'];
+													}
+													echo '</a>';
 												}
 												else {
-													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo 'N/A';
 												}
-												echo '</div>';												
+												echo '</div>';
+																								
+/*																				
+												echo '<div class="col-sm-2 Order-summary">';
+												if ($value['fulfilled_status']==0) {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/1').'/'.$value['customer_request_id'].'">';
+													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+													echo '</a>';
+												}
+												else {
+													echo '<a class="Order-details-order-number-link" href="'.site_url('account/requestsummaryadmin/0').'/'.$value['customer_request_id'].'">';
+													//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
+													echo '</a>';
+												}
+												echo '</div>';	
+*/												
 											}
 											
 											$counter=($counter+1)%2;

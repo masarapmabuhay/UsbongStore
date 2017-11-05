@@ -70,6 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  			echo '<li><a href = "'.site_url('account/carthistoryadmin/').'">Cart History (Admin)</a></li>'; //added by Mike, 20171009								  			
 								  			echo '<li><a href = "'.site_url('account/requestsummaryadmin/').'">Requests (Admin)</a></li>'; //added by Mike, 20171026
 								  			echo '<li><a href = "'.site_url('account/sellsummaryadmin/').'">Sell (Admin)</a></li>'; //added by Mike, 20171030								  		
+								  			echo '<li><a href = "'.site_url('account/searchhistoryadmin/').'">Search (Admin)</a></li>'; //added by Mike, 20171105								  											  			
 								  		}
 								  		else {
 								  			echo '<li><a href = "'.site_url('account/ordersummarymerchant/').'">Order Summary (Merchant Admin)</a></li>';								  		

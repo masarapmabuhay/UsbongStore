@@ -205,6 +205,43 @@ class Account extends MY_Controller {
 				$this->load->view('templates/footer');
 	}
 	
+	//added by Mike, 20171105
+	public function searchhistoryadmin() {
+		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
+		
+		if ((!isset($customer_id)) ||
+				//			($customer_id!="12")) {
+				($is_admin!="1")) {
+					redirect('account/login'); //home page
+				}
+				
+				//from application/core/MY_Controller
+				$this::initStyle();
+				$this::initHeader();
+				//--------------------------------------------
+				
+				$this->load->model('Account_Model');
+				/*
+				 $fulfilled_status = $this->uri->segment(3);
+				 if ($fulfilled_status!==null) {
+				 date_default_timezone_set('Asia/Hong_Kong');
+				 $addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(4));
+				 $productCustomerId = $this->uri->segment(5);
+				 
+				 $this->Account_Model->updateCustomerOrderAdmin($fulfilled_status, $addedDateTimeStamp, $productCustomerId);
+				 }
+				 */
+				$data['search_history'] = $this->Account_Model->getSearchHistoryAdmin();
+				
+				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+				
+				$this->load->view('account/searchhistoryadmin', $data);
+				
+				//--------------------------------------------
+				$this->load->view('templates/footer');
+	}
+	
 	//added by Mike, 20171010
 	public function customerdetailsadmin() {
 		$customer_id = $this->session->userdata('customer_id');
