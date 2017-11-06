@@ -20,6 +20,15 @@ class Administer extends MY_Controller {
     //------------------------//
 
     public function index($page = NULL) {
+    	$customer_id = $this->session->userdata('customer_id');
+    	$is_admin = $this->session->userdata('is_admin');
+    	
+    	if ((!isset($customer_id)) ||
+    			//			($customer_id!="12")) {
+    			($is_admin!="1")) {
+    				redirect('account/login'); //home page
+    			}
+    			
         // load header
         $this::initStyle();
         $this::initHeader();
