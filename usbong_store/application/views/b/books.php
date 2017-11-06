@@ -18,7 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	?>
 		<div class="row">
-		<?php 				
+		<?php 			
+			//added by Mike, 20171106
+			$customer_id = $this->session->userdata('customer_id');
+			$merchant_id = $this->session->userdata('merchant_id');
+		
 			if (isset($categories)) {						
 				//added by Mike, 20170903
 				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($categories)['product_type_name'])); //remove ":" and "'"
@@ -43,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo '</div>';
 				
 				echo '<div class="col-sm-9 Merchant-products">';						
-			}					
+			}											
 
 			$colCounter = 0;
 			foreach ($books as $value) {
@@ -94,14 +98,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
 						}
 						
-						echo '</label>';					
+//						echo '</label>';					
 					}
 					else {
 						echo '<br><label class="Product-item-price">out of stock</label>';					
-						echo '</label>';
+//						echo '</label>';
 					}			
-					echo '</a>';
-					echo '</div>';
+										
+					//added by Mike, 20171106
+					if ((isset($customer_id)) ||
+						($merchant_id!="0")) {
+							echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+					}
+					
+					echo '</label>';
+					echo '</a>';					
+					echo '</div>';																	
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
@@ -134,14 +146,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
 						}
 												
-						echo '</label>';
+//						echo '</label>';
 					}
 					else {
 						echo '<br><label class="Product-item-price">out of stock</label>';
-						echo '</label>';
+//						echo '</label>';
+					}					
+									
+//					echo '</a>';									
+				
+					//added by Mike, 20171106
+					if ((isset($customer_id)) ||
+					($merchant_id!="0")) {
+						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
 					}
-					echo '</a>';
-					echo '</div>';
+					
+					echo '</label>';
+					echo '</a>';				
+					echo '</div>';													
+					
 					$colCounter++;
 					
 					if ($colCounter==5) {

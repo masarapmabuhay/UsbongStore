@@ -1422,6 +1422,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 		
+	.Product-item-view-num {
+		color: #77b043;
+	}
+		
 	.Cart-product-image {
 	    max-width: 160%;
     	height: auto;
