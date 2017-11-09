@@ -19,9 +19,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	?>
 		<div class="row">
 		<?php 			
-			//added by Mike, 20171106
+			//added by Mike, 20171109
 			$customer_id = $this->session->userdata('customer_id');
-			$merchant_id = $this->session->userdata('merchant_id');
+//			$merchant_id = $this->session->userdata('merchant_id');
+			$is_admin = $this->session->userdata('is_admin');
+
 		
 			if (isset($categories)) {						
 				//added by Mike, 20170903
@@ -105,9 +107,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //						echo '</label>';
 					}			
 										
-					//added by Mike, 20171106
-					if ((isset($customer_id)) ||
-						($merchant_id!="0")) {
+					//edited by Mike, 20171109
+					if (($customer_id!="-1") &&
+						($is_admin=="1")) {
 							echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
 					}
 					
@@ -155,9 +157,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									
 //					echo '</a>';									
 				
-					//added by Mike, 20171106
-					if ((isset($customer_id)) ||
-					($merchant_id!="0")) {
+					//edited by Mike, 20171109
+					if (($customer_id!="-1") &&
+						($is_admin=="1")) {
 						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
 					}
 					
