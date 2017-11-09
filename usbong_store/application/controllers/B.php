@@ -234,16 +234,22 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Books_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['books'] = $this->Books_Model->getBooks($merchant_id);
 			
-			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['books'] = $this->Books_Model->getBooks(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');		
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
+		
+		
 /*		
 		$this->load->model('Books_Model');
 		$data['books'] = $this->Books_Model->getBooks();

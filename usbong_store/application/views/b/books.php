@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php 			
 			//added by Mike, 20171109
 			$customer_id = $this->session->userdata('customer_id');
-//			$merchant_id = $this->session->userdata('merchant_id');
+			$merchant_id = $this->session->userdata('merchant_id');
 			$is_admin = $this->session->userdata('is_admin');
 
 		
@@ -106,11 +106,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<br><label class="Product-item-price">out of stock</label>';					
 //						echo '</label>';
 					}			
-										
+															
 					//edited by Mike, 20171109
 					if (($customer_id!="-1") &&
 						($is_admin=="1")) {
 							echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+					}
+					else {												
+						//added by Mike, 20171109
+						foreach ($merchant_customer_categories as $v) {
+							if ($v['product_type_name']=='Books') {
+								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';								
+							}								
+						}
 					}
 					
 					echo '</label>';
@@ -159,10 +167,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 					//edited by Mike, 20171109
 					if (($customer_id!="-1") &&
+					($is_admin=="1")) {
+						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+					}
+					else {
+						//added by Mike, 20171109
+						foreach ($merchant_customer_categories as $v) {
+							if ($v['product_type_name']=='Books') {
+								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+							}
+						}
+					}
+					
+/*					
+					//edited by Mike, 20171109
+					if (($customer_id!="-1") &&
 						($is_admin=="1")) {
 						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
 					}
-					
+*/					
 					echo '</label>';
 					echo '</a>';				
 					echo '</div>';													
