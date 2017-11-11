@@ -317,6 +317,8 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Childrens_Model');		
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['childrens'] = $this->Childrens_Model->getChildrens($merchant_id);
 
@@ -327,6 +329,9 @@ class B extends MY_Controller {
 		else {
 			$data['childrens'] = $this->Childrens_Model->getChildrens(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
 		//		$this->load->view('templates/general_template',$data);
 		$this->load->view('b/childrens',$data);

@@ -174,6 +174,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							}
 						}
 					}
+										
 					echo '</label>';
 					echo '</a>';
 					echo '</div>';
