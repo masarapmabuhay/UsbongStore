@@ -322,7 +322,7 @@ class B extends MY_Controller {
 		if (isset($merchant_id)) {
 			$data['childrens'] = $this->Childrens_Model->getChildrens($merchant_id);
 
-			$this->load->model('W_Model');		
+//			$this->load->model('W_Model');		
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);		
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);			
 		}
@@ -355,16 +355,21 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Promos_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['promos'] = $this->Promos_Model->getPromos($merchant_id);
 			
-			$this->load->model('W_Model');
+//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['promos'] = $this->Promos_Model->getPromos(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);		
 		
 //		$data['content'] = 'category/Combos';
 /*		$this->load->model('Promos_Model');
@@ -392,16 +397,22 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Beverages_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['beverages'] = $this->Beverages_Model->getBeverages($merchant_id);
 			
-			$this->load->model('W_Model');
+//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['beverages'] = $this->Beverages_Model->getBeverages(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
+		
 /*		
 		$this->load->model('Beverages_Model');
 		$data['beverages'] = $this->Beverages_Model->getBeverages();
@@ -538,6 +549,8 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Food_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['food'] = $this->Food_Model->getFood($merchant_id);
 			
@@ -548,6 +561,9 @@ class B extends MY_Controller {
 		else {
 			$data['food'] = $this->Food_Model->getFood(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);		
 		
 		/*
 		 $this->load->model('Toys_and_Collectibles_Model');
