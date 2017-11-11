@@ -18,7 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	?>
 		<div class="row">
-		<?php 				
+		<?php 			
+			//added by Mike, 20171109
+			$customer_id = $this->session->userdata('customer_id');
+			$merchant_id = $this->session->userdata('merchant_id');
+			$is_admin = $this->session->userdata('is_admin');
+		
 			if (isset($categories)) {						
 				//added by Mike, 20170903
 				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($categories)['product_type_name'])); //remove ":" and "'"
@@ -87,14 +92,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
 						}
 						
-						echo '</label>';					
+//						echo '</label>';					
 					}
 					else {
 						echo '<br><label class="Product-item-price">out of stock</label>';					
-						echo '</label>';
+//						echo '</label>';
 					}			
+					
+					//edited by Mike, 20171109
+					if (($customer_id!="-1") &&
+					($is_admin=="1")) {
+						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+					}
+					else {
+						//added by Mike, 20171109
+						foreach ($merchant_customer_categories as $v) {
+							if ($v['product_type_name']=='Books') {
+								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+							}
+						}
+					}
+					
+					echo '</label>';
 					echo '</a>';
-					echo '</div>';
+					echo '</div>';			
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
@@ -120,14 +141,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
 						}
 						
-						echo '</label>';
+//						echo '</label>';
 					}
 					else {
 						echo '<br><label class="Product-item-price">out of stock</label>';
-						echo '</label>';
+//						echo '</label>';
 					}
+					
+					//edited by Mike, 20171109
+					if (($customer_id!="-1") &&
+					($is_admin=="1")) {
+						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+					}
+					else {
+						//added by Mike, 20171109
+						foreach ($merchant_customer_categories as $v) {
+							if ($v['product_type_name']=='Books') {
+								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+							}
+						}
+					}
+					
+					echo '</label>';
 					echo '</a>';
-					echo '</div>';
+					echo '</div>';			
 					$colCounter++;
 					
 					if ($colCounter==5) {

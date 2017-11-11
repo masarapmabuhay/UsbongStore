@@ -147,8 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<label class="Product-item-price">out of stock</label>';
 //						echo '</label>';
 					}
-					
-					
+										
 					//edited by Mike, 20171109
 					if (($customer_id!="-1") &&
 					($is_admin=="1")) {

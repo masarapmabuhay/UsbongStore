@@ -439,16 +439,22 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Comics_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['comics'] = $this->Comics_Model->getComics($merchant_id);
 			
-			$this->load->model('W_Model');
+//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['comics'] = $this->Comics_Model->getComics(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
+		
 /*		
 		$this->load->model('Comics_Model');
 		$data['comics'] = $this->Comics_Model->getComics();
@@ -475,16 +481,21 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Manga_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['manga'] = $this->Manga_Model->getManga($merchant_id);
 			
-			$this->load->model('W_Model');
+//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['manga'] = $this->Manga_Model->getManga(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
 /*		
 		$this->load->model('Manga_Model');
@@ -512,16 +523,21 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Toys_and_Collectibles_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles($merchant_id);
 			
-			$this->load->model('W_Model');
+//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
 /*		
 		$this->load->model('Toys_and_Collectibles_Model');
@@ -591,16 +607,21 @@ class B extends MY_Controller {
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Miscellaneous_Model');
+		$this->load->model('W_Model');
+		
 		if (isset($merchant_id)) {
 			$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneous($merchant_id);
 			
-			$this->load->model('W_Model');
+//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
 		else {
 			$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneous(null);
 		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
 		/*
 		 $this->load->model('Toys_and_Collectibles_Model');
