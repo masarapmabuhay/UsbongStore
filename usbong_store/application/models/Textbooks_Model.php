@@ -4,7 +4,7 @@ class Textbooks_Model extends CI_Model
 	public function getTextbooksOnly($merchant_id)
 	{
 		//		$this->db->join('account', 'stories.userid = account.id');
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num');
 		$this->db->where('product_type_id','9'); //9 is for type: textbooks
 		
 		if ($merchant_id!=null) {
@@ -20,7 +20,7 @@ class Textbooks_Model extends CI_Model
 	public function getTextbooks($merchant_id)
 	{
 //		$this->db->join('account', 'stories.userid = account.id');
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num');
 		$this->db->where('product_type_id','9'); //9 is for type: textbooks		
 		
 		if ($merchant_id!=null) {

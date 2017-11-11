@@ -178,14 +178,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							}
 						}
 					}
-					
-/*					
-					//edited by Mike, 20171109
-					if (($customer_id!="-1") &&
-						($is_admin=="1")) {
-						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
-					}
-*/					
 					echo '</label>';
 					echo '</a>';				
 					echo '</div>';													
