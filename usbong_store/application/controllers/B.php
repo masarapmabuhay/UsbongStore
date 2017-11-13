@@ -224,12 +224,12 @@ class B extends MY_Controller {
 	public function books()
 	{					
 		//from application/core/MY_Controller
-		$this::initStyle();
+		$this::initStyle();		
 		$this::initHeader();
 		//--------------------------------------------
 		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
-		
+
 //		$data['content'] = 'category/Books';
 		$merchant_id = $this->uri->segment(3);
 		
