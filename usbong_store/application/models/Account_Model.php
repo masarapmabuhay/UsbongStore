@@ -3,11 +3,16 @@ class Account_Model extends CI_Model
 {
 	public function registerAccount($param)
 	{		
+		//added by Mike, 20171114
+		date_default_timezone_set('Asia/Hong_Kong');
+		$loggedInDateTimeStamp = (new DateTime())->format('Y-m-d H:i:s'); //date('Y-m-d H:i:s');
+				
 		$data = array(
 				'customer_first_name' => $param['firstNameParam'],
 				'customer_last_name' => $param['lastNameParam'],
 				'customer_email_address' => $param['emailAddressParam'],
-				'customer_password' => password_hash($param['passwordParam'], PASSWORD_DEFAULT)
+				'customer_password' => password_hash($param['passwordParam'], PASSWORD_DEFAULT),
+				'last_logged_in_datetime_stamp' => $loggedInDateTimeStamp								
 		);
 				
 		$this->db->insert('customer', $data);
@@ -34,6 +39,20 @@ class Account_Model extends CI_Model
 		if ($row!==null) {
 			if (password_verify($param['passwordParam'], 
 					$row->customer_password)) {
+
+				//--------------------------------------------------------------						
+				//added by Mike, 20171114
+				date_default_timezone_set('Asia/Hong_Kong');
+				$loggedInDateTimeStamp = (new DateTime())->format('Y-m-d H:i:s'); //date('Y-m-d H:i:s');
+						
+				$updateData = array(
+						'last_logged_in_datetime_stamp' => $loggedInDateTimeStamp
+				);
+				
+				$this->db->where('customer_id', $row->customer_id);
+				$this->db->update('customer', $updateData);		
+				//--------------------------------------------------------------
+				
 				return $row;//->customer_first_name;//"true";
 			}
 		}

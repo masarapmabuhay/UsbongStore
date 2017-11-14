@@ -194,7 +194,14 @@ class B extends MY_Controller {
 			//--------------------------------------------
 										
 			$this->load->model('Books_Model');
+			$this->load->model('W_Model');
+
 			$data['books'] = $this->Books_Model->getBooks(null);
+
+			//added by Mike, 20171114
+			$customer_id = $this->session->userdata('customer_id');		
+			$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);		
+
 			$this->load->view('b/books',$data);			
 
 			//--------------------------------------------

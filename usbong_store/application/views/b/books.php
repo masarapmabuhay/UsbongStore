@@ -113,11 +113,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
 					}
 					else {												
-						//added by Mike, 20171109
-						foreach ($merchant_customer_categories as $v) {
-							if ($v['product_type_name']=='Books') {
-								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';								
-							}								
+						//edited by Mike, 20171114
+						if (isset($merchant_customer_categories)) {
+							foreach ($merchant_customer_categories as $v) {
+								if ($v['product_type_name']=='Books') {
+									echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+								}
+							}							
 						}
 					}
 					
