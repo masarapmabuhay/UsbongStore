@@ -59,6 +59,23 @@ class Account_Model extends CI_Model
 		return null;//"false";
 	}	
 
+	//added by Mike, 20171114
+	public function logoutAccount($customerId)
+	{
+		//--------------------------------------------------------------
+		//added by Mike, 20171114
+		date_default_timezone_set('Asia/Hong_Kong');
+		$loggedOutDateTimeStamp = (new DateTime())->format('Y-m-d H:i:s'); //date('Y-m-d H:i:s');
+		
+		$updateData = array(
+				'last_logged_out_datetime_stamp' => $loggedOutDateTimeStamp
+		);
+		
+		$this->db->where('customer_id', $customerId);
+		$this->db->update('customer', $updateData);
+		//--------------------------------------------------------------				
+	}
+	
 	public function getCustomerInformation($customerId) {
 		$this->db->select('customer_id, customer_email_address, customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id, is_admin, merchant_id');
 		$this->db->where('customer_id', $customerId);		

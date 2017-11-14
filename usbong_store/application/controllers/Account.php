@@ -476,6 +476,13 @@ class Account extends MY_Controller {
 	}
 	
 	public function logout() {
+		//added by Mike, 20171114
+		$customer_id = $this->session->userdata('customer_id');
+		
+		$this->load->model('Account_Model');		
+		$this->Account_Model->logoutAccount($customer_id);
+		
+		
 		session_destroy();
 		
 		redirect(''); //home page		
