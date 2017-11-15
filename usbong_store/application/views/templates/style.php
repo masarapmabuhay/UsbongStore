@@ -2313,6 +2313,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Button-login:hover {
 		background-color: #d4be00;
 	}
+	
+	.Button-save-password {
+	    font-size: 16px;    			
+	    display: inline-block; 	    
+		background-color: #ffe400;
+		padding: 4px 15px 4px 15px;
+		background-color: #ffe400;
+		color: #222222;
+		border: 0px solid;		
+		border-radius: 4px;
+		margin-top: 10px;
+	}
+	
+	.Button-save-password:hover {
+		background-color: #d4be00;
+	}
+		
 
 	.forgotPassword-div {
 	    font-size: 14px;    			

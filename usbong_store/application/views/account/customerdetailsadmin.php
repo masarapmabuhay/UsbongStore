@@ -234,6 +234,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										echo $result->customer_country.'<br>';									
 									?>
 								</div>
+
+								<div class="Order-details-shipping-address">
+									<h3><b>Customer</b></h3>	
+									<form method="post" action="<?php /*echo site_url('account/savepassword')*/?>">																
+									<?php 
+										$validation_errors="";
+										if ($this->session->flashdata('errors')) {
+											$validation_errors = $this->session->flashdata('errors');
+										}
+										
+										$data=[];
+										if ($this->session->flashdata('data')) {
+											$data = $this->session->flashdata('data');
+										}									
+									
+										if (isset($data['newPasswordParam'])) {
+											echo '<input type="password" class="" placeholder="New Password" name="newPasswordParam" value="'.$data['newPasswordParam'].'" required>';
+										}
+										else { //default
+											echo '<input type="password" class="" placeholder="New Password" name="newPasswordParam" required>';
+										}																		
+										
+										//Confirm New Password--------------------------------------------------
+										//Error Message
+										if (strpos($validation_errors, "The Confirm New Password field does not match the New Password field.") !== false) {
+											echo '<div class="Update-error">The Confirm New Password field does not match the New Password field.</div>';
+										}
+										
+										if (isset($data['confirmNewPasswordParam'])) {
+											echo '<input type="password" class="" placeholder="Confirm Password" name="confirmNewPasswordParam" value="'.$data['confirmNewPasswordParam'].'" required>';
+										}
+										else { //default
+											echo '<input type="password" class="" placeholder="Confirm Password" name="confirmNewPasswordParam" required>';
+										}										
+									?>
+									<button type="submit" class="Button-save-password">
+					 				Save
+									</button>
+								</form>									
+								</div>
 						</div>
 					</div>
 					</div>
