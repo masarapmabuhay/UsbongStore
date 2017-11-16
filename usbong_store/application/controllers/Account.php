@@ -242,8 +242,13 @@ class Account extends MY_Controller {
 				$this->load->view('templates/footer');
 	}
 	
-	//added by Mike, 20171010
+	//added by Mike, 20171116
 	public function customerdetailsadmin() {
+		$this->customerdetailsadminWith(null);
+	}
+	
+	//added by Mike, 20171010
+	public function customerdetailsadminWith($param) {
 		$customer_id = $this->session->userdata('customer_id');
 		$is_admin = $this->session->userdata('is_admin');
 		
@@ -278,6 +283,9 @@ class Account extends MY_Controller {
 				
 				$data['result'] = $this->Account_Model->getCustomerInformation($customerBuyerId);
 				
+				//added by Mike, 20171116
+				$data['is_update_password_successful'] = $param;				
+								
 				$this->load->view('account/customerdetailsadmin', $data);
 				
 				//--------------------------------------------
@@ -709,6 +717,44 @@ class Account extends MY_Controller {
 				$this->Account_Model->updateAccountPassword($customer_id, $data);				
 				$this->updatepasswordWith("success");				
 			}			
+		}
+	}	
+	
+	//added by Mike, 20171116
+	public function savecustomerpassword()
+	{
+		//$customer_id = $this->session->userdata('customer_id');
+		
+		$customerBuyerId= $this->uri->segment(3);
+		
+		
+		$this->form_validation->set_rules('newPasswordParam', 'New Password', 'trim|required');
+		$this->form_validation->set_rules('confirmNewPasswordParam', 'Confirm New Password', 'trim|required|matches[newPasswordParam]');
+		
+		$fields = array('newPasswordParam', 'confirmNewPasswordParam');
+		
+		foreach ($fields as $field)
+		{
+			$data[$field] = $_POST[$field];
+		}
+		
+//		$data['customerId'] = $customer_id;
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('errors', validation_errors());
+			$this->session->set_flashdata('data', $data);
+			
+//			$this->updatepassword();			
+			$this->customerdetailsadmin();			
+		}
+		else
+		{
+			$this->load->model('Account_Model');
+			
+			$this->Account_Model->updateAccountPassword($customerBuyerId, $data);
+//				$this->updatepasswordWith("success");
+			$this->customerdetailsadminWith("success");				
 		}
 	}	
 }

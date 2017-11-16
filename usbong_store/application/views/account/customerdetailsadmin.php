@@ -237,7 +237,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="Order-details-shipping-address">
 									<h3><b>Customer</b></h3>	
-									<form method="post" action="<?php /*echo site_url('account/savepassword')*/?>">																
+									<form method="post" action="<?php echo site_url('account/savecustomerpassword/'.$this->uri->segment(3));?>">
 									<?php 
 										$validation_errors="";
 										if ($this->session->flashdata('errors')) {
@@ -248,6 +248,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										if ($this->session->flashdata('data')) {
 											$data = $this->session->flashdata('data');
 										}									
+										
+										if (isset($is_update_password_successful)) {
+											echo '<div class="Update-success">Update Successful.</div>';
+										}										
 									
 										if (isset($data['newPasswordParam'])) {
 											echo '<input type="password" class="" placeholder="New Password" name="newPasswordParam" value="'.$data['newPasswordParam'].'" required>';
@@ -267,7 +271,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										}
 										else { //default
 											echo '<input type="password" class="" placeholder="Confirm Password" name="confirmNewPasswordParam" required>';
-										}										
+										}				
+										
+										//reset the session values to null
+										$this->session->set_flashdata('errors', null);
+										$this->session->set_flashdata('data', null); //added by Mike, 20170619										
 									?>
 									<button type="submit" class="Button-save-password">
 					 				Save
