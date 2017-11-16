@@ -38,14 +38,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h3>Customer List (from newest)</h3>
 							<div>
 								<div class="row">
-									<div class="col-sm-2 Order-summary">		
+									<div class="col-sm-3 Order-summary">		
 										<b>Email Address</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Is Admin?</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Is Merchant?</b>
+										<b>Merchant Name</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Logged In</b>
@@ -59,13 +59,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									foreach ($customer_summary as $value) {
 										echo '<div class="row">';
 											if ($counter!=0) {
-												echo '<div class="col-sm-2 Order-summary-alternate">';
+												echo '<div class="col-sm-3 Order-summary-alternate">';
 												if (isset($value['customer_email_address'])) {
 //													echo $value['customer_email_address'];		
 													echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">'.$value['customer_email_address'].'</a></u>';
 												}
 												else {
-													echo 'N/A';												
+													echo 'n/a';												
 												}
 												echo '</div>';
 												
@@ -80,7 +80,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['merchant_id'];
+												
+												$trimmedName = "";
+												if (strlen($value['merchant_name'])>10) {
+													$trimmedName = trim(substr($value['merchant_name'],0,10))."...";
+													echo $trimmedName;
+												}
+												else {
+													echo $value['merchant_name'];
+												}
+																								
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -88,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo date_format(date_create($value['last_logged_in_datetime_stamp']),'m/d/Y');												
 												}
 												else {
-													echo 'N/A';
+													echo 'n/a';
 												}
 												echo '</div>';				
 												
@@ -97,18 +106,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo date_format(date_create($value['last_logged_out_datetime_stamp']),'m/d/Y');
 												}
 												else {
-													echo 'N/A';
+													echo 'n/a';
 												}
 												echo '</div>';												
 											}
 											else {
-												echo '<div class="col-sm-2 Order-summary">';
+												echo '<div class="col-sm-3 Order-summary">';
 												if (isset($value['customer_email_address'])) {
 //													echo $value['customer_email_address'];
 													echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">'.$value['customer_email_address'].'</a></u>';												
 												}
 												else {
-													echo 'N/A';
+													echo 'n/a';
 												}
 												echo '</div>';
 												
@@ -123,7 +132,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['merchant_id'];
+												$trimmedName = "";
+												if (strlen($value['merchant_name'])>10) {
+													$trimmedName = trim(substr($value['merchant_name'],0,10))."...";
+													echo $trimmedName;
+												}
+												else {
+													echo $value['merchant_name'];
+												}												
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
@@ -131,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo date_format(date_create($value['last_logged_in_datetime_stamp']),'m/d/Y');
 												}
 												else {
-													echo 'N/A';
+													echo 'n/a';
 												}
 												echo '</div>';
 												
@@ -140,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo date_format(date_create($value['last_logged_out_datetime_stamp']),'m/d/Y');
 												}
 												else {
-													echo 'N/A';
+													echo 'n/a';
 												}
 												echo '</div>';															
 											}

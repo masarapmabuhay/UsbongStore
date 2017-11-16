@@ -153,9 +153,12 @@ class Account_Model extends CI_Model
 	
 	//added by Mike, 20171116
 	public function getCustomerSummaryAdmin() {
-		$this->db->select('customer_id, customer_email_address, is_admin, merchant_id, last_logged_in_datetime_stamp, last_logged_out_datetime_stamp');
-		$this->db->order_by('customer_id', 'DESC');
-		$query = $this->db->get('customer');
+		$this->db->select('t1.customer_id, t1.customer_email_address, t1.is_admin, t1.merchant_id, t1.last_logged_in_datetime_stamp, t1.last_logged_out_datetime_stamp, t2.merchant_name');
+		$this->db->from('customer as t1');
+		$this->db->join('merchant as t2', 't1.merchant_id = t2.merchant_id', 'LEFT');
+		$this->db->order_by('t1.customer_id', 'DESC');
+		$query = $this->db->get();
+		
 		return $query->result_array();
 	}
 	
