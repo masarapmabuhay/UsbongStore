@@ -70,7 +70,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['is_admin'];
+												if ($value['is_admin']=='0') {
+													echo 'No';
+												}
+												else {
+													echo 'Yes';
+												}
+//												echo $value['is_admin'];
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
@@ -107,7 +113,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['is_admin'];
+												if ($value['is_admin']=='0') {
+													echo 'No';
+												}
+												else {
+													echo 'Yes';
+												}
+//												echo $value['is_admin'];
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
