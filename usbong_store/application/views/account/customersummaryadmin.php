@@ -61,7 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											if ($counter!=0) {
 												echo '<div class="col-sm-2 Order-summary-alternate">';
 												if (isset($value['customer_email_address'])) {
-													echo $value['customer_email_address'];													
+//													echo $value['customer_email_address'];		
+													echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">'.$value['customer_email_address'].'</a></u>';
 												}
 												else {
 													echo 'N/A';												
@@ -97,7 +98,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											else {
 												echo '<div class="col-sm-2 Order-summary">';
 												if (isset($value['customer_email_address'])) {
-													echo $value['customer_email_address'];
+//													echo $value['customer_email_address'];
+													echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">'.$value['customer_email_address'].'</a></u>';												
 												}
 												else {
 													echo 'N/A';
