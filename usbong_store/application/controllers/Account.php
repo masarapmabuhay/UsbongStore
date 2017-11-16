@@ -168,6 +168,34 @@ class Account extends MY_Controller {
 				$this->load->view('templates/footer');
 	}
 	
+	//added by Mike, 20171116
+	public function customersummaryadmin() {
+		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
+		
+		if ((!isset($customer_id)) ||
+		//			($customer_id!="12")) {
+				($is_admin!="1")) {
+					redirect('account/login'); //home page
+				}
+				
+				//from application/core/MY_Controller
+				$this::initStyle();
+				$this::initHeader();
+				//--------------------------------------------
+				
+				$this->load->model('Account_Model');
+				
+				$data['customer_summary'] = $this->Account_Model->getCustomerSummaryAdmin();
+				
+				$data['customer_email_address'] = $this->Account_Model->getCustomerEmailAddress($customer_id)->customer_email_address;
+				
+				$this->load->view('account/customersummaryadmin', $data);
+				
+				//--------------------------------------------
+				$this->load->view('templates/footer');
+	}
+		
 	//added by Mike, 20171009
 	public function carthistoryadmin() {
 		$customer_id = $this->session->userdata('customer_id');

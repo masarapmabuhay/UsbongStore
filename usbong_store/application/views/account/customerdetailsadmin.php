@@ -236,7 +236,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 
 								<div class="Order-details-shipping-address">
-									<h3><b>Customer</b></h3>	
+									<h3><b>Customer:</b></h3>	
 									<form method="post" action="<?php echo site_url('account/savecustomerpassword/'.$this->uri->segment(3));?>">
 									<?php 
 										$validation_errors="";

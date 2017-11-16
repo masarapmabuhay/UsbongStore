@@ -151,6 +151,14 @@ class Account_Model extends CI_Model
 		return $query->result_array();
 	}
 	
+	//added by Mike, 20171116
+	public function getCustomerSummaryAdmin() {
+		$this->db->select('customer_id, customer_email_address, is_admin, merchant_id, last_logged_in_datetime_stamp, last_logged_out_datetime_stamp');
+		$this->db->order_by('customer_id', 'DESC');
+		$query = $this->db->get('customer');
+		return $query->result_array();
+	}
+	
 	//added by Mike, 20171009
 	public function getCartHistoryAdmin() {
 		$this->db->select('t1.added_datetime_stamp, t1.purchased_datetime_stamp, t1.product_id, t2.name, t2.author, t1.quantity, t1.price, t3.customer_email_address, t3.customer_id');
