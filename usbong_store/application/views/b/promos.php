@@ -104,12 +104,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if (($customer_id!="-1") &&
 					($is_admin=="1")) {
 						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+						echo '<br><label class="Product-item-view-num">Qty Sold: '.$value['quantity_sold'].'</label>';						
 					}
 					else {
 						//added by Mike, 20171109
 						foreach ($merchant_customer_categories as $v) {
-							if ($v['product_type_name']=='Books') {
+							if ($v['product_type_name']=='Promos') {
 								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+								echo '<br><label class="Product-item-view-num">Qty Sold: '.$value['quantity_sold'].'</label>';								
 							}
 						}
 					}
@@ -153,12 +155,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if (($customer_id!="-1") &&
 					($is_admin=="1")) {
 						echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+						echo '<br><label class="Product-item-view-num">Qty Sold: '.$value['quantity_sold'].'</label>';						
 					}
 					else {
 						//added by Mike, 20171109
 						foreach ($merchant_customer_categories as $v) {
-							if ($v['product_type_name']=='Books') {
+							if ($v['product_type_name']=='Promos') {
 								echo '<br><label class="Product-item-view-num">View Num: '.$value['product_view_num'].'</label>';
+								echo '<br><label class="Product-item-view-num">Qty Sold: '.$value['quantity_sold'].'</label>';								
 							}
 						}
 					}

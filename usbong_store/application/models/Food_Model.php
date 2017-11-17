@@ -3,7 +3,7 @@ class Food_Model extends CI_Model
 {
 	public function getFoodOnly($merchant_id)
 	{
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
 		$this->db->where('product_type_id','11'); //11 is for type: food
 		
 		if ($merchant_id!=null) {
@@ -18,7 +18,7 @@ class Food_Model extends CI_Model
 	
 	public function getFood($merchant_id)
 	{
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
 		$this->db->where('product_type_id','11'); //11 is for type: food
 		
 		if ($merchant_id!=null) {
