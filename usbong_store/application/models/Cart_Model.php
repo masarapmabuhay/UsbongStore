@@ -85,7 +85,16 @@ class Cart_Model extends CI_Model
 		$this->db->where('purchased_datetime_stamp', 0);
 		$this->db->where('removed_datetime_stamp', 0);
 		
-		$this->db->update('cart', $updateData); 
+		$this->db->update('cart', $updateData); 				
+	}
+	
+	//added by Mike, 20171117
+	public function updateProductQuantity($param) {
+		$updateData = array(
+				'quantity_sold' => $param['quantity']
+		);
+		$this->db->where('product_id', $param['product_id']);
+		$this->db->update('product', $updateData);
 	}
 	
 	//edited by Mike, 20170916

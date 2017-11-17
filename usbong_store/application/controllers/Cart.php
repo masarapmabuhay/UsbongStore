@@ -191,10 +191,16 @@ class Cart extends MY_Controller {
 */		
 		$orderTotalPrice = 0;
 		$totalQuantity = 0;
-		
+
+		//added by Mike, 20171117
+		$this->load->model('Cart_Model');		
+
 		foreach ($result as $value) {
 			$orderTotalPrice+=$value['quantity']*$value['price'];
 			$totalQuantity+=$value['quantity'];
+
+			//added by Mike, 20171117			
+			$this->Cart_Model->updateProductQuantity($value);			
 		}
 		
 		//edited by Mike, 20170915
@@ -313,7 +319,6 @@ class Cart extends MY_Controller {
 //			$data = $this->processCustomerOrder($data['result'], $customer_id);
 			$data = $this->processCustomerOrder($data['result'], $customer_id);
 			
-						
 			$this->load->model('Cart_Model');			
 			$this->Cart_Model->checkoutCustomerOrder($data);
 
