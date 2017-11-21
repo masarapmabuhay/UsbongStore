@@ -1,0 +1,12 @@
+.breadcrumb-wrapper {
+  margin-top: 10px;
+}
+
+.breadcrumb {
+  margin: 0px;
+}
+
+.breadcrumb li a {
+  color: #222222;
+  font-weight: bold;
+}
