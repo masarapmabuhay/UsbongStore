@@ -1,12 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+echo link_tag('assets/css/auto-email/breadcrumbs.css');
 ?>
 <div class="container">
-    <div class="table-responsive">
-
+    <!-- Header -->
+    <div class="row">
+      <div class="col-xs-6 breadcrumb-wrapper">
+        <!-- Bread Crumbs -->
+        <ol class="breadcrumb text-left">
+          <li><a href="<?php echo site_url();?>">Usbong Store</a></li>
+          <li class="active">Auto Email</li>
+        </ol>
+      </div>
+      <div class="col-xs-6">
         <!-- Create Button -->
-        <a href="<?php echo site_url('auto-email/create/template/1'); ?>" class="btn btn-success navbar-btn" role="button" data-toggle="tooltip" data-placement="top" title="Create New Email"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Email</a>
+        <a href="<?php echo site_url('auto-email/create/template/1'); ?>" class="btn btn-success navbar-btn pull-right" role="button" data-toggle="tooltip" data-placement="top" title="Create New Email"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Email</a>
+      </div>
+    </div>
 
+    <div class="table-responsive">
         <!-- Data Table -->
         <table class="table table-striped">
             <!-- Header Row -->

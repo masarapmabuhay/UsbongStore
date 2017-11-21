@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 echo link_tag('assets/css/auto-email/create.css');
+echo link_tag('assets/css/auto-email/breadcrumbs.css');
 ?>
 <div class="container">
 
@@ -47,5 +48,14 @@ echo link_tag('assets/css/auto-email/create.css');
             </ul>
         </div>
     </nav>
+
+    <!-- Bread Crumbs -->
+    <div class="row">
+      <ol class="breadcrumb text-left">
+        <li><a href="<?php echo site_url();?>">Usbong Store</a></li>
+        <li><a href="<?php echo site_url('auto-email');?>">Auto Email</a></li>
+        <li class="active">Create</li>
+      </ol>
+    </div>
 
 </div>

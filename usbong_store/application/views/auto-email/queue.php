@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 echo link_tag('assets/css/auto-email/queue.css');
+echo link_tag('assets/css/auto-email/breadcrumbs.css');
 ?>
 <div class="container">
 
@@ -20,7 +21,6 @@ echo link_tag('assets/css/auto-email/queue.css');
             <strong>Error!</strong> <?php echo $this->session->flashdata('auto_email_queue_error'); ?>
         </div>
     <?php } ?>
-
 
     <!-- Create Button -->
     <div class="form-row row center-block">
@@ -50,6 +50,18 @@ echo link_tag('assets/css/auto-email/queue.css');
             </div>
             <button name="create_button" type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Batch</button>
         </form>
+    </div>
+
+    <!-- Header -->
+    <div class="row">
+      <div class="col-xs-12">
+        <!-- Bread Crumbs -->
+        <ol class="breadcrumb text-left">
+          <li><a href="<?php echo site_url();?>">Usbong Store</a></li>
+          <li><a href="<?php echo site_url('auto-email');?>">Auto Email</a></li>
+          <li class="active">Queue</li>
+        </ol>
+      </div>
     </div>
 
     <div class="table-responsive">

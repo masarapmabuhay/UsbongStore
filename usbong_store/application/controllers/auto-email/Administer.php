@@ -33,6 +33,8 @@ class Administer extends MY_Controller {
         $this::initStyle();
         $this::initHeader();
 
+        // load dependencies: helpers
+        $this->load->helper('html');
         // load dependencies
         $this->load->model('auto-email/Auto_Email_Model');
 
