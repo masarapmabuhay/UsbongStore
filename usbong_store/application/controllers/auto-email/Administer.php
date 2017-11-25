@@ -20,43 +20,81 @@ class Administer extends MY_Controller {
     //------------------------//
 
     public function index($page = NULL) {
-    	$customer_id = $this->session->userdata('customer_id');
-    	$is_admin = $this->session->userdata('is_admin');
-    	
-    	if ((!isset($customer_id)) ||
-    			//			($customer_id!="12")) {
-    			($is_admin!="1")) {
-    				redirect('account/login'); //home page
-    			}
-    			
-        // load header
-        $this::initStyle();
-        $this::initHeader();
 
-        // load dependencies: helpers
-        $this->load->helper('html');
-        // load dependencies
-        $this->load->model('auto-email/Auto_Email_Model');
+      //------------------------//
+      // Init
+      //------------------------//
 
-        // check authentication
-        self::can_user_access();
+      $customer_id = $this->session->userdata('customer_id');
+      $is_admin = $this->session->userdata('is_admin');
 
-        // prepare data
-        if (!isset($page)) {
-            $page = 1;
+      if (!isset($customer_id) || $is_admin!="1") {
+        redirect('account/login'); //home page
+      }
+
+      // load header
+      $this::initStyle();
+      $this::initHeader();
+
+      // load dependencies: helpers
+      $this->load->helper('html');
+      // load dependencies
+      $this->load->model('auto-email/Auto_Email_Schedule_Model');
+      $this->load->model('auto-email/Auto_Email_Model');
+
+      // check authentication
+      self::can_user_access();
+
+      // prepare data
+      if (!isset($page)) {
+          $page = 1;
+      }
+
+      //------------------------//
+      // Process Post Request
+      //------------------------//
+
+      // init post data
+      $data['post']['kick_button']            = $this->input->post('kick_button');
+      $data['post']['auto_email_schedule_id'] = $this->input->post('auto_email_schedule_id');
+
+      // process post request as needed
+      if (isset($data['post']['kick_button']) AND $data['post']['auto_email_schedule_id']) {
+        // check if there is something to be kicked
+        $status = $this->Auto_Email_Schedule_Model->getStatus($data['post']['auto_email_schedule_id']);
+
+        // kick the queue
+        if ($status == 'QUEUED') {
+          // kick auto email script in the background
+          $web_dir = exec('pwd').'/';
+          $command = 'php '.$web_dir.'index.php auto-email/autoemail run '.escapeshellarg($data['post']['auto_email_schedule_id']).' > /dev/null &';
+          exec($command);
+
+          // poll status till it changes from QUEUE to anything else
+          do {
+            $new_status = $this->Auto_Email_Schedule_Model->getStatus($data['post']['auto_email_schedule_id']);
+          } while (
+            $status == $new_status
+          );
         }
+      }
 
-        $data['page']['max_page']  = $this->Auto_Email_Model->getMaxPage();
-        $data['page']['prev_page'] = ($page > 1                        ) ? ($page - 1) : NULL;
-        $data['page']['next_page'] = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
-        $data['auto_email']        = $this->Auto_Email_Model->getPage($page);
+      //------------------------//
+      // Render
+      //------------------------//
 
-        // render view
-        $this->load->view('auto-email/administer', $data);
+      $data['page']['page']        = $page;
+      $data['page']['max_page']    = $this->Auto_Email_Model->getMaxPage();
+      $data['page']['prev_page']   = ($page > 1                        ) ? ($page - 1) : NULL;
+      $data['page']['next_page']   = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
+      $data['auto_email']          = $this->Auto_Email_Model->getPage($page);
+      $data['auto_email_schedule'] = $this->Auto_Email_Schedule_Model->getTopPriorityRow();
 
+      // render view
+      $this->load->view('auto-email/administer', $data);
 
-        // load footer
-        $this->load->view('templates/footer');
+      // load footer
+      $this->load->view('templates/footer');
     }
 
     public function queue($auto_email_id, $page = NULL) {

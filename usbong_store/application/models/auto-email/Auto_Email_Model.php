@@ -69,6 +69,13 @@ class Auto_Email_Model extends CI_Model
 						'    FROM auto_email_schedule '.
 						'    WHERE '.
 						'        auto_email.auto_email_id   = auto_email_schedule.auto_email_id AND '.
+						'        auto_email_schedule.status = "ACTIVE" '.
+						') AS batches_active, '.
+						'( '.
+						'    SELECT COUNT(*) '.
+						'    FROM auto_email_schedule '.
+						'    WHERE '.
+						'        auto_email.auto_email_id   = auto_email_schedule.auto_email_id AND '.
 						'        auto_email_schedule.status = "DONE" '.
 						') AS batches_sent, '.
 						'( '.
