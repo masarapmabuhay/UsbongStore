@@ -40,9 +40,8 @@ echo link_tag('assets/css/auto-email/administer.css');
                   <button class="btn btn-default btn" data-toggle="tooltip" data-placement="top" title="Refresh Page"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
                 </a>
                 <!--preview button-->
-                <form class="well_container_form" method="post" action="<?php echo site_url('auto-email/administer/index/'.$page['page']);?>">
-                    <input type="hidden" name="auto_email_id" value="<?php echo $auto_email_schedule->auto_email_id;?>">
-                    <button name="preview_button" type="submit" class="btn btn-default btn" data-toggle="tooltip" data-placement="top" title="Preview Email"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></button>
+                <form class="well_container_form" method="get" action="<?php echo site_url('auto-email/administer/preview/'.$auto_email_schedule->auto_email_id);?>" target="_blank">
+                    <button class="btn btn-default btn" data-toggle="tooltip" data-placement="top" title="Preview Email"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></button>
                 </form>
                 <!--send button-->
                 <form class="well_container_form" method="post" action="<?php echo site_url('auto-email/administer/index/'.$page['page']);?>">
@@ -111,6 +110,7 @@ echo link_tag('assets/css/auto-email/administer.css');
                     <td><?php echo $obj['batches_error'].'/'.$obj['batches']; ?> </td>
                     <td>
                         <div class="btn-group-xs" role="group" aria-label="...">
+                            <a href="<?php echo site_url('auto-email/preview/'.$obj['auto_email_id']); ?>" target="_blank" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="Preview"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a>
                             <a href="<?php echo site_url('auto-email/queue/'.$obj['auto_email_id'].'/1'); ?>" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="View Queue for Email <?php echo $obj['auto_email_id']; ?>"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>
                         </div>
                     </td>

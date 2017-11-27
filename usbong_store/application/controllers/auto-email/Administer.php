@@ -238,6 +238,43 @@ class Administer extends MY_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function preview($auto_email_id) {
+        // load dependencies: helpers
+        $this->load->helper('html');
+        // load dependencies: models
+        $this->load->model('auto-email/Auto_Email_Model');
+        $this->load->model('auto-email/Auto_Email_Customer_Model');
+        $this->load->model('auto-email/Auto_Email_Product_Model');
+
+        // check authentication
+        self::can_user_access();
+
+        // check input
+        $data['email'] = $this->Auto_Email_Model->get($auto_email_id);
+        if (!isset($data['email']->auto_email_id)) {
+          show_error('Email does not exist.');
+        }
+
+        // render view based on template
+        switch ($data['email']->auto_email_template_id) {
+            case 1:
+                // extract data from db
+                $customer         = $this->Auto_Email_Customer_Model->get($this->session->userdata('customer_id'));
+                $data['products'] = $this->Auto_Email_Product_Model->getAllProducts($data['email']->auto_email_id);
+
+                // clean data from db
+                $data['customer']['customer_first_name'] = $customer->customer_first_name;
+                foreach ($data['products'] as $data_key => $data_obj) {
+                    $data['products'][$data_key]['product_url'] = create_product_url($data_obj['product_id'], $data_obj['name'], $data_obj['author']);
+                    $data['products'][$data_key]['image_url']   = create_image_url($data_obj['name'], $data_obj['product_type_name']);
+                }
+                $this->load->view('auto-email/email_frame_simple_template', $data);
+            break;
+            default:
+                show_error('The email template is not yet supported.');
+        }
+    }
+
     //------------------------//
     // Private Functions for Create
     //------------------------//
