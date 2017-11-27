@@ -12,26 +12,49 @@ class Auto_Email_Schedule_Model extends CI_Model
     // Get
     //------------------------//
     // get the first row with the highest priority
+    // it can be user specified or not
+    // if it's not user specified, oldest start_datetime will be selected
     /*
         (
+            // auto_email_schedule
             [auto_email_schedule_id] => 2
             [auto_email_id] => 1
             [start_customer_id] => 1
             [end_customer_id] => 1
             [start_datetime] => 2017-09-28 14:30:00
             [status] => QUEUED
+            // auto_email
+            [subject] => Test Email Addressed to Customer 1
+            [auto_email_template_id] => 1
+            [datetime] => 2017-10-01 00:00:00
+            [data_01] => This is a test email. This template is mobile ready. It addresses recipients by first name. It has a configurable welcome message. It houses nine products.
+            [data_02] =>
+            [data_03] =>
+            [data_04] =>
+            [data_05] =>
         )
     */
-    public function getTopPriorityRow() {
-        //
+    public function getTopPriorityRow($auto_email_schedule_id = NULL) {
         $this->db->from('auto_email_schedule');
+        $this->db->join('auto_email', 'auto_email_schedule.auto_email_id = auto_email.auto_email_id', 'left');
         $this->db->where('status', self::QUEUED);
         $this->db->where(
             'CAST(`start_datetime` AS DATETIME) <= CAST(NOW() AS DATETIME)'
         );
+        if (isset($auto_email_schedule_id)) {
+          $this->db->where('auto_email_schedule_id', $auto_email_schedule_id);
+        }
         $this->db->order_by('start_datetime', 'ASC');
         $this->db->order_by('auto_email_schedule_id', 'ASC');
         return $this->db->get()->row();
+    }
+    // returns status field of row
+    public function getStatus($auto_email_schedule_id) {
+        $this->db->select('status');
+        $this->db->from('auto_email_schedule');
+        $this->db->where('auto_email_schedule_id', $auto_email_schedule_id);
+        $data = $this->db->get()->row();
+        return $data->status;
     }
     // using the inputs, these parses tables auto_email_sent and tables customer for a list of users that should be engaged
     /*

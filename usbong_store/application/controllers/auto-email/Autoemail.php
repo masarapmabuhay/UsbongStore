@@ -20,7 +20,7 @@ class Autoemail extends CI_Controller {
     // Public Functions
     //------------------------//
 
-    public function run()
+    public function run($auto_email_schedule_id = NULL)
     {
         //------------------------//
         // Step 0: init
@@ -50,7 +50,7 @@ class Autoemail extends CI_Controller {
         $this->ctrl['sendmail']['smtp_port']           = $this->Auto_Email_Setting_Model->get('smtp_port');
         $this->ctrl['sendmail']['sender_alias']        = $this->Auto_Email_Setting_Model->get('sender_alias');
         $this->ctrl['sendmail']['mailpath']            = $this->Auto_Email_Setting_Model->get('mailpath');
-        $this->ctrl['auto_email_schedule']             = $this->Auto_Email_Schedule_Model->getTopPriorityRow();
+        $this->ctrl['auto_email_schedule']             = $this->Auto_Email_Schedule_Model->getTopPriorityRow($auto_email_schedule_id);
         $this->ctrl['status']                          = 'SENT';
         $this->ctrl['error']                           = 'Error Message';
 

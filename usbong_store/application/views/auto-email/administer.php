@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 echo link_tag('assets/css/auto-email/breadcrumbs.css');
+echo link_tag('assets/css/auto-email/administer.css');
 ?>
 <div class="container">
     <!-- Header -->
@@ -18,6 +19,57 @@ echo link_tag('assets/css/auto-email/breadcrumbs.css');
       </div>
     </div>
 
+    <?php if (isset($auto_email_schedule)) { ?>
+      <div class="row well_container">
+        <div class="well">
+          <dl class="dl-horizontal">
+            <dt>Auto Email ID:</dt>
+            <dd><?php echo $auto_email_schedule->auto_email_id; ?></dd>
+            <dt>Subject:</dt>
+            <dd><?php echo $auto_email_schedule->subject; ?></dd>
+            <dt>Queue ID:</dt>
+            <dd><?php echo $auto_email_schedule->auto_email_schedule_id; ?></dd>
+            <dt>Target Kick Time:</dt>
+            <dd><?php echo $auto_email_schedule->start_datetime; ?></dd>
+            <dt>Customers:</dt>
+            <dd><?php echo $auto_email_schedule->start_customer_id.' to '.$auto_email_schedule->end_customer_id; ?></dd>
+          </dl>
+          <div class="row well_button">
+            <div class="btn-group pull-right" role="group" aria-label="...">
+                <a href="<?php echo site_url('auto-email/administer/index/'.$page['page']); ?>">
+                  <button class="btn btn-default btn" data-toggle="tooltip" data-placement="top" title="Refresh Page"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                </a>
+                <!--preview button-->
+                <form class="well_container_form" method="post" action="<?php echo site_url('auto-email/administer/index/'.$page['page']);?>">
+                    <input type="hidden" name="auto_email_id" value="<?php echo $auto_email_schedule->auto_email_id;?>">
+                    <button name="preview_button" type="submit" class="btn btn-default btn" data-toggle="tooltip" data-placement="top" title="Preview Email"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></button>
+                </form>
+                <!--send button-->
+                <form class="well_container_form" method="post" action="<?php echo site_url('auto-email/administer/index/'.$page['page']);?>">
+                    <input type="hidden" name="auto_email_schedule_id" value="<?php echo $auto_email_schedule->auto_email_schedule_id;?>">
+                    <button name="kick_button" type="submit" class="btn btn-success btn"  data-toggle="tooltip" data-placement="top" title="Send Email"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php } else { ?>
+      <div class="row well_container">
+        <div class="well">
+          <div class="col-xs-12">
+            There is nothing that needs to be kicked right now.
+          </div>
+          <div class="row well_button">
+            <div class="btn-group pull-right" role="group" aria-label="...">
+                <a href="<?php echo site_url('auto-email/administer/index/'.$page['page']); ?>">
+                  <button class="btn btn-default btn" data-toggle="tooltip" data-placement="top" title="Refresh Page"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+
     <div class="table-responsive">
         <!-- Data Table -->
         <table class="table table-striped">
@@ -27,6 +79,7 @@ echo link_tag('assets/css/auto-email/breadcrumbs.css');
                 <td>Subject</td>
                 <td>Template</td>
                 <td>Date Created</td>
+                <td>Batches Active</td>
                 <td>Batches Sent</td>
                 <td>Batches Paused</td>
                 <td>Batches Error</td>
@@ -42,7 +95,7 @@ echo link_tag('assets/css/auto-email/breadcrumbs.css');
                 ) { ?>
                     <tr class="success">
                 <?php } elseif (
-                    $obj['batches_paused'] > 0
+                    $obj['batches_paused'] > 0 OR $obj['batches_active'] > 0
                 ) { ?>
                     <tr class="warning">
                 <?php } else { ?>
@@ -52,6 +105,7 @@ echo link_tag('assets/css/auto-email/breadcrumbs.css');
                     <td><?php echo $obj['subject']; ?>                           </td>
                     <td><?php echo $obj['view']; ?>                              </td>
                     <td><?php echo $obj['datetime']; ?>                          </td>
+                    <td><?php echo $obj['batches_active'].'/'.$obj['batches'];?> </td>
                     <td><?php echo $obj['batches_sent'].'/'.$obj['batches']; ?>  </td>
                     <td><?php echo $obj['batches_paused'].'/'.$obj['batches'];?> </td>
                     <td><?php echo $obj['batches_error'].'/'.$obj['batches']; ?> </td>

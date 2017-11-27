@@ -1,0 +1,16 @@
+.well_container {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.dl-horizontal {
+  margin-bottom: 0px;
+}
+
+.well_button {
+  margin-right: 10px;
+}
+
+form.well_container_form {
+  display: inline-block;
+}
