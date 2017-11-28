@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// added PHP timezone
+date_default_timezone_set('Asia/Hong_Kong');
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -314,7 +317,9 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+
+// this is used for auto-email/unsubscribe
+$config['encryption_key'] = hex2bin('8fd7e0b96252a3f9d7bd37c57fbfed20');
 
 /*
 |--------------------------------------------------------------------------
