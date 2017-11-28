@@ -57,6 +57,7 @@ class Auto_Email_Schedule_Model extends CI_Model
         return $data->status;
     }
     // using the inputs, these parses tables auto_email_sent and tables customer for a list of users that should be engaged
+    // customers with entries in auto_email_unsubscribe are excluded
     /*
         (
             // data will look like this for a previously failed sent email
@@ -92,6 +93,7 @@ class Auto_Email_Schedule_Model extends CI_Model
         $this->db->select('customer.customer_id, customer.customer_first_name, customer.customer_last_name, customer.customer_email_address, auto_email_sent.auto_email_sent_id, auto_email_sent.datetime, auto_email_sent.status, auto_email_sent.error');
         $this->db->from('customer');
         $this->db->join('auto_email_sent', 'customer.customer_id = auto_email_sent.customer_id', 'left');
+        $this->db->join('auto_email_unsubscribe', 'customer.customer_id = auto_email_unsubscribe.customer_id', 'left');
         $this->db->where(
             '`customer`.`customer_id` >= ('.
             '   SELECT `start_customer_id`'.
@@ -113,6 +115,10 @@ class Auto_Email_Schedule_Model extends CI_Model
             '    `auto_email_schedule_id` = '.$this->db->escape($auto_email_schedule_id).' AND '.
             '    `status` = "'.self::SENT.'"'.
             ')'
+        );
+        // having a null entry here means that a customer has not unsubscribed
+        $this->db->where(
+            '`auto_email_unsubscribe`.`customer_id` IS NULL'
         );
         $this->db->order_by('customer.customer_id', 'ASC');
         $this->db->limit($max);

@@ -13,7 +13,22 @@
     $logo['logo_image'] = base_url('assets/images/usbongLogo.png');
     $logo['logo_url']   = site_url();
     // footer fields
-    $footer['contact']  = site_url('contact');
+    $footer['contact']     = site_url('contact');
+    $footer['unsubscribe'] = site_url(
+        'auto-email/administer/unsubscribe/'.
+        rawurlencode(
+            // change / to ~:
+            // - / is not url friendly
+            // - ~ is excluded from the encryption char set
+            preg_replace(
+                '/\//',
+                '~',
+                $this->encryption->encrypt(
+                    $customer['customer_id']
+                )
+            )
+        )
+    );
     // header elements
     $header['apps'] = [
         0 => [
@@ -351,6 +366,11 @@
                             <a href="<?php echo $footer['contact'];?>" target="_blank" style="<?php echo $inline_footer_horizontal_anchor_style;?>">
                                 Contact Us</a>
 &nbsp;ATTN: Customer Service
+                        </div>
+                        <div style="padding: 5px;">
+                            <a href="<?php echo $footer['unsubscribe'];?>" target="_blank" rel="nofollow" style="<?php echo $inline_footer_horizontal_anchor_style;?>">
+                                Unsubscribe
+                            </a>
                         </div>
                         <div style="padding: 5px;">
                             Copyright &copy; 2011~<?php echo date('Y', time());?>. Usbong Social Systems, Inc.

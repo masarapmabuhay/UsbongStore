@@ -35,6 +35,7 @@ class Autoemail extends CI_Controller {
 
         // load libraries
         $this->load->library('email');
+        $this->load->library('encryption');
 
         // load helpers
         $this->load->helper('url');
@@ -140,6 +141,7 @@ class Autoemail extends CI_Controller {
 
                 // append custmer specifc data as needed
                 $this->data['customer']['customer_first_name'] = $customer['customer_first_name'];
+                $this->data['customer']['customer_id']         = $customer['customer_id'];
 
                 // send transaction
                 $this->email->set_newline("\r\n"); // this is needed for gmail smtp to parse content, without this email server rejects request

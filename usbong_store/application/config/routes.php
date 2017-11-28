@@ -65,3 +65,5 @@ $route['auto-email/create/data']                   = 'auto-email/administer/crea
 $route['auto-email/create/products/(:num)/(:any)'] = 'auto-email/administer/create/products/$1/$2';
 $route['auto-email/create/products/(:num)']        = 'auto-email/administer/create/products/$1';
 $route['auto-email/create/save']                   = 'auto-email/administer/create/save';
+$route['auto-email/preview/(:num)']                = 'auto-email/administer/preview/$1';
+$route['auto-email/unsubscribe/(:any)']            = 'auto-email/administer/unsubscribe/$1';
