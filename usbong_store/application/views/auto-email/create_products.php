@@ -213,7 +213,7 @@ echo link_tag('assets/css/auto-email/create_products.css');
                     <td>ID</td>
                     <td>Name</td>
                     <td>Price</td>
-                    <td>Select (<?php echo $product_count; ?>/<?php echo $auto_email_template['product_capacity']; ?>)</td>
+                    <td>Select</td>
                 </tr>
                 <!-- Data Rows -->
                 <?php foreach ($auto_email_product as $key => $obj) { ?>
