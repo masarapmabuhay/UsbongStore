@@ -15,6 +15,16 @@ class Administer extends MY_Controller {
         }
     }
 
+    // returns bool
+    private function bool_can_user_access() {
+        $this->load->library('session');
+        if ($this->session->userdata('is_admin') != 1) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
     //------------------------//
     // Public Functions
     //------------------------//
@@ -340,6 +350,165 @@ class Administer extends MY_Controller {
     }
 
     //------------------------//
+    // Ajax Functions
+    //------------------------//
+
+    public function ajax_create_products_add() {
+        // load dependencies
+        $this->load->model('auto-email/Auto_Email_Product_Model');
+
+        // access session data
+        $post['product_capacity'] = $this->session->userdata('auto_email-create-auto_email_template-product_capacity');
+        $post['product_id_list']  = $this->session->userdata('auto_email-create-auto_email_product_models');
+
+        // access post data
+        $post['product_id']        = $this->input->post('product_id');
+        $post['name']              = $this->input->post('name');
+
+        // init output
+        $output = [
+            'success'      => FALSE,
+            'error'        => 'Data is invalid.',
+            'product_list' => [],
+            'redirect_url' => NULL,
+        ];
+
+        // create dummy data
+        for ($i = 1; $i <= $post['product_capacity']; $i++) {
+            $output['product_list'][] = [
+                'product_id'   => 0,
+                'name'         => 'Blank',
+                'layout_index' => $i,
+                'layout_image' => base_url('/assets/images/auto-email/blank_image.png'),
+            ];
+        }
+
+        // validate user access
+        if (!self::bool_can_user_access()) {
+            $output['error'] = 'Authorization failed.';
+        } elseif (
+            isset($post['product_id_list']) AND
+            count($post['product_id_list']) >= $post['product_capacity']
+        ) {
+            $output['error'] = 'At most '.$post['product_capacity'].' entries can be chosen.';
+        } elseif (
+            isset($post['product_id_list']) AND
+            count($post['product_id_list']) >= 0 AND
+            in_array($post['product_id'], array_keys($post['product_id_list']))
+        ) {
+            $output['error'] = $post['name'].' is already in your list.';
+        } elseif (isset($post['product_id'])) {
+
+            // prepare session field
+            if (
+                isset($post['product_id_list']) AND
+                count($post['product_id_list']) > 0
+            ) {
+                // append data to past session fields
+                $post['product_id_list'][$post['product_id']] = $post['name'];
+            } else {
+                // create session field
+                $post['product_id_list'] = [
+                    $post['product_id'] => $post['name']
+                ];
+            }
+
+            // update session field
+            $this->session->set_userdata('auto_email-create-auto_email_product_models', $post['product_id_list']);
+
+            // set output
+            $output['success']      = TRUE;
+            $output['error']        = NULL;
+            $output['redirect_url'] = (count($post['product_id_list']) == $post['product_capacity']) ? site_url('auto-email/create/save') : NULL;
+
+            $temp['output_index'] = 0;
+            foreach ($post['product_id_list'] as $product_id => $name) {
+                // fetch info from database
+                $temp['model_data'] = $this->Auto_Email_Product_Model->get($product_id);
+
+                // update output data
+                $output['product_list'][$temp['output_index']]['product_id']   = $temp['model_data']['product_id'];
+                $output['product_list'][$temp['output_index']]['name']         = $temp['model_data']['name'];
+                $output['product_list'][$temp['output_index']]['layout_index'] = $temp['output_index'] + 1;
+                $output['product_list'][$temp['output_index']]['layout_image'] = create_image_url($temp['model_data']['name'], $temp['model_data']['product_type_name']);
+
+                // iterate index
+                $temp['output_index']++;
+            }
+        }
+
+        // return response
+        echo json_encode($output);
+    }
+
+    public function ajax_create_products_remove() {
+        // load dependencies
+        $this->load->model('auto-email/Auto_Email_Product_Model');
+
+        // access session data
+        $post['product_capacity'] = $this->session->userdata('auto_email-create-auto_email_template-product_capacity');
+        $post['product_id_list']  = $this->session->userdata('auto_email-create-auto_email_product_models');
+
+        // access post data
+        $post['product_id'] = $this->input->post('product_id');
+
+        // init output
+        $output = [
+            'success'      => FALSE,
+            'error'        => 'Data is invalid.',
+            'product_list' => []
+        ];
+
+        // create dummy data
+        for ($i = 1; $i <= $post['product_capacity']; $i++) {
+            $output['product_list'][] = [
+                'product_id'   => 0,
+                'name'         => 'Blank',
+                'layout_index' => $i,
+                'layout_image' => base_url('/assets/images/auto-email/blank_image.png'),
+            ];
+        }
+
+        // validate user access
+        if (!self::bool_can_user_access()) {
+            $output['error'] = 'Authorization failed.';
+        } elseif (
+            // validate post data
+            isset($post['product_id']     )     AND
+            // check if there is something to delete
+            isset($post['product_id_list'])     AND
+            count($post['product_id_list']) > 0 AND
+            in_array($post['product_id'], array_keys($post['product_id_list']))
+        ) {
+            // update session field
+            unset($post['product_id_list'][$post['product_id']]);
+            $this->session->set_userdata('auto_email-create-auto_email_product_models', $post['product_id_list']);
+
+            // set output
+            $output['success'] = TRUE;
+            $output['error']   = NULL;
+
+            $temp['output_index'] = 0;
+            foreach ($post['product_id_list'] as $product_id => $name) {
+                // fetch info from database
+                $temp['model_data'] = $this->Auto_Email_Product_Model->get($product_id);
+
+                // update output data
+                $output['product_list'][$temp['output_index']]['product_id']   = $temp['model_data']['product_id'];
+                $output['product_list'][$temp['output_index']]['name']         = $temp['model_data']['name'];
+                $output['product_list'][$temp['output_index']]['layout_index'] = $temp['output_index'] + 1;
+                $output['product_list'][$temp['output_index']]['layout_image'] = create_image_url($temp['model_data']['name'], $temp['model_data']['product_type_name']);
+
+                // iterate index
+                $temp['output_index']++;
+            }
+        }
+
+        // return response
+        echo json_encode($output);
+    }
+
+    //------------------------//
     // Private Functions for Create
     //------------------------//
 
@@ -471,75 +640,23 @@ class Administer extends MY_Controller {
             $this->session->set_flashdata('auto_email-create_products-error', 'Please choose a template first.');
         }
 
-        // process post requests
-        $post['submit_button']   = $this->input->post('submit_button');
-        $post['remove_button']   = $this->input->post('remove_button');
-        $post['product_id']      = $this->input->post('product_id');
-        $post['name']            = $this->input->post('name');
-        $post['product_id_list'] = $this->session->userdata('auto_email-create-auto_email_product_models');
-
-        // process post requests: add
-        if (
-            isset($post['submit_button']) AND
-            isset($post['product_id']   )
-        ) {
-            // check if there is still room in session field
-            if (
-                isset($post['product_id_list']) AND
-                count($post['product_id_list']) >= $data['auto_email_template']['product_capacity']
-            ) {
-                // report error
-                $this->session->set_flashdata('auto_email-create_products-warning', 'At most '.$data['auto_email_template']['product_capacity'].' entries can be chosen.');
-            } else {
-                // prepare session field
-                if (
-                    isset($post['product_id_list']) AND
-                    count($post['product_id_list']) > 0
-                ) {
-                    // append data to past session fields
-                    $post['product_id_list'][$post['product_id']] = $post['name'];
-                } else {
-                    // create session field
-                    $post['product_id_list'] = [
-                        $post['product_id'] => $post['name']
-                    ];
-                }
-                // update session field
-                $this->session->set_userdata('auto_email-create-auto_email_product_models', $post['product_id_list']);
-                // redirect if product list is full
-                if (
-                    count($post['product_id_list']) >= $data['auto_email_template']['product_capacity']
-                ) {
-                    redirect('auto-email/create/save');
-                }
-            }
-        }
-
-        // process post requests: remove
-        if (
-            isset($post['remove_button']) AND
-            isset($post['product_id']   )
-        ) {
-            // check if there is somthing to delete
-            if (
-                isset($post['product_id_list']) AND
-                count($post['product_id_list']) > 0
-            ) {
-                // update session field
-                unset($post['product_id_list'][$post['product_id']]);
-                $this->session->set_userdata('auto_email-create-auto_email_product_models', $post['product_id_list']);
-            }
-        }
+        // process session data
+        $session['product_id_list'] = $this->session->userdata('auto_email-create-auto_email_product_models');
 
         // render
-        $data['page']['name_filter']  = $this->input->get('name_filter');
-        $data['page']['max_page']     = $this->Auto_Email_Product_Model->getMaxPage($data['page']['name_filter']);
-        $data['page']['current_page'] = $page;
-        $data['page']['prev_page']    = ($page > 1                        ) ? ($page - 1) : NULL;
-        $data['page']['next_page']    = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
-        $data['auto_email_product']   = $this->Auto_Email_Product_Model->getPage($page, $data['page']['name_filter']);
-        $data['product_count']        = count($post['product_id_list']);
-
+        $data['page']['name_filter']        = $this->input->get('name_filter');
+        $data['page']['max_page']           = $this->Auto_Email_Product_Model->getMaxPage($data['page']['name_filter']);
+        $data['page']['current_page']       = $page;
+        $data['page']['prev_page']          = ($page > 1                        ) ? ($page - 1) : NULL;
+        $data['page']['next_page']          = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
+        $data['auto_email_product']         = $this->Auto_Email_Product_Model->getPage($page, $data['page']['name_filter']);
+        $data['product_count']              = count($session['product_id_list']);
+        $data['auto_email_chosen_products'] = [];
+        if (count($session['product_id_list']) > 0) {
+            foreach ($session['product_id_list'] as $product_id => $name) {
+                $data['auto_email_chosen_products'][] = $this->Auto_Email_Product_Model->get($product_id);
+            }
+        }
 
         $this->load->view('auto-email/create_products', $data);
     }
