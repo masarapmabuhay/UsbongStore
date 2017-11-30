@@ -1,0 +1,11 @@
+/* Containers: step_row */
+
+.thumbnail_id {
+    position: relative;
+    top: 0.7em;
+}
+
+.thumbnail_remove {
+    position: relative;
+    bottom: 40px;
+}

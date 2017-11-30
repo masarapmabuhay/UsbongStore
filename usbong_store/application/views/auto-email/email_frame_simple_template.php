@@ -108,7 +108,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Fluid Grid Master</title>
+    <title><?php echo $email->subject;?></title>
 
     <style type="text/css">
         /* Outlines the grid, remove when sending */
