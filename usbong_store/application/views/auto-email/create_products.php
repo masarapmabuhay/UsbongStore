@@ -68,10 +68,17 @@ echo link_tag('assets/css/auto-email/create_products.css');
             // prevent post submit
             event.preventDefault();
 
+            // check if event target is the button or the span
+            // let's use the button
+            var button = $(event.target);
+            if (button.prop('tagName') == 'SPAN') {
+              button = $(event.target).parent();
+            }
+
             // init view
             $('#warning_msg_div').addClass('hidden');
             // disable remove button
-            $(event.target).attr("disabled", "disabled");
+            button.attr("disabled", "disabled");
 
             // do ajax instead
             jQuery.ajax({
@@ -80,19 +87,19 @@ echo link_tag('assets/css/auto-email/create_products.css');
                 dataType: 'json',
                 timeout: 5000,
                 data: {
-                    product_id: $(event.target).attr('data-product-id')
+                    product_id: button.attr('data-product-id')
                 },
                 success: function(response) {
                     if (response.success == false) {
                         show_warning(response.error);
-                        $(event.target).removeAttr("disabled");
+                        button.removeAttr("disabled");
                     } else {
                         refresh_selections(response.product_list);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     show_warning('Please check your internet connection.');
-                    $(event.target).removeAttr("disabled");
+                    button.removeAttr("disabled");
                 },
                 complete: function(XMLHttpRequest, textStatus) {
                     // do nothing
@@ -104,9 +111,16 @@ echo link_tag('assets/css/auto-email/create_products.css');
             // prevent post submit
             event.preventDefault();
 
+            // check if event target is the button or the span
+            // let's use the button
+            var button = $(event.target);
+            if (button.prop('tagName') == 'SPAN') {
+              button = $(event.target).parent();
+            }
+
             // init view
             $('#warning_msg_div').addClass('hidden');
-            $(event.target).attr("disabled", "disabled");
+            button.attr("disabled", "disabled");
 
             // do ajax instead
             jQuery.ajax({
@@ -115,13 +129,13 @@ echo link_tag('assets/css/auto-email/create_products.css');
                 dataType: 'json',
                 timeout: 5000,
                 data: {
-                    product_id        : $(event.target).siblings('[name="product_id"]').val(),
-                    name              : $(event.target).siblings('[name="name"]').val()
+                    product_id        : button.siblings('[name="product_id"]').val(),
+                    name              : button.siblings('[name="name"]').val()
                 },
                 success: function(response) {
                     if (response.success == false) {
                         show_warning(response.error);
-                        $(event.target).removeAttr("disabled");
+                        button.removeAttr("disabled");
                     } else {
                         refresh_selections(response.product_list);
                         if (response.redirect_url !== null) {
@@ -131,7 +145,7 @@ echo link_tag('assets/css/auto-email/create_products.css');
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     show_warning('Please check your internet connection.');
-                    $(event.target).removeAttr("disabled");
+                    button.removeAttr("disabled");
                 },
                 complete: function(XMLHttpRequest, textStatus) {
                     // do nothing
@@ -232,9 +246,13 @@ echo link_tag('assets/css/auto-email/create_products.css');
                                             in_array($obj['product_id'], array_keys($this->session->userdata('auto_email-create-auto_email_product_models')))
                                         ) {
                                     ?>
-                                        <button data-toggle="tooltip" data-placement="left" data-product-id="<?php echo $obj['product_id'];?>" title="Select" name="submit_button" type="submit" class="btn btn-success btn-xs" disabled="disabled"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                                        <button data-toggle="tooltip" data-placement="left" data-product-id="<?php echo $obj['product_id'];?>" title="Select" name="submit_button" type="submit" class="btn btn-success btn-xs" disabled="disabled">
+                                          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        </button>
                                     <?php } else { ?>
-                                        <button data-toggle="tooltip" data-placement="left" data-product-id="<?php echo $obj['product_id'];?>" title="Select" name="submit_button" type="submit" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                                        <button data-toggle="tooltip" data-placement="left" data-product-id="<?php echo $obj['product_id'];?>" title="Select" name="submit_button" type="submit" class="btn btn-success btn-xs">
+                                          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        </button>
                                     <?php } ?>
                                 </form>
                             </div>
