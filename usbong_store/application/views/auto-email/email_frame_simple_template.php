@@ -120,7 +120,7 @@
         /* RESET STYLES */
         img { border: 0; outline: none; text-decoration: none; }
         table { border-collapse: collapse !important; }
-        body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+        body { font-family: arial, sans-serif; margin: 0 !important; padding: 0 !important; width: 100% !important; }
         /* iOS BLUE LINKS */
         a[x-apple-data-detectors] {
             color: inherit !important;
