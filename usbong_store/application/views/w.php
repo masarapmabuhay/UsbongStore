@@ -208,6 +208,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>												
 				<?php 
 					}
+					else {
+				?>
+					<br><br>
+					<div>						
+					<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Product-item-page-image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest_L.jpg')?>"></a>
+					</div>	
+				<?php 						
+					}
 				?>				
 			</div>
 		</div>	
