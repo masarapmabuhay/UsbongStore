@@ -28,36 +28,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<form method="post" action="<?php echo site_url('request/confirm')?>">
 				<?php 							
 				
-					//First Name--------------------------------------------------			
-					echo '<div class="Checkout-div">';
-/*					if (isset($data['productNameParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" value="'.$data['productNameParam'].'" required>';
-					}
+					//Product Name--------------------------------------------------			
+					echo '<div class="Checkout-div">';					
+					if (isset($productNameParam)) {
+						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" value="'.$productNameParam.'" required>';
+					}/*
 					else if (isset($customer_information_result->customer_email_address)) {
 						echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
-					}
-					else { //default
-*/					
+					}*/
+					else { //default				
 						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" required>';
-/*					}
- */
-						echo '<span class="floating-label">Product Name</span>';
+					}
+
+					echo '<span class="floating-label">Product Name</span>';
 					echo '</div>';				
 					//-----------------------------------------------------------
 
-					//Last Name--------------------------------------------------
+					//Product Link--------------------------------------------------
 					echo '<div class="Checkout-div">';
-/*					if (isset($data['productLinkParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" value="'.$data['productLinkParam'].'" required>';
+					if (isset($productLinkParam)) {
+						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" value="'.$productLinkParam.'" required>';
 					}
-					else if (isset($customer_information_result->customer_email_address)) {
+/*					else if (isset($customer_information_result->customer_email_address)) {
 					 echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
 					 }
+*/					 
 					else { //default
-*/					
+					
 						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" required>';
-/*					}
- */
+					}
+
 					echo '<span class="floating-label">Product Link</span>';
 					echo '</div>';
 					//-----------------------------------------------------------

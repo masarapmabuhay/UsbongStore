@@ -19,7 +19,14 @@ class B extends MY_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{						
+	{	
+/*	//get an encryption key
+		$this->load->library('encryption');
+		$key = bin2hex($this->encryption->create_key(16));
+		echo 'hello '.$key;
+*/
+
+	
 /*		
 		$this->load->library('session');
 		$this->load->library('form_validation');

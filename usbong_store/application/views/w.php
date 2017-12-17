@@ -212,7 +212,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 					<br><br>
 					<div>						
-					<a class="Request-link" href="<?php echo site_url('request/')?>"><img class="Product-item-page-image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest_L.jpg')?>"></a>
+					<!--  $this->uri->segment(2) is a URL friendly product name-->
+					<a class="Request-link" href="<?php echo site_url('request/'.$this->uri->segment(2).'/'.$result->product_id)?>"><img class="Product-item-page-image-offers-request" src="<?php echo base_url('assets/images/usbongOffersRequest_L.jpg')?>"></a>
 					</div>	
 				<?php 						
 					}
