@@ -2111,7 +2111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Order-Summary-noResult {
 		margin-top: 56px;
-		margin-left: 300px;
+		margin-left: 160px;
 		margin-bottom: 56px;	
 		font-size: 18px;
 		color: #1a0d00;
