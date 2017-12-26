@@ -18,7 +18,7 @@ class Request extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($productName, $productId)
 	{		
 		$customer_id = $this->session->userdata('customer_id');
 				
@@ -26,12 +26,19 @@ class Request extends MY_Controller {
 			redirect('account/login'); //home page
 		}
 		
+		//edited by Mike, 20171217
+		$nonURLFriendlyProductName = str_replace("-"," ",
+													$productName);
+																
+		$data['productNameParam'] = $nonURLFriendlyProductName;
+		$data['productLinkParam'] = site_url('request/'.$productName.'/'.$productId);
+		
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
 		
-		$this->load->view('request');
+		$this->load->view('request', $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	

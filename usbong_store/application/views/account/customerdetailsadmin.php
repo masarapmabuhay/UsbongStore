@@ -23,19 +23,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>
 			</div>
 			<div class="col-sm-9">		
-				<?php 
-					if (count($cart_history)==0) {
-						echo '<div class="Order-Summary-noResult">';
-						echo 'The customer has made no orders yet.';
-						echo '</div>';
-					}
-					else {
-				?>
-					<div class="Customer-details-container">
+					<div class="Customer-details-container">	
 					<div class="row">
-						<div class="col-sm-9 Customer-order-summary">		
+						<div class="col-sm-9 Customer-order-summary">	
+						<?php 
+							if (count($cart_history)==0) {
+								echo '<div class="Order-Summary-noResult">';
+								echo 'The customer has made no orders yet.';
+								echo '</div>';
+							}
+							else {
+						?>														
 							<h3>Orders</h3>
-							<div>
+							<div>							
 								<div class="row">
 									<div class="col-sm-2 Order-summary col-sm-offset-2">		
 										<b>Date Added</b>
@@ -202,6 +202,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									}
 								?>					
 							</div>
+						<?php		
+							}
+						?>														
 						</div>
 						<div class="col-sm-3 Customer-details">		
 								<div class="Order-details-shipping-address">
@@ -287,9 +290,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</div>
 					</div>
-				<?php		
-					}
-				?>		
 			</div>
 			
 					

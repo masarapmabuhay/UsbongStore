@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-3">
 			</div>
 			<div class="col-sm-9">
-				<div class="Contact">For questions, concerns, suggestions, feature requests, and/or our software development service offerings, please direct them at the following email address:<br><br>
-					<span class="Contact-support-email-address">support (at) usbong (dot) ph</span><br><br>
+				<div class="Contact">For questions, concerns, suggestions, feature requests, and/or details about our software development service offerings, please direct them to the following email address:<br><br>
+					<a href="mailto:support@usbong.ph"><b><span class="Contact-support-email-address">support (at) usbong (dot) ph</span></b></a><br><br>
 	
 					We would love to hear from you then!<br><br>
 	

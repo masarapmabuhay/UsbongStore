@@ -49,11 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'b';//'home'; //'welcome';
+$route['default_controller'] = 'b';//'b';//'home'; //'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;//FALSE;
 //$route['w/(:any)'] = 'w/index/$1'; //added by Mike, 20170623
 $route['w/(:any)/(:any)'] = 'w/index/$1/$2'; //added by Mike, 20170623
+$route['request/(:any)/(:any)'] = 'request/index/$1/$2'; //added by Mike, 20171217
 
 // routing for auto-email controller
 // routing rules are needed cause auto-email controllers are located in controllers/auto-email instead of controllers/
@@ -65,5 +66,6 @@ $route['auto-email/create/data']                   = 'auto-email/administer/crea
 $route['auto-email/create/products/(:num)/(:any)'] = 'auto-email/administer/create/products/$1/$2';
 $route['auto-email/create/products/(:num)']        = 'auto-email/administer/create/products/$1';
 $route['auto-email/create/save']                   = 'auto-email/administer/create/save';
-$route['auto-email/preview/(:num)']                = 'auto-email/administer/preview/$1';
-$route['auto-email/unsubscribe/(:any)']            = 'auto-email/administer/unsubscribe/$1';
+
+$route['auto-email/preview/(:num)'] = 'auto-email/administer/preview/$1';
+$route['auto-email/unsubscribe/(:any)'] = 'auto-email/administer/unsubscribe/$1';
