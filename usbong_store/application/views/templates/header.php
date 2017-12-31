@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a class="header-banner-link" href = "http://usbong.ph" target="_blank">	
 		<ul>
 			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/dahon.png'); ?>">
+<!-- 		<span class="header-banner-span">&ensp;&ensp;UPLIFTING <span class="header-banner-span-15pesos">₱15</span> APPS FROM&ensp;&ensp;</span><img class="Image-usbong-logo" src="<?php echo base_url('assets/images/usbongLogo.png'); ?>">
+-->						
 			<span class="header-banner-span">&ensp;&ensp;UPLIFTING APPS FROM&ensp;&ensp;</span><img class="Image-usbong-logo" src="<?php echo base_url('assets/images/usbongLogo.png'); ?>">
 			</li>
 			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/pagtsing.png'); ?>"></li>
@@ -21,6 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/whenyoudontknow.png'); ?>"></li>
 			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/malansangisda.png'); ?>"></li>
 			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/tiyaga.png'); ?>"></li>
+			<li class="header-banner-li"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/whereisheaven.png'); ?>"></li>
+ 			<li class="header-banner-li"><img class="Image-usbong-15pesos-icon" src="<?php echo base_url('assets/images/banner_icons/15pesos.png'); ?>"></li>
 		</ul>
 	</a>
 	</div>

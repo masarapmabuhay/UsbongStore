@@ -1323,6 +1323,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;		
 	}
 
+	.Image-usbong-15pesos-icon {
+	    width: 7%;
+    	height: auto;		
+	}
+
 	.Image-usbong-first-icon {
 	}
 		
@@ -2065,7 +2070,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.header-banner-li {
 		display: inline;
-		margin-left: 40px;
+		margin-left: 20px;
 	}
 
 	a.header-banner-link {
@@ -2080,6 +2085,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #3a1d00;		
 		font-size: 16px;
 		font-weight: bold;	
+	}
+	
+	.header-banner-span-15pesos {
+		color: #b18601;		
+		font-size: 17px;
+		font-weight: bold;			
 	}
 
 	.Thankyou-header {
