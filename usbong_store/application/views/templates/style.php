@@ -2062,15 +2062,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 6px 6px 0px 6px;	
 		color: white;		
 	}
-
+/*
 	.header-banner:hover {
 		opacity: .8;
-    	filter: alpha(opacity=80); /* For IE8 and earlier */		
+    	filter: alpha(opacity=80); // For IE8 and earlier 		
 	}
-
+*/
 	.header-banner-li {
 		display: inline;
 		margin-left: 20px;
+	}
+
+	.header-banner-li:hover {
+		opacity: .8;
+    	filter: alpha(opacity=80); /* For IE8 and earlier */		
 	}
 
 	a.header-banner-link {
@@ -2086,7 +2091,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-size: 16px;
 		font-weight: bold;	
 	}
-	
+		
 	.header-banner-span-15pesos {
 		color: #b18601;		
 		font-size: 17px;
