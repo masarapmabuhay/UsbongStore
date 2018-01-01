@@ -1,0 +1,1 @@
+Images under "All" category are saved in this directory.

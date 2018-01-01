@@ -51,3 +51,24 @@ function create_image_url($product_name, $product_type) {
     return base_url('assets/images/'.$clean_product_type.'/'.$clean_product_name.'.jpg');
 
 }
+
+function create_jpg_file_name($product_name, $product_type) {
+
+    // clean up name
+    $clean_product_name = str_replace(':','',str_replace('\'','',$product_name));
+    $clean_product_name = str_replace('/','-', $clean_product_name);
+
+    // clean up type
+    $clean_product_type = strtolower(
+                            str_replace("(","",
+                            str_replace(")","",
+                            str_replace("&","and",
+                            str_replace(',','',
+                            str_replace(' ','_',
+                            str_replace('/','-',
+                            str_replace("'","",
+                            $product_type)))))))
+                        );
+
+    return FCPATH.'assets/images/'.$clean_product_type.'/'.$clean_product_name.'.jpg';
+}
