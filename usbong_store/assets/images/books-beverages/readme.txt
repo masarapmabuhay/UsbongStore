@@ -1,0 +1,1 @@
+Images under "Books/Beverages" category are saved in this directory.

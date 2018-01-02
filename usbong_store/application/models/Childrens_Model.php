@@ -6,6 +6,7 @@ class Childrens_Model extends CI_Model
 		//		$this->db->join('account', 'stories.userid = account.id');
 		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
 		$this->db->where('product_type_id','10'); //10 is for type: children's (books)
+		$this->db->where('show','1');
 		
 		if ($merchant_id!=null) {
 			$this->db->where('merchant_id',$merchant_id);
@@ -22,7 +23,8 @@ class Childrens_Model extends CI_Model
 		
 //		$this->db->join('account', 'stories.userid = account.id');
 		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
-		$this->db->where('product_type_id','10'); //10 is for type: children's (books)		
+		$this->db->where('product_type_id','10'); //10 is for type: children's (books)
+		$this->db->where('show','1');
 		
 		if ($merchant_id!=null) {
 			$this->db->where('merchant_id',$merchant_id);
