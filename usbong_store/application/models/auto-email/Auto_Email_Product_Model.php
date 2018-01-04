@@ -119,5 +119,32 @@ class Auto_Email_Product_Model extends CI_Model
             $this->db->count_all_results('product') / self::LIMIT
         );
     }
+
+    //------------------------//
+    // Insert
+    //------------------------//
+
+    /*
+     * create new row
+     * $data = [
+     *     'auto_email_id' => 1
+     *     'product_id'    => 1
+     * ]
+    */
+    public function insertRow($data) {
+        $this->db->insert('auto_email_product', $data);
+    }
+
+    //------------------------//
+    // Delete
+    //------------------------//
+
+    /*
+     * deletes rows that match auto_email_id
+    */
+    public function deleteRowsByAutoEmailId($auto_email_id) {
+        $this->db->delete('auto_email_product', array('auto_email_id' => $auto_email_id));
+    }
+
 }
 ?>

@@ -1,6 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 echo link_tag('assets/css/auto-email/create_products.css');
+
+// urls
+if ($page['mode'] == 'edit') {
+    $search_url = site_url('auto-email/'.$page['mode'].'/products/'.$page['auto_email_id'].'/'.$page['current_page']);
+    $post_url   = site_url('auto-email/'.$page['mode'].'/products/'.$page['auto_email_id'].'/'.$page['current_page'].'?name_filter='.$page['name_filter']);
+    $prev_url   = site_url('auto-email/'.$page['mode'].'/products/'.$page['auto_email_id'].'/'.$page['prev_page'].'?name_filter='.$page['name_filter']);
+    $next_url   = site_url('auto-email/'.$page['mode'].'/products/'.$page['auto_email_id'].'/'.$page['next_page'].'?name_filter='.$page['name_filter']);
+} else {
+    $search_url = site_url('auto-email/'.$page['mode'].'/products/'.$page['current_page']);
+    $post_url   = site_url('auto-email/'.$page['mode'].'/products/'.$page['current_page'].'?name_filter='.$page['name_filter']);
+    $prev_url   = site_url('auto-email/'.$page['mode'].'/products/'.$page['prev_page'].'?name_filter='.$page['name_filter']);
+    $next_url   = site_url('auto-email/'.$page['mode'].'/products/'.$page['next_page'].'?name_filter='.$page['name_filter']);
+}
 ?>
 
 <script type="text/javascript">
@@ -188,7 +201,7 @@ echo link_tag('assets/css/auto-email/create_products.css');
             <?php
                 $default_name = $page['name_filter'];
             ?>
-            <form class="form-inline" method="get" action="<?php echo site_url('auto-email/create/products/'.$page['current_page'])?>">
+            <form class="form-inline" method="get" action="<?php echo $search_url; ?>">
                 <div class="form-group">
                     <input type="text" class="form-control" name="name_filter" placeholder="Name" value="<?php echo $default_name;?>">
                 </div>
@@ -237,7 +250,7 @@ echo link_tag('assets/css/auto-email/create_products.css');
                         <td><?php echo $obj['price']; ?></td>
                         <td style="min-width: 100px">
                             <div class="btn-group-xs" role="group" aria-label="...">
-                                <form class="auto_email_inline_form" method="post" action="<?php echo site_url('auto-email/create/products/'.$page['current_page'].'?name_filter='.$page['name_filter'])?>">
+                                <form class="auto_email_inline_form" method="post" action="<?php echo $post_url; ?>">
                                     <input type="hidden" name="product_id" value="<?php echo $obj['product_id'];?>">
                                     <input type="hidden" name="name"       value="<?php echo $obj['name'];?>">
                                     <?php
@@ -267,7 +280,7 @@ echo link_tag('assets/css/auto-email/create_products.css');
                     <!--  Older -->
                     <?php if (isset($page['prev_page'])) { ?>
                         <li class="previous">
-                            <a href="<?php echo site_url('auto-email/create/products/'.$page['prev_page'].'?name_filter='.$page['name_filter']);?>">
+                            <a href="<?php echo $prev_url;?>">
                                 <span aria-hidden="true">&larr;</span> Back
                             </a>
                         </li>
@@ -281,7 +294,7 @@ echo link_tag('assets/css/auto-email/create_products.css');
                     <!-- Newer -->
                     <?php if (isset($page['next_page'])) { ?>
                         <li class="next">
-                            <a href="<?php echo site_url('auto-email/create/products/'.$page['next_page'].'?name_filter='.$page['name_filter']);?>">
+                            <a href="<?php echo $next_url;?>">
                                 Next <span aria-hidden="true">&rarr;</span>
                             </a>
                         </li>

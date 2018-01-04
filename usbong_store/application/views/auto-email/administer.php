@@ -82,7 +82,7 @@ echo link_tag('assets/css/auto-email/administer.css');
                 <td>Batches Sent</td>
                 <td>Batches Paused</td>
                 <td>Batches Error</td>
-                <td>Action</td>
+                <td class="action-td">Action</td>
             </tr>
             <!-- Data Rows -->
             <?php foreach ($auto_email as $key => $obj) { ?>
@@ -108,10 +108,11 @@ echo link_tag('assets/css/auto-email/administer.css');
                     <td><?php echo $obj['batches_sent'].'/'.$obj['batches']; ?>  </td>
                     <td><?php echo $obj['batches_paused'].'/'.$obj['batches'];?> </td>
                     <td><?php echo $obj['batches_error'].'/'.$obj['batches']; ?> </td>
-                    <td>
+                    <td class="action-td">
                         <div class="btn-group-xs" role="group" aria-label="...">
                             <a href="<?php echo site_url('auto-email/preview/'.$obj['auto_email_id']); ?>" target="_blank" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="Preview"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a>
-                            <a href="<?php echo site_url('auto-email/queue/'.$obj['auto_email_id'].'/1'); ?>" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="View Queue for Email <?php echo $obj['auto_email_id']; ?>"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>
+                            <a href="<?php echo site_url('auto-email/edit/template/'.$obj['auto_email_id'].'/1'); ?>" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="Edit Email"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                            <a href="<?php echo site_url('auto-email/queue/'.$obj['auto_email_id'].'/1'); ?>" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="View Queue"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>
                         </div>
                     </td>
                 </tr>
