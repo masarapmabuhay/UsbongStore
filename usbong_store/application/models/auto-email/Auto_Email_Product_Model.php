@@ -24,6 +24,7 @@ class Auto_Email_Product_Model extends CI_Model
                 [author] => Kazuo Ishiguro
                 [image_location] =>
                 [product_type_name] => Books
+                [external_url] => NULL
             )
             [1] => Array
             (
@@ -34,13 +35,14 @@ class Auto_Email_Product_Model extends CI_Model
                 [author] =>
                 [image_location] =>
                 [product_type_name] => Beverages
+                [external_url] => 'http://www.external.com'
             )
         )
     */
     public function getAllProducts($auto_email_id) {
         $this->db->select(
             'auto_email_product.auto_email_product_id, '.
-            'product.product_id, product.name, product.price, product.author, product.image_location, '.
+            'product.product_id, product.name, product.price, product.author, product.image_location, product.external_url, '.
             'product_type.product_type_name'
         );
         $this->db->from('auto_email_product');

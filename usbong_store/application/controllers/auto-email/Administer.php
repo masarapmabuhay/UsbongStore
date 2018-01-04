@@ -278,7 +278,13 @@ class Administer extends MY_Controller {
                 $data['customer']['customer_first_name'] = $customer->customer_first_name;
                 $data['customer']['customer_id']         = $customer->customer_id;
                 foreach ($data['products'] as $data_key => $data_obj) {
-                    $data['products'][$data_key]['product_url'] = create_product_url($data_obj['product_id'], $data_obj['name'], $data_obj['author']);
+                    // if url is defined in database, use that
+                    if (isset($data_obj['external_url'])) {
+                        $data['products'][$data_key]['product_url'] = $data_obj['external_url'];
+                    } else {
+                        // if no url is defined, fall back to usbong store url logic
+                        $data['products'][$data_key]['product_url'] = create_product_url($data_obj['product_id'], $data_obj['name'], $data_obj['author']);
+                    }
                     $data['products'][$data_key]['image_url']   = create_image_url($data_obj['name'], $data_obj['product_type_name']);
                 }
                 $this->load->view('auto-email/email_frame_simple_template', $data);
