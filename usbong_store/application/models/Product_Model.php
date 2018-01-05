@@ -274,45 +274,69 @@ class Product_Model extends CI_Model
                 break;
                 case 6:
                     // cast bit type data to int else it wont save properly
-                    $data['show'] = (int)$data['show'];
-                    
-                    // clear unsued fields
-                    unset($data['product_view_num']);
-                    unset($data['quantity_sold']);
-                    unset($data['image']);
-                    unset($data['image_location']);
+                    $data['show']                      = (int)$data['show'];
+                    $temp['old_product_model']['show'] = (int)$temp['old_product_model']['show'];
 
-                    // clear empty optional fields
-                    if (empty($data['previous_price']  )) { $data['previous_price']   = NULL; }
-                    if (empty($data['language']        )) { $data['language']         = NULL; }
-                    if (empty($data['author']          )) { $data['author']           = NULL; }
-                    if (empty($data['supplier']        )) { $data['supplier']         = NULL; }
-                    if (empty($data['description']     )) { $data['description']      = NULL; }
-                    if (empty($data['format']          )) { $data['format']           = NULL; }
-                    if (empty($data['translator']      )) { $data['translator']       = NULL; }
-                    if (empty($data['product_overview'])) { $data['product_overview'] = NULL; }
-                    if (empty($data['pages']           )) { $data['pages']            = NULL; }
-                    if (empty($data['external_url']    )) { $data['external_url']     = NULL; }
+                    // update database only if an entry was changed
+                    if (
+                        // required
+                        $temp['old_product_model']['name'             ] != $data['name'             ] OR
+                        $temp['old_product_model']['merchant_id'      ] != $data['merchant_id'      ] OR
+                        $temp['old_product_model']['product_type_id'  ] != $data['product_type_id'  ] OR
+                        $temp['old_product_model']['quantity_in_stock'] != $data['quantity_in_stock'] OR
+                        $temp['old_product_model']['price'            ] != $data['price'            ] OR
+                        $temp['old_product_model']['show'             ] != $data['show'             ] OR
+                        // optional
+                        $temp['old_product_model']['previous_price'  ]  != $data['previous_price'   ] OR
+                        $temp['old_product_model']['language'        ]  != $data['language'         ] OR
+                        $temp['old_product_model']['author'          ]  != $data['author'           ] OR
+                        $temp['old_product_model']['supplier'        ]  != $data['supplier'         ] OR
+                        $temp['old_product_model']['description'     ]  != $data['description'      ] OR
+                        $temp['old_product_model']['format'          ]  != $data['format'           ] OR
+                        $temp['old_product_model']['translator'      ]  != $data['translator'       ] OR
+                        $temp['old_product_model']['product_overview']  != $data['product_overview' ] OR
+                        $temp['old_product_model']['pages'           ]  != $data['pages'            ] OR
+                        $temp['old_product_model']['external_url'    ]  != $data['external_url'     ]
+                    ) {
+                        // clear unsued fields
+                        unset($data['product_view_num']);
+                        unset($data['quantity_sold']);
+                        unset($data['image']);
+                        unset($data['image_location']);
 
-                    // update row on database
-                    $this->db->where('product_id', $product_id);
-                    $this->db->update('product', $data);
+                        // clear empty optional fields
+                        if (empty($data['previous_price']  )) { $data['previous_price']   = NULL; }
+                        if (empty($data['language']        )) { $data['language']         = NULL; }
+                        if (empty($data['author']          )) { $data['author']           = NULL; }
+                        if (empty($data['supplier']        )) { $data['supplier']         = NULL; }
+                        if (empty($data['description']     )) { $data['description']      = NULL; }
+                        if (empty($data['format']          )) { $data['format']           = NULL; }
+                        if (empty($data['translator']      )) { $data['translator']       = NULL; }
+                        if (empty($data['product_overview'])) { $data['product_overview'] = NULL; }
+                        if (empty($data['pages']           )) { $data['pages']            = NULL; }
+                        if (empty($data['external_url']    )) { $data['external_url']     = NULL; }
 
-                    if (!$this->db->affected_rows()) {
-                        $output['error'] = 'Unable to save to database.';
-                        return $output;
-                    } else {
-                        $output = [
-                            'success'    => TRUE,
-                            'error'      => NULL,
-                            'product_id' => $temp['old_product_model']['product_id'],
-                        ];
+                        // update row on database
+                        $this->db->where('product_id', $product_id);
+                        $this->db->update('product', $data);
+
+                        if (!$this->db->affected_rows()) {
+                            $output['error'] = 'Unable to save to database.';
+                            return $output;
+                        }
                     }
                 break;
                 default:
                     // do nothing
             }
         }
+
+        // update output
+        $output = [
+            'success'    => TRUE,
+            'error'      => NULL,
+            'product_id' => $temp['old_product_model']['product_id'],
+        ];
 
         // return output
         return $output;

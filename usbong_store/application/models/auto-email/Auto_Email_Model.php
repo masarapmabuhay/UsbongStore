@@ -167,5 +167,24 @@ class Auto_Email_Model extends CI_Model
 		$output['success'] = $this->db->trans_status();
 		return $output;
 	}
+
+	// update creates a new email
+	// input $data
+	//    [
+	//        'subject'                => XXX,
+	//        'auto_email_template_id' => 1,
+	//        'data_01'                => XXX,
+	//        'data_02'                => XXX,
+	//        'data_03'                => XXX,
+	//        'data_04'                => XXX,
+	//        'data_05'                => XXX,
+	//    ]
+	public function updateRow($auto_email_id, $data) {
+		// pad data
+		$data['datetime'] = date('Y-m-d H:i:s');
+		$this->db->where('auto_email_id', $auto_email_id);
+		$this->db->update('auto_email', $data);
+	}
+
 }
 ?>

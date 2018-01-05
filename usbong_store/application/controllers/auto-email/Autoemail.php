@@ -113,7 +113,15 @@ class Autoemail extends CI_Controller {
 
             // clean up data from db
             foreach ($this->data['products'] as $data_key => $data) {
-                $this->data['products'][$data_key]['product_url'] = create_product_url($data['product_id'], $data['name'], $data['author']);
+
+                // if url is defined in database, use that
+                if (isset($data['external_url'])) {
+                    $this->data['products'][$data_key]['product_url'] = $data['external_url'];
+                } else {
+                    // if no url is defined, fall back to usbong store url logic
+                    $this->data['products'][$data_key]['product_url'] = create_product_url($data['product_id'], $data['name'], $data['author']);
+                }
+
                 $this->data['products'][$data_key]['image_url']   = create_image_url($data['name'], $data['product_type_name']);
             }
         }

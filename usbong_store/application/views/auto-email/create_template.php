@@ -1,5 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+// urls
+if ($page['mode'] == 'edit') {
+    $post_url = site_url('auto-email/'.$page['mode'].'/template/'.$page['auto_email_id'].'/'.$page['current_page']);
+    $prev_url = site_url('auto-email/'.$page['mode'].'/template/'.$page['auto_email_id'].'/'.$page['prev_page']);
+    $next_url = site_url('auto-email/'.$page['mode'].'/template/'.$page['auto_email_id'].'/'.$page['next_page']);
+} else {
+    $post_url = site_url('auto-email/'.$page['mode'].'/template/'.$page['current_page']);
+    $prev_url = site_url('auto-email/'.$page['mode'].'/template/'.$page['prev_page']);
+    $next_url = site_url('auto-email/'.$page['mode'].'/template/'.$page['next_page']);
+}
 ?>
 <div class="container">
 
@@ -23,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td style="min-width: 100px">
                         <div class="btn-group-xs" role="group" aria-label="...">
                             <a href="<?php echo base_url('assets/images/auto-email/'.$obj['image']); ?>" style="display:inline-block;" class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top" title="View Mobile Screen Shot of Template"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
-                            <form class="auto_email_inline_form" method="post" action="<?php echo site_url('auto-email/create/template/'.$page['current_page'])?>">
+                            <form class="auto_email_inline_form" method="post" action="<?php echo $post_url; ?>">
                                 <input type="hidden" name="auto_email_template_id" value="<?php echo $obj['auto_email_template_id'];?>">
                                 <?php
                                     if (
@@ -48,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!--  Older -->
                 <?php if (isset($page['prev_page'])) { ?>
                     <li class="previous">
-                        <a href="<?php echo site_url('auto-email/create/template/'.$page['prev_page']);?>">
+                        <a href="<?php echo $prev_url; ?>">
                             <span aria-hidden="true">&larr;</span> Newer
                         </a>
                     </li>
@@ -62,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Newer -->
                 <?php if (isset($page['next_page'])) { ?>
                     <li class="next">
-                        <a href="<?php echo site_url('auto-email/create/template/'.$page['next_page']);?>">
+                        <a href="<?php echo $next_url;?>">
                             Older <span aria-hidden="true">&rarr;</span>
                         </a>
                     </li>

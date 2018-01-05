@@ -1,5 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+// urls
+if ($page['mode'] == 'edit') {
+    $post_url = site_url('auto-email/'.$page['mode'].'/save/'.$page['auto_email_id']);
+} else {
+    $post_url = site_url('auto-email/'.$page['mode'].'/save');
+}
 ?>
 <div class="container">
     <?php if ($this->session->flashdata('auto_email-create_save-error')) { ?>
@@ -56,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- Save Button -->
             <dt></dt>
             <dd class="auto_email_save_container">
-                <form method="post" action="<?php echo site_url('auto-email/create/save');?>">
+                <form method="post" action="<?php echo $post_url;?>">
                     <button name="submit_button" type="submit" class="btn btn-success">Save</button>
                 </form>
             </dd>

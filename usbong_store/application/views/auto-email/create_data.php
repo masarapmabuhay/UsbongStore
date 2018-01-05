@@ -1,5 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+// urls
+if ($page['mode'] == 'edit') {
+    $post_url = site_url('auto-email/'.$page['mode'].'/data/'.$page['auto_email_id']);
+} else {
+    $post_url = site_url('auto-email/'.$page['mode'].'/data');
+}
 ?>
 <div class="container">
 
@@ -20,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         <?php } ?>
 
-        <form method="post" action="<?php echo site_url('auto-email/create/data');?>">
+        <form method="post" action="<?php echo $post_url;?>">
             <?php
                 // check if session field exists
                 $session_object =  $this->session->userdata('auto_email-create-auto_email_model');

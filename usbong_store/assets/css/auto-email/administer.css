@@ -14,3 +14,7 @@
 form.well_container_form {
   display: inline-block;
 }
+
+.action-td {
+  width: 10%;
+}
