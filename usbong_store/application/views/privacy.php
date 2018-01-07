@@ -19,7 +19,7 @@ When you visit our website, <b><a href="https://store.usbong.ph">https://store.u
 <br><br>
 To avail of any of our service offerings, such as to request, sell, and order a product item from us, you must set up an Usbong Store account. Setting up an account requires you to provide your email address and to choose a password (your "Account Settings"). We also ask for your name, shipping address, telephone number, and mode of payment (Bank Deposit or Paypal). These information are necessary for us to fulfill our service offerings, which include processing your order, notifying you of your order status, and fulfilling orders.
 <br><br>
-Upon creating an Usbong Store account, the Usbong Store may send to you email or other communications containing information about the Usbong Store and other matters the Usbong Store believes will interest you. At any time you may opt out from receiving further unsolicited email by notifying as via:<br><br> <span class="Contact-support-email-address">support (at) usbong (dot) ph</span>.
+Upon creating an Usbong Store account, the Usbong Store may send to you email or other communications containing information about the Usbong Store and other matters the Usbong Store believes will interest you. At any time you may opt out from receiving further unsolicited email by notifying as via:<br><br> <b><a href="mailto:support@usbong.ph"><span class="Contact-support-email-address">support (at) usbong (dot) ph</span></a></b>
 <br>
 <h3>How we protect your information</h3>
 <br>

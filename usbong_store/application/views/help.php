@@ -38,11 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					We accept BDO and BPI deposits.
 				</li><br>
 				<li><span class="Help-subheader">Paypal</span><br>
-				The email address is: <span class="Help-paypal-email-address">masarapmabuhay (at) gmail (dot) com</span>
+				The email address is: <b><a href="mailto:masarapmabuhay@gmail.com"><span class="Help-paypal-email-address">masarapmabuhay (at) gmail (dot) com</span></a></b>
 				</li><br>
 				<li><span class="Help-subheader">Cash upon Meetup at the Marikina Orthopedic Specialty Clinic (MOSC)</span><br>
 					The address is: 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.) Sto. Niño Marikina City, 1800, Philippines
-				</li>				
+				</li>	
 			</ul>
 			After confirming your purchase order, the Usbong Store will email you the details regarding the next steps.
 			</div>
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Help">
 			<ul>
 				<li><span class="Help-subheader">How do I cancel my order?</span><br>
-					Email us at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span> and notify us that you would want to cancel your order.<br><br>
+					Email us at <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b> and notify us that you would want to cancel your order.<br><br>
 					Please include your order number in the body of the email as well as type the phrase "Cancel Order" in the subject line.<br><br>				
 					If there is anything that we can do prior to cancelling your order that will fix the problem for you, we will do our best to accomodate your wishes.
 				</li><br>
@@ -79,10 +79,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					You can find the order number in the order summary page of your account. To access the order summary page, click the Order Summary link in the dropdown menu located to the left of your shopping cart.
 				</li><br>
 				<li><span class="Help-subheader">Damaged or incorrect items</span><br>
-					If you receive a damaged or incorrect product item, or are unsatisfied with your order for any reason, please contact our customer service team at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span>. One of our dedicated Customer Service Representatives will work with you to resolve any issues you may have with your order.
+					If you receive a damaged or incorrect product item, or are unsatisfied with your order for any reason, please contact our customer service team at <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b>. One of our dedicated Customer Service Representatives will work with you to resolve any issues you may have with your order.
 				</li><br>
 				<li><span class="Help-subheader">Missing items</span><br>
-					If you have not received your order by the end of the estimated delivery time, we always suggest that you check with anyone in your office or household who may have received the package and neglected to tell you. If there is no indication of the current delivery status and you still have not received the package, please contact us at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span> and one of our Customer Service Representatives will be happy to assist you.
+					If you have not received your order by the end of the estimated delivery time, we always suggest that you check with anyone in your office or household who may have received the package and neglected to tell you. If there is no indication of the current delivery status and you still have not received the package, please contact us at <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b> and one of our Customer Service Representatives will be happy to assist you.
 				</li><br>
 			</ul>
 			</div>		
@@ -95,15 +95,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					We do not sell, share, or otherwise distribute your information with any other party. We respect your privacy and store your information in order to communicate with you regarding your order status and occasional Usbong Store recommendations.
 				</li><br>
 				<li><span class="Help-subheader">How can I find a password that I forgot?</span><br>
-					We can email you a temporary password upon notifying us via <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span>. Once you have logged in with your temporary password, you can update your password from the My Account page. 
+					We can email you a temporary password upon notifying us via <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b>. Once you have logged in with your temporary password, you can update your password from the My Account page. 
 					<br><br>
 					If you cannot remember what email address you used or no longer have access to that email address, you will need to register a new account.
 				</li><br>
 				<li><span class="Help-subheader">Damaged or incorrect items</span><br>
-					If you receive a damaged or incorrect product item, or are unsatisfied with your order for any reason, please contact our customer service team at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span>. One of our dedicated Customer Service Representatives will work with you to resolve any issues you may have with your order.
+					If you receive a damaged or incorrect product item, or are unsatisfied with your order for any reason, please contact our customer service team at <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b>. One of our dedicated Customer Service Representatives will work with you to resolve any issues you may have with your order.
 				</li><br>
 				<li><span class="Help-subheader">Missing items</span><br>
-					If you have not received your order by the end of the estimated delivery time, we always suggest that you check with anyone in your office or household who may have received the package and neglected to tell you. If there is no indication of the current delivery status and you still have not received the package, please contact us at <span class="Help-paypal-email-address">support (at) usbong (dot) ph</span> and one of our Customer Service Representatives will be happy to assist you.
+					If you have not received your order by the end of the estimated delivery time, we always suggest that you check with anyone in your office or household who may have received the package and neglected to tell you. If there is no indication of the current delivery status and you still have not received the package, please contact us at <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b> and one of our Customer Service Representatives will be happy to assist you.
 				</li><br>
 			</ul>
 			</div>		
