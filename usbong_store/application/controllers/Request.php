@@ -26,12 +26,17 @@ class Request extends MY_Controller {
 			redirect('account/login'); //home page
 		}
 		
-		//edited by Mike, 20171217
-		$nonURLFriendlyProductName = str_replace("-"," ",
-													$productName);
-																
-		$data['productNameParam'] = $nonURLFriendlyProductName;
-		$data['productLinkParam'] = site_url('request/'.$productName.'/'.$productId);
+		$data[] = '';
+		
+		//added by Mike, 20180107
+		if (isset($productName) && ($productName != "b")) {
+			//edited by Mike, 20171217
+			$nonURLFriendlyProductName = str_replace("-"," ",
+					$productName);
+			
+			$data['productNameParam'] = $nonURLFriendlyProductName;
+			$data['productLinkParam'] = site_url('request/'.$productName.'/'.$productId);		
+		}
 		
 		//from application/core/MY_Controller
 		$this::initStyle();
