@@ -40,22 +40,29 @@ if (isset($mode) AND $mode == 'edit') {
                         <?php } ?>
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo $products_url; ?>">
-                        Pick Products
-                        <?php
-                            if (
-                                $this->session->has_userdata('auto_email-create-auto_email_product_models'           ) AND
-                                $this->session->has_userdata('auto_email-create-auto_email_template-product_capacity') AND
-                                count(
-                                    $this->session->userdata('auto_email-create-auto_email_product_models')
-                                ) >= $this->session->userdata('auto_email-create-auto_email_template-product_capacity')
-                            ) {
-                        ?>
-                            <span class="glyphicon glyphicon-ok header_check" aria-hidden="true"></span>
-                        <?php } ?>
-                    </a>
-                </li>
+                <?php
+                    if (
+                        $this->session->userdata('auto_email-create-auto_email_template-product_capacity') !== NULL AND
+                        $this->session->userdata('auto_email-create-auto_email_template-product_capacity') > 0
+                    ) {
+                ?>
+                    <li>
+                        <a href="<?php echo $products_url; ?>">
+                            Pick Products
+                            <?php
+                                if (
+                                    $this->session->has_userdata('auto_email-create-auto_email_product_models'           ) AND
+                                    $this->session->has_userdata('auto_email-create-auto_email_template-product_capacity') AND
+                                    count(
+                                        $this->session->userdata('auto_email-create-auto_email_product_models')
+                                    ) >= $this->session->userdata('auto_email-create-auto_email_template-product_capacity')
+                                ) {
+                            ?>
+                                <span class="glyphicon glyphicon-ok header_check" aria-hidden="true"></span>
+                            <?php } ?>
+                        </a>
+                    </li>
+                <?php } ?>
                 <li>
                     <a href="<?php echo $save_url; ?>">
                         <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> SAVE

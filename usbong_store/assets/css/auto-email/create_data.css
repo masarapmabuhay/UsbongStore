@@ -1,0 +1,46 @@
+/* Zoom Slider */
+
+.zoom-slider span {
+    top: -2px;
+}
+
+.zoom-slider {
+    margin-top: 10px;
+}
+
+input[type=range].cropit-image-zoom-input {
+    display: inline-block;
+    width: 90%;
+}
+
+/* Image Preview */
+
+.hidden-textarea {
+    display: none;
+}
+
+.cropit-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 5px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 600px;
+    height: 290px;
+}
+
+.cropit-preview-image-container {
+    cursor: move;
+}
+
+.cropit-preview-background {
+    opacity: .2;
+    cursor: auto;
+}
+
+input {
+    /* Use relative position to prevent from being covered by image background */
+    position: relative;
+    z-index: 10;
+    display: block;
+}

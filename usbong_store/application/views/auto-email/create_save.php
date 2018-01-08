@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+echo link_tag('assets/css/auto-email/create_save.css');
 
 // urls
 if ($page['mode'] == 'edit') {
@@ -31,34 +32,32 @@ if ($page['mode'] == 'edit') {
             <dd><?php echo $auto_email_model['subject']; ?></dd>
 
             <!-- Data -->
-            <?php if ($auto_email_template_model['data_01_used'] == 1) { ?>
-                <dt><?php echo $auto_email_template_model['data_01_attribute']; ?>:</dt>
-                <dd><?php echo $auto_email_model['data_01']; ?></dd>
-            <?php } ?>
-            <?php if ($auto_email_template_model['data_02_used'] == 1) { ?>
-                <dt><?php echo $auto_email_template_model['data_02_attribute']; ?>:</dt>
-                <dd><?php echo $auto_email_model['data_02']; ?></dd>
-            <?php } ?>
-            <?php if ($auto_email_template_model['data_03_used'] == 1) { ?>
-                <dt><?php echo $auto_email_template_model['data_03_attribute']; ?>:</dt>
-                <dd><?php echo $auto_email_model['data_03']; ?></dd>
-            <?php } ?>
-            <?php if ($auto_email_template_model['data_04_used'] == 1) { ?>
-                <dt><?php echo $auto_email_template_model['data_04_attribute']; ?>:</dt>
-                <dd><?php echo $auto_email_model['data_04']; ?></dd>
-            <?php } ?>
-            <?php if ($auto_email_template_model['data_05_used'] == 1) { ?>
-                <dt><?php echo $auto_email_template_model['data_05_attribute']; ?>:</dt>
-                <dd><?php echo $auto_email_model['data_05']; ?></dd>
+            <?php for ($data_index = 1; $data_index <= 5; $data_index++) { ?>
+                <?php if ($auto_email_template_model['data_0'.$data_index.'_used'] == 1) { ?>
+                    <dt>
+                        <?php echo $auto_email_template_model['data_0'.$data_index.'_attribute']; ?>:
+                    </dt>
+                    <dd>
+                        <?php if ($auto_email_template_model['data_0'.$data_index.'_type'] == 'textarea') { ?>
+                            <?php echo nl2br($auto_email_model['data_0'.$data_index]); ?>
+                        <?php } elseif ($auto_email_template_model['data_0'.$data_index.'_type'] == 'image') { ?>
+                            <img src="<?php echo $auto_email_model['data_0'.$data_index]; ?>" class="cropit-preview">
+                        <?php } else { ?>
+                            <?php echo $auto_email_model['data_0'.$data_index]; ?>
+                        <?php } ?>
+                    </dd>
+                <?php } ?>
             <?php } ?>
 
             <!-- Products -->
-            <dt>Products:</dt>
-            <dd>
-                <?php foreach ($auto_email_product_models as $product_id => $name) { ?>
-                    <?php echo $name.'<br/>';?>
-                <?php } ?>
-            </dd>
+            <?php if ($auto_email_template_model['product_capacity'] > 0) { ?>
+                <dt>Products:</dt>
+                <dd>
+                    <?php foreach ($auto_email_product_models as $product_id => $name) { ?>
+                        <?php echo $name.'<br/>';?>
+                    <?php } ?>
+                </dd>
+            <?php } ?>
 
             <!-- Save Button -->
             <dt></dt>

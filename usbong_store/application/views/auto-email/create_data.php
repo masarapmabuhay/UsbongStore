@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+echo link_tag('assets/css/auto-email/create_data.css');
 
 // urls
 if ($page['mode'] == 'edit') {
@@ -7,7 +8,66 @@ if ($page['mode'] == 'edit') {
 } else {
     $post_url = site_url('auto-email/'.$page['mode'].'/data');
 }
+
+// access session data
+$session_object =  $this->session->userdata('auto_email-create-auto_email_model');
 ?>
+
+<!-- Import Cropit -->
+<script src="<?php echo base_url().'assets/js/cropit/jquery.cropit.js'?>"></script>
+
+<!-- Instantiate Cropit -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        <?php
+            for ($data_index = 1; $data_index <= 5; $data_index++) {
+                if ($auto_email_template['data_0'.$data_index.'_type'] == 'image') {
+        ?>
+                    $(function() {
+                        // init coprit
+                        $('#data_0<?php echo $data_index; ?>_image_editor').cropit({
+                            allowDragNDrop: false, // this feature is only available for jquery 2 (we're using 3)
+                            width: 600,
+                            height: 390,
+                            exportZoom: 1,
+                            minZoom: 'fill',
+                            maxZoom: 1.5,
+                            freeMove: false,
+                            imageBackground: true,
+                            imageBackgroundBorderWidth: 20,
+                        });
+
+                        // make sure cropit data from last failed submission is recalled
+                        <?php
+                            $js_image_data = isset($session_object['data_0'.$data_index]) ? $session_object['data_0'.$data_index] : set_value('data_0'.$data_index);
+                        ?>
+                        <?php if (!empty($js_image_data) AND (substr($js_image_data, 0, 10) != 'auto-email')) {  ?>
+                            $('#data_0<?php echo $data_index; ?>').val('<?php echo $js_image_data;?>');
+                            $('#data_0<?php echo $data_index; ?>_image_editor').cropit('imageSrc', '<?php echo $js_image_data;?>');
+                        <?php } elseif ($page['mode'] == 'edit') { ?>
+                            $('#data_0<?php echo $data_index; ?>_image_editor').cropit('imageSrc', '<?php echo base_url('assets/images/'.$js_image_data); ?>');
+                        <?php } ?>
+
+                        // set image data on form submission
+                        $('form').submit(function() {
+                            // get data from cropit
+                            var imageData = $('#data_0<?php echo $data_index; ?>_image_editor').cropit('export', {
+                                type: 'image/jpeg',
+                                quality: .8,
+                                originalSize: false
+                            });
+                            // store data to image form input
+                            $('#data_0<?php echo $data_index; ?>').val(imageData);
+                        });
+                    });
+        <?php
+                }
+            }
+        ?>
+    });
+</script>
+
+
 <div class="container">
 
     <?php if ($this->session->flashdata('auto_email-create_data-error')) { ?>
@@ -29,49 +89,41 @@ if ($page['mode'] == 'edit') {
 
         <form method="post" action="<?php echo $post_url;?>">
             <?php
-                // check if session field exists
-                $session_object =  $this->session->userdata('auto_email-create-auto_email_model');
                 // carry over from last erroneous submission
                 $default_subject = isset($session_object['subject']) ? $session_object['subject'] : set_value('subject');
-                $default_data_01 = isset($session_object['data_01']) ? $session_object['data_01'] : set_value('data_01');
-                $default_data_02 = isset($session_object['data_02']) ? $session_object['data_02'] : set_value('data_02');
-                $default_data_03 = isset($session_object['data_03']) ? $session_object['data_04'] : set_value('data_03');
-                $default_data_04 = isset($session_object['data_04']) ? $session_object['data_04'] : set_value('data_04');
-                $default_data_05 = isset($session_object['data_05']) ? $session_object['data_05'] : set_value('data_05');
             ?>
             <div class="form-group">
                 <label for="subject">Email Subject</label>
                 <input type="text" class="form-control" name="subject" placeholder="An Attention Grabbing Headline" value="<?php echo $default_subject;?>">
             </div>
-            <?php if ($auto_email_template['data_01_used'] == 1) { ?>
-                <div class="form-group">
-                    <label for="data_01"><?php echo $auto_email_template['data_01_attribute'];?></label>
-                    <input type="text" name="data_01" class="form-control" rows="3" value="<?php echo $default_data_01;?>"></input>
-                </div>
-            <?php } ?>
-            <?php if ($auto_email_template['data_02_used'] == 1) { ?>
-                <div class="form-group">
-                    <label for="data_02"><?php echo $auto_email_template['data_02_attribute'];?></label>
-                    <input type="text" name="data_02" class="form-control" rows="3" value="<?php echo $default_data_02;?>"></input>
-                </div>
-            <?php } ?>
-            <?php if ($auto_email_template['data_03_used'] == 1) { ?>
-                <div class="form-group">
-                    <label for="data_03"><?php echo $auto_email_template['data_03_attribute'];?></label>
-                    <input type="text" name="data_03" class="form-control" rows="3" value="<?php echo $default_data_03;?>"></input>
-                </div>
-            <?php } ?>
-            <?php if ($auto_email_template['data_04_used'] == 1) { ?>
-                <div class="form-group">
-                    <label for="data_04"><?php echo $auto_email_template['data_04_attribute'];?></label>
-                    <input type="text" name="data_04" class="form-control" rows="3" value="<?php echo $default_data_04;?>"></input>
-                </div>
-            <?php } ?>
-            <?php if ($auto_email_template['data_05_used'] == 1) { ?>
-                <div class="form-group">
-                    <label for="data_05"><?php echo $auto_email_template['data_05_attribute'];?></label>
-                    <input type="text" name="data_05" class="form-control" rows="3" value="<?php echo $default_data_05;?>"></input>
-                </div>
+            <?php for ($data_index = 1; $data_index <= 5; $data_index++) { ?>
+                <?php
+                    // carry over from last erroneous submission
+                    $default_data = isset($session_object['data_0'.$data_index]) ? $session_object['data_0'.$data_index] : set_value('data_0'.$data_index);
+                ?>
+                <?php if ($auto_email_template['data_0'.$data_index.'_used'] == 1) { ?>
+                    <div class="form-group">
+                        <label for="data_0<?php echo $data_index;?>"><?php echo $auto_email_template['data_0'.$data_index.'_attribute'];?></label>
+                        <?php if ($auto_email_template['data_0'.$data_index.'_type'] == 'textarea') { ?>
+                            <textarea name="data_0<?php echo $data_index;?>" class="form-control" rows="3"><?php echo $default_data;?></textarea>
+                        <?php } elseif ($auto_email_template['data_0'.$data_index.'_type'] == 'image') { ?>
+                            <!-- Cropped image is stored here -->
+                            <textarea type="hidden" name="data_0<?php echo $data_index;?>" id="data_0<?php echo $data_index;?>" class="hidden-textarea"></textarea>
+                            <div class="image-editor" id="data_0<?php echo $data_index;?>_image_editor">
+                                <input type="file" class="cropit-image-input">
+                                <div class="cropit-preview center-block"></div>
+                                <div id="image_help_block" class="text-center"><?php echo form_error('image');?></div>
+                                <div class="zoom-slider text-center">
+                                    <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+                                    <input type="range" class="cropit-image-zoom-input">
+                                    <span class="glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        <?php } else { ?>
+                            <input type="<?php echo $auto_email_template['data_0'.$data_index.'_type'];?>" name="data_0<?php echo $data_index;?>" class="form-control" rows="3" value="<?php echo $default_data;?>">
+                        <?php } ?>
+                    </div>
+                <?php } ?>
             <?php } ?>
             <button name="submit_button" type="submit" class="btn btn-success">Next <span aria-hidden="true">&rarr;</span></button>
         </form>
