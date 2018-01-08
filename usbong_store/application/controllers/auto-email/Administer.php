@@ -370,6 +370,15 @@ class Administer extends MY_Controller {
                 }
                 $this->load->view('auto-email/email_frame_simple_template', $data);
             break;
+            case 2:
+                // extract data from db
+                $customer = $this->Auto_Email_Customer_Model->get($this->session->userdata('customer_id'));
+
+                // clean data from db
+                $data['customer']['customer_first_name'] = $customer->customer_first_name;
+                $data['customer']['customer_id']         = $customer->customer_id;
+                $this->load->view('auto-email/email_frame_single_template', $data);
+            break;
             default:
                 show_error('The email template is not yet supported.');
         }
@@ -715,11 +724,25 @@ class Administer extends MY_Controller {
                         'data_05' => $post['data_05'],
                     ]
                 );
-                // redirect
+                // redirect based on edit flag
                 if (isset($data['page']['auto_email_id'])) {
-                    redirect('auto-email/edit/products/'.$data['page']['auto_email_id'].'/1');
+                    // redirects for edit
+                    if ($data['auto_email_template']['product_capacity'] < 1) {
+                        // products are not needed, skip to save
+                        redirect('auto-email/edit/save/'.$data['page']['auto_email_id']);
+                    } else {
+                        // go to products
+                        redirect('auto-email/edit/products/'.$data['page']['auto_email_id'].'/1');
+                    }
                 } else {
-                    redirect('auto-email/create/products/1');
+                    // redirects for new
+                    if ($data['auto_email_template']['product_capacity'] < 1) {
+                        // products are not needed, skip to save
+                        redirect('auto-email/create/save');
+                    } else {
+                        // go to products
+                        redirect('auto-email/create/products/1');
+                    }
                 }
             }
         }
@@ -797,18 +820,12 @@ class Administer extends MY_Controller {
         ) {
             $this->session->set_flashdata('auto_email-create_save-error', 'You only have '.count($this->session->userdata('auto_email-create-auto_email_product_models')).' of '.$this->session->userdata('auto_email-create-auto_email_template-product_capacity').' products.');
         } elseif (
-            (
+            $this->session->userdata('auto_email-create-auto_email_template-product_capacity') > 0 AND (
                 !$this->session->has_userdata('auto_email-create-auto_email_product_models') OR
                 count($this->session->userdata('auto_email-create-auto_email_product_models')) != $this->session->userdata('auto_email-create-auto_email_template-product_capacity')
-            ) AND
-            $this->session->has_userdata('auto_email-create-auto_email_template-product_capacity')
+            )
         ) {
             $this->session->set_flashdata('auto_email-create_save-error', 'You need exactly '.$this->session->userdata('auto_email-create-auto_email_template-product_capacity').' products first.');
-        } elseif (
-            !$this->session->has_userdata('auto_email-create-auto_email_product_models') OR
-            count($this->session->userdata('auto_email-create-auto_email_product_models')) != $this->session->userdata('auto_email-create-auto_email_template-product_capacity')
-        ) {
-            $this->session->set_flashdata('auto_email-create_save-error', 'Please choose products first.');
         }
 
         // access session and db fields
@@ -824,6 +841,7 @@ class Administer extends MY_Controller {
             'data_05'                => $data['auto_email_template_model']['data_05_used'] == 1 ? $temp_auto_email_model['data_05'] : NULL,
         ];
         $data['auto_email_product_models'] = $this->session->userdata('auto_email-create-auto_email_product_models');
+        $data['product_ids']               = (count($data['auto_email_product_models']) > 0) ? array_keys($data['auto_email_product_models']) : [];
 
         // access session fields for mode
         $data['page']['auto_email_id'] = $this->session->userdata('auto_email-create-auto_email_id');
@@ -835,26 +853,15 @@ class Administer extends MY_Controller {
         if (isset($post['submit_button'])) {
             // do edit or create
             if ($data['page']['mode'] == 'edit') {
-                // update auto_email table
-                $this->Auto_Email_Model->updateRow($data['page']['auto_email_id'], $data['auto_email_model']);
-                // update auto_email_product table
-                $this->Auto_Email_Product_Model->deleteRowsByAutoEmailId($data['page']['auto_email_id']);
-                foreach(array_keys($data['auto_email_product_models']) as $product_id) {
-                    $this->Auto_Email_Product_Model->insertRow(
-                        [
-                            'auto_email_id' => $data['page']['auto_email_id'],
-                            'product_id' => $product_id
-                        ]
-                    );
-                }
-                // create $post['result_obj']
-                $post['result_obj']['success']       = TRUE;
-                $post['result_obj']['auto_email_id'] = $data['page']['auto_email_id'];
-                $post['result_obj']['error']         = NULL;
+                $post['result_obj'] = $this->Auto_Email_Model->updateEmail(
+                    $data['page']['auto_email_id'],
+                    $data['auto_email_model'],
+                    $data['product_ids']
+                );
             } else {
                 $post['result_obj'] = $this->Auto_Email_Model->createNewEmail(
                     $data['auto_email_model'],
-                    array_keys($data['auto_email_product_models'])
+                    $data['product_ids']
                 );
             }
 
