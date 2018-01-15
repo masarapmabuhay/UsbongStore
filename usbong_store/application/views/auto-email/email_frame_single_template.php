@@ -83,6 +83,7 @@
     $inline_logo_horizontal_bar_style = 'background-color: #1a0d00;';
     // css: email body
     $inline_call_to_action_style = 'font-size: 1.5em; color:#b88a1b; text-decoration:underline; font-weight: bold;';
+    $inline_message_style = 'font-size: 1.5em;';
     // css: social
     $inline_social_text_style = 'color: #5c534b; font-size: 1.5em;';
     // css: footer
@@ -203,7 +204,7 @@
                     <td align="center" valign="top">
                         <table width="600" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:600px; width:100%;">
                             <tr>
-                                <td align="left" valign="top" style="padding:10px;">
+                                <td align="left" valign="top" style="padding:10px; <?php echo $inline_message_style;?>">
                                     Hi <?php echo $customer['customer_first_name'].',';?>
                                 </td>
                             </tr>
@@ -218,7 +219,7 @@
                     <td align="center" valign="top" style="padding:10px;">
                         <table width="600" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:600px; width:100%;">
                             <tr>
-                                <td align="left" valign="top" style="padding:10px; <?php echo ''; ?>">
+                                <td align="left" valign="top" style="padding:10px; <?php echo $inline_message_style;?>">
                                     <?php echo nl2br($email->data_02); ?>
                                 </td>
                             </tr>
