@@ -232,7 +232,13 @@ class Administer extends MY_Controller {
         $this->load->view('auto-email/create_header');
 
         // clear edit flag
-        $this->session->unset_userdata('auto_email-create-auto_email_id');
+        if ($this->session->userdata('auto_email-create-auto_email_id') !== NULL) {
+            $this->session->unset_userdata('auto_email-create-auto_email_id');
+            $this->session->unset_userdata('auto_email-create-auto_email_template_id');
+            $this->session->unset_userdata('auto_email-create-auto_email_template-product_capacity');
+            $this->session->unset_userdata('auto_email-create-auto_email_model');
+            $this->session->unset_userdata('auto_email-create-auto_email_product_models');
+        }
 
         // render view
         if ($elem == 'template') {
