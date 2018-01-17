@@ -35,7 +35,11 @@ class Request extends MY_Controller {
 					$productName);
 			
 			$data['productNameParam'] = $nonURLFriendlyProductName;
-			$data['productLinkParam'] = site_url('request/'.$productName.'/'.$productId);		
+			
+			//added by Mike, 20180117
+			if ($productId != "b") {
+				$data['productLinkParam'] = site_url('request/'.$productName.'/'.$productId);				
+			}			
 		}
 		
 		//from application/core/MY_Controller

@@ -10,13 +10,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h2 class="header">Search</h2>
 	<br>
 	<?php 
+		//added by Mike, 20180117
+		$URLFriendlyReformattedProductName = str_replace("(","",
+			str_replace(")","",
+			str_replace("&","and",
+			str_replace(',','',
+			str_replace(' ','-',
+			str_replace('/','-',
+			$param)))))); //replace "&", " ", and "-"
+	
+	
+	
 		$resultCount = count($result);
 		if ($resultCount==0) {
 			echo '<div class="Search-noResult">';
 			echo 'Your search <b>- '.$param.' -</b> did not match any of our products.';
 			echo '<br><br>Suggestion:';
 			echo '<br>&#x25CF; Make sure that all words are spelled correctly.';				
-			echo '<br>&#x25CF; You may send us a request for the product item <a class="Request-link" href="'.site_url('request/').'">here</a>.';		
+			echo '<br>&#x25CF; You may send us a request for the product item <a class="Request-link" href="'.site_url('request/'.$URLFriendlyReformattedProductName.'/b').'">here</a>.';		
 			echo '</div>';
 		}
 		else {
