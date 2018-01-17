@@ -89,12 +89,7 @@ echo link_tag('assets/css/manage/product_form.css');
             'previous_price'    => [ 'label' => 'Previous Price'],
             'language'          => [
                 'label' => 'Language',
-                'options' => [
-                    NULL               => 'n/a',
-                    'English'          => 'English',
-                    'Filipino'         => 'Filipino',
-                    'English/Filipino' => 'English/Filipino',
-                ]
+                'placeholder' => 'English, Filipino, English/Filipino'
             ],
             'author'            => [ 'label' => 'Author'],
             'supplier'          => [ 'label' => 'Supplier'],
@@ -245,14 +240,14 @@ echo link_tag('assets/css/manage/product_form.css');
                                     <label class="control-label" for="<?php echo $input_key; ?>"><?php echo $obj['label']; ?></label>
                                     <?php if ($input_key == 'product_overview') { ?>
                                         <textarea rows='5' class="form-control" name="<?php echo $input_key; ?>" id="<?php echo $input_key; ?>" aria-describedby="<?php echo $input_key.'_help_block'; ?>"><?php if (!empty($value)) {echo $value;}?></textarea>
-                                    <?php } elseif (in_array($input_key, ['merchant_id', 'product_type_id', 'language', 'description', 'format'])) { ?>
+                                    <?php } elseif (in_array($input_key, ['merchant_id', 'product_type_id', 'description', 'format'])) { ?>
                                         <select class="form-control" name="<?php echo $input_key; ?>" id="<?php echo $input_key; ?>" aria-describedby="<?php echo $input_key.'_help_block'; ?>">
                                             <?php foreach ($obj['options'] as $option_value => $option_label) { ?>
                                                 <option value="<?php echo $option_value; ?>" <?php echo ($value == $option_value) ? 'selected' : ''; ?>><?php echo $option_label;?></option>
                                             <?php } ?>
                                         </select>
                                     <?php } else { ?>
-                                        <input type="text" class="form-control" name="<?php echo $input_key; ?>" id="<?php echo $input_key; ?>" value="<?php echo $value;?>" aria-describedby="<?php echo $input_key.'_help_block'; ?>">
+                                        <input type="text" class="form-control" name="<?php echo $input_key; ?>" id="<?php echo $input_key; ?>" value="<?php echo $value;?>" aria-describedby="<?php echo $input_key.'_help_block'; ?>" <?php echo (isset($obj['placeholder'])) ? 'placeholder="'.$obj['placeholder'].'"': ''; ?> >
                                     <?php } ?>
                                     <span id="<?php echo $input_key.'_help_block'; ?>" class="help-block"><?php echo $error;?></span>
                                 </div>
