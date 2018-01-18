@@ -5,7 +5,9 @@ echo link_tag('assets/css/auto-email/breadcrumbs.css');
 
 // urls
 if (isset($mode) AND $mode == 'edit') {
-    $template_url = site_url('auto-email/'.$mode.'/template/'.$auto_email_id.'/1');
+    // admin prefers not to allow template to be editable
+    // https://github.com/usbong/UsbongStore/issues/60
+    $template_url = NULL;
     $data_url     = site_url('auto-email/'.$mode.'/data/'.$auto_email_id);
     $products_url = site_url('auto-email/'.$mode.'/products/'.$auto_email_id.'/1');
     $save_url     = site_url('auto-email/'.$mode.'/save/'.$auto_email_id);
@@ -24,14 +26,16 @@ if (isset($mode) AND $mode == 'edit') {
     <nav class="navbar-static-top categories-navbar step_row">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="<?php echo $template_url; ?>">
-                        Choose Template
-                        <?php if ($this->session->has_userdata('auto_email-create-auto_email_template_id')) { ?>
-                            <span class="glyphicon glyphicon-ok header_check" aria-hidden="true"></span>
-                        <?php } ?>
-                    </a>
-                </li>
+                <?php if (isset($template_url)) { ?>
+                    <li>
+                        <a href="<?php echo $template_url; ?>">
+                            Choose Template
+                            <?php if ($this->session->has_userdata('auto_email-create-auto_email_template_id')) { ?>
+                                <span class="glyphicon glyphicon-ok header_check" aria-hidden="true"></span>
+                            <?php } ?>
+                        </a>
+                    </li>
+                <?php } ?>
                 <li>
                     <a href="<?php echo $data_url; ?>">
                         Set Data
