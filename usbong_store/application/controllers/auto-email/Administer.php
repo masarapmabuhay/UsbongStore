@@ -228,9 +228,6 @@ class Administer extends MY_Controller {
         // check authentication
         self::can_user_access();
 
-        // render common header
-        $this->load->view('auto-email/create_header');
-
         // clear edit flag
         if ($this->session->userdata('auto_email-create-auto_email_id') !== NULL) {
             $this->session->unset_userdata('auto_email-create-auto_email_id');
@@ -239,6 +236,9 @@ class Administer extends MY_Controller {
             $this->session->unset_userdata('auto_email-create-auto_email_model');
             $this->session->unset_userdata('auto_email-create-auto_email_product_models');
         }
+
+        // render common header
+        $this->load->view('auto-email/create_header');
 
         // render view
         if ($elem == 'template') {
@@ -319,9 +319,7 @@ class Administer extends MY_Controller {
         );
 
         // render view
-        if ($elem == 'template') {
-            $this->create_template($page);
-        } elseif ($elem == 'data') {
+        if ($elem == 'data') {
             $this->create_data();
         } elseif ($elem == 'products') {
             $this->create_products($page);

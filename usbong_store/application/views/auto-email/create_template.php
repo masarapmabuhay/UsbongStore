@@ -44,7 +44,7 @@ if ($page['mode'] == 'edit') {
                                 ?>
                                     <button data-toggle="tooltip" data-placement="left" title="Selected" name="submit_button" type="submit" class="btn btn-success btn-xs" disabled="disabled"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                                 <?php } else { ?>
-                                    <button data-toggle="tooltip" data-placement="left" title="Select this Template" name="submit_button" type="submit" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                                    <button data-toggle="tooltip" data-placement="left" title="Select this template. Changing template will discard previously encoded data." name="submit_button" type="submit" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                                 <?php } ?>
                             </form>
                         </div>
@@ -86,8 +86,6 @@ if ($page['mode'] == 'edit') {
                 <?php }  ?>
             </ul>
         </nav>
-
-
     </div>
 
 </div>
