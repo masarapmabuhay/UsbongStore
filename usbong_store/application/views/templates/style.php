@@ -1617,7 +1617,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Contact {
-		width:60%;
+		width:80%;
 		font-size: 18px;
 		color: #4b4b4b;
 		margin:40px;
@@ -2479,6 +2479,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.request {
 		max-width: 40%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+    	margin-bottom: 20px;
+    	font-size: 24px;    	
+    	padding: 16px;
+    	border: 1px solid #4b3b2c;
+    	border-radius: 4px;
+	}
+
+	.request-contact {
+		max-width: 50%;		
 		float: none;
     	display: block;
     	margin: 0 auto;
