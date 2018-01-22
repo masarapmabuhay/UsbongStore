@@ -82,10 +82,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					//Description--------------------------------------------------
 					if (isset($data['descriptionParam'])) {
-						echo '<input type="text" class="Register-input" placeholder="Description" name="descriptionParam" value="'.$data['descriptionParam'].'" required>';
+						echo '<textarea rows="5" class="Register-input" placeholder="Description" name="descriptionParam" value="'.$data['descriptionParam'].'" required></textarea>';
 					}
 					else { //default
-						echo '<input type="text" class="Register-input" placeholder="Description" name="descriptionParam" required>';
+						echo '<textarea rows="5" class="Register-input" placeholder="Description" name="descriptionParam" required></textarea>';
 					}
 					//-----------------------------------------------------------
 					
