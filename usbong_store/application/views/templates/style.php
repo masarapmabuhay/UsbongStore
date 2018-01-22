@@ -2624,6 +2624,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    margin: 0;		    
 	}
 	
+	.Contact-success {		
+		max-width: 50%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+	
+		font-size: 20px;
+		color: #496d28;		
+		background-color: #77b043;
+		border-top: 1px solid #90d94f;	
+		border-right: 1px solid #90d94f;	
+		border-left: 1px solid #90d94f;		
+
+		border-bottom: 1px solid #90d94f;					
+		margin-bottom: -1px;
+	}			
+	
 	.FrontPage-header-link {
 		color: #3a1d00;
 	}
