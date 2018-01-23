@@ -35,45 +35,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="fields">
 				<form method="post" action="<?php echo site_url('contact/confirm')?>">
 				<?php 
-/*				
 					//First Name--------------------------------------------------
-					if ((isset($validation_errors)) && (isset($data['firstNameParam']))) {
+//					if ((isset($validation_errors)) && (isset($data['firstNameParam']))) {
+					if (isset($data['firstNameParam'])) {				
 						echo '<input type="text" class="Register-input" placeholder="First Name" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
 					}
 					else { //default
-*/					
 						echo '<input type="text" class="Register-input" placeholder="First Name" name="firstNameParam" required>';
-/*					}
- */
+					}
 					//-----------------------------------------------------------
-/*
+
 					//Last Name--------------------------------------------------
-					if ((isset($validation_errors)) && (isset($data['lastNameParam']))) {
+//					if ((isset($validation_errors)) && (isset($data['lastNameParam']))) {
+					if (isset($data['lastNameParam'])) {						
 						echo '<input type="text" class="Register-input" placeholder="Last Name" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
 					}
 					else { //default
-*/					
 						echo '<input type="text" class="Register-input" placeholder="Last Name" name="lastNameParam" required>';
-/*
 					}
-*/					
 					//-----------------------------------------------------------
 					
 					//Error Message
 					if (strpos($validation_errors, "The Email Address field must contain a valid email address.") !== false) {
 						echo '<div class="Register-error">Email Address is not a valid email.</div>';					
 					}					
-/*					
 					//Email Address--------------------------------------------------					
-					if ((isset($validation_errors)) && (isset($data['emailAddressParam']))) {
+//					if ((isset($validation_errors)) && (isset($data['emailAddressParam']))) {
+					if (isset($data['emailAddressParam'])) {						
 						echo '<input type="text" class="Register-input" placeholder="Email Address" name="emailAddressParam" value="'.$data['emailAddressParam'].'" required>';
 					}
 					else { //default
-*/					
 						echo '<input type="text" class="Register-input" placeholder="Email Address" name="emailAddressParam" required>';
-/*
 					}
-*/					
 					//-----------------------------------------------------------
 																				
 //					echo '<label class="Checkout-input-product-type">-Product Type-</label>';					
@@ -88,22 +81,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					echo '<br>';
 
-/*					
 					//Subject--------------------------------------------------
-					if ((isset($validation_errors)) && (isset($data['emailAddressParam']))) {
+/*					if ((isset($validation_errors)) && (isset($data['subjectParam']))) {
 						echo '<input type="text" class="Register-input" placeholder="Subject" name="subjectParam" value="'.$data['subjectParam'].'" required>';
 					}
 					else { //default
 */					
 						echo '<input type="text" class="Register-input" placeholder="Subject" name="subjectParam" required>';
-/*
-					}
-*/					
+/*					}
+ */
 					//-----------------------------------------------------------
 					
 					//Description--------------------------------------------------
-/*
-					if ((isset($validation_errors)) && (isset($data['emailAddressParam']))) {
+/*					if ((isset($validation_errors)) && (isset($data['emailAddressParam']))) {
 						echo '<textarea rows="5" class="Register-input" placeholder="Description" name="descriptionParam" value="'.$data['descriptionParam'].'" required></textarea>';
 					}
 					else { //default
@@ -111,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<textarea rows="5" class="Register-input" placeholder="Description" name="descriptionParam" required></textarea>';
 /*
 					}
-*/
+*/					
 					//-----------------------------------------------------------
 					
 					//reset the session values to null

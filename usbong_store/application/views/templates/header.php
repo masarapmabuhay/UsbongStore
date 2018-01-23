@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li class="header-banner-li"><a href="http://filipino.usbong.ph" target="_blank"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/tiyaga.png'); ?>"></a></li>
 			<li class="header-banner-li"><a href="http://heaven.usbong.ph" target="_blank"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/whereisheaven.png'); ?>"></a></li>
  			<li class="header-banner-li"><a href="http://heaven.usbong.ph" target="_blank"><img class="Image-usbong-15pesos-icon" src="<?php echo base_url('assets/images/banner_icons/15pesos.png'); ?>"></a></li>
- 			<li class="header-banner-li"><a href="http://heaven.usbong.ph" target="_blank"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/help.png'); ?>"></a></li>
+ 			<li class="header-banner-li"><a href="<?php echo site_url('contact/')?>" target="_blank"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/help.png'); ?>"></a></li>
 		</ul>
 <!-- 
 	</a>

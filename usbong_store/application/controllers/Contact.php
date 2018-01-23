@@ -33,6 +33,7 @@ class Contact extends MY_Controller {
 		$this->email->send();
 */		
 		
+		$customer_id = $this->session->userdata('customer_id');
 		
 		
 		//from application/core/MY_Controller
@@ -40,8 +41,21 @@ class Contact extends MY_Controller {
 		$this::initHeader();
 		//--------------------------------------------
 		
-		
-		$this->load->view('contact');
+		if (isset($customer_id)) {
+			$this->load->model('Account_Model');
+			$data['customer_information'] = $this->Account_Model->getCustomerInformation($customer_id);			
+			
+			$data['firstNameParam'] = $data['customer_information']->customer_first_name;
+			$data['lastNameParam'] = $data['customer_information']->customer_last_name;
+			$data['emailAddressParam'] = $data['customer_information']->customer_email_address;
+						
+			$this->session->set_flashdata('data', $data);
+			
+			$this->load->view('contact', $data);			
+		}
+		else {
+			$this->load->view('contact');			
+		}
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');
@@ -64,12 +78,15 @@ class Contact extends MY_Controller {
 		$this->form_validation->set_rules('firstNameParam', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 */
+
+/*		
 		$fields = array('firstNameParam', 'lastNameParam', 'emailAddressParam', 'contactCaseTypeParam', 'subjectParam', 'descriptionParam');
 		
 		foreach ($fields as $field)
 		{
 			$data[$field] = $_POST[$field];
 		}
+*/
 		
 /*				
 		if ($this->form_validation->run() == FALSE)
