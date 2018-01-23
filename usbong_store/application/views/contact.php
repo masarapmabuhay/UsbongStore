@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Contact">For questions, concerns, suggestions, feature requests, and/or details about our software development service offerings, please fill out the form below.<br><br>Our team will reply by email within two business days.<br><br>
 			<div class="fields">
 				<form method="post" action="<?php echo site_url('contact/confirm')?>">
-				<?php 
+				<?php 				
 					//First Name--------------------------------------------------
 //					if ((isset($validation_errors)) && (isset($data['firstNameParam']))) {
 					if (isset($data['firstNameParam'])) {				
