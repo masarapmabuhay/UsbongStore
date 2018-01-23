@@ -69,18 +69,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 					//-----------------------------------------------------------
 																				
-//					echo '<label class="Checkout-input-product-type">-Product Type-</label>';					
-					echo '<div class="radio Request-input-product-type">';
-					echo '<label><input type="radio" name="contactCaseTypeParam" value="1" checked>General feedback, no need to reply</label>';
-					echo '</div>';
-					echo '<div class="radio Request-input-product-type">';
-					echo '<label><input type="radio" name="contactCaseTypeParam" value="2">Need help with an issue</label>';
-					echo '</div>';
-					echo '<div class="radio Request-input-product-type">';
-					echo '<label><input type="radio" name="contactCaseTypeParam" value="3">Need help with software development</label>';
-					echo '</div>';
-					echo '<br>';
-
+//					echo '<label class="Checkout-input-product-type">-Product Type-</label>';	
+					if (isset($data['contactCaseTypeParam'])) {
+						if ($data['contactCaseTypeParam']==1) { //General feedback, no need to reply
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="1" checked>General feedback, no need to reply</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="2">Need help with an issue</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="3">Need help with software development</label>';
+							echo '</div>';
+							echo '<br>';							
+						}							
+						else if ($data['contactCaseTypeParam']==2) { //Need help with an issue
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="1">General feedback, no need to reply</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="2" checked>Need help with an issue</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="3">Need help with software development</label>';
+							echo '</div>';
+							echo '<br>';
+						}
+						else if ($data['contactCaseTypeParam']==3) { //Need help with software development
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="1">General feedback, no need to reply</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="2">Need help with an issue</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="3" checked>Need help with software development</label>';
+							echo '</div>';
+							echo '<br>';
+						}						
+					}
+					else {
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="1" checked>General feedback, no need to reply</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="2">Need help with an issue</label>';
+							echo '</div>';
+							echo '<div class="radio Request-input-product-type">';
+							echo '<label><input type="radio" name="contactCaseTypeParam" value="3">Need help with software development</label>';
+							echo '</div>';
+							echo '<br>';
+					}
+					
 					//Subject--------------------------------------------------
 /*					if ((isset($validation_errors)) && (isset($data['subjectParam']))) {
 						echo '<input type="text" class="Register-input" placeholder="Subject" name="subjectParam" value="'.$data['subjectParam'].'" required>';

@@ -79,14 +79,14 @@ class Contact extends MY_Controller {
 		$this->form_validation->set_rules('lastNameParam', 'Last Name', 'trim|required');
 */
 
-/*		
+		
 		$fields = array('firstNameParam', 'lastNameParam', 'emailAddressParam', 'contactCaseTypeParam', 'subjectParam', 'descriptionParam');
 		
 		foreach ($fields as $field)
 		{
 			$data[$field] = $_POST[$field];
 		}
-*/
+
 		
 /*				
 		if ($this->form_validation->run() == FALSE)
