@@ -87,6 +87,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  			echo '<li><a href = "'.site_url('account/ordersummarymerchant/').'">Order Summary (Merchant Admin)</a></li>';								  		
 								  		}
 								  	}
+								  	else {
+								  		echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  		
+								  	}
 								  	
 //								  	echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  
 								  	echo '<li><a href = "'.site_url('account/logout/').'">Log Out</a></li>';
