@@ -24,5 +24,13 @@ class Contact_Case_Model extends CI_Model
 		
 		return $this->db->insert_id(); //customer_request_id
 	}
+	
+	public function getContactCasesAdmin() {
+		$this->db->select('added_datetime_stamp, customer_id, contact_case_email_address, subject, contact_case_type_id, status');
+		$this->db->where('status', 0);
+		$this->db->order_by('added_datetime_stamp', 'DESC');
+		$query = $this->db->get('contact_case');
+		return $query->result_array();
+	}
 }
 ?>
