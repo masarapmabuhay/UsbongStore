@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/sellsummaryadmin/')?>">Sell (Admin)</a></div>				
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/searchhistoryadmin/')?>">Search (Admin)</a></div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/customersummaryadmin/')?>">Customer List (Admin)</a></div>
-					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/contactcasesummaryadmin/')?>">Case Summary (Admin)</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('contact/contactcasesummaryadmin/')?>">Case Summary (Admin)</a></div>
 					<div class="row Account-settings-subject-header">Settings</div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settings/')?>">Update Information</a></div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php 
 					if (count($contact_case_summary)==0) {
 						echo '<div class="Order-Summary-noResult">';
-						echo 'No customer sent any case yet.';
+						echo 'No customer has sent any case yet.';
 						echo '</div>';
 					}
 					else {
@@ -76,7 +76,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['contact_case_type_id'];
+												echo $value['contact_case_type_name_shortened'];												
+/*												
+													if (strlen($value['contact_case_type_name'])>14) {
+														$trimmedName = trim(substr($value['contact_case_type_name'],0,14))."...";
+														echo $trimmedName;
+													}
+													else {
+														echo $value['contact_case_type_name'];
+													}
+*/													
 												echo '</div>';
 																								
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
@@ -129,7 +138,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['contact_case_type_id'];
+												echo $value['contact_case_type_name_shortened'];
+/*												
+													if (strlen($value['contact_case_type_name'])>14) {
+														$trimmedName = trim(substr($value['contact_case_type_name'],0,14))."...";
+														echo $trimmedName;
+													}
+													else {
+														echo $value['contact_case_type_name'];
+													}												
+*/
 												echo '</div>';
 												
 												
