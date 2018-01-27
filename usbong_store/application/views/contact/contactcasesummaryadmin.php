@@ -70,7 +70,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
+												echo '<a class="Product-item" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';												
 												echo $value['subject'];												
+												echo '</a>';
+												
+												
 //												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
 //												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
 												echo '</div>';
@@ -133,8 +137,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo $value['subject'];
-//												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';											
+												echo '<a class="Product-item" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';
+												echo $value['subject'];				
+												echo '</a>';
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';

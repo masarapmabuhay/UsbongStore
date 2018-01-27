@@ -155,4 +155,37 @@ class Contact extends MY_Controller {
 				//--------------------------------------------
 				$this->load->view('templates/footer');
 	}
+	
+	public function contactcasedetailsadmin() {
+		$customer_id = $this->session->userdata('customer_id');
+		$is_admin = $this->session->userdata('is_admin');
+		
+		if ((!isset($customer_id)) ||
+		//			($customer_id!="12")) {
+				($is_admin!="1")) {
+					redirect('account/login'); //home page
+				}
+				
+				//from application/core/MY_Controller
+				$this::initStyle();
+				$this::initHeader();
+				//--------------------------------------------
+				
+				date_default_timezone_set('Asia/Hong_Kong');
+				$addedDateTimeStamp = date('Y-m-d H:i:s', $this->uri->segment(3));
+				//		echo 'hello '.$addedDateTimeStamp.'<br>';
+				
+				$contact_case_id = $this->uri->segment(3);
+				
+				$this->load->model('Contact_Case_Model');
+				$this->load->model('Account_Model');
+				
+				$data['contact_case_details'] = $this->Contact_Case_Model->getContactCaseDetailsAdmin($contact_case_id);				
+				$data['result'] = $this->Account_Model->getCustomerInformation($data['contact_case_details']->customer_id);
+				
+				$this->load->view('contact/contactcasedetailsadmin', $data);
+								
+				//--------------------------------------------
+				$this->load->view('templates/footer');
+	}	
 }
