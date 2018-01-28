@@ -148,6 +148,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</b>					
 							</div>					
 							<div class="row Product-quantity">
+								<?php 
+									if ($value['quantity_in_stock']<1) {
+								?>
+										<label class="Quantity-label">Quantity: <span class="Quantity-out-of-stock">out of stock</span></label>						
+								<?php						
+									}
+									else {
+								?>											
 								<label class="Quantity-label">Quantity:</label>
 								<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount;?>" class="Quantity-textbox no-spin" 
 										name="quantityParam<?php echo $itemCounter;?>"
@@ -156,8 +164,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="hidden" id="productId<?php echo $itemCounter?>" value="<?php echo $value['product_id'];?>">
 								<input type="hidden" id="productName<?php echo $itemCounter?>" value="<?php echo $value['name'];?>">
 								<input type="hidden" id="productImage<?php echo $itemCounter?>" value="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">
-							
+								<?php 
+									}
+								?>							
 							</div>
+							<?php 
+								if ($value['quantity_in_stock']>=1) {
+							?>														
 							<div class="row Product-purchase-button">
 								<?php 
 //										$quantity = 1;
@@ -202,7 +215,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</div>
 									</div>
 								</div>					
-							</div>				
+							</div>		
+						<?php 
+							}
+							else {
+								//do nothing
+							}
+						?>													
 						</div>
 					</div>
 					<hr class="horizontal-line">
