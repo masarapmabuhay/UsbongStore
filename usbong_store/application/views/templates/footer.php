@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</ul>
 			</div>			
 		</div>		
-		<p class="footer">© Usbong Social Systems, Inc. 2011∼2017. All rights reserved.
+		<p class="footer">© Usbong Social Systems, Inc. 2011∼2018. All rights reserved.
 		</p>
 	</div>
 </body>
