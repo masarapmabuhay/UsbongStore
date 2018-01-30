@@ -1175,6 +1175,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border: 1px solid #6d8f48;
 	}
 
+	hr.mail {
+		margin-right: 0px;	
+		border: 1px solid #6d8f48;
+	}
+
+
 	hr.Cart-hr {
 		border: 1px solid #6d8f48;
 		margin: 10px 10px 10px 10px;
@@ -1198,6 +1204,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color:#fff;
 		margin: 20px 0 0 0; 
 		padding: 0 10px 0 10px;
+	}
+
+	span.reply-text {
+		color:#aaa;
 	}
 
 	.Uplift-container {		

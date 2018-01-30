@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 -->
 	<div class="Uplift-container">
-	<button onclick="upliftFunction()" class="Uplift-button" >Uplift</button>	
+	<button onclick="upliftFunction()" class="Uplift-button" >Uplift</button>
 	</div>
 	<div class="Footer-container">
 		<div class="row">
