@@ -1412,6 +1412,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #222222;		
 	}
 
+	.Product-item-message {
+		border-radius: 4px;
+		font-weight: bold;			
+		color: #77b043;			
+	}
+
 	.Product-item:hover {
 		text-decoration: underline;
 		color: #222222;

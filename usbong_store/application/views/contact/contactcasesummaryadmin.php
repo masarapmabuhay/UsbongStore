@@ -43,17 +43,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-sm-2 Order-summary">		
 										<b>Date</b>
 									</div>
-									<div class="col-sm-4 Order-summary">		
-										<b>Subject</b>
-									</div>
-									<div class="col-sm-2 Order-summary">		
-										<b>Type</b>
+									<div class="col-sm-6 Order-summary">		
+										<b>Message</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Customer Email</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Status</b>
+										<b>Type</b>
 									</div>
 								</div>
 								<?php 
@@ -65,33 +62,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
 												echo '</div>';
 												
-												echo '<div class="col-sm-4 Order-summary-alternate">';
+												echo '<div class="col-sm-6 Order-summary-alternate">';
 			//									echo strtotime($value['added_datetime_stamp']);
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Product-item" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';												
-												echo $value['subject'];												
-												echo '</a>';
-												
+												echo '<a class="Product-item-message" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';												
+
+												if (strlen($value['subject'])+strlen($value['description'])>46) {
+													$messageLength=0;
+	
+													if (strlen($value['subject'])>40) {
+														$trimmedName = trim(substr($value['subject'],0,40))."...";
+														echo $trimmedName;
+	
+														$messageLength = strlen($trimmedName);
+													}
+													else {
+														echo $value['subject'];
+	
+														$messageLength = strlen($value['subject']);
+													}												
+													
+													if (strlen($messageLength<40)) {
+														echo " - ";
+	
+														if (strlen($value['description'])>20) {
+															$trimmedName = trim(substr($value['description'],0,20))."...";
+															echo $trimmedName;
+														}
+														else {
+															echo $value['description'];
+														}												
+													}
+												}																								
+												else {
+														echo $value['subject']." - ".$value['description'];													
+												}
+
 												
 //												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
 //												echo '<b><a class="Order-details-order-number-link" href="'.site_url('account/orderdetailsadmin/'.$timestamp).'/'.$value['customer_id'].'">'.$timestamp.'</a></b>';
 												echo '</div>';
-												
-												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['contact_case_type_name_shortened'];												
-/*												
-													if (strlen($value['contact_case_type_name'])>14) {
-														$trimmedName = trim(substr($value['contact_case_type_name'],0,14))."...";
-														echo $trimmedName;
-													}
-													else {
-														echo $value['contact_case_type_name'];
-													}
-*/													
-												echo '</div>';
-																								
+																																				
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
 												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';
 												
@@ -109,52 +122,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}																								
 												echo '</a>';
 												echo '</div>';
-												
-												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
-												echo $value['status'];												
-/*
-												if ($value['status']==0) {
-													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/1').'/'.$value['customer_sell_id'].'">';
-													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
-													echo '</a>';
-												}
-												else {
-													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/0').'/'.$value['customer_sell_id'].'">';
-//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
-													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
-													echo '</a>';
-												}
-*/												
+
+												echo '<div class="col-sm-2 Order-summary-alternate">';
+												echo $value['contact_case_type_name_shortened'];
 												echo '</div>';												
+												
+/*
+												 echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+												 echo $value['status'];
+												 echo '</div>';
+*/												
 											}
 											else {
 												echo '<div class="col-sm-2 Order-summary">';
 												echo date_format(date_create($value['added_datetime_stamp']),'m/d/Y');
 												echo '</div>';
 												
-												echo '<div class="col-sm-4 Order-summary">';
+												echo '<div class="col-sm-6 Order-summary">';
 			//									echo strtotime($value['added_datetime_stamp']);
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Product-item" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';
-												echo $value['subject'];				
-												echo '</a>';
-												echo '</div>';
-												
-												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['contact_case_type_name_shortened'];
-/*												
-													if (strlen($value['contact_case_type_name'])>14) {
-														$trimmedName = trim(substr($value['contact_case_type_name'],0,14))."...";
+												echo '<a class="Product-item-message" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';
+
+												if (strlen($value['subject'])+strlen($value['description'])>46) {
+													$messageLength=0;
+	
+													if (strlen($value['subject'])>40) {
+														$trimmedName = trim(substr($value['subject'],0,40))."...";
 														echo $trimmedName;
+	
+														$messageLength = strlen($trimmedName);
 													}
 													else {
-														echo $value['contact_case_type_name'];
+														echo $value['subject'];
+	
+														$messageLength = strlen($value['subject']);
 													}												
-*/
-												echo '</div>';
-												
+													
+													if (strlen($messageLength<40)) {
+														echo " - ";
+	
+														if (strlen($value['description'])>20) {
+															$trimmedName = trim(substr($value['description'],0,20))."...";
+															echo $trimmedName;
+														}
+														else {
+															echo $value['description'];
+														}												
+													}
+												}																								
+												else {
+														echo $value['subject']." - ".$value['description'];													
+												}
+												echo '</a>';
+												echo '</div>';																								
 												
 												echo '<div class="col-sm-2 Order-summary">';		
 												echo '<a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$value['customer_id']).'">';												
@@ -173,24 +195,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}
 												
 												echo '</a>';
-												echo '</div>';			
+												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['status'];
+												echo $value['contact_case_type_name_shortened'];
+												echo '</div>';
+												
 /*												
-												if ($value['status']==0) {
-													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/1').'/'.$value['customer_sell_id'].'">';
-													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
-													echo '</a>';
-												}
-												else {
-													echo '<a class="Order-details-order-number-link" href="'.site_url('account/sellsummaryadmin/0').'/'.$value['customer_sell_id'].'">';
-//													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
-													echo '<b>'.date_format(date_create($value['fulfilled_datetime_stamp']),'m/d/Y').'</b>';
-													echo '</a>';												
-												}
-*/												
+												echo '<div class="col-sm-2 Order-summary">';
+												echo $value['status'];
 												echo '</div>';												
+*/												
 											}
 											
 											$counter=($counter+1)%2;
