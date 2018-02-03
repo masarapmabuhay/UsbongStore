@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-9">			
 				<div class="row">
 					<div class="col-sm-7 Order-details">				
-						<?php 										
+						<?php 						
 							echo '<b>Subject: </b>';
 							echo $contact_case_details->subject;
 							echo '<br><br>';

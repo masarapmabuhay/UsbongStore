@@ -39,8 +39,7 @@ class Contact_Case_Model extends CI_Model
 	public function getContactCaseDetailsAdmin($contactCaseId) {
 		//update: status
 		$updateData = array(
-				'status' => 1
-				
+				'status' => 1				
 		);
 		$this->db->where('contact_case_id', $contactCaseId);
 		$this->db->update('contact_case', $updateData);		

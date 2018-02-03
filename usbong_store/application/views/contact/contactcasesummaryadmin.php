@@ -143,7 +143,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												$date = new DateTime($value['added_datetime_stamp'], new DateTimeZone("Asia/Hong_Kong"));
 												$timestamp = $date->format('U');
 //												echo $timestamp;
-												echo '<a class="Product-item-message" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';
+
+												if ($value['status']==0) {
+													echo '<a class="Product-item-message" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';												
+												}
+												else {
+													echo '<a class="Product-item-message-read" href="'.site_url('contact/contactcasedetailsadmin/'.$value['contact_case_id']).'">';													
+												}													
 
 												if (strlen($value['subject'])+strlen($value['description'])>46) {
 													$messageLength=0;
