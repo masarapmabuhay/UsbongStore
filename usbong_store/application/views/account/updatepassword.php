@@ -12,13 +12,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 	<div>
 		<div class="row">
-			<div class="col-sm-3 Account-settings">
-					<div class="row Account-settings-subject-header">Orders</div>
-					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummary/')?>">Order Summary</a></div>				
+			<?php 
+				if ($result->is_admin==1) {
+			?>
+				<div class="col-sm-3 Account-settings">
+					<div class="row Account-settings-subject-header">Summary</div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummaryadmin/')?>">Order Summary (Admin)</a></div>				
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/carthistoryadmin/')?>">Cart History (Admin)</a></div>				
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/requestsummaryadmin/')?>">Requests (Admin)</a></div>				
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/sellsummaryadmin/')?>">Sell (Admin)</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/searchhistoryadmin/')?>">Search (Admin)</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/customersummaryadmin/')?>">Customer List (Admin)</a></div>
+					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('contact/contactcasesummaryadmin/')?>">Case Summary (Admin)</a></div>					
 					<div class="row Account-settings-subject-header">Settings</div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settings/')?>">Update Information</a></div>
 					<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>
-			</div>
+				</div>			
+			<?php					
+				}
+				else {
+			?>					
+				<div class="col-sm-3 Account-settings">
+						<div class="row Account-settings-subject-header">Orders</div>
+						<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/ordersummary/')?>">Order Summary</a></div>				
+						<div class="row Account-settings-subject-header">Settings</div>
+						<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/settings/')?>">Update Information</a></div>
+						<div class="row Account-settings-subject-content"><a class="Account-settings-subject-content-link" href="<?php echo site_url('account/updatepassword/')?>">Update Password</a></div>
+				</div>			
+			<?php								
+				}			
+			?>
+		
 			<div class="col-sm-9 nopadding nomargin">	
 			<div class="Customer-information">
 				<div class="Customer-information-text-in-checkout"><b>Update Password</b></div>

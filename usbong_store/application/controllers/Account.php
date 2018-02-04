@@ -547,6 +547,7 @@ class Account extends MY_Controller {
 	public function settings()
 	{
 		$customer_id = $this->session->userdata('customer_id');
+//		$is_admin = $this->session->userdata('is_admin');
 		
 		if (!isset($customer_id)) {
 			redirect('account/login'); //home page			
@@ -701,6 +702,13 @@ class Account extends MY_Controller {
 		 $data['is_login_success'] = $this->Account_Model->loginAccount($data);
 		 */
 		 		 		 
+		
+		//added by Mike, 20180204
+		$customer_id = $this->session->userdata('customer_id');
+		 
+		$this->load->model('Account_Model');
+		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
+		 
 		$data['is_update_password_successful'] = $param;
 		$this->load->view('account/updatepassword', $data);
 		
