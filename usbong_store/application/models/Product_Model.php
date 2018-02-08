@@ -19,7 +19,7 @@ class Product_Model extends CI_Model
     }
 
     // returns a page worth of data where recent entries are returned first
-    public function getPage($page) {
+    public function getPage($page, $filters = NULL, $options = NULL) {
         // translate $page to offset
         if (is_numeric($page) AND $page > 1) {
             $offset = self::LIMIT * ($page - 1);
@@ -35,13 +35,36 @@ class Product_Model extends CI_Model
             'product_type.product_type_name '
         );
         $this->db->from('product');
+
+        if (isset($filters['name'])) {
+            $this->db->or_like('name', $filters['name'], 'both');
+        }
+        if (isset($filters['author'])) {
+            $this->db->or_like('author', $filters['author'], 'both');
+        }
         $this->db->join('product_type', 'product.product_type_id = product_type.product_type_id', 'left');
         $this->db->limit(self::LIMIT, $offset);
-        $this->db->order_by('product_id', 'DESC');
+
+
+        if (
+            isset($options['quantity_order']) AND
+            in_array($options['quantity_order'], ['ASC', 'DESC'])
+        ) {
+            $this->db->order_by('quantity_in_stock', $options['quantity_order']);
+            $this->db->order_by('product_id', 'DESC');
+        } else {
+            $this->db->order_by('product_id', 'DESC');
+        }
         return $this->db->get()->result_array();
     }
 
-    public function getMaxPage() {
+    public function getMaxPage($filters = NULL) {
+        if (isset($filters['name'])) {
+            $this->db->or_like('name', $filters['name'], 'both');
+        }
+        if (isset($filters['author'])) {
+            $this->db->or_like('author', $filters['author'], 'both');
+        }
         return ceil(
             $this->db->count_all_results('product') / self::LIMIT
         );
