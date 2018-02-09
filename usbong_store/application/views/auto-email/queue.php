@@ -31,7 +31,7 @@ echo link_tag('assets/css/auto-email/breadcrumbs.css');
             $default_datetime          = set_value('datetime');
             // if none exists, use defaults
             $default_start_customer_id = $default_start_customer_id != '' ? $default_start_customer_id : 1;
-            $default_end_customer_id   = $default_end_customer_id   != '' ? $default_end_customer_id   : 30;
+            $default_end_customer_id   = $default_end_customer_id   != '' ? $default_end_customer_id   : $max_customer_id;
             $default_datetime          = $default_datetime          != '' ? $default_datetime          : date('Y-m-d H:i:s');
         ?>
         <form class="form-inline" method="post" action="<?php echo site_url('auto-email/queue/'.$page['auto_email_id'].'/'.$page['current_page'])?>">
