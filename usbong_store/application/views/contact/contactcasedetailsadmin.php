@@ -7,7 +7,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 -->
-	<h2 class="header">Contact Case Details (Admin) | Customer: <?php echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$contact_case_details->customer_id).'">'.$contact_case_details->contact_case_email_address.'</a></u>';?></h2>
+	<h2 class="header">Contact Case Details (Admin) | Customer: <?php 
+			if ($contact_case_details->customer_id>0) {
+				echo '<u><a class="Product-item" href="'.site_url('account/customerdetailsadmin/'.$contact_case_details->customer_id).'">'.$contact_case_details->contact_case_email_address.'</a></u>';			
+			}
+			else {
+				echo $contact_case_details->contact_case_email_address.'(did not log-in)';
+			}			
+		?>
+	</h2>
 	<br>
 	<div>
 		<div class="row">
