@@ -11,5 +11,14 @@ class Auto_Email_Customer_Model extends CI_Model
         return $this->db->get()->row();
     }
 
+    public function getMax() {
+        $this->db->select_max('customer_id');
+        $data = $this->db->get('customer')->row();
+        if (isset($data->customer_id) AND !empty($data->customer_id)) {
+            return $data->customer_id;
+        } else {
+            return 0;
+        }
+    }
 }
 ?>

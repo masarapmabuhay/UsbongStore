@@ -123,6 +123,7 @@ class Administer extends MY_Controller {
         $this->load->library('form_validation');
         // load dependencies: models
         $this->load->model('auto-email/Auto_Email_Schedule_Model');
+        $this->load->model('auto-email/Auto_Email_Customer_Model');
 
         // check authentication
         self::can_user_access();
@@ -207,6 +208,7 @@ class Administer extends MY_Controller {
         $data['page']['prev_page']      = ($page > 1                        ) ? ($page - 1) : NULL;
         $data['page']['next_page']      = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
         $data['auto_email']             = $this->Auto_Email_Schedule_Model->getPage($auto_email_id, $page);
+        $data['max_customer_id']        = $this->Auto_Email_Customer_Model->getMax();
 
         // render view
         $this->load->view('auto-email/queue', $data);
