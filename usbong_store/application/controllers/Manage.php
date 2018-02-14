@@ -179,6 +179,7 @@ class Manage extends MY_Controller {
         $data['page']['filters']['name']           = $this->input->get('name_filter');
         $data['page']['filters']['author']         = $this->input->get('author_filter');
         $data['page']['options']['quantity_order'] = $this->input->get('quantity_order');
+        $data['page']['options']['search']         = $this->input->get('search');
 
         //------------------------//
         // Render
@@ -187,9 +188,10 @@ class Manage extends MY_Controller {
         $data['page']['filters']['name']           = (isset($data['page']['filters']['name']          ) AND !empty(trim($data['page']['filters']['name']  ))  ) ? trim($data['page']['filters']['name']  )   : NULL;
         $data['page']['filters']['author']         = (isset($data['page']['filters']['author']        ) AND !empty(trim($data['page']['filters']['author']))  ) ? trim($data['page']['filters']['author'])   : NULL;
         $data['page']['options']['quantity_order'] = (isset($data['page']['options']['quantity_order']) AND !empty($data['page']['options']['quantity_order'])) ? $data['page']['options']['quantity_order'] : NULL;
+        $data['page']['options']['search']         = (isset($data['page']['options']['search']        ) AND !empty($data['page']['options']['search'])        ) ? $data['page']['options']['search']         : 'and';
 
         $data['page']['page']          = $page;
-        $data['page']['max_page']      = $this->Product_Model->getMaxPage($data['page']['filters']);
+        $data['page']['max_page']      = $this->Product_Model->getMaxPage($data['page']['filters'], $data['page']['options']);
         $data['page']['prev_page']     = ($page > 1                        ) ? ($page - 1) : NULL;
         $data['page']['next_page']     = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
         $data['products']              = $this->Product_Model->getPage($page, $data['page']['filters'], $data['page']['options']);

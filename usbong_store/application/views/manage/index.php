@@ -23,6 +23,7 @@ echo link_tag('assets/css/manage/search_form.css');
                 name_filter    : $('[name="name_filter"]').val(),
                 author_filter  : $('[name="author_filter"]').val(),
                 quantity_order : anchor.attr('data_quantity_order'),
+                search         : $('[name="search"]').val(),
             };
 
             var url = '<?php echo site_url('manage/index/'.$page['page']); ?>?' + $.param(get_obj);
@@ -57,6 +58,7 @@ echo link_tag('assets/css/manage/search_form.css');
             $default_name           = $page['filters']['name'];
             $default_author         = $page['filters']['author'];
             $default_quantity_order = $page['options']['quantity_order'];
+            $default_search         = $page['options']['search'];
         ?>
         <form class="form-inline" method="get" action="<?php echo $search_url; ?>">
             <div class="form-group">
@@ -64,6 +66,12 @@ echo link_tag('assets/css/manage/search_form.css');
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="name_filter" placeholder="Name" value="<?php echo $default_name;?>">
+            </div>
+            <div class="form-group">
+                <select name="search" class="form-control">
+                    <option value="and" <?php echo ($default_search == 'and') ? 'selected' : ''; ?> >AND</option>
+                    <option value="or"  <?php echo ($default_search == 'or' ) ? 'selected' : ''; ?> >OR</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="author_filter" placeholder="Author" value="<?php echo $default_author;?>">
