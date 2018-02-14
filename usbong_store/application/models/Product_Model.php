@@ -19,6 +19,8 @@ class Product_Model extends CI_Model
     }
 
     // returns a page worth of data where recent entries are returned first
+    // valid keys for filters: name, author
+    // valid keys for options: search (and, or), quantity_order (ASC, DESC)
     public function getPage($page, $filters = NULL, $options = NULL) {
         // translate $page to offset
         if (is_numeric($page) AND $page > 1) {
@@ -36,12 +38,22 @@ class Product_Model extends CI_Model
         );
         $this->db->from('product');
 
+        // add filters as needed
         if (isset($filters['name'])) {
-            $this->db->or_like('name', $filters['name'], 'both');
+            if (isset($options['search']) AND $options['search'] == 'and') {
+                $this->db->like('name', $filters['name'], 'both');
+            } else {
+                $this->db->or_like('name', $filters['name'], 'both');
+            }
         }
         if (isset($filters['author'])) {
-            $this->db->or_like('author', $filters['author'], 'both');
+            if (isset($options['search']) AND $options['search'] == 'and') {
+                $this->db->like('author', $filters['author'], 'both');
+            } else {
+                $this->db->or_like('author', $filters['author'], 'both');
+            }
         }
+
         $this->db->join('product_type', 'product.product_type_id = product_type.product_type_id', 'left');
         $this->db->limit(self::LIMIT, $offset);
 
@@ -58,13 +70,25 @@ class Product_Model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function getMaxPage($filters = NULL) {
+    // valid keys for filters: name, author
+    // valid keys for options: search (and, or)
+    public function getMaxPage($filters = NULL, $options = NULL) {
+        // add filters as needed
         if (isset($filters['name'])) {
-            $this->db->or_like('name', $filters['name'], 'both');
+            if (isset($options['search']) AND $options['search'] == 'and') {
+                $this->db->like('name', $filters['name'], 'both');
+            } else {
+                $this->db->or_like('name', $filters['name'], 'both');
+            }
         }
         if (isset($filters['author'])) {
-            $this->db->or_like('author', $filters['author'], 'both');
+            if (isset($options['search']) AND $options['search'] == 'and') {
+                $this->db->like('author', $filters['author'], 'both');
+            } else {
+                $this->db->or_like('author', $filters['author'], 'both');
+            }
         }
+
         return ceil(
             $this->db->count_all_results('product') / self::LIMIT
         );
