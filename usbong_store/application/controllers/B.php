@@ -647,4 +647,44 @@ class B extends MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');
 	}	
+	
+	//---------------------------------------------------------
+	// Medical Category
+	//---------------------------------------------------------
+	public function medical()
+	{
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		$this->load->view('templates/right_side_bar');
+		//--------------------------------------------
+		
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Medical_Model');
+		$this->load->model('W_Model');
+		
+		if (isset($merchant_id)) {
+			$data['medical'] = $this->Medical_Model->getMedical($merchant_id);
+			
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['medical'] = $this->Medical_Model->getMedical(null);
+		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
+		
+		/*
+		 $this->load->model('Textbooks_Model');
+		 $data['books'] = $this->Textbooks_Model->getTextbooks();
+		 */
+		$this->load->view('b/medical',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
+	}
 }

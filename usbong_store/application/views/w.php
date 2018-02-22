@@ -41,6 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						case 3: //beverages
 							$productType="beverages";
 							break;
+						case 13: //combos
+							$productType="medical";
+							break;						
 						case 5: //combos
 							$productType="promos";
 							break;

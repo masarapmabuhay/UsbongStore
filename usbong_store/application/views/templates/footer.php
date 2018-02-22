@@ -18,13 +18,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/childrens/')?>">CHILDREN'S</a></li>
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/textbooks/')?>">TEXTBOOKS</a></li>
-				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/promos/')?>">PROMOS</a></li>
+				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/medical/')?>">MEDICAL</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/food/')?>">FOOD</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/beverages/')?>">BEVERAGES</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/comics/')?>">COMICS</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/manga/')?>">MANGA</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/toys-and-collectibles/')?>">TOYS & COLLECTIBLES</a></li>
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/Miscellaneous/')?>">MISCELLANEOUS</a></li>
+				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/promos/')?>">PROMOS</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-4">

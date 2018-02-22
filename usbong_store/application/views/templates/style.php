@@ -131,8 +131,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 9:
 					productType = "textbooks";
 					break;				
-				case 5:
-					productType = "promos";
+				case 13:
+					productType = "medical";
 					break;						
 				case 11:
 					productType = "food";
@@ -151,7 +151,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					break;																		
 				case 12:
 					productType = "miscellaneous";
-					break;																							
+					break;							
+				case 5:
+					productType = "promos";
+					break;																											
 			}			 
 						
 //			alert("clickNumArray[productTypeId]: "+clickNumArray[productTypeId]);
@@ -411,18 +414,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 9:
 					productType = "textbooks";
 					break;
-				case 5:
-					productType = "promos";
-					break;
+				case 13:
+					productType = "medical";
+					break;						
 				case 11:
-					productType = "food";					
-					break;				
+					productType = "food";
+					break;						
 				case 3:
 					productType = "beverages";
 					break;						
 				case 6:
 					productType = "comics";
-					break;																		
+					break;						
 				case 7:
 					productType = "manga";
 					break;																		
@@ -431,7 +434,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					break;																		
 				case 12:
 					productType = "miscellaneous";
-					break;																		
+					break;							
+				case 5:
+					productType = "promos";
+					break;																											
 			}
 
 			if (clickNumArray[productTypeId]==0) {
@@ -1122,7 +1128,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.categories-navbar {	
 		background-color: #efe6ca;
-		padding-left: 60px;
+		padding-left: 0px;
   		z-index: 0;
   		width: 100%;  		
 	}
