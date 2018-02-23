@@ -67,6 +67,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							case 12: //miscellaneous
 								$productType="miscellaneous";
 								break;							
+							case 13: //medical
+								$productType="medical";
+								break;							
 						}
 					?>
 						<div class="row">
