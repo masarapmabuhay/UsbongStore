@@ -793,4 +793,158 @@ class Account extends MY_Controller {
 			$this->customerdetailsadminWith("success");				
 		}
 	}	
+
+	/**
+	 * Sends reset password link to the email provided in POST
+	 */
+	public function forgotpassword()
+	{
+		// load dependencies
+		$this->load->model('Account_Model');
+		$this->load->model('Customer_Reset_Password_Model');
+		$this->load->model('auto-email/Auto_Email_Setting_Model');
+		$this->load->library('encryption');
+		$this->load->library('email');
+
+		// do validation logic: check that email was provided
+		$email = $this->input->post('emailAddressParam');
+		if (!isset($email) OR empty($email)) {
+			$this->session->set_flashdata('forgot_password_error', 'Email Address is required.');
+			redirect('account/login');
+		}
+
+		// do validation logic: check if email is in database
+		$customerModel = $this->Account_Model->getCustomerInformationByEmail($email);
+		if (!isset($customerModel)) {
+			$this->session->set_flashdata('forgot_password_error', 'Are you sure that '.$email.' is correct?');
+			redirect('account/login');
+		}
+
+		// do validation logic: check if thter is an unexpired reset request in database
+		$customerResetPasswordModel = $this->Customer_Reset_Password_Model->getValidEntryByCustomerId($customerModel->customer_id);
+		if (isset($customerResetPasswordModel)) {
+			$this->session->set_flashdata('forgot_password_error', 'You\'ve recently sent a password reset request.');
+			redirect('account/login');
+		}
+
+		// add entry in database
+		$this->db->trans_begin();
+		$insert_result = $this->Customer_Reset_Password_Model->add($customerModel->customer_id, date('Y-m-d H:i:s', strtotime('+20 minutes')));
+		if (!$insert_result['success']) {
+			$this->session->set_flashdata('forgot_password_error', $insert_result['error']);
+			redirect('account/login');
+		}
+
+		// create email data
+                $email_data['customer_first_name'] = $customerModel->customer_first_name;
+		$email_data['link'] = site_url(
+			'account/resetpassword/'.
+			rawurlencode(
+				// change / to ~:
+				// - / is not url friendly
+				// - ~ is excluded from the encryption char set
+				preg_replace(
+					'/\//',
+					'~',
+					$this->encryption->encrypt(
+						$insert_result['customer_reset_password_id']
+					)
+				)
+			)
+		);
+
+		// send email
+		$email                 = [];
+		$email['smtp_timeout'] = $this->Auto_Email_Setting_Model->get('smtp_timeout');
+		$email['protocol']     = $this->Auto_Email_Setting_Model->get('protocol');
+		$email['smtp_host']    = $this->Auto_Email_Setting_Model->get('smtp_host');
+		$email['smtp_user']    = $this->Auto_Email_Setting_Model->get('smtp_user');
+		$email['smtp_pass']    = $this->Auto_Email_Setting_Model->get('smtp_pass');
+		$email['smtp_crypto']  = $this->Auto_Email_Setting_Model->get('smtp_crypto');
+		$email['smtp_port']    = $this->Auto_Email_Setting_Model->get('smtp_port');
+		$email['sender_alias'] = $this->Auto_Email_Setting_Model->get('sender_alias');
+		$email['mailpath']     = $this->Auto_Email_Setting_Model->get('mailpath');
+		$email['mailtype']     = 'html';
+		$email['charset']      = 'utf-8';
+
+		$this->email->initialize($email);
+                $this->email->set_newline("\r\n"); // this is needed for gmail smtp to parse content, without this email server rejects request
+                $this->email->from($email['smtp_user'], $email['sender_alias']);
+                $this->email->to($customerModel->customer_email_address);
+                $this->email->subject('Password Reset Link from Usbong');
+                $this->email->message(
+                    $this->load->view('auto-email/email_frame_password_reset_template', $email_data, TRUE)
+                );
+
+                try {
+                    if ($this->email->send()) {
+			// finalize the database write
+			$this->db->trans_commit();
+			$this->session->set_flashdata('forgot_password_success', 'A reset link has been sent to your email. Please process it before it expires in 20 minutes.');
+                    } else {
+			// roll back the database as needed then report the error
+			$this->db->trans_rollback();
+			$this->session->set_flashdata('forgot_password_error', 'The email could not be sent at this time. Please try again later.');
+                    }
+                } catch (Exception $e) {
+			// roll back the database as needed then report the error
+			$this->db->trans_rollback();
+			$this->session->set_flashdata('forgot_password_error', 'The email could not be sent at this time. Please try again later.');
+                }
+
+		// display form
+		redirect('account/login');
+	}
+
+	/**
+	 * Resets a password using encoded id
+	 */
+	public function resetpassword($encoded_customer_reset_password_id = NULL)
+	{
+		// load dependencies
+		$this->load->model('Account_Model');
+		$this->load->model('Customer_Reset_Password_Model');
+		$this->load->library('encryption');
+		$this->load->helper('string');
+
+		// validate input
+		if (!isset($encoded_customer_reset_password_id)) {
+			show_error('The data submitted for reset password is missing.', 403, 'Authentication Failed');
+		}
+
+		// validate encoded data
+		$customer_reset_password_id = $this->encryption->decrypt(
+			// decode ~ back to /:
+			preg_replace(
+				'/~/',
+				'/',
+				rawurldecode($encoded_customer_reset_password_id)
+			)
+		);
+		if (!$customer_reset_password_id) {
+			show_error('The data submitted for reset password has been tampered.', 403, 'Authentication Failed');
+		}
+
+		// validate reset link
+		$customerResetPasswordModel = $this->Customer_Reset_Password_Model->get($customer_reset_password_id);
+		$now    = new DateTime();
+		$expire = new DateTime($customerResetPasswordModel->datetime_expire);
+		if (!isset($customerResetPasswordModel)) {
+			show_error('The data submitted for reset password does not exist.', 403, 'Authentication Failed');
+		} elseif (isset($customerResetPasswordModel->datetime_used)) {
+			show_error('This reset linked has already been used.', 403, 'Authentication Failed');
+		} elseif ($now > $expire) {
+			show_error('This reset linked has expired.', 403, 'Authentication Failed');
+		}
+
+		// reset password and close reset link
+		$pass = random_string('alnum', 4);
+		$this->Account_Model->updateAccountPassword($customerResetPasswordModel->customer_id, ['newPasswordParam' => $pass]);
+		$this->Customer_Reset_Password_Model->setToUsed($customerResetPasswordModel->customer_reset_password_id, $now->format('Y-m-d H:i:s'));
+
+		// display sign in page
+		$this->session->set_flashdata('forgot_password_success', 'Your password has been reset to "'.$pass.'". We recommend that you update your password after signing in.');
+		redirect('account/login');
+	}
+
 }

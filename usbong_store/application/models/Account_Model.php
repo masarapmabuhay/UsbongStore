@@ -83,6 +83,14 @@ class Account_Model extends CI_Model
 		$row = $query->row();
 		return $row;
 	}
+
+	public function getCustomerInformationByEmail($email) {
+		$this->db->select('customer_id, customer_email_address, customer_first_name, customer_last_name, customer_contact_number, customer_shipping_address, customer_city, customer_country, customer_postal_code, mode_of_payment_id, is_admin, merchant_id');
+		$this->db->where('customer_email_address', $email);
+		$query = $this->db->get('customer');
+		$row = $query->row();
+		return $row;
+	}
 	
 	public function getCustomerAddressFromCustomerOrder($customerOrderId) {
 		$this->db->select('customer_shipping_address, customer_city, customer_country, customer_postal_code');
@@ -329,5 +337,7 @@ class Account_Model extends CI_Model
 		$this->db->where('customer_sell_id', $customerSellId);
 		$this->db->update('customer_sell', $updateData);
 	}
+
+
 }
 ?>
