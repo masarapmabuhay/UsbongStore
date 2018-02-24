@@ -581,7 +581,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	//-----------------------------------------------		    					
 				var reformattedProductName = data[index].name.replace(':','').replace('\'','');
 				
-		    	var imageName = document.getElementById("imageId~"+colNum+"~"+productTypeId);				
+		    	var imageName = document.getElementById("imageId~"+colNum+"~"+productTypeId);
 				var base_url = "<?php echo site_url('assets/images/');?>";
 				var my_url = base_url.concat(productType,'/',reformattedProductName,".jpg");
 
