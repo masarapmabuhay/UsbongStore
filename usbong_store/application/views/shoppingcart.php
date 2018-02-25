@@ -35,9 +35,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					foreach ($result as $value) {
 						$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+
+						$URLFriendlyReformattedProductName = str_replace("(","",
+						str_replace(")","",
+						str_replace("&","and",
+						str_replace(',','',
+						str_replace(' ','-',
+						str_replace('/','-',
+						$reformattedProductName)))))); //replace "&", " ", and "-"
+						
+						$URLFriendlyReformattedProductAuthor = str_replace("(","",
+						str_replace(")","",
+						str_replace("&","and",
+						str_replace(',','',
+						str_replace(' ','-',
+						str_replace('/','-',
+						$value['author'])))))); //replace "&", " ", and "-"
+/*						
+						$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 						$URLFriendlyReformattedProductName = str_replace(',','',str_replace(' ','-',$reformattedProductName)); //replace " " and "-"
 						$URLFriendlyReformattedBookAuthor = str_replace(',','',str_replace(' ','-',$value['author'])); //replace " " and "-"
-						
+*/						
 						$productType="books"; //default
 						switch($value['product_type_id']) {
 							case 3: //beverages
@@ -79,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-3">	
 								<div class="row Cart-product-name">							
 									<?php
-										echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedBookAuthor.'/'.$value['product_id']).'">';
+										echo '<a class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
 										echo $value['name'];
 										echo '</a>';
 									?>
