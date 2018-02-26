@@ -135,6 +135,11 @@ class B extends MY_Controller {
 		
 		$this->load->model('Miscellaneous_Model');
 		$data['miscellaneous'] = $this->Miscellaneous_Model->getMiscellaneousOnly(null);
+
+		//added by Mike, 20180226
+		$this->load->model('Medical_Model');
+		$data['medical'] = $this->Medical_Model->getMedicalOnly(null);
+		
 		
 		//edited by Mike, 20170903
 		$this->load->model('B_Model');

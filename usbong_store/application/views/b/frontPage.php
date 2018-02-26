@@ -464,7 +464,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/promos/')?>">Recommended <span class="Front-page-cat-name"> Promos</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/medical/')?>">Recommended <span class="Front-page-cat-name"> Medical Supplies</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -472,11 +472,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$colCounter = 0;
 			
 			$d = array();
-			foreach ($promos as $value) {
+			foreach ($medical as $value) {
 				$d[] = $value;			
 			}
 			
-			foreach ($promos as $value) {
+			foreach ($medical as $value) {
 				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
 				$URLFriendlyReformattedProductName = str_replace("(","",
 														str_replace(")","",
@@ -497,7 +497,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($promos)>5) {						
+					if (count($medical)>5) {						
 						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
 					}
 					echo '</div>';
@@ -509,7 +509,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
-					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
+					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/medical/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
 					if (strlen($value['name'])>32) {
@@ -549,7 +549,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */
-					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
+					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/medical/'.$reformattedProductName.'.jpg').'">';
 
 					$trimmedName = $value['name'];
 					if (strlen($value['name'])>32) {
@@ -579,12 +579,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '</div>';
 					$colCounter++;
 					
-					if (($colCounter==5) || ($colCounter==count($promos))){												
+					if (($colCounter==5) || ($colCounter==count($medical))){												
 						
 						echo '</div>';
 						
 						echo '<div col-sm-1>';		
-						if (count($promos)>5) {							
+						if (count($medical)>5) {							
 							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
@@ -1501,6 +1501,147 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo '</div>';
 	?>
 	</div>			
+	
+		<!-- ################################################################################# -->
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/promos/')?>">Recommended <span class="Front-page-cat-name"> Promos</span></a></h3>	
+	<br>
+		<div class="container-frontPage">
+		<div class="row">
+	<?php
+			$colCounter = 0;
+			
+			$d = array();
+			foreach ($promos as $value) {
+				$d[] = $value;			
+			}
+			
+			foreach ($promos as $value) {
+				$reformattedProductName = str_replace(':','',str_replace('\'','',$value['name'])); //remove ":" and "'"
+				$URLFriendlyReformattedProductName = str_replace("(","",
+														str_replace(")","",
+														str_replace("&","and",
+														str_replace(',','',
+														str_replace(' ','-',
+														str_replace('/','-',
+														$reformattedProductName)))))); //replace "&", " ", and "-"
+				$URLFriendlyReformattedProductAuthor = str_replace("(","",
+														str_replace(")","",
+														str_replace("&","and",
+														str_replace(',','',
+														str_replace(' ','-',
+														str_replace('/','-',
+														$value['author'])))))); //replace "&", " ", and "-"
+				
+				if ($colCounter==0) {										
+					echo '<div class="row no-gutter">';						
+					
+					echo '<div class="col-sm-1">';
+					if (count($promos)>5) {						
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";
+					}
+					echo '</div>';
+					
+					echo '<div class="col-sm-10">';				
+					echo '<div>';
+					echo '<div class="col-sm-2 Product-item">';					
+					echo '<a id="linkId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
+					
+/*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
+*/
+					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
+
+					$trimmedName = $value['name'];
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
+					}
+					
+					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
+					echo '<label class="Product-item-details">';
+					
+//					echo '<span id="authorId~'.$colCounter.'~'.$value['product_type_id'].'">'.$value['author'].'</span>';
+					
+//					if ($value['price']!=null) {
+
+					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
+
+					if ($value['quantity_in_stock']!=0) {
+						echo '&#x20B1;'.$value['price'];
+					}
+					else {
+						echo 'out of stock';					
+					}
+					echo '</label>';
+
+					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
+					if (isset($value['previous_price'])) {						
+						echo '&ensp;('.$value['previous_price'].')';
+					}
+					echo '</label>';
+										
+					echo '</a>';
+					echo '</div>';
+					$colCounter++;				
+				}
+				else if ($colCounter<5){
+					echo '<div class="col-sm-2 Product-item">';
+					echo '<a id="linkId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item" href="'.site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']).'">';
+					
+/*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
+*/
+					echo '<img id="imageId~'.$colCounter.'~'.$value['product_type_id'].'" class="Image-item" src="'.base_url('assets/images/promos/'.$reformattedProductName.'.jpg').'">';
+
+					$trimmedName = $value['name'];
+					if (strlen($value['name'])>32) {
+						$trimmedName = trim(substr($value['name'],0,32))."...";
+					}
+					
+					echo '<br><div id="nameId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-titleOnly">'.$trimmedName.'</div>';
+					echo '<label class="Product-item-details">';
+										
+					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
+					
+					if ($value['quantity_in_stock']!=0) {
+						echo '&#x20B1;'.$value['price'];
+					}
+					else {
+						echo 'out of stock';
+					}
+					echo '</label>';
+					
+					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
+					if (isset($value['previous_price'])) {
+						echo '&ensp;('.$value['previous_price'].')';
+					}
+					echo '</label>';
+					
+					echo '</a>';
+					echo '</div>';
+					$colCounter++;
+					
+					if (($colCounter==5) || ($colCounter==count($promos))){												
+						
+						echo '</div>';
+						
+						echo '<div col-sm-1>';		
+						if (count($promos)>5) {							
+							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						}
+						echo '</div>';
+						
+						echo '</div>';
+						$colCounter=0;
+												
+						//added by Mike, 20170818
+						echo '<hr class="FrontPage-hr">';
+						break;
+					}
+				}
+			}			
+			echo '</div>';		
+			echo '</div>';
+	?>
+	</div>		
+	
 <!-- 
 </body>
 </html>
