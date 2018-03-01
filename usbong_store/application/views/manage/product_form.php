@@ -160,9 +160,9 @@ echo link_tag('assets/css/manage/product_form.css');
                             <div class="cropit-preview center-block"></div>
                             <div id="image_help_block" class="text-center"><?php echo form_error('image');?></div>
                             <div class="zoom-slider text-center">
-                                <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-                                <input type="range" class="cropit-image-zoom-input">
                                 <span class="glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
+                                <input type="range" class="cropit-image-zoom-input">
+                                <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
                             </div>
                         </div>
                     </div>
