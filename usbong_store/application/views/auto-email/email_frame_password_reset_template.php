@@ -203,6 +203,9 @@
                                         Thank you.
                                     </p>
                                     <p>
+                                        Peace.
+                                    </p>
+                                    <p>
                                         The Usbong Support Team
                                     </p>
                                 </td>
