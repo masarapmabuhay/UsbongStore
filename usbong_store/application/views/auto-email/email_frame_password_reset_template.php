@@ -200,6 +200,9 @@
                                         If you did not send us this request, you can safely ignore this email. Rest assured your customer account is safe.
                                     </p>
                                     <p>
+                                        Thank you.
+                                    </p>
+                                    <p>
                                         The Usbong Support Team
                                     </p>
                                 </td>
