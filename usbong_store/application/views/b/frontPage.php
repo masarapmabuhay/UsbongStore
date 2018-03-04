@@ -907,8 +907,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="row no-gutter">';						
 					
 					echo '<div class="col-sm-1">';
-					if (count($merchants)>5) {
-						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
+					if (count($merchants)>6) { //5+1, because n/a is included 
+						echo "<br><br><br><button id='leftButtonId' onclick='myLeftArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['merchant_id'].")' class='Front-page-left-arrow-button'>‹</button>";					
 					}
 					echo '</div>';
 					
@@ -930,8 +930,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '</div>';
 						
 						echo '<div col-sm-1>';			
-						if (count($merchants)>5) {							
-							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['product_type_id'].")' class='Front-page-right-arrow-button'>›</button>";
+						if (count($merchants)>6) { //5+1, because n/a is included 
+							echo "<br><br><br><button id='rightButtonId' onclick='myRightArrowFunction(".htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8').", ".$value['merchant_id'].")' class='Front-page-right-arrow-button'>›</button>";
 						}
 						echo '</div>';
 						
