@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$reformattedProductName = str_replace(':','',str_replace('\'','',$result->name)); //remove ":" and "'"				
 					
 					$productType="books"; //default
+//					$canSellBack=false; //added by Mike, 20180304
 					switch($result->product_type_id) {
 						case 3: //beverages
 							$productType="beverages";
@@ -175,6 +176,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div>					
 						<br>
 							<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore_L.jpg')?>">
+						<br><br>
+						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
 						</div>															
 						
 						<div id="myPopup" class="popup-content">
