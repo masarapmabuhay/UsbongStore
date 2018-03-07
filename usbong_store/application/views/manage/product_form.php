@@ -16,7 +16,7 @@ echo link_tag('assets/css/manage/product_form.css');
                 width: 264,
                 height: 352,
                 exportZoom: 1,
-                minZoom: 'fill',
+                minZoom: 'fit', //'fill'
                 maxZoom: 1.5,
                 freeMove: false,
                 imageBackground: true,
