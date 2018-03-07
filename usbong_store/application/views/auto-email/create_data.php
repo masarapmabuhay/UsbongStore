@@ -30,7 +30,7 @@ $session_object =  $this->session->userdata('auto_email-create-auto_email_model'
                             width: 600,
                             height: 390,
                             exportZoom: 1,
-                            minZoom: 'fill',
+                            minZoom: 'fit',
                             maxZoom: 1.5,
                             freeMove: false,
                             imageBackground: true,
