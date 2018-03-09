@@ -8,7 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 -->
 <!-- ################################################################################# -->
-	
+<!-- Reference: https://stackoverflow.com/questions/13860671/how-to-create-image-slideshow-in-html;
+     last accessed: 20180308
+     question by: greenthunder
+     edited by: Sven Bieder -->	
 <script type="text/javascript">
     var image1 = new Image()
     image1.src = "<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore_L.jpg')?>"
