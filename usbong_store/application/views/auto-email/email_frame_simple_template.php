@@ -200,13 +200,11 @@
                                     Hi <?php echo $customer['customer_first_name'].',';?>
                                 </td>
                             </tr>
-<!--
                             <tr>
-                                <td align="left" valign="top" style="padding:10px;">
+                                <td align="left" valign="top" style="padding:10px;font-size: 1.2em;">
                                     <?php echo $email->data_01;?>
                                 </td>
                             </tr>
--->
                         </table>
                     </td>
                 </tr>

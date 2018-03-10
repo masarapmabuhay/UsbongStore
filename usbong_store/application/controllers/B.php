@@ -100,10 +100,10 @@ class B extends MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
-		
+/*		
 		//added by Mike, 20180307
 		$this->load->view('templates/billboard');
-				
+*/				
 		//		$data['content'] = 'category/Books';
 		$merchant_id = $this->uri->segment(3);
 		
