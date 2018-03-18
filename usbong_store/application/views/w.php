@@ -7,29 +7,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 -->
-	<br>
-	<div class="container-product-item">
-		<div class="row">
-			<div class="col-sm-2 Merchant-category">
 <?php 
-				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($categories)['product_type_name'])); //remove ":" and "'"
+				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($merchant_categories)['product_type_name'])); //remove ":" and "'"
 				$URLFriendlyReformattedCategoryName = str_replace("(","",
 						str_replace(")","",
 						str_replace("&","and",
 						str_replace(',','',
 						str_replace(' ','-',
 						str_replace('/','-',
-						$reformattedCategoryName)))))); //replace "&", " ", and "-"
-									
+						$reformattedCategoryName)))))); //replace "&", " ", and "-"									
+?>
+	<h3 class="header">
+	<?php 
+		switch($result->product_type_id) {
+			case 10: //childrens
+				echo "Children's Books";			
+				break;
+			case 12: //miscellaneous
+				echo "Miscellaneous Items";
+				break;
+			default:				
+				echo $result->product_type_name; 
+				break;
+		}
+	?>
+	</h3>	
+	<br>
+	<div class="container-product-item">
+		<div class="row">
+			<div class="col-sm-2 Merchant-category">
+			<?php 
 				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$result->merchant_id).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
-
-					foreach ($categories as $value) {
-						$fileFriendlyCategoryName = str_replace("'","",
-													str_replace(" & ","_and_",
-														strtolower($value['product_type_name'])));
-						echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
-					}
-				?>
+				
+				foreach ($merchant_categories as $value) {
+					$fileFriendlyCategoryName = str_replace("'","",
+							str_replace(" & ","_and_",
+									strtolower($value['product_type_name'])));
+					echo '<div class="row Merchant-category-content"><a class="Merchant-category-content-link" href="'.site_url('b/'.$fileFriendlyCategoryName.'/'.$value['merchant_id']).'">'.strtoupper($value['product_type_name']).'</a></div>';
+				}						
+			?>
 			</div>
 			<div class="col-sm-3">	
 				<?php 
