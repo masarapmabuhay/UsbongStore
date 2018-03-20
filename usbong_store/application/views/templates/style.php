@@ -1128,7 +1128,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.categories-navbar {	
 		background-color: #efe6ca;
-		padding-left: 0px;
   		z-index: 0;
   		width: 100%;  		
 	}
@@ -1965,6 +1964,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.container {
 		margin-left: 100px;
 		margin-bottom: 0px;
+	}	
+
+	.container-fluid {
+		margin-left:5px;
+		padding:0;
 	}	
 
 	.Customer-details-container {
