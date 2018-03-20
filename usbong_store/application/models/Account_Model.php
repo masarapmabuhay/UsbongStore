@@ -217,7 +217,11 @@ class Account_Model extends CI_Model
 		$query = $this->db->get();
 		
 //		return $query->row();		
-		return $query->result_array();		
+
+		if ($query->num_rows() > 0) {
+			return $query->result_array();			
+		}
+		return array();		
 	}
 		
 	public function updateCustomerOrderAdmin($fulfilledStatus, $addedDatetimeStamp, $productCustomerId) {

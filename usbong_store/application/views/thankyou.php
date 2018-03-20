@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<b>Payment Method</b><br>
 					<?php 
 						if ($data['modeOfPaymentParam']==0) {
-							echo 'Bank Deposit';
+							echo 'Bank Deposit (BDO/BPI)';
 						}
 						else if ($data['modeOfPaymentParam']==1) {
 							echo 'Paypal';

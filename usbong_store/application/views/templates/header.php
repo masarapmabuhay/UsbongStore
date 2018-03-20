@@ -69,8 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								echo '<ul class="dropdown-menu">';			  		
 								  	echo '<li><a href = "'.site_url('account/settings/').'">My Account</a></li>';				
 
-								  	if ($this->session->userdata('is_admin')=="1") { //true
-								  		
+								  	if ($this->session->userdata('is_admin')=="1") { //true								  		
 								  		if ($this->session->userdata('merchant_id')=="0") { //true								  			
 								  			echo '<li><a href = "'.site_url('account/ordersummaryadmin/').'">Order Summary (Admin)</a></li>';
 								  			echo '<li><a href = "'.site_url('index.php/manage/').'">Product Management (Admin)</a></li>';								  		
@@ -82,13 +81,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  			echo '<li><a href = "'.site_url('account/sellsummaryadmin/').'">Sell (Admin)</a></li>'; //added by Mike, 20171030								  		
 								  			echo '<li><a href = "'.site_url('account/searchhistoryadmin/').'">Search (Admin)</a></li>'; //added by Mike, 20171105
 */
-								  		}
+								  		}/*
 								  		else {
 								  			echo '<li><a href = "'.site_url('account/ordersummarymerchant/').'">Order Summary (Merchant Admin)</a></li>';								  		
-								  		}
+								  		}*/
 								  	}
 								  	else {
-								  		echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  		
+								  		if ($this->session->userdata('merchant_id')!="0") { //true
+								  			echo '<li><a href = "'.site_url('account/ordersummarymerchant/').'">Order Summary (Merchant Admin)</a></li>';								  			
+								  		}
+								  		else {
+								  			echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  		
+								  		}
 								  	}
 								  	
 //								  	echo '<li><a href = "'.site_url('account/ordersummary/').'">Order Summary</a></li>';								  

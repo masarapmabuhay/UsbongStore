@@ -114,7 +114,7 @@ class Account extends MY_Controller {
 		
 		if ((!isset($customer_id)) ||
 		//			($customer_id!="12")) {
-				($is_admin!="1") ||
+				/*($is_admin!="1") ||*/
 				($merchant_id=="0")) {
 					redirect('account/login'); //home page
 				}
