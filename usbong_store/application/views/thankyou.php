@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<b>Payment Method</b><br>
 					<?php 
 						if ($data['modeOfPaymentParam']==0) {
-							echo 'Bank Deposit (BDO/BPI)';
+							echo 'Bank Deposit (<a href="https://www.bdo.com.ph/send-money" target="_blank"><b>BDO</b></a>/<a href="https://www.bpiexpressonline.com/p/0/6/online-banking" target="_blank"><b>BPI</b></a>)';
 						}
 						else if ($data['modeOfPaymentParam']==1) {
 							echo 'Paypal';
