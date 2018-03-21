@@ -668,6 +668,9 @@ class Account extends MY_Controller {
 			//--------------------------------------------
 			$this->load->view('templates/footer');			
 */
+			//added by Mike, 20180321
+			$this->session->set_flashdata('data', $data);
+			
 			$this->load->model('Account_Model');
 			$this->Account_Model->updateAccount($customer_id, $data);
 			

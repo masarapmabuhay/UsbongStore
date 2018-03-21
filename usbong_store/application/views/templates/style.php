@@ -2194,7 +2194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Customer-information {
-		max-width: 50%;		
+		max-width: 55%;		
 		float: none;
     	display: block;
     	margin: 0 auto;
