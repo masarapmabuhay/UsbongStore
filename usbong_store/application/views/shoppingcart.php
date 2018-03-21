@@ -61,8 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							case 3: //beverages
 								$productType="beverages";
 								break;
-							case 5: //combos
-								$productType="combos";
+							case 5: //"promos", formerly, "combos"
+								$productType="promos";
 								break;
 							case 6: //comics
 								$productType="comics";
@@ -88,6 +88,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							case 13: //medical
 								$productType="medical";
 								break;							
+							case 5: //promos
+								$productType="promos";
+								break;								
 						}
 					?>
 						<div class="row">
