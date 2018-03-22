@@ -909,6 +909,7 @@ class Account extends MY_Controller {
 		$this->load->model('Customer_Reset_Password_Model');
 		$this->load->library('encryption');
 		$this->load->helper('string');
+		$this->load->library('session');
 
 		// validate input
 		if (!isset($encoded_customer_reset_password_id)) {
@@ -945,9 +946,26 @@ class Account extends MY_Controller {
 		$this->Account_Model->updateAccountPassword($customerResetPasswordModel->customer_id, ['newPasswordParam' => $pass]);
 		$this->Customer_Reset_Password_Model->setToUsed($customerResetPasswordModel->customer_reset_password_id, $now->format('Y-m-d H:i:s'));
 
-		// display sign in page
-		$this->session->set_flashdata('forgot_password_success', 'Your password has been reset to "'.$pass.'". We recommend that you update your password after signing in.');
-		redirect('account/login');
+		// change user
+		$data['result'] = $this->Account_Model->getCustomerInformation($customerResetPasswordModel->customer_id);
+		$loginModel     = $this->Account_Model->loginAccount(['emailAddressParam' => $data['result']->customer_email_address, 'passwordParam' => $pass]);
+		if (!isset($loginModel)) {
+			show_error('Unable to sign in '.$data['result']->customer_email_address.'.', 403, 'Authentication Failed');
+		} else {
+			$this->session->set_userdata(
+				[
+					'customer_first_name'    => $loginModel->customer_first_name,
+					'customer_email_address' => $loginModel->customer_email_address,
+					'logged_in'              => TRUE,
+					'customer_id'            => $loginModel->customer_id
+				]
+			);
+		}
+
+		// render update password page
+		$this->session->set_flashdata('data', ['currentPasswordParam' => $pass]);
+		$this->session->set_flashdata('forgot_password_success', 'Your password has been reset to "'.$pass.'". We recommend that you update your password now.');
+		redirect('account/updatepassword');
 	}
 
 }

@@ -239,6 +239,15 @@ class Administer extends MY_Controller {
             $this->session->unset_userdata('auto_email-create-auto_email_product_models');
         }
 
+        // always clear session data if template page is opened
+        if ($elem == 'template') {
+            $this->session->unset_userdata('auto_email-create-auto_email_id');
+            $this->session->unset_userdata('auto_email-create-auto_email_template_id');
+            $this->session->unset_userdata('auto_email-create-auto_email_template-product_capacity');
+            $this->session->unset_userdata('auto_email-create-auto_email_model');
+            $this->session->unset_userdata('auto_email-create-auto_email_product_models');
+        }
+
         // render common header
         $this->load->view('auto-email/create_header');
 
@@ -254,6 +263,30 @@ class Administer extends MY_Controller {
         } else {
             show_error('Page does not exist.', 404, 'Not Found');
         }
+
+        // load footer
+        $this->load->view('templates/footer');
+    }
+
+    // same as create but does not clear session flags
+    public function resume() {
+        // load header
+        $this::initStyle();
+        $this::initHeader();
+
+        // load dependencies: helpers
+        $this->load->helper('html');
+        // load dependencies: models
+        $this->load->model('auto-email/Auto_Email_Model');
+
+        // check authentication
+        self::can_user_access();
+
+        // render common header
+        $this->load->view('auto-email/create_header');
+
+        // render view
+        $this->create_template(1);
 
         // load footer
         $this->load->view('templates/footer');
