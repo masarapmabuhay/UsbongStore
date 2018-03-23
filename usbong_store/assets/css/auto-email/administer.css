@@ -22,3 +22,8 @@ form.well_container_form {
 .breadcrumb_buttons {
   margin-top: 8px;
 }
+
+/* Add space between btn-group buttons as requested by Mike on 2018-03-23 */
+.btn-group .btn-success:nth-child(2) {
+  margin-left: 6px;
+}
