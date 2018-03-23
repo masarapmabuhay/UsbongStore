@@ -75,19 +75,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];						
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -118,19 +127,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -227,19 +245,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -270,19 +297,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -379,19 +415,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -422,19 +467,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<br><label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -526,19 +580,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -562,19 +625,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -665,19 +737,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -701,19 +782,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -803,19 +893,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -839,19 +938,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -1011,19 +1119,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -1047,19 +1164,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -1149,19 +1275,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -1185,19 +1320,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -1287,19 +1431,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -1323,19 +1476,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -1425,19 +1587,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -1461,19 +1632,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;
@@ -1565,19 +1745,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
 					}
 					else {
 						echo 'out of stock';					
 					}
 					echo '</label>';
-
+/*
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {						
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-										
+*/										
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;				
@@ -1601,19 +1790,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<label id="priceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-price">';
 					
 					if ($value['quantity_in_stock']!=0) {
-						echo '&#x20B1;'.$value['price'];
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
+						
 					}
 					else {
 						echo 'out of stock';
 					}
 					echo '</label>';
-					
+/*					
 					echo '<label id="previousPriceId~'.$colCounter.'~'.$value['product_type_id'].'" class="Product-item-previous-price">';
 					if (isset($value['previous_price'])) {
 						echo '&ensp;('.$value['previous_price'].')';
 					}
 					echo '</label>';
-					
+*/					
 					echo '</a>';
 					echo '</div>';
 					$colCounter++;

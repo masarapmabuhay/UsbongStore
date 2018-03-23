@@ -88,12 +88,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
+						
+/*						
 						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 
 						if (isset($value['previous_price'])) {
 							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
 						}
-						
+*/						
 						echo '</label>';					
 					}
 					else {
@@ -128,12 +140,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										
 //					if ($value['price']!=null) {
 					if ($value['quantity_in_stock']!=0) {
+//						echo '&#x20B1;'.$value['price'];
+						//edited by Mike, 20180323
+						if (isset($value['previous_price'])) {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
+							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
+							echo '<br><label class="Product-item-price">[Free Delivery]</label>';
+						}
+						else {
+							echo '<label class="Product-item-price">&#x20B1;'.$value['price'].'<br>[Free Delivery]</label>';
+						}
+						
+/*						
 						echo '<br><label class="Product-item-price">&#x20B1;'.$value['price'].'</label>';
 
 						if (isset($value['previous_price'])) {
 							echo '<label class="Product-item-previous-price">&ensp;('.$value['previous_price'].')</label>';
 						}
-						
+*/						
 						echo '</label>';
 					}
 					else {
