@@ -14,8 +14,14 @@ echo link_tag('assets/css/auto-email/administer.css');
         </ol>
       </div>
       <div class="col-xs-6">
-        <!-- Create Button -->
-        <a href="<?php echo site_url('auto-email/create/template/1'); ?>" class="btn btn-success navbar-btn pull-right" role="button" data-toggle="tooltip" data-placement="top" title="Create New Email"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Email</a>
+        <div class="btn-group pull-right breadcrumb_buttons" role="group">
+          <!-- Create Button -->
+          <a href="<?php echo site_url('auto-email/create/template/1'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Create New Email"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New Email</a>
+          <!-- Draft Button -->
+          <?php if ($this->session->has_userdata('auto_email-create-auto_email_template_id')) { ?>
+            <a href="<?php echo site_url('auto-email/resume'); ?>" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Continue Working on Draft Email"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Open Draft Email</a>
+          <?php } ?>
+        </div>
       </div>
     </div>
 

@@ -61,6 +61,7 @@ $route['request/(:any)/(:any)'] = 'request/index/$1/$2'; //added by Mike, 201712
 $route['auto-email']                               = 'auto-email/administer/index';
 $route['auto-email/administer/(:num)']             = 'auto-email/administer/index/$1';
 $route['auto-email/queue/(:num)/(:num)']           = 'auto-email/administer/queue/$1/$2';
+$route['auto-email/resume']                        = 'auto-email/administer/resume';
 $route['auto-email/create/template/(:num)']        = 'auto-email/administer/create/template/$1';
 $route['auto-email/create/data']                   = 'auto-email/administer/create/data';
 $route['auto-email/create/products/(:num)/(:any)'] = 'auto-email/administer/create/products/$1/$2';

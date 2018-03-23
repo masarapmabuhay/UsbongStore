@@ -18,3 +18,7 @@ form.well_container_form {
 .action-td {
   width: 10%;
 }
+
+.breadcrumb_buttons {
+  margin-top: 8px;
+}

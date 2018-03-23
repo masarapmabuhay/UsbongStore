@@ -13,7 +13,7 @@ if (isset($mode) AND $mode == 'edit') {
     $save_url     = site_url('auto-email/'.$mode.'/save/'.$auto_email_id);
     $breadcrumb   = 'Edit Email '.$auto_email_id;
 } else {
-    $template_url = site_url('auto-email/create/template/1');
+    $template_url = site_url('auto-email/resume');
     $data_url     = site_url('auto-email/create/data');
     $products_url = site_url('auto-email/create/products/1');
     $save_url     = site_url('auto-email/create/save');

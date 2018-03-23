@@ -57,6 +57,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$data = $this->session->flashdata('data');
 					}
 			    ?>
+				<!-- Success Div for Falsh Data: forgot_password -->
+				<?php if ($this->session->flashdata('forgot_password_success')) { ?>
+					<div class="alert alert-success">
+						<span><?php echo $this->session->flashdata('forgot_password_success'); ?></span>
+					</div>
+				<?php } ?>
+				<!-- Warning Div for Flash Data: forgot_password -->
+				<?php if ($this->session->flashdata('forgot_password_error')) { ?>
+					<div class="alert alert-warning">
+						<span><?php echo $this->session->flashdata('forgot_password_error'); ?></span>
+					</div>
+				<?php } ?>
 				<div class="fields">
 						<form method="post" action="<?php echo site_url('account/savepassword')?>">
 								<?php 
