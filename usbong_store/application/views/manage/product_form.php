@@ -6,6 +6,8 @@ echo link_tag('assets/css/manage/product_form.css');
 
 <!-- Import Cropit -->
 <script src="<?php echo base_url().'assets/js/cropit/jquery.cropit.js'?>"></script>
+<!-- Import ckeditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -43,6 +45,16 @@ echo link_tag('assets/css/manage/product_form.css');
                 // store data to image form input
                 $('#image').val(imageData);
             });
+
+            // init tinymce
+            ClassicEditor.create(
+                document.querySelector('textarea[name="product_overview"]')
+            ).catch(
+              error => {
+                  console.error( error );
+              }
+            );
+
         });
     });
 </script>
