@@ -1,0 +1,60 @@
+.panel-default .panel-heading {
+    background-color: #efe6ca;
+    color: #222222;
+    font-weight: bold;
+}
+
+.panel-default .panel-heading a {
+    color: #222222;
+}
+
+/* Zoom Slider */
+
+.zoom-slider span {
+    top: -2px;
+}
+
+.zoom-slider {
+    margin-top: 10px;
+}
+
+input[type=range].cropit-image-zoom-input {
+    display: inline-block;
+    width: 80%;
+}
+
+/* Image Preview */
+
+#image {
+    display: none;
+}
+
+#image_help_block {
+    color: #a94442;
+}
+
+.cropit-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 5px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 250px;
+    height: 250px;
+}
+
+.cropit-preview-image-container {
+    cursor: move;
+}
+
+.cropit-preview-background {
+    opacity: .2;
+    cursor: auto;
+}
+
+input {
+    /* Use relative position to prevent from being covered by image background */
+    position: relative;
+    z-index: 10;
+    display: block;
+}

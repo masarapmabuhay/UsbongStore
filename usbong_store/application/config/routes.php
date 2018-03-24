@@ -74,3 +74,7 @@ $route['auto-email/edit/save/(:num)']              = 'auto-email/administer/edit
 
 $route['auto-email/preview/(:num)'] = 'auto-email/administer/preview/$1';
 $route['auto-email/unsubscribe/(:any)'] = 'auto-email/administer/unsubscribe/$1';
+
+// routing for manage controller
+$route['manage/merchants/add'] = 'manage/merchant_add';
+$route['manage/merchants/edit/(:num)'] = 'manage/merchant_edit/$1';
