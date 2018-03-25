@@ -28,6 +28,10 @@ function create_product_url($product_id, $product_name, $product_author) {
 
 }
 
+function create_merchant_image_url($merchant_name) {
+    return base_url('assets/images/merchants/'.$merchant_name.'.jpg');
+}
+
 function create_image_url($product_name, $product_type) {
 
     // clean up name
@@ -50,6 +54,10 @@ function create_image_url($product_name, $product_type) {
 
     return base_url('assets/images/'.$clean_product_type.'/'.$clean_product_name.'.jpg');
 
+}
+
+function create_merchant_jpg_file_name($merchant_name) {
+    return FCPATH.'assets/images/merchants/'.$merchant_name.'.jpg';
 }
 
 function create_jpg_file_name($product_name, $product_type) {

@@ -28,7 +28,7 @@ class Manage extends MY_Controller {
     }
 
     //------------------------//
-    // Private Functions
+    // Private Functions: Product
     //------------------------//
 
     private function render_product_form($product_model = NULL) {
@@ -145,7 +145,87 @@ class Manage extends MY_Controller {
     }
 
     //------------------------//
-    // Public Functions
+    // Private Functions: Merchant
+    //------------------------//
+
+    private function render_merchant_form($merchant_model = NULL) {
+
+        //------------------------//
+        // Init
+        //------------------------//
+
+        // check authentication
+        self::can_user_access();
+
+        // load dependencies: helpers
+        $this->load->helper('html');
+        $this->load->helper('form');
+        $this->load->helper('url');
+        // load dependencies: libraries
+        $this->load->library('form_validation');
+        // load dependencies: models
+        $this->load->model('Merchant_Model');
+
+        $data['mode'] = 'add';
+
+        //------------------------//
+        // Switch to Edit Mode
+        //------------------------//
+
+        if (isset($merchant_model)) {
+            $data['merchant_model'] = $merchant_model;
+            $data['mode']          = 'edit';
+        }
+
+        //------------------------//
+        // Process Post Request
+        //------------------------//
+
+        // required fields
+        if ($data['mode'] == 'edit') {
+            $this->form_validation->set_rules('merchant_name', 'Merchant Name', 'trim|required|max_length[50]');
+        } else {
+            $this->form_validation->set_rules('merchant_name', 'Merchant Name', 'trim|required|max_length[50]|is_unique[merchant.merchant_name]');
+        }
+        $this->form_validation->set_rules('image'                    , 'Image'                    , 'required');
+        $this->form_validation->set_rules('merchant_motto'           , 'Merchant Motto'           , 'trim|required|max_length[50]');
+        $this->form_validation->set_rules('merchant_motto_font_color', 'Merchant Motto Font Color', 'required|regex_match[/^#[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]$/i]');
+
+        if ($this->form_validation->run()) {
+            // save to database
+            $save_data = [
+                // required
+                'merchant_name'             => $this->input->post('merchant_name'),
+                'merchant_motto'            => $this->input->post('merchant_motto'),
+                'merchant_motto_font_color' => $this->input->post('merchant_motto_font_color'),
+                'image'                     => $this->input->post('image'),
+            ];
+
+            if ($data['mode'] == 'edit') {
+                $save_result = $this->Merchant_Model->editRow($data['merchant_model']['merchant_id'], $save_data);
+            } else {
+                $save_result = $this->Merchant_Model->insertRow($save_data);
+            }
+
+            if ($save_result['success']) {
+                // redirect to merchant page
+                redirect('manage/merchants');
+            } else {
+                // report error
+                $this->session->set_flashdata('manage-merchant-add-error', $save_result['error']);
+            }
+        }
+
+        //------------------------//
+        // Render Form
+        //------------------------//
+
+        // render view
+        $this->load->view('manage/merchant_form', $data);
+    }
+
+    //------------------------//
+    // Public Functions: Products
     //------------------------//
 
     public function index($page = NULL) {
@@ -203,7 +283,6 @@ class Manage extends MY_Controller {
         $this->load->view('templates/footer');
     }
 
-
     public function add() {
         // check authentication
         self::can_user_access();
@@ -238,6 +317,102 @@ class Manage extends MY_Controller {
 
         // render form
         self::render_product_form($data['product_model']);
+
+        // load footer
+        $this->load->view('templates/footer');
+    }
+
+    //------------------------//
+    // Public Functions: Merchants
+    //------------------------//
+
+    public function merchants($page = NULL) {
+
+        //------------------------//
+        // Init
+        //------------------------//
+
+        // check authentication
+        self::can_user_access();
+
+        // load header
+        $this::initStyle();
+        $this::initHeader();
+
+        // load dependencies: helpers
+        $this->load->helper('html');
+        $this->load->helper('url');
+        // load dependencies
+        $this->load->model('Merchant_Model');
+
+        // prepare data
+        if (!isset($page)) {
+            $page = 1;
+        }
+
+        //------------------------//
+        // Init filters
+        //------------------------//
+
+        $data['page']['filters']['merchant_name']  = $this->input->get('merchant_name_filter');
+        $data['page']['filters']['merchant_motto'] = $this->input->get('merchant_motto_filter');
+        $data['page']['options']['search']         = $this->input->get('search');
+
+        //------------------------//
+        // Render
+        //------------------------//
+
+        $data['page']['filters']['merchant_name']  = (isset($data['page']['filters']['merchant_name'] ) AND !empty(trim($data['page']['filters']['merchant_name'] ))) ? trim($data['page']['filters']['merchant_name'] ) : NULL;
+        $data['page']['filters']['merchant_motto'] = (isset($data['page']['filters']['merchant_motto']) AND !empty(trim($data['page']['filters']['merchant_motto']))) ? trim($data['page']['filters']['merchant_motto']) : NULL;
+        $data['page']['options']['search']         = (isset($data['page']['options']['search']        ) AND !empty($data['page']['options']['search']              )) ? $data['page']['options']['search']               : 'and';
+
+        $data['page']['page']          = $page;
+        $data['page']['max_page']      = $this->Merchant_Model->getMaxPage($data['page']['filters'], $data['page']['options']);
+        $data['page']['prev_page']     = ($page > 1                        ) ? ($page - 1) : NULL;
+        $data['page']['next_page']     = ($page < $data['page']['max_page']) ? ($page + 1) : NULL;
+        $data['merchants']             = $this->Merchant_Model->getPage($page, $data['page']['filters'], $data['page']['options']);
+
+        // render view
+        $this->load->view('manage/merchants', $data);
+
+        // load footer
+        $this->load->view('templates/footer');
+    }
+
+    public function merchant_add() {
+        // check authentication
+        self::can_user_access();
+
+        // load header
+        $this::initStyle();
+        $this::initHeader();
+
+        // render form
+        self::render_merchant_form();
+
+        // load footer
+        $this->load->view('templates/footer');
+    }
+
+    public function merchant_edit($merchant_id = NULL) {
+        // check authentication
+        self::can_user_access();
+
+        // load dependencies: models
+        $this->load->model('Merchant_Model');
+
+        // load header
+        $this::initStyle();
+        $this::initHeader();
+
+        // check if Entry Exists
+        $data['merchant_model'] = $this->Merchant_Model->get($merchant_id);
+        if (!isset($data['merchant_model'])) {
+            show_error('Merchant ID is not valid.', 404, 'Merchant Not Found');
+        }
+
+        // render form
+        self::render_merchant_form($data['merchant_model']);
 
         // load footer
         $this->load->view('templates/footer');
