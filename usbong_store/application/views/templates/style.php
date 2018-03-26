@@ -332,10 +332,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				if (!hasReachedDataLength) {			    					
 			    	if (data[index].quantity_in_stock!=0) {
-						priceName.innerText = "₱" + data[index].price;		
-			    	}
-			    	else {
-						priceName.innerText = "out of stock";		
+						if (data[index].previous_price!=null) {
+							priceName.innerHTML = "₱" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
+						}
+						else {
+							priceName.innerText = "₱" + data[index].price + "\n" + "[Free Delivery]";														
+						}
 			    	}
 				}
 				else {
@@ -358,7 +360,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 		    		previousPriceName.innerHTML = '';					
 				}
-*/		    	
+
+				//-----------------------------------------------
+		    	//FREE DELIVERY
+		    	//-----------------------------------------------		    								
+		    	var freeDeliveryName = document.getElementById("freeDeliveryId~"+colNum+"~"+productTypeId);
+
+		    	if (data[index].quantity_in_stock!=0) {
+		    		freeDeliveryName.innerText = "[Free Delivery]";							
+		    	}				
+*/				
 				index++;
 //				alert("index: "+index);
 
@@ -625,7 +636,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	var priceName = document.getElementById("priceId~"+colNum+"~"+productTypeId);			    			    	
 				if (!hasReachedDataLength) {				    	
 			    	if (data[index].quantity_in_stock!=0) {
-						priceName.innerText = "₱" + data[index].price;		
+						if (data[index].previous_price!=null) {
+							priceName.innerHTML = "₱" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
+						}
+						else {
+							priceName.innerText = "₱" + data[index].price + "\n" + "[Free Delivery]";														
+						}
 			    	}
 			    	else {
 						priceName.innerText = "out of stock";		
@@ -651,6 +667,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 		    		previousPriceName.innerHTML = '';					
 				}
+
+		    	//-----------------------------------------------
+		    	//FREE DELIVERY
+		    	//-----------------------------------------------		    								
+		    	var freeDeliveryName = document.getElementById("freeDeliveryId~"+colNum+"~"+productTypeId);
+
+		    	if (data[index].quantity_in_stock!=0) {
+		    		freeDeliveryName.innerText = "[Free Delivery]";							
+		    	}				
 */		    			    			    	
 				index++;
 
