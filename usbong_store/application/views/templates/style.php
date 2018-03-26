@@ -341,7 +341,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 					priceName.innerText = '';		
 				}
-				
+/*				
 		    	//-----------------------------------------------
 		    	//previous price name
 		    	//-----------------------------------------------		    								
@@ -358,7 +358,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 		    		previousPriceName.innerHTML = '';					
 				}
-		    	
+*/		    	
 				index++;
 //				alert("index: "+index);
 
@@ -634,7 +634,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 					priceName.innerText = '';
 				}
-				
+/*				
 		    	//-----------------------------------------------
 		    	//previous price name
 		    	//-----------------------------------------------		    								
@@ -651,7 +651,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				else {
 		    		previousPriceName.innerHTML = '';					
 				}
-		    			    			    	
+*/		    			    			    	
 				index++;
 
 				if (index == data.length) {
