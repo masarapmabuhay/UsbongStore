@@ -988,7 +988,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/1')?>">Recommended <span class="Front-page-cat-name"> Merchants</span></a></h3>
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/merchants')?>">Recommended <span class="Front-page-cat-name"> Merchants</span></a></h3>
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
