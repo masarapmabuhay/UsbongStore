@@ -31,7 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$reformattedCategoryName)))))); //replace "&", " ", and "-"
 																
 				echo '<div class="col-sm-2 Merchant-category-b">';						
-				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$this->uri->segment(3)).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
+//				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$this->uri->segment(3)).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
+				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/merchants').'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
 				
 					foreach ($categories as $value) {
 						$fileFriendlyCategoryName = str_replace("'","",
