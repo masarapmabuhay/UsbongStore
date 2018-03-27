@@ -2287,6 +2287,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	filter: alpha(opacity=60); /* For IE8 and earlier */
     	
 	}
+
+	.Merchant-image {	
+	}
+
+	.Merchant-image:hover {
+		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+    	
+	}
+
 	
 	.Merchant-category-content {
 		text-align: center;

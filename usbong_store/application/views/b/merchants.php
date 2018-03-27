@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="col-sm-3 Product-item">';
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
-					echo '<img class="Image-item" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'">';
+					echo '<span class="Merchant-image"><img class="Image-item" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'"></span>';
 																				
 					echo '</a>';					
 					echo '</div>';																	
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					echo '<div class="col-sm-3 Product-item">';
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */
-					echo '<img class="Image-item" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'">';
+					echo '<span class="Merchant-image"><img class="Image-item" src="'.base_url('assets/images/merchants/'.$value['merchant_name'].'.jpg').'"></span>';
 
 					echo '</a>';				
 					echo '</div>';													
