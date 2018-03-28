@@ -1660,7 +1660,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 	}
 
-	.Product-price {
+	.Product-price, .Product-price:visited, .Product-price:active {
 		color: #b88a1b;
 		font-size: 24px;
 		margin-top: 24px;		

@@ -58,10 +58,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						case 3: //beverages
 							$productType="beverages";
 							break;
-						case 13: //combos
+						case 13: //medical
 							$productType="medical";
 							break;						
-						case 5: //combos
+						case 5: //combos/promos
 							$productType="promos";
 							break;
 						case 6: //comics
@@ -153,11 +153,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo 'out of stock';						
 					}
 					else {
+						echo '<a class="Product-price" href ="'.site_url('help/').'" target="_blank">';
 						echo '&#x20B1;'.$result->price.' [Free Delivery]';
+						echo '</a';
 					}
 					?>
 					</b>					
-				</div>						
+				</div>		
 				<div class="row Product-quantity">
 				<?php 
 					if ($result->quantity_in_stock<1) {
