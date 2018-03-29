@@ -58,3 +58,8 @@ input {
     z-index: 10;
     display: block;
 }
+
+/* Set to min height of 8 lines */
+.ck-editor__editable {
+    min-height: 18em;
+}
