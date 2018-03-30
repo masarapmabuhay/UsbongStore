@@ -44,7 +44,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																	echo site_url('cart/shoppingcart');								
 																}
 															?>">Shopping Cart</a></li>					
-					<li><a class="Footer-list-item" href = "<?php echo site_url('account/ordersummary/')?>">Order Summary</a></li>					
+					<li><a class="Footer-list-item" href = "<?php 
+																//edited by Mike, 20180330
+																if ($this->session->userdata('is_admin')=="1") { //true
+																	echo site_url('account/ordersummaryadmin/');																
+																}						
+																else {
+																	echo site_url('account/ordersummary/');																	
+																}
+														    ?>">Order Summary</a></li>					
 				</ul>
 			</div>
 			<div class="col-sm-4">		
