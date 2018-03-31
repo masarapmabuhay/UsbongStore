@@ -213,7 +213,8 @@ class Product_Model extends CI_Model
                     if (empty($data['product_overview'])) { $data['product_overview'] = NULL; }
                     if (empty($data['pages']           )) { $data['pages']            = NULL; }
                     if (empty($data['external_url']    )) { $data['external_url']     = NULL; }
-
+                    if (empty($data['publisher']       )) { $data['publisher']     	  = NULL; } //added by Mike, 20180331
+                    
                     // insert row to database
                     $this->db->insert('product', $data);
 

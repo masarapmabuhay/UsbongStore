@@ -96,7 +96,8 @@ class Manage extends MY_Controller {
         $this->form_validation->set_rules('translator'    , 'Translator'    , 'max_length[50]');
         $this->form_validation->set_rules('pages'         , 'Pages'         , 'integer|greater_than[0]');
         $this->form_validation->set_rules('external_url'  , 'External Url'  , 'trim|prep_url|valid_url');
-
+        $this->form_validation->set_rules('publisher'  , 'Publisher'  , 'max_length[50]'); //added by Mike, 20180331
+        
         if ($this->form_validation->run()) {
             // save to database
             $save_data = [
@@ -119,6 +120,7 @@ class Manage extends MY_Controller {
                 'product_overview'  => $this->input->post('product_overview'),
                 'pages'             => $this->input->post('pages'),
                 'external_url'      => $this->input->post('external_url'),
+            	'publisher'      	=> $this->input->post('publisher'),            	            		
             ];
 
             if ($data['mode'] == 'edit') {

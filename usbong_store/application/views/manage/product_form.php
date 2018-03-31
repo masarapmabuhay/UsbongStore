@@ -123,10 +123,12 @@ echo link_tag('assets/css/manage/product_form.css');
                     'Hardcover' => 'Hardcover',
                 ]
             ],
-            'translator'        => [ 'label' => 'Translator'],
+        	'publisher'        => [ 'label' => 'Publisher'], //added by Mike, 20180331        		
+        	'translator'        => [ 'label' => 'Translator'],
             'product_overview'  => [ 'label' => 'Product Overview'],
             'pages'             => [ 'label' => 'Pages'],
             'external_url'      => [ 'label' => 'External URL'],
+        		
         ];
 
         foreach($merchant_model as $key => $obj) {
