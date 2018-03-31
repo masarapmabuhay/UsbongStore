@@ -107,6 +107,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo 'Language: <b>'.$result->language.'</b>';						
 					?>
 				</div>
+				<div class="row Product-publisher">
+					<?php
+						if (isset($result->publisher) && (strcmp(trim($result->publisher),'')!=0)) {
+							echo 'Publisher: <b>'.$result->publisher.'</b>';						
+						}
+						else {
+//							echo 'Publisher: <b>N/A</b>';							
+						}
+					?>
+				</div>
 				<div class="row Product-pages">
 					<?php
 					if (isset($result->pages)) {
