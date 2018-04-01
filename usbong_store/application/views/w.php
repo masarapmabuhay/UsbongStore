@@ -117,6 +117,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 					?>
 				</div>
+				<div class="row Product-released_date">
+					<?php
+						if (isset($result->released_date) && (strcmp(trim($result->released_date),'')!=0)) {
+							echo 'Released Date: <b>'.$result->released_date.'</b>';						
+						}
+						else {
+//							echo 'Publisher: <b>N/A</b>';							
+						}
+					?>
+				</div>
 				<div class="row Product-pages">
 					<?php
 					if (isset($result->pages)) {
@@ -145,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="Product-overview-header"><b>Product Overview</b><br></div>
 					<div class="Product-overview-content">
 					<?php	
-						if (!empty($result->product_overview)) {							
+					if (!empty($result->product_overview) && (strcmp($result->product_overview, "<p>&nbsp;</p>")!=0)) {							
 							echo $result->product_overview;
 						}
 						else {

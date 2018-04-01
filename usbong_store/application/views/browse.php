@@ -127,7 +127,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php	
 //									if (!empty($result->product_overview)) {
 //									if (isset($value['product_overview'])) {							
-									if (!empty($value['product_overview'])) {									
+//									if (!empty($value['product_overview'])) {									
+									if (!empty($result->product_overview) && (strcmp($result->product_overview, "<p>&nbsp;</p>")!=0)) {									
 										echo $value['product_overview'];
 									}
 									else {

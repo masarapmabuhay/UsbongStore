@@ -124,6 +124,7 @@ echo link_tag('assets/css/manage/product_form.css');
                 ]
             ],
         	'publisher'        => [ 'label' => 'Publisher'], //added by Mike, 20180331        		
+        	'released_date'        => [ 'label' => 'Released Date'], //added by Mike, 20180401        		
         	'translator'        => [ 'label' => 'Translator'],
             'product_overview'  => [ 'label' => 'Product Overview'],
             'pages'             => [ 'label' => 'Pages'],

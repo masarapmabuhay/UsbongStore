@@ -121,6 +121,7 @@ class Manage extends MY_Controller {
                 'pages'             => $this->input->post('pages'),
                 'external_url'      => $this->input->post('external_url'),
             	'publisher'      	=> $this->input->post('publisher'),            	            		
+            	'released_date'      	=> $this->input->post('released_date'),            		            		
             ];
 
             if ($data['mode'] == 'edit') {
