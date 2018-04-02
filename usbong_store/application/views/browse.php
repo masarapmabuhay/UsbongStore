@@ -105,6 +105,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row">
 						<div class="col-sm-3">	
 							<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
+							<?php 
+								//added by Mike, 20180402
+								if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) {
+									echo '<img class="Product-image-essential-reading" src="'.base_url('assets/images/essential_reading.png').'">';
+								}
+							?>
 						</div>
 						<div class="col-sm-4">	
 							<div class="row Product-name">							
@@ -128,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //									if (!empty($result->product_overview)) {
 //									if (isset($value['product_overview'])) {							
 //									if (!empty($value['product_overview'])) {									
-									if (!empty($result->product_overview) && (strcmp($result->product_overview, "<p>&nbsp;</p>")!=0)) {									
+									if (!empty($value['product_overview']) && (strcmp($value['product_overview'], "<p>&nbsp;</p>")!=0)) {									
 										echo $value['product_overview'];
 									}
 									else {
