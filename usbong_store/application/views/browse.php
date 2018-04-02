@@ -152,7 +152,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo 'out of stock';						
 								}
 								else {
+									echo '<a class="Product-price" href ="'.site_url('help/').'" target="_blank">';
 									echo '&#x20B1;'.$value['price'].' [Free Delivery]';
+									echo '</a';
 								}
 								?>
 								</b>					
