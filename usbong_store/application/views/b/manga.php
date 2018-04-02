@@ -77,6 +77,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedProductName.'.jpg').'">';
 
+					//added by Mike, 20180402
+					if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) {
+						echo '<img class="Image-item-essential-reading" src="'.base_url('assets/images/essential_reading.png').'">';
+					}
+					
 					//edited by Mike, 20170902
 					$trimmedName = $value['name'];
 					if (strlen($value['name'])>40) {
@@ -139,6 +144,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/manga/'.$reformattedProductName.'.jpg').'">';
 
+					//added by Mike, 20180402
+					if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) {
+						echo '<img class="Image-item-essential-reading" src="'.base_url('assets/images/essential_reading.png').'">';
+					}
+					
 					//edited by Mike, 20170902
 					$trimmedName = $value['name'];
 					if (strlen($value['name'])>40) {

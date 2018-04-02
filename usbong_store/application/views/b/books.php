@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo '<div class="col-sm-2 Merchant-category-b">';						
 //				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$this->uri->segment(3)).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
 				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/merchants').'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
-
+				
 					foreach ($categories as $value) {
 						$fileFriendlyCategoryName = str_replace("'","",
 								str_replace(" & ","_and_",
@@ -78,6 +78,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
 
+					//added by Mike, 20180402
+					if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) {
+						echo '<img class="Image-item-essential-reading" src="'.base_url('assets/images/essential_reading.png').'">';					
+					}
+					
 					$trimmedName = $value['name'];
 					if (strlen($value['name'])>40) {
 						$trimmedName = trim(substr($value['name'],0,40))."...";
@@ -149,6 +154,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 					echo '<img class="Image-item" src="'.base_url('assets/images/books/'.$reformattedProductName.'.jpg').'">';
 
+					//added by Mike, 20180402
+					if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) {
+						echo '<img class="Image-item-essential-reading" src="'.base_url('assets/images/essential_reading.png').'">';
+					}
+					
 					$trimmedName = $value['name'];
 					if (strlen($value['name'])>40) {
 						$trimmedName = trim(substr($value['name'],0,40))."...";

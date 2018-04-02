@@ -3,7 +3,7 @@ class Manga_Model extends CI_Model
 {
 	public function getMangaOnly($merchant_id)
 	{
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold, is_essential_reading');
 		$this->db->where('product_type_id','7'); //7 is for type: manga
 		$this->db->where('show','1');
 		$this->db->where('quantity_in_stock >',0);		
@@ -20,7 +20,7 @@ class Manga_Model extends CI_Model
 	
 	public function getManga($merchant_id)
 	{
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold, is_essential_reading');
 		$this->db->where('product_type_id','7'); //7 is for type: manga
 		$this->db->where('show','1');
 

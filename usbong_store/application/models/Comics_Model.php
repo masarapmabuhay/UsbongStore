@@ -3,7 +3,7 @@ class Comics_Model extends CI_Model
 {
 	public function getComicsOnly($merchant_id)
 	{
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold, is_essential_reading');
 		$this->db->where('product_type_id','6'); //6 is for type: comics
 		$this->db->where('show','1');
 		$this->db->where('quantity_in_stock >',0);		
@@ -20,7 +20,7 @@ class Comics_Model extends CI_Model
 	
 	public function getComics($merchant_id)
 	{
-		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold');
+		$this->db->select('product_id, product_type_id, name, author, price, previous_price, quantity_in_stock, product_view_num, quantity_sold, is_essential_reading');
 		$this->db->where('product_type_id','6'); //6 is for type: comics
 		$this->db->where('show','1');
 
