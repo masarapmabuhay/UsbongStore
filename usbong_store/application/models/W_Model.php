@@ -12,7 +12,7 @@ class W_Model extends CI_Model
 */	
 	public function getProduct($param)
 	{
-		$this->db->select('t1.name, t1.author, t1.price, t1.product_overview, t1.product_id, t1.product_type_id, t1.quantity_in_stock, t1.description, t1.format, t1.language, t1.publisher, t1.released_date, t1.pages, t1.merchant_id, t2.merchant_name, t3.product_type_name');
+		$this->db->select('t1.name, t1.author, t1.price, t1.product_overview, t1.product_id, t1.product_type_id, t1.quantity_in_stock, t1.description, t1.format, t1.language, t1.publisher, t1.released_date, t1.is_essential_reading, t1.pages, t1.merchant_id, t2.merchant_name, t3.product_type_name');
 		$this->db->from('product as t1');		
 		$this->db->join('merchant as t2', 't1.merchant_id = t2.merchant_id', 'LEFT');
 		$this->db->join('product_type as t3', 't1.product_type_id = t3.product_type_id', 'LEFT');	

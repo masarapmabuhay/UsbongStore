@@ -1491,6 +1491,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    max-width: 75%;
     	height: auto;
 	}
+	
+	.Product-image-essential-reading {
+	    max-width: 75%;
+    	height: auto;
+    	z-index: 1;    	
+    	position: absolute;
+    	right: 0; 
+    	left: 29px;    	
+	}
+	
 		
 	.Product-item-view-num {
 		color: #77b043;

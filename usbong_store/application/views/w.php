@@ -89,6 +89,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 				<img class="Product-image" src="<?php echo base_url('assets/images/'.$productType.'/'.$reformattedProductName.'.jpg');?>">				
 				<?php
+				
+				//added by Mike, 20180402
+				if (isset($result->is_essential_reading) && ($result->is_essential_reading)) {
+					echo '<img class="Product-image-essential-reading" src="'.base_url('assets/images/essential_reading.png').'">';
+				}
+				
 				if (($productType=="books") || ($productType=="childrens") || ($productType=="textbooks")
 							|| ($productType=="manga") || ($productType=="comics")) {
 				?>						
