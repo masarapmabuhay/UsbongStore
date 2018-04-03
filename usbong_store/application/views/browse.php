@@ -130,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="row">	
 								<div class="Product-overview-header"><b>Product Overview</b><br></div>
 								<div class="Product-overview-content">
-								<?php	
+								<?php									
 //									if (!empty($result->product_overview)) {
 //									if (isset($value['product_overview'])) {							
 //									if (!empty($value['product_overview'])) {									
@@ -154,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								else {
 									echo '<a class="Product-price" href ="'.site_url('help/').'" target="_blank">';
 									echo '&#x20B1;'.$value['price'].' [Free Delivery]';
-									echo '</a';
+									echo '</a>';
 								}
 								?>
 								</b>					
