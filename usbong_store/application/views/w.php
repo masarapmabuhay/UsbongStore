@@ -221,7 +221,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<br>
 							<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore_L.jpg')?>">
 						<br><br>
-						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
+<!--						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
+-->
+					    <a class="Sell-link" href="<?php echo site_url('sell/')?>"><img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
 						</div>															
 						
 						<div id="myPopup" class="popup-content">

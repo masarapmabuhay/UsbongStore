@@ -2579,6 +2579,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  font-size: 12px;
 	  opacity: 1;
 	}	
+	
+	.sell {
+		max-width: 40%;		
+		float: none;
+    	display: block;
+    	margin: 0 auto;
+    	margin-bottom: 20px;
+    	font-size: 24px;    	
+    	padding: 16px;
+    	border: 1px solid #4b3b2c;
+    	border-radius: 4px;
+	}
+	
+	.sell-text {
+		display: inline-block; 
+		padding-right: 12px;	
+		color: #1d1d1d;
+		margin-bottom: 12px;				
+	}
+	
+	.sell-instructions {
+		display: inline-block; 
+		padding-right: 12px;	
+		color: #3a3a3a;
+		margin-bottom: 6px;				
+    	font-size: 18px;    	
+	}
 
 	.request {
 		max-width: 40%;		
@@ -2708,6 +2735,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-bottom: 1px solid #90d94f;					
 		margin-bottom: -1px;
 	}			
+
+	.Request-sell {
+		font-size: 18px;  
+		color: #77b043;
+	}
+
+	.Request-sell:hover {
+		font-size: 18px;  
+		color: #77b043;
+	}
 	
 	.Request-link {
 		font-size: 18px;  

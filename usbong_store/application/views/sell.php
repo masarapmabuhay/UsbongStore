@@ -22,9 +22,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}	
 	?>
 
-	<div class="request">
-		<div class="request-text"><b>Product Information</b></div>
+	<div class="sell">
+		<div class="sell-text"><b>Product Information</b></div>
 		<div class="fields">
+			<span class="sell-instructions">
+			Please kindly fill out this form for each product item you want to sell. Thank you. Peace.
+			<br><br>
+			</span>
+			
 			<form method="post" action="<?php echo site_url('sell/confirm')?>">
 				<?php 							
 				
