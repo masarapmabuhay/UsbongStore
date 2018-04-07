@@ -223,7 +223,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<br><br>
 <!--						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
 -->
-					    <a class="Sell-link" href="<?php echo site_url('sell/')?>"><img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
+						<!--  $this->uri->segment(2) is a URL friendly product name-->
+						<a class="Sell-link" href="<?php echo site_url('sell/'.$this->uri->segment(2).'/'.$result->product_id)?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
+
+<!--					<a class="Sell-link" href="<?php echo site_url('sell/')?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
+-->
 						</div>															
 						
 						<div id="myPopup" class="popup-content">

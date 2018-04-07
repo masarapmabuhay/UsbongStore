@@ -38,7 +38,7 @@ class Request extends MY_Controller {
 			
 			//added by Mike, 20180117
 			if ($productId != "b") {
-				$data['productLinkParam'] = site_url('request/'.$productName.'/'.$productId);				
+				$data['productLinkParam'] = site_url('w/'.$productName.'/'.$productId);				
 			}			
 		}
 		

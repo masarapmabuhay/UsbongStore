@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="Image-offers">
 		<img class="Image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
 		<br>
-		<a class="Request-link" href="<?php echo site_url('sell/')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>"></a>
+		<a class="Request-link" href="<?php echo site_url('sell/b/b')?>"><img class="Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>"></a>
 		<br>
 		<a class="Request-link" target="_blank" href="https://www.facebook.com/marikinaorthopedic/"><img class="Image-offers-MOSC" src="<?php echo base_url('assets/images/usbongOffersMOSC.jpg')?>"></a>
 		<br>

@@ -1409,6 +1409,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 20px;
 	}
 
+	.Product-item-page-image-offers-sell {
+		margin-left: 20px;
+	}
+
+	.Product-item-page-image-offers-sell:hover {
+ 		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+   	}
+
 	.Image-offers-be-a-merchant {
 		position: relative;
 		display:block;		
@@ -2590,7 +2599,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	padding: 16px;
     	border: 1px solid #4b3b2c;
     	border-radius: 4px;
-	}
+	}	
 	
 	.sell-text {
 		display: inline-block; 

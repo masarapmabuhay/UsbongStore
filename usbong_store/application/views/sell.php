@@ -35,34 +35,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 					//First Name--------------------------------------------------			
 					echo '<div class="Checkout-div">';
-/*					if (isset($data['productNameParam'])) {
+					if (isset($data['productNameParam'])) {
 						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" value="'.$data['productNameParam'].'" required>';
 					}
-					else if (isset($customer_information_result->customer_email_address)) {
+/*					else if (isset($customer_information_result->customer_email_address)) {
 						echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
 					}
-					else { //default
 */					
+					else { //default					
 						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" required>';
-/*					}
- */
-						echo '<span class="floating-label">Product Name</span>';
+					}
+					 
+					echo '<span class="floating-label">Product Name</span>';
 					echo '</div>';				
 					//-----------------------------------------------------------
 
 					//Last Name--------------------------------------------------
 					echo '<div class="Checkout-div">';
-/*					if (isset($data['productLinkParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="" name="productLinkParam" value="'.$data['productLinkParam'].'" required>';
+					if (isset($data['productImageLinkParam'])) {
+						echo '<input type="text" class="Request-input" placeholder="" name="productImageLinkParam" value="'.$data['productImageLinkParam'].'" required>';
 					}
-					else if (isset($customer_information_result->customer_email_address)) {
+/*					else if (isset($customer_information_result->customer_email_address)) {
 					 echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
-					 }
-					else { //default
+					}
 */					
+					else { //default					
 						echo '<input type="text" class="Request-input" placeholder="" name="productImageLinkParam" required>';
-/*					}
- */
+					}
+					
 					echo '<span class="floating-label">Product Image Link</span>';
 					echo '</div>';
 					//-----------------------------------------------------------

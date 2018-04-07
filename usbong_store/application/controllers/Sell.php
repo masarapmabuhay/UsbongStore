@@ -18,6 +18,7 @@ class Sell extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+/*
 	public function index()
 	{		
 		$customer_id = $this->session->userdata('customer_id');
@@ -35,6 +36,42 @@ class Sell extends MY_Controller {
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
+	}
+*/
+	//edited by Mike, 20180407
+	public function index($productName, $productId)
+	{
+		$customer_id = $this->session->userdata('customer_id');
+		
+		if (!isset($customer_id)) {
+			redirect('account/login'); //home page
+		}
+		
+		$data[] = '';
+		
+		//added by Mike, 20180107
+		if (isset($productName) && ($productName != "b")) {
+			//edited by Mike, 20171217
+			$nonURLFriendlyProductName = str_replace("-"," ",
+					$productName);
+			
+			$data['productNameParam'] = $nonURLFriendlyProductName;
+			
+			//added by Mike, 20180117
+			if ($productId != "b") {
+				$data['productImageLinkParam'] = site_url('w/'.$productName.'/'.$productId);
+			}
+		}
+		
+		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		//--------------------------------------------
+		
+		$this->load->view('sell', $data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer');
 	}
 	
 	public function confirm()
