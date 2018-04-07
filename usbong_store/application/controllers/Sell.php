@@ -56,7 +56,7 @@ class Sell extends MY_Controller {
 					$productName);
 			
 			$data['productNameParam'] = $nonURLFriendlyProductName;
-			
+								
 			//added by Mike, 20180117
 			if ($productId != "b") {
 				$data['productImageLinkParam'] = site_url('w/'.$productName.'/'.$productId);

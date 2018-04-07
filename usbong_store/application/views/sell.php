@@ -11,11 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 	<div>
 	<?php 
+/*	
 		$data=[];
-		if ($this->session->flashdata('data')) {
+		if (isset($this->session->flashdata('data'))) {
 			$data = $this->session->flashdata('data');
 		}
-	
+*/	
 		//Success Message
 		if (isset($data['is_success'])) {
 			echo '<div class="Request-success">&#x2714; You have successfully sent us your product details.</div>';
@@ -35,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 					//First Name--------------------------------------------------			
 					echo '<div class="Checkout-div">';
-					if (isset($data['productNameParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" value="'.$data['productNameParam'].'" required>';
+					if (isset($productNameParam)) {
+						echo '<input type="text" class="Request-input" placeholder="" name="productNameParam" value="'.$productNameParam.'" required>';
 					}
 /*					else if (isset($customer_information_result->customer_email_address)) {
 						echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';
@@ -52,8 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					//Last Name--------------------------------------------------
 					echo '<div class="Checkout-div">';
-					if (isset($data['productImageLinkParam'])) {
-						echo '<input type="text" class="Request-input" placeholder="" name="productImageLinkParam" value="'.$data['productImageLinkParam'].'" required>';
+					if (isset($productImageLinkParam)) {
+						echo '<input type="text" class="Request-input" placeholder="" name="productImageLinkParam" value="'.$productImageLinkParam.'" required>';
 					}
 /*					else if (isset($customer_information_result->customer_email_address)) {
 					 echo '<input type="text" class="Checkout-input" placeholder="" name="productNameParam" value="'.$customer_information_result->customer_email_address.'" required>';

@@ -1409,6 +1409,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 20px;
 	}
 
+	.Product-item-page-image-offers-request:hover {
+ 		opacity: 0.6;
+    	filter: alpha(opacity=60); /* For IE8 and earlier */
+   	}
+
 	.Product-item-page-image-offers-sell {
 		margin-left: 20px;
 	}

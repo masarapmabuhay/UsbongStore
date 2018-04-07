@@ -8,14 +8,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 -->
 <?php 
-				$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($merchant_categories)['product_type_name'])); //remove ":" and "'"
-				$URLFriendlyReformattedCategoryName = str_replace("(","",
-						str_replace(")","",
-						str_replace("&","and",
-						str_replace(',','',
-						str_replace(' ','-',
-						str_replace('/','-',
-						$reformattedCategoryName)))))); //replace "&", " ", and "-"									
+			$reformattedCategoryName = str_replace(':','',str_replace('\'','', reset($merchant_categories)['product_type_name'])); //remove ":" and "'"
+			$URLFriendlyReformattedCategoryName = str_replace("(","",
+					str_replace(")","",
+					str_replace("&","and",
+					str_replace(',','',
+					str_replace(' ','-',
+					str_replace('/','-',
+					$reformattedCategoryName)))))); //replace "&", " ", and "-"									
 ?>
 	<h3 class="header">
 	<?php 
@@ -48,9 +48,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			?>
 			</div>
 			<div class="col-sm-3">	
-				<?php 
-				
-					$reformattedProductName = str_replace(':','',str_replace('\'','',$result->name)); //remove ":" and "'"				
+				<?php 					
+					$reformattedProductName = str_replace(':','',str_replace('\'','',$result->name)); //remove ":" and "'"
+					$URLFriendlyReformattedProductName = str_replace("(","",
+					str_replace(")","",
+					str_replace("&","and",
+					str_replace(',','',
+					str_replace(' ','-',
+					str_replace('/','-',
+					$reformattedProductName)))))); //replace "&", " ", and "-"
+					
 					
 					$productType="books"; //default
 //					$canSellBack=false; //added by Mike, 20180304
@@ -224,7 +231,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
 -->
 						<!--  $this->uri->segment(2) is a URL friendly product name-->
-						<a class="Sell-link" href="<?php echo site_url('sell/'.$this->uri->segment(2).'/'.$result->product_id)?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
+						<a class="Sell-link" href="<?php echo site_url('sell/'.$URLFriendlyReformattedProductName.'/'.$result->product_id)?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
 
 <!--					<a class="Sell-link" href="<?php echo site_url('sell/')?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
 -->
