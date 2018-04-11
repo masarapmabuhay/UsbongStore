@@ -174,9 +174,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
 									echo $result->customer_country.'<br>';									
 */
-									echo $customer_address_at_the_time_of_purchase->customer_shipping_address.'<br>';
-									echo $customer_address_at_the_time_of_purchase->customer_city.', '.$customer_address_at_the_time_of_purchase->customer_postal_code.',<br>';
-									echo $customer_address_at_the_time_of_purchase->customer_country.'<br>';
+									//if the value for this is null and blank blank, perform backward compatibility by loading the present registered customer address regardless of time of purchase
+									if (isset($customer_address_at_the_time_of_purchase->customer_shipping_address) && (strcmp($customer_address_at_the_time_of_purchase->customer_shipping_address,"")!=0)) {
+										echo $customer_address_at_the_time_of_purchase->customer_shipping_address.'<br>';
+										echo $customer_address_at_the_time_of_purchase->customer_city.', '.$customer_address_at_the_time_of_purchase->customer_postal_code.',<br>';
+										echo $customer_address_at_the_time_of_purchase->customer_country.'<br>';									
+									}
+									else {
+										echo $result->customer_shipping_address.'<br>';
+										echo $result->customer_city.', '.$result->customer_postal_code.',<br>';
+										echo $result->customer_country.'<br>';										
+									}
 								}
 								else {
 									echo '2 E. Rodriguez Ave. Sto. Niño<br>';
