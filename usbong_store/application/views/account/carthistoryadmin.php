@@ -107,7 +107,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary-alternate">';
-												echo $value['quantity'];
+												//edited by Mike, 20180411
+												if ($value['quantity']==0) {
+													echo 'Removed';
+												}
+												else {
+													echo $value['quantity'];												
+												}
+//												echo $value['quantity'];
 												echo '</div>';
 
 //												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
@@ -173,7 +180,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 												
 												echo '<div class="col-sm-2 Order-summary">';
-												echo $value['quantity'];
+												//edited by Mike, 20180411
+												if ($value['quantity']==0) {
+													echo 'Removed';
+												}
+												else {
+													echo $value['quantity'];
+												}
+//												echo $value['quantity'];
 												echo '</div>';
 												
 //												$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
