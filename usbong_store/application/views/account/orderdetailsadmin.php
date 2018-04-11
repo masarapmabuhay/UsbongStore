@@ -90,8 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'</div>';
 									echo '</div>';
 
-									//edited by Mike, 20170918
-									$totalQuantity = $value['quantity']-1;
+									//edited by Mike, 20180411
+									$totalQuantity = $count-1;//$value['quantity']-1;
 									$totalBuyMoreSaveMoreDiscount = $totalQuantity*70;
 									
 									echo '<div class="row">';
