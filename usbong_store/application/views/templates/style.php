@@ -1367,6 +1367,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    width: 7%;
     	height: auto;		
 	}
+	
+	.Image-usbong-question-icon {
+	    width: 3.0%;
+    	height: auto;		
+	}
+	
 
 	.Image-usbong-first-icon {
 	}
@@ -2177,7 +2183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 	.header-banner-li {
 		display: inline;
-		margin-left: 20px;
+		margin-left: 14px;
 	}
 
 	.header-banner-li:hover {
