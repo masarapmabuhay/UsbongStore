@@ -3,8 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
 
-	public function initStyle() {		 		
-		$this->load->view('templates/style');
+	public function initStyle() {
+		// new style that's mobile responsive
+		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+			$this->load->view('templates/style_v2');
+		} else {
+			$this->load->view('templates/style');
+		}
 	}
 	
 	public function initHeader() {
@@ -41,8 +46,8 @@ class MY_Controller extends CI_Controller {
 			$data['totalItemsInCart'] = 0;			
 		}
 //		$data['totalItemsInCart']=10;
-
-		$this->load->view('templates/header', $data);		
+		
+		$this->load->view('templates/header', $data);
 	}
 	
 	public function initHeaderWith($data) {
