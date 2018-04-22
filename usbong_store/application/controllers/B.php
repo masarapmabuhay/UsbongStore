@@ -434,7 +434,7 @@ class B extends MY_Controller {
 		$this->load->view('b/beverages_v2',$data);
 		
 		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer_v2');
 	}
 	
 	//---------------------------------------------------------

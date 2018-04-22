@@ -1151,15 +1151,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #efe6ca;
 		border-bottom: 3px solid #77b043;
 		font-weight: bold;
-		padding-bottom: 6px;
+		padding-bottom: 7px;
 	}
 	
-	a {
+	a, .navbar-inverse .navbar-nav > li > a {
 		color: #dec32e;
 	}
 
-	a:hover {
+	a:hover, .navbar-inverse .navbar-nav > li > a:hover {
 		color: #dec32e;
+		text-decoration: underline;
 	}
 	
 	a.Footer-list-item {
@@ -1206,7 +1207,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	p.footer {		
-		text-align: right;
 		font-size: 12px;
 		border-top: 1px solid #d0d0d0;
 		line-height: 32px;
@@ -1243,12 +1243,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    border: none;
 	}
 
-	.Footer-container {		
+	.container-fluid.Footer-container {		
 		font-size: 18px;
 		line-height: 32px;
 		background: #52493f;
 		color:#fff;
-		padding: 42px 20px 42px 120px; 
+		padding: 42px 20px 42px 20px; 
 		z-index: 2;		
 		position: relative;
 	}
@@ -1278,11 +1278,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    -webkit-columns: 2;
 	    -moz-columns: 2;
 	}
-
+	
+	/* this is no longer used */
 	.Search-container {
-		float: left;
-		margin-top: 6px;	
-		margin-left: 16px;	
+            float: left;
+            margin-top: 6px;
 	}
 
 	.Search-input {
@@ -1291,7 +1291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 4px;
 		border: #ffffff;		
 		border-radius: 3px;
-		max-width: 300px;
+		max-width: 200px;
 	}
 	
 	.Button-container {
@@ -1361,8 +1361,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             padding-right: 12px;
             padding-left: 12px;
             padding-bottom: 12px;
-            height: 90%;
-            
+            background-color: #edebeb;
+            height: 100%;
         }
 
 	.Image-offers-save-more {
@@ -1971,8 +1971,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.container-fluid {
 		padding:0;
+	}
+	
+	/* a default of -15 each is used */
+	/* setting it to 0 prevents unnecessary horizontal scroll */
+	.container-fluid .row {
+		margin-left:0;
+		margin-right:0;		
 	}	
-
+	
 	.Customer-details-container {
 		margin-left: 50px;
 		margin-bottom: 0px;
@@ -2003,9 +2010,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	
 	.Cart-container {
-		margin-right: 24px;
-		margin-left: 24px;
-		margin-bottom: 12px;
+		margin-top: 0px;	
+		margin-left: -7px;
 	}	
 	
 	.Topbar-container {
@@ -2089,7 +2095,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.header {
-		margin: 12px 12px 0px 12px;	
+		margin: 21px 21px 21px 21px;	
 		color: #3a1d00;		
 	}
 
@@ -2253,6 +2259,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-b {	
+		padding-top: 75px;
 	}
 		
 	.Merchant-category-image {	
@@ -2267,14 +2274,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Merchant-category-content {
-		text-align: center;
-		margin-left: 6px;
-    	font-size: 15px;
-    	color: #291f1a;    	
-    	border: .2px dotted #4b3b2c;    	
-    	background-color: white;  
-    	padding: 2px;  	    	
-    	font-weight: bold;
+                font-size: 15px;
+                color: #291f1a;    	
+                border: .2px dotted #4b3b2c;    	
+                background-color: white;  
+                padding: 2px;  	    	
+                font-weight: bold;
 	}
 
 	.Merchant-category-content:hover {
@@ -2294,7 +2299,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-decoration: underline;
     	text-decoration-color: #77b043;
 	}
-
+	
+	/* this is no longer used */
 	.Merchant-products {
 		margin-left: 40px;	
 	}
@@ -2856,14 +2862,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    border-radius: 3px;	    
 	}
 	
-        /* ref: http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css */
-        .row-eq-height {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display:         flex;
+        .right-pane {
+            padding-left: 0px;
+            padding-right: 0px;
         }
 	
+	.navbar-brand {
+            padding-top: 3px;
+	}
+
+	/* remove border from collapsing header */
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+            border-color: inherit;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline:none;
+            background-color:transparent;
+            border: 0px solid;    
+        }
+
+	/* remove border from collapsing header */
+        @media (max-width: 767px) {
+            .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+                border-color: inherit;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                outline:none;
+                background-color:transparent;
+                border: 0px solid;    
+            }
+        }
+        
+	/* prevent dropdown menu from showing on small screens */
+        @media (max-width: 767px) {
+            .dropdown-menu {
+                display: none !important;
+            }
+
+            .open .dropdown-menu {
+                display: block !important;
+                /* prevent horizontal scroll */
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+        }        
+        
+        .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+            background-color: #1a0d00;
+            color: #dec32e;
+            text-decoration: underline;
+        }
+        
+        .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+            color: white;
+            background-color: white;            
+        }
+        
 </style>
 </head>
 <!-- 
