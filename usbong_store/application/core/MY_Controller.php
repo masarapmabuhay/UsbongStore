@@ -3,8 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
 
-	public function initStyle() {		 		
-		$this->load->view('templates/style');
+	public function initStyle() {
+		// new style that's mobile responsive
+		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+			$this->load->view('templates/style_v2');
+		} else {
+			$this->load->view('templates/style');
+		}
 	}
 
 	//added by Mike, 20180415
@@ -53,8 +58,14 @@ class MY_Controller extends CI_Controller {
 			$data['totalItemsInCart'] = 0;			
 		}
 //		$data['totalItemsInCart']=10;
-
-		$this->load->view('templates/header', $data);		
+		
+		// new style that's mobile responsive
+		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+			$this->load->view('templates/header_v2');
+		} else {
+			$this->load->view('templates/header');
+		}
+		
 	}
 	
 	public function initHeaderWith($data) {

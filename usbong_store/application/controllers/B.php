@@ -459,9 +459,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
-		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -470,8 +467,6 @@ class B extends MY_Controller {
 		
 		if (isset($merchant_id)) {
 			$data['beverages'] = $this->Beverages_Model->getBeverages($merchant_id);
-			
-//			$this->load->model('W_Model');
 			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
 			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
 		}
@@ -482,15 +477,11 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-/*		
-		$this->load->model('Beverages_Model');
-		$data['beverages'] = $this->Beverages_Model->getBeverages();
-		//		$this->load->view('templates/general_template',$data);
-*/
-		$this->load->view('b/beverages',$data);
+		$data['right_side_bar'] = 'templates/right_side_bar_v2';
+		$this->load->view('b/beverages_v2',$data);
 		
 		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer_v2');
 	}
 	
 	//---------------------------------------------------------

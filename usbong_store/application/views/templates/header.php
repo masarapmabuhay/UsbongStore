@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  -->
 	</div>
 	<nav class="navbar navbar-inverse navbar-static-top">
-	  <div class="container-fluid">
+	  <div class="container">
 		<ul class="nav navbar-nav">
 		  <li><div class="usbongLogo"><a href = "<?php echo site_url('/')?>"><img class="Image-usbong-store-logo" src="<?php echo base_url('assets/images/usbongStoreBrandLogo.png'); ?>"></a></div></li>
 		  <li><div class="input-group Search-container">
