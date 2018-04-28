@@ -63,7 +63,7 @@ class MY_Controller extends CI_Controller {
 		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
 			$this->load->view('templates/header_v2');
 		} else {
-			$this->load->view('templates/header');
+			$this->load->view('templates/header', $data);
 		}
 		
 	}
