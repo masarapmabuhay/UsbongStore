@@ -62,7 +62,8 @@ class MY_Controller extends CI_Controller {
 		// new style that's mobile responsive
 		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
 			$this->load->view('templates/header_v2');
-		} else {
+		} else {			
+			//edited by Mike, 20180428			
 			$this->load->view('templates/header', $data);
 		}
 		
