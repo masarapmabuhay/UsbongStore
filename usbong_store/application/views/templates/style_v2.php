@@ -2880,6 +2880,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             background-color:transparent;
             border: 0px solid;    
         }
+        
+        /* give border radius to button */
+        .navbar-form .input-group .input-group-btn .btn {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;            
+            /* align button with search input for chrome */
+            -webkit-padding-after: 5px;
+        }        
 
 	/* remove border from collapsing header */
         @media (max-width: 767px) {
