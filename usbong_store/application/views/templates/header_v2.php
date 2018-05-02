@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<!-- App Header -->
+<!-- App Header: Only Show on LG -->
 <div class="header-banner hidden-xs hidden-sm hidden-md vissible-lg">
     <ul>
         <li class="header-banner-li"><a href="http://usbong.ph/resources" target="_blank"><img class="Image-usbong-icon" src="<?php echo base_url('assets/images/banner_icons/dahon.png'); ?>"></a>
@@ -48,11 +48,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php } else { ?>
                     <input type="text" class="Search-input" placeholder="I'm looking for..." name="param" required>
                 <?php } ?>
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                </div>
+                <div class="input-group">                
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit">
+                          <i class="glyphicon glyphicon-search"></i>
+                      </button>
+                  </div>
+                </div>                  
             </form>
             <!-- Right Nav -->
             <ul class="nav navbar-nav navbar-right">
