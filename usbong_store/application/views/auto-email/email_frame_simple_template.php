@@ -34,7 +34,7 @@
         0 => [
             'name'  => 'Dahon',
             'image' => base_url('assets/images/banner_icons/dahon.png'),
-            'url'   => 'https://play.google.com/store/apps/details?id=usbong.android.fi&hl=en',
+            'url'   => 'http://www.usbong.ph/resources',
         ],
         1 => [
             'name'  => 'Pagtsing',
@@ -279,7 +279,7 @@
                                             <a href="<?php echo $products[$x]['product_url'];?>" title="<?php echo $products[$x]['name'];?>" style="<?php echo $inline_product_style; ?>">
                                                 
                                                     <span style="<?php echo $inline_price_style; ?>">
-                                                        <?php echo '&#8369;'.number_format($products[$x]['price'], 0 ,'.', ','); ?>
+                                                        <?php echo '&#8369;'.number_format($products[$x]['price'], 0 ,'.', ',').'<br>[Free Delivery]'; ?>
                                                     </span>
                                             </a>
                         
