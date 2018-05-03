@@ -1291,7 +1291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 4px;
 		border: #ffffff;		
 		border-radius: 3px;
-		max-width: 200px;
+		max-width: 400px;
 	}
 	
 	.Button-container {
@@ -1971,6 +1971,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.container-fluid {
 		padding:0;
+		margin-left: 6px;
 	}
 	
 	/* a default of -15 each is used */
