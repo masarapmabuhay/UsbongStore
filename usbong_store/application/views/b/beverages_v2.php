@@ -105,7 +105,7 @@
                                 $trimmedName = trim(substr($value['name'],0,40))."...";
                         }
                 ?>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 Product-item text-center" data="product-item-div">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 Product-item text-center" data="product-item-div">
                         <a class="Product-item" href="<?php echo site_url('w/'.$URLFriendlyReformattedProductName.'-'.$URLFriendlyReformattedProductAuthor.'/'.$value['product_id']); ?>">
                             <!-- General Description -->
                             <img class="imr-responsive center-block Image-item" src="<?php echo base_url('assets/images/beverages/'.$reformattedProductName.'.jpg'); ?>">
