@@ -2264,7 +2264,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-b {	
-		padding-top: 75px;
+		padding-top: 0px;
 	}
 		
 	.Merchant-category-image {	

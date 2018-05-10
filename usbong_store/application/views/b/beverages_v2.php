@@ -38,6 +38,16 @@
                     str_replace('/','-',
                     $reformattedCategoryName))))));
             ?>
+            <!-- Header -->
+            <div class="row">
+                <div class="hidden-xs hidden-sm vissible-md vissible-lg col-xs-12">
+                        <h2 class="header">Beverages</h2>
+                </div>
+                <div class="vissible-xs vissible-sm hidden-md hidden-lg col-xs-12 text-center">
+                        <h2 class="header">Beverages</h2>
+                </div>                
+            </div>
+            
             <div class="<?php echo $left_pane_col;?> Merchant-category-b">
                 <div class="row Merchant-category-image">
                     <a href="<?php echo site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$this->uri->segment(3)); ?>">
@@ -68,15 +78,20 @@
         <?php } ?>        
         <!-- Main Pane -->
         <div class="<?php echo $main_pane_col; ?>" data="main-pane">
-            <!-- Header -->
-            <div class="row">
-                <div class="hidden-xs hidden-sm vissible-md vissible-lg col-xs-12">
-                        <h2 class="header">Beverages</h2>
-                </div>
-                <div class="vissible-xs vissible-sm hidden-md hidden-lg col-xs-12 text-center">
-                        <h2 class="header">Beverages</h2>
-                </div>                
-            </div>
+        	<?php 
+        		if (!isset($categories)) { //if not on Merchant page due to no Merchant categorie s?>
+	            <!-- Header -->
+	            <div class="row">
+	                <div class="hidden-xs hidden-sm vissible-md vissible-lg col-xs-12">
+	                        <h2 class="header">Beverages</h2>
+	                </div>
+	                <div class="vissible-xs vissible-sm hidden-md hidden-lg col-xs-12 text-center">
+	                        <h2 class="header">Beverages</h2>
+	                </div>                
+	            </div>
+	        <?php 
+               } 
+	        ?>
             <!-- Products -->
             <div class="row">
                 <!-- Prepare Data -->            
