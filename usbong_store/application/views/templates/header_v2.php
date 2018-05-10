@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Search Header -->
 <nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container-fluid">
+    <div class="container-fluid Header-container">
         <!-- Minimum Heder Content -->
         <div class="navbar-header">
             <a class="navbar-brand" href="<?php echo site_url('/')?>">
@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Category Header -->
 <nav class="navbar-static-top categories-navbar">
-    <div class="container-fluid">
+    <div class="container-fluid Header-container">
         <ul class="nav navbar-nav container-navbar">
             <li><a href="<?php echo site_url('b/books/')?>">BOOKS</a></li>
             <li><a href="<?php echo site_url('b/childrens/')?>">CHILDREN'S</a></li>

@@ -1971,7 +1971,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.container-fluid {
 		padding:0;
-		margin-left: 6px;
+		margin-left: 0px;
 	}
 	
 	/* a default of -15 each is used */
@@ -2095,8 +2095,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.nav {
 	}
 	
+	.Header-container {
+	    margin-left: 8px;	
+	}
+	
 	.header {
-		margin: 21px 21px 21px 21px;	
+		margin: 21px 21px 21px 0px;	
 		color: #3a1d00;		
 	}
 
