@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-sm-2 Merchant-category">
 			<?php 
-				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$result->merchant_id).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
+				echo '<div class="row Merchant-category-image"><a href="'.site_url('b/'.strtolower($URLFriendlyReformattedCategoryName).'/'.$result->merchant_id).'"><img class="" src="'.base_url('assets/images/merchants/'.$result->merchant_name.'.jpg').'"></a></div>';
 				
 				foreach ($merchant_categories as $value) {
 					$fileFriendlyCategoryName = str_replace("'","",
@@ -226,7 +226,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 						<div>					
 						<br>
-							<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore_L.jpg')?>">
+						<?php 
+							if ($productType=="manga") {
+						?>
+								<a href="https://www.linkedin.com/in/michaelsyson/" target="_blank"><img class="Product-item-page-image-offers-jlpt" src="<?php echo base_url('assets/images/usbongSchoolJLPTReview_L.jpg')?>"></a>						
+						<?php 
+							}
+							else {
+						?>
+								<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore_L.jpg')?>">
+						<?php 						
+							}
+						?>
 						<br><br>
 <!--						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
 -->
