@@ -72,7 +72,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <!-- Login for Signed User -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Hi <?php echo ucfirst($this->session->userdata('customer_first_name')); ?>! <span class="caret"></span>
+                        <b>
+                            Hi <?php echo /*ucfirst(*/$this->session->userdata('customer_first_name')/*)*/; ?>! <span class="caret"></span>
+                        </b>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- Account -->
