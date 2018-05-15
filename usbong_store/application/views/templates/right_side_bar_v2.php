@@ -4,7 +4,7 @@
 <div class="row Image-offers">
     <img class="img-responsive center-block Image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyMoreSaveMore.jpg')?>">
     <br>
-    <a class="Request-link" href="<?php echo site_url('sell/')?>">
+    <a class="Request-link" href="<?php echo site_url('sell/b/b')?>">
         <img class="img-responsive center-block Image-offers-buy-back" src="<?php echo base_url('assets/images/usbongOffersBuyBack.jpg')?>">
     </a>
     <br>

@@ -1386,7 +1386,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-offers-buy-back {
 		position: relative;
 		display:block;		
-		z-index: 2;
+/*		z-index: 2; */
 	}
 
 	.Image-offers-buy-back:hover {
@@ -1397,7 +1397,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-offers-request {
 		position: relative;
 		display:block;		
-		z-index: 2;		
+/*		z-index: 2; */
 	}
 
 	.Image-offers-request:hover {
@@ -2308,6 +2308,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	/* this is no longer used */
 	.Merchant-products {
 		margin-left: 40px;	
+	}
+	
+	.Main-pane {
+		margin-top: 80px
 	}
 		
 		
