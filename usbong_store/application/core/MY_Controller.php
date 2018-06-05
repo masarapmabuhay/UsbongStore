@@ -9,7 +9,11 @@ class MY_Controller extends CI_Controller {
 		$isMobileResponsive = $value; 
 	}
 	
-	public function initStyle() {
+	public function initStyle() {		
+		//added by Mike, 20180605
+		$this->setMobileResponsive(FALSE); //simply update this to TRUE to make the entire site mobile responsive; work-in-progress
+		 				
+		
 		// new style that's mobile responsive
 		//edited by Mike, 20180605
 		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {

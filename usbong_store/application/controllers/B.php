@@ -461,8 +461,8 @@ class B extends MY_Controller {
 		$this::initHeader();
 		
 		//added by Mike, 20180605
-		$this::setMobileResponsive(FALSE);
-		
+/*		$this::setMobileResponsive(FALSE);
+*/		
 		$merchant_id = $this->uri->segment(3);
 		
 		$this->load->model('Beverages_Model');
