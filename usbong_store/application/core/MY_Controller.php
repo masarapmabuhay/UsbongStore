@@ -2,13 +2,25 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
-
+	
+	//added by Mike, 20180605
+	//the default is the website is not mobile responsive
+	public function setMobileResponsive($value) {
+		$isMobileResponsive = $value; 
+	}
+	
 	public function initStyle() {
 		// new style that's mobile responsive
-		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
-			$this->load->view('templates/style_v2');
-		} else {
-			$this->load->view('templates/style');
+		//edited by Mike, 20180605
+		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {
+			if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+				$this->load->view('templates/style_v2');
+			} else {
+				$this->load->view('templates/style');
+			}			
+		}
+		else {
+			$this->load->view('templates/style');		
 		}
 	}
 
@@ -58,12 +70,27 @@ class MY_Controller extends CI_Controller {
 			$data['totalItemsInCart'] = 0;			
 		}
 //		$data['totalItemsInCart']=10;
-		
+
+/*		
 		// new style that's mobile responsive
 		if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
 			$this->load->view('templates/header_v2');
 		} else {			
 			//edited by Mike, 20180428			
+			$this->load->view('templates/header', $data);
+		}
+*/
+		// new style that's mobile responsive		
+		//edited by Mike, 20180605
+		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {
+			if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+				$this->load->view('templates/header_v2');
+			} else {
+				//edited by Mike, 20180428
+				$this->load->view('templates/header', $data);
+			}
+		}
+		else {
 			$this->load->view('templates/header', $data);
 		}
 		

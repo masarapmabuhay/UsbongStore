@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+-->	
 	<meta name="google-site-verification" content="fIE_s1RlOUpi0n7Yi2lEawdU_P6W003_QNSF1hKGu1A" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -2060,6 +2061,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left:5px;
 		padding:0;
 	}	
+	
+	.Header-container {
+		margin-left: 5px;
+		margin-bottom: 0px;
+	}	
+	
 
 	.Customer-details-container {
 		margin-left: 50px;
