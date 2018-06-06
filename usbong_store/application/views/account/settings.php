@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div>
 		<div class="row">
 			<?php 
-			if ($result->is_admin==1) {
+			if ($customer_information_result->is_admin==1) {
 			?>
 				<div class="col-sm-3 Account-settings">
 					<div class="row Account-settings-subject-header">Summary</div>
@@ -68,8 +68,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['emailAddressParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$data['emailAddressParam'].'" required>';
 								}
-								else if (isset($result->customer_email_address)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$result->customer_email_address.'" required>';
+								else if (isset($customer_information_result->customer_email_address)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" value="'.$customer_information_result->customer_email_address.'" required>';
 								}
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="emailAddressParam" required>';
@@ -83,8 +83,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['firstNameParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$data['firstNameParam'].'" required>';
 								}
-								else if (isset($result->customer_first_name)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$result->customer_first_name.'" required>';
+								else if (isset($customer_information_result->customer_first_name)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" value="'.$customer_information_result->customer_first_name.'" required>';
 								}						
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="" name="firstNameParam" required>';
@@ -98,8 +98,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['lastNameParam'])) {
 									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$data['lastNameParam'].'" required>';
 								}
-								else if (isset($result->customer_last_name)) {
-									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$result->customer_last_name.'" required>';
+								else if (isset($customer_information_result->customer_last_name)) {
+									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" value="'.$customer_information_result->customer_last_name.'" required>';
 								}						
 								else { //default
 									echo '<input type="text" class="Checkout-input" placeholder="Name" name="lastNameParam" required>';
@@ -118,8 +118,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if (isset($data['contactNumberParam'])) {
 									echo '<input type="tel" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$data['contactNumberParam'].'" required>';
 								}
-								else if (isset($result->customer_contact_number)) {
-									echo '<input type="text" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$result->customer_contact_number.'" required>';
+								else if (isset($customer_information_result->customer_contact_number)) {
+									echo '<input type="text" class="Checkout-input" placeholder="" name="contactNumberParam" value="'.$customer_information_result->customer_contact_number.'" required>';
 								}
 								else { //default
 									echo '<input type="tel" class="Checkout-input" placeholder="" name="contactNumberParam" required>';
@@ -130,14 +130,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								
 								//Meetup at MOSC--------------------------------------------------
 								//added by Mike, 20180321
-								if ((!isset($data['shippingAddressParam'])) && (!isset($result->customer_shipping_address))) {
+								if ((!isset($data['shippingAddressParam'])) && (!isset($customer_information_result->customer_shipping_address))) {
 									echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSCId" value="0" onClick="clickShipToMOSCFunction(this.value)">&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';
 								}
 								else {
 									if (isset($data['shippingAddressParam']) && ($data['shippingAddressParam']=="2 E. Rodriguez Ave. Sto. Niño")) {
 										echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSCId" value="1" onClick="clickShipToMOSCFunction(this.value)" checked>&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';
 									}
-									else if (isset($result->customer_shipping_address) && ($result->customer_shipping_address=="2 E. Rodriguez Ave. Sto. Niño")) {
+									else if (isset($customer_information_result->customer_shipping_address) && ($customer_information_result->customer_shipping_address=="2 E. Rodriguez Ave. Sto. Niño")) {
 										echo '<label class="Checkbox-label-shippingToMOSC"><input type="checkbox" id="shippingToMOSCId" value="1" onClick="clickShipToMOSCFunction(this.value)" checked>&ensp;Meetup at Marikina Orthopedic Specialty Clinic</label>';
 									}
 									else {

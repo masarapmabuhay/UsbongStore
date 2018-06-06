@@ -562,7 +562,7 @@ class Account extends MY_Controller {
 		$this->load->library('form_validation');
 		
 		$this->load->model('Account_Model');
-		$data['result'] = $this->Account_Model->getCustomerInformation($customer_id);
+		$data['customer_information_result'] = $this->Account_Model->getCustomerInformation($customer_id);
 				
 		$this->load->view('account/settings', $data);
 		
