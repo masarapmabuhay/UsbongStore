@@ -60,6 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><span class="Footer-list-header"><b>Information</b></span></li>					
 					<li><a class="Footer-list-item" href ="http://www.usbong.ph" target="_blank">USBONG.PH</a></li>					
 					<li><a class="Footer-list-item" href ="https://www.facebook.com/usbongschool" target="_blank">Usbong School</a></li>					
+					<li><a class="Footer-list-item" href ="https://www.facebook.com/marikinaorthopedic" target="_blank">Marikina Orthopedic Specialty Clinic (MOSC)</a></li>					
 					<li><a class="Footer-list-item" href ="<?php echo site_url('privacy/')?>" target="_blank">Privacy Policy</a></li>					
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
 					<li><span class="Footer-list-header"><b>Quick Help</b></span></li>					
