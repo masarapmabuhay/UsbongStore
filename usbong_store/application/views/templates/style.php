@@ -1149,7 +1149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #1a0d00;
 		z-index: 1;
 		margin-bottom: 0 !important;
-		padding-bottom: 0 !important;
+		padding-bottom: 0 !important;		
 	}
 	
 	.categories-navbar {	
@@ -2054,8 +2054,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.container {
 		margin-left: 100px;
-		margin-bottom: 0px;
-	}	
+		margin-bottom: 0px;		
+	}		
 
 	.container-fluid {
 		margin-left:5px;

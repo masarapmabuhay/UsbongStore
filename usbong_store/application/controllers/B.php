@@ -293,6 +293,64 @@ class B extends MY_Controller {
 	public function books()
 	{					
 		//from application/core/MY_Controller
+		$this::initStyle();
+		$this::initHeader();
+		
+		//added by Mike, 20180605
+		/*		$this::setMobileResponsive(FALSE);
+		*/
+		$merchant_id = $this->uri->segment(3);
+		
+		$this->load->model('Books_Model');
+		$this->load->model('W_Model');
+		
+		if (isset($merchant_id)) {
+			$data['books'] = $this->Books_Model->getBooks($merchant_id);
+			$data['categories'] = $this->W_Model->getMerchantCategories($merchant_id);
+			$data['result'] = $this->W_Model->getMerchantName($merchant_id);
+		}
+		else {
+			$data['books'] = $this->Books_Model->getBooks(null);
+		}
+		
+		$customer_id = $this->session->userdata('customer_id');
+		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
+		
+		
+//		if ((isset($this::$isMobileResponsive)) AND ($this::$isMobileResponsive == true)) {
+		if ($this::isMobileResponsive()) {			
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$this->load->view('b/books_v2',$data);
+			
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		}
+		else {
+			$data['right_side_bar'] = 'templates/right_side_bar';
+			$this->load->view('b/books',$data);
+			
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
+		
+/*
+		$data['right_side_bar'] = 'templates/right_side_bar_v2';
+		$this->load->view('b/books_v2',$data);
+		
+		//--------------------------------------------
+		$this->load->view('templates/footer_v2');
+*/		
+		
+		/*
+		 $data['right_side_bar'] = 'templates/right_side_bar_v2';
+		 $this->load->view('b/beverages_v2',$data);
+		 
+		 //--------------------------------------------
+		 $this->load->view('templates/footer_v2');
+		 */		
+		
+/*		//original version
+		//from application/core/MY_Controller
 		$this::initStyle();		
 		$this::initHeader();
 		//--------------------------------------------
@@ -318,15 +376,16 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');		
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);		
 		
-/*		
-		$this->load->model('Books_Model');
-		$data['books'] = $this->Books_Model->getBooks();
-//		$this->load->view('templates/general_template',$data);
- */
+		
+// 		$this->load->model('Books_Model');
+// 		$data['books'] = $this->Books_Model->getBooks();
+// //		$this->load->view('templates/general_template',$data);
+
 		$this->load->view('b/books',$data);
 
 		//--------------------------------------------
 		$this->load->view('templates/footer');
+*/		
 	}	
 
 	//---------------------------------------------------------
@@ -481,7 +540,8 @@ class B extends MY_Controller {
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
 		
-		if ((isset($this::$isMobileResponsive)) AND ($this::$isMobileResponsive == true)) {
+//		if ((isset($this::$isMobileResponsive)) AND ($this::$isMobileResponsive == true)) {
+		if ($this::isMobileResponsive()) {
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
 			$this->load->view('b/beverages_v2',$data);
 			
@@ -495,6 +555,7 @@ class B extends MY_Controller {
 			//--------------------------------------------
 			$this->load->view('templates/footer');
 		}
+		
 /*		
 		$data['right_side_bar'] = 'templates/right_side_bar_v2';
 		$this->load->view('b/beverages_v2',$data);
