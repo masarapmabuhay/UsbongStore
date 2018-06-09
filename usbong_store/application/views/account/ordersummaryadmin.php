@@ -94,9 +94,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												if ($value['fulfilled_status']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 												}
-												else {
+												else if ($value['fulfilled_status']==1) {
 													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';												
 												}												
+												else {
+													echo '<span class="Fulfilled-Status-Cancelled">&ensp;Cancelled&ensp;</span>';
+												}
+												
 												echo '</div>';
 												
 											}
@@ -131,8 +135,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												if ($value['fulfilled_status']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 												}
-												else {
+												else if ($value['fulfilled_status']==1) {
 													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+												}
+												else {
+													echo '<span class="Fulfilled-Status-Cancelled">&ensp;Cancelled&ensp;</span>';
 												}
 												echo '</div>';												
 											}

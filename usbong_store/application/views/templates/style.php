@@ -1817,6 +1817,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Fulfilled-Status-Not-OK {
+		background-color: #e09049;
+		color: #4b4b4b;
+	}
+
+	.Fulfilled-Status-Cancelled {
 		background-color: #e04949;
 		color: #4b4b4b;
 	}
