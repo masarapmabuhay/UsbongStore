@@ -316,10 +316,16 @@ class Account_Model extends CI_Model
 		return $query->result_array();
 	}
 	
-	public function updateCustomerRequestAdmin($fulfilledStatus, $customerRequestId) {
+	public function updateCustomerRequestAdmin($fulfilledStatus, $customerRequestId) {		
+		//edited by Mike, 20180609
+		date_default_timezone_set('Asia/Hong_Kong');
+		$fulfilledDateTimeStamp = (new DateTime())->format('Y-m-d H:i:s'); //date('Y-m-d H:i:s');
+		
 		$updateData = array(
-				'fulfilled_status' => $fulfilledStatus
+				'fulfilled_status' => $fulfilledStatus,
+				'fulfilled_datetime_stamp' => $fulfilledDateTimeStamp
 		);
+
 		$this->db->where('customer_request_id', $customerRequestId);
 		$this->db->update('customer_request', $updateData);
 	}	
