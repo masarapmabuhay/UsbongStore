@@ -2,11 +2,25 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
-	
 	//added by Mike, 20180605
 	//the default is the website is not mobile responsive
 	public function setMobileResponsive($value) {
-		$isMobileResponsive = $value; 
+//		$isMobileResponsive = $value; 
+				
+		$mobileResponsiveSetting = array(
+				'is_mobile_responsive'  => $value
+		);
+
+		$this->session->set_userdata($mobileResponsiveSetting);				
+	}
+	
+	public function isMobileResponsive() {		
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			return true;
+		}
+		return false;
 	}
 	
 	public function initStyle() {		
@@ -15,8 +29,11 @@ class MY_Controller extends CI_Controller {
 		 				
 		
 		// new style that's mobile responsive
-		//edited by Mike, 20180605
+		//edited by Mike, 20180607
+/*		
 		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {
+*/
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
 			if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
 				$this->load->view('templates/style_v2');
 			} else {
@@ -26,6 +43,9 @@ class MY_Controller extends CI_Controller {
 		else {
 			$this->load->view('templates/style');		
 		}
+
+/*		$this->load->view('templates/style_v2');		
+ */
 	}
 
 	//added by Mike, 20180415
@@ -85,7 +105,7 @@ class MY_Controller extends CI_Controller {
 		}
 */
 		// new style that's mobile responsive		
-		//edited by Mike, 20180605
+		//edited by Mike, 20180607		
 		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {
 			if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
 				$this->load->view('templates/header_v2');
@@ -97,7 +117,10 @@ class MY_Controller extends CI_Controller {
 		else {
 			$this->load->view('templates/header', $data);
 		}
-		
+
+/*		
+		$this->load->view('templates/header_v2');
+*/		
 	}
 	
 	public function initHeaderWith($data) {

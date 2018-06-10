@@ -318,7 +318,10 @@ class B extends MY_Controller {
 		
 		
 //		if ((isset($this::$isMobileResponsive)) AND ($this::$isMobileResponsive == true)) {
-		if ($this::isMobileResponsive()) {			
+//		if ($this::isMobileResponsive()) {			
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
 			$this->load->view('b/books_v2',$data);
 			
@@ -326,6 +329,8 @@ class B extends MY_Controller {
 			$this->load->view('templates/footer_v2');
 		}
 		else {
+			$this->load->view('templates/right_side_bar');
+			
 			$data['right_side_bar'] = 'templates/right_side_bar';
 			$this->load->view('b/books',$data);
 			
@@ -541,7 +546,10 @@ class B extends MY_Controller {
 		
 		
 //		if ((isset($this::$isMobileResponsive)) AND ($this::$isMobileResponsive == true)) {
-		if ($this::isMobileResponsive()) {
+//		if ($this::isMobileResponsive()) {
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
 			$this->load->view('b/beverages_v2',$data);
 			
@@ -549,6 +557,8 @@ class B extends MY_Controller {
 			$this->load->view('templates/footer_v2');
 		}
 		else {
+			$this->load->view('templates/right_side_bar');
+			
 			$data['right_side_bar'] = 'templates/right_side_bar';
 			$this->load->view('b/beverages',$data);
 			
