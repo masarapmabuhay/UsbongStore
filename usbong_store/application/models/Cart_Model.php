@@ -63,6 +63,8 @@ class Cart_Model extends CI_Model
 		);
 		$this->db->where('customer_id', $customerId);
 		$this->db->where('product_id', $productId);
+		$this->db->where('purchased_datetime_stamp', 0);
+		
 	
 		$this->db->update('cart', $updateData);
 	}
