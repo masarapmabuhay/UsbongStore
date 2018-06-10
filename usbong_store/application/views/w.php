@@ -147,9 +147,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 					?>
 				</div>
-				<?php 	
-					}
-				?>
+			<?php 	
+				}
+			?>
 			</div>
 			<div class="col-sm-4">	
 				<div class="row Product-name">
@@ -168,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="Product-overview-header"><b>Product Overview</b><br></div>
 					<div class="Product-overview-content">
 					<?php	
-					if (!empty($result->product_overview) && (strcmp($result->product_overview, "<p>&nbsp;</p>")!=0)) {							
+						if (!empty($result->product_overview) && (strcmp($result->product_overview, "<p>&nbsp;</p>")!=0)) {							
 							echo $result->product_overview;
 						}
 						else {
@@ -188,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					else {
 						echo '<a class="Product-price" href ="'.site_url('help/').'" target="_blank">';
 						echo '&#x20B1;'.$result->price.' [Free Delivery]';
-						echo '</a';
+						echo '</a>';
 					}
 					?>
 					</b>					
@@ -239,13 +239,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							}
 						?>
 						<br><br>
-<!--						<img class="Product-item-page-image-offers-save-more" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>">
--->
 						<!--  $this->uri->segment(2) is a URL friendly product name-->
 						<a class="Sell-link" href="<?php echo site_url('sell/'.$URLFriendlyReformattedProductName.'/'.$result->product_id)?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
-
-<!--					<a class="Sell-link" href="<?php echo site_url('sell/')?>"><img class="Product-item-page-image-offers-sell" src="<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"></a>
--->
 						</div>															
 						
 						<div id="myPopup" class="popup-content">
