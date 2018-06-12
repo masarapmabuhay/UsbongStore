@@ -45,7 +45,7 @@ class Contact_Case_Model extends CI_Model
 		$this->db->update('contact_case', $updateData);		
 
 				
-		$this->db->select('t1.added_datetime_stamp, t1.contact_case_id, t1.customer_id, t1.contact_case_email_address, t1.subject, t1.description, t1.contact_case_type_id, t1.status, t2.contact_case_type_name_shortened');
+		$this->db->select('t1.added_datetime_stamp, t1.contact_case_id, t1.contact_case_first_name, t1.contact_case_last_name, t1.customer_id, t1.contact_case_email_address, t1.subject, t1.description, t1.contact_case_type_id, t1.status, t2.contact_case_type_name_shortened');
 		$this->db->from('contact_case as t1');
 		$this->db->join('contact_case_type as t2', 't1.contact_case_type_id = t2.contact_case_type_id', 'LEFT');
 		$this->db->where('t1.contact_case_id', $contactCaseId);
