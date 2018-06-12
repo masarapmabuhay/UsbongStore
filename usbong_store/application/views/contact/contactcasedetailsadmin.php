@@ -42,7 +42,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //							echo '<b>Description:</b><br>';						
 							echo nl2br($contact_case_details->description);	
 							echo "<hr class='mail'>";
-							echo '<span class="reply-text">Click here to <a href="mailto:'.$contact_case_details->contact_case_email_address.'">Reply</a></span>';
+/*							echo '<span class="reply-text">Click here to <a href="mailto:'.$contact_case_details->contact_case_email_address.'">Reply</a></span>';
+ */
+							
+							//Reference: https://stackoverflow.com/questions/4782068/can-i-set-subject-content-of-email-using-mailto;
+							//last accessed: 20180612
+							//answer by: Full Decent
+							//edited by: java.web
+							$encodedTo = rawurlencode($contact_case_details->contact_case_email_address);
+							$encodedSubject = rawurlencode($contact_case_details->subject);
+//							$encodedBody = rawurlencode($contact_case_details->description);
+
+//							$addedDateTimeStamp = date('F j, Y H:i A', $contact_case_details->added_datetime_stamp);
+							
+							$encodedBody = rawurlencode(
+															"\n--\n".
+															$contact_case_details->added_datetime_stamp.", ".$contact_case_details->contact_case_first_name." ".$contact_case_details->contact_case_last_name." <".$contact_case_details->contact_case_email_address."> wrote:\n".
+															$contact_case_details->description							
+													   );
+							
+							$uri = "mailto:$encodedTo&subject=$encodedSubject&body=$encodedBody";
+							$encodedUri = htmlspecialchars($uri);
+//							echo "<a href=\"$encodedUri\">Send email</a>";
+							echo '<span class="reply-text">Click here to <a href="'.$encodedUri.'">Reply</a></span>';							 
 						?>
 					</div>
 					<div class="col-sm-4 Order-details">		
