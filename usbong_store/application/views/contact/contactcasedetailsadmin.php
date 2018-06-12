@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							echo $contact_case_details->subject;
 							echo '<br><br>';
 //							echo '<b>Description:</b><br>';						
-							echo $contact_case_details->description;	
+							echo nl2br($contact_case_details->description);	
 							echo "<hr class='mail'>";
 							echo '<span class="reply-text">Click here to <a href="mailto:'.$contact_case_details->contact_case_email_address.'">Reply</a></span>';
 						?>
