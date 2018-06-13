@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					If you need to update your shipping address, you can go to the link to the My Account page located to the left of your shopping cart.
 				</li><br>
 				<li><span class="Help-subheader">Can I get a discount on a large order?</span><br>
-					We strive to offer the best prices on the Internet. Moreover, we offer discounts for each additional product a customer purchases. The prices also already cover the shipping cost, so the customer need not have to pay additional fees. Even better, if the customer picks up the product items at the Marikina Orthopedic Specialty Clinic (MOSC), the customer receives a promo discount.
+					We strive to offer the best prices on the Internet. Moreover, we offer discounts for each additional product a customer purchases. The prices also already cover the shipping cost, so the customer need not have to pay additional fees. Even better, if the customer picks up the product items at the <b><a href='https://www.facebook.com/marikinaorthopedic' target='_blank'>Marikina Orthopedic Specialty Clinic (MOSC)</a></b>, the customer receives a promo discount.
 				</li><br>
 			</ul>
 			</div>		
@@ -41,7 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				The email address is: <b><a href="mailto:masarapmabuhay@gmail.com"><span class="Help-paypal-email-address">masarapmabuhay (at) gmail (dot) com</span></a></b>
 				</li><br>
 				<li><span class="Help-subheader">Cash upon Meetup at the Marikina Orthopedic Specialty Clinic (MOSC)</span><br>
-					The address is: 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.) Sto. Niño Marikina City, 1800, Philippines
+				    <b><a href='https://www.facebook.com/marikinaorthopedic' target='_blank'>Marikina Orthopedic Specialty Clinic (MOSC)</a></b><br>
+					The address is: 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.), Sto. Niño, Marikina City, 1800, Philippines
 				</li>	
 			</ul>
 			After confirming your purchase order, the Usbong Store will email you the details regarding the next steps.
@@ -52,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Help">
 			<ul>
 				<li><span class="Help-subheader">Do you have an actual brick-and-mortar store?</span><br>
-					At present, we accept payment and receiving of online purchases at the Marikina Orthopedic Specialty Clinic (MOSC), which is located at 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.) Sto. Niño Marikina City, 1800, Philippines.
+					At present, we accept payment and receiving of online purchases at the <b><a href='https://www.facebook.com/marikinaorthopedic' target='_blank'>Marikina Orthopedic Specialty Clinic (MOSC)</a></b>, which is located at 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.), Sto. Niño, Marikina City, 1800, Philippines.
 					To view our available products, you may access <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b>. The prices already include the shipping cost.
 				</li><br>
 				<li><span class="Help-subheader">How do I find a product?</span><br>
