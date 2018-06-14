@@ -1139,10 +1139,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	body {
 		background-color:  #f6f6f6;
 		margin: 0px 0px 0px 0px;
-		max-width: 100%;
+		padding: 0;
+		max-width: 100%;/*1264px;*//*max-width: 100%;*/
+		max-height: 100%;/*1264px;*//*max-height: 100%;*/		
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
 		color: #808080;
-		position: relative;		
+		position: /*absolute;*/relative;
 	}
 	
 	.navbar {
@@ -1399,7 +1401,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding-top: 12px;	
     	padding-right: 12px;
     	padding-left: 12px;
-    	height: 90%;
+    	padding-bottom: 0;
+    	margin: 0;
+    	max-height: 100%;
     	background-color: #edebeb;
 	}
 
@@ -3015,6 +3019,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </style>
 </head>
+<body>
 <!-- 
 <body>
 </body>
