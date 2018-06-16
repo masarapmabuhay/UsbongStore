@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 -->
 <!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>">Recommended <span class="Front-page-cat-name">Books</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/books/')?>"><span class="Front-page-cat-name">Books</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -188,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/childrens/')?>">Recommended <span class="Front-page-cat-name"> Children's Books</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/childrens/')?>"><span class="Front-page-cat-name"> Children's Books</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -358,7 +358,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 
 <!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/textbooks/')?>">Recommended <span class="Front-page-cat-name"> Textbooks</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/textbooks/')?>"><span class="Front-page-cat-name"> Textbooks</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -528,7 +528,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/medical/')?>">Recommended <span class="Front-page-cat-name"> Medical Supplies</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/medical/')?>"><span class="Front-page-cat-name"> Medical Supplies</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -687,7 +687,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/food/')?>">Recommended <span class="Front-page-cat-name"> Food</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/food/')?>"><span class="Front-page-cat-name"> Food</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -843,7 +843,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/beverages/')?>">Recommended <span class="Front-page-cat-name"> Beverages</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/beverages/')?>"><span class="Front-page-cat-name"> Beverages</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -999,7 +999,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/merchants')?>">Recommended <span class="Front-page-cat-name"> Merchants</span></a></h3>
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/merchants')?>"><span class="Front-page-cat-name"> Merchants</span></a></h3>
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1069,7 +1069,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/comics/')?>">Recommended <span class="Front-page-cat-name"> Comics</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/comics/')?>"><span class="Front-page-cat-name"> Comics</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1225,7 +1225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/manga/')?>">Recommended <span class="Front-page-cat-name"> Manga</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/manga/')?>"><span class="Front-page-cat-name"> Manga</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1381,7 +1381,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/toys-and-collectibles/')?>">Recommended <span class="Front-page-cat-name"> Toys & Collectibles</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/toys-and-collectibles/')?>"><span class="Front-page-cat-name"> Toys & Collectibles</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1537,7 +1537,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>		
 	
 	<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/miscellaneous/')?>">Recommended <span class="Front-page-cat-name"> Miscellaneous</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/miscellaneous/')?>"><span class="Front-page-cat-name"> Miscellaneous</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">
@@ -1693,7 +1693,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>			
 	
 		<!-- ################################################################################# -->
-	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/promos/')?>">Recommended <span class="Front-page-cat-name"> Promos</span></a></h3>	
+	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/promos/')?>"><span class="Front-page-cat-name"> Promos</span></a></h3>	
 	<br>
 		<div class="container-frontPage">
 		<div class="row">

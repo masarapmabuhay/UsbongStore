@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //			alert("hello");
 
 			if (isEnabled==0) {
-				document.getElementById("shippingAddressId").value = '2 E. Rodriguez Ave. Sto. Niño';
+				document.getElementById("shippingAddressId").value = '2 E. Rodriguez Ave. Sto. Niﾃｱo';
 				document.getElementById("cityId").value = 'Marikina City';
 				document.getElementById("countryId").value = 'Philippines';
 				document.getElementById("postalCodeId").value = '1800';
@@ -334,10 +334,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if (!hasReachedDataLength) {			    					
 			    	if (data[index].quantity_in_stock!=0) {
 						if (data[index].previous_price!=null) {
-							priceName.innerHTML = "₱" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
+							priceName.innerHTML = "竄ｱ" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
 						}
 						else {
-							priceName.innerText = "₱" + data[index].price + "\n" + "[Free Delivery]";														
+							priceName.innerText = "竄ｱ" + data[index].price + "\n" + "[Free Delivery]";														
 						}
 			    	}
 				}
@@ -638,10 +638,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if (!hasReachedDataLength) {				    	
 			    	if (data[index].quantity_in_stock!=0) {
 						if (data[index].previous_price!=null) {
-							priceName.innerHTML = "₱" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
+							priceName.innerHTML = "竄ｱ" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
 						}
 						else {
-							priceName.innerText = "₱" + data[index].price + "\n" + "[Free Delivery]";														
+							priceName.innerText = "竄ｱ" + data[index].price + "\n" + "[Free Delivery]";														
 						}
 			    	}
 			    	else {
@@ -1139,7 +1139,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	body {
 		background-color:  #f6f6f6;
 		margin: 0px 0px 0px 0px;
-		padding: 0;
+/*		padding: 0;
+*/
 		max-width: 100%;/*1264px;*//*max-width: 100%;*/
 		max-height: 100%;/*1264px;*//*max-height: 100%;*/		
 		font: 16px/24px normal "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -1402,8 +1403,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	padding-right: 12px;
     	padding-left: 12px;
     	padding-bottom: 0;
-    	margin: 0;
+/*    	margin: 0;*/
     	max-height: 100%;
+    	max-width: 100%;
     	background-color: #edebeb;
 	}
 
@@ -2091,7 +2093,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.container-frontPage {
 		margin-left: 30px;
 		margin-bottom: 20px;
-		width: 100%;
+		width: 96%;
 	}	
 
 	.container-merchant {
