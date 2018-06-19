@@ -119,7 +119,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    	$order_total_price-=70;
 							    }
 							    else {
-							    	$order_total_price-=70;
+							    	//edited by Mike, 20180619
+							    	$order_total_price-=0;//70;
 							    }						    
 						    
 						    	$order_total_price-=$totalDiscount;						    
