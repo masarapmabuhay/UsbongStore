@@ -418,6 +418,16 @@ class Administer extends MY_Controller {
                 $data['customer']['customer_id']         = $customer->customer_id;
                 $this->load->view('auto-email/email_frame_single_template', $data);
             break;
+            //added by Mike, 20180620
+            case 3:
+            	// extract data from db
+            	$customer = $this->Auto_Email_Customer_Model->get($this->session->userdata('customer_id'));
+            	
+            	// clean data from db
+            	$data['customer']['customer_first_name'] = $customer->customer_first_name;
+            	$data['customer']['customer_id']         = $customer->customer_id;
+            	$this->load->view('auto-email/email_frame_shipped_template', $data);
+            	break;
             default:
                 show_error('The email template is not yet supported.');
         }
