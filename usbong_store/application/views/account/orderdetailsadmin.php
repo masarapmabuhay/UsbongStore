@@ -115,6 +115,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo	'</div>';
 									echo '</div>';
 									
+									echo '<div class="row">';
+									echo	'<div class="col-sm-6 Order-details">';
+									echo	'<div class="Order-details-align-right">Shipping (PH)</div>';
+									echo 	'</div>';
+									echo	'<div class="col-sm-5 Order-details">';
+									echo	'<div class="Order-details-align-right"><b>FREE</b></div>';
+									echo	'</div>';
+									echo '</div>';									
+									
 									$orderTotal = ($value['order_total_price']-$value['order_total_discount']);
 																		
 									echo '<div class="row Order-details-product">';
