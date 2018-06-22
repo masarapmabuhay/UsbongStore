@@ -1,0 +1,5 @@
+1) UPDATE `product` SET `product_view_num`=0
+
+2) UPDATE `product` SET `quantity_sold`=0
+
+3) SELECT `name`, `product_view_num` FROM `product` WHERE `product_view_num` > 0 ORDER BY `product_view_num` DESC
