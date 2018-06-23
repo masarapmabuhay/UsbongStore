@@ -107,7 +107,7 @@ class Sell extends MY_Controller {
 		$this->load->library('session');
 		$this->load->library('form_validation');
 								
-		$this->load->view('sell');
+		$this->load->view('sell');//, $data);
 		
 		//--------------------------------------------
 		$this->load->view('templates/footer');

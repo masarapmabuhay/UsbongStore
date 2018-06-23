@@ -10,13 +10,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h2 class="header">Sell</h2>
 	<br>
 	<div>
-	<?php 
-/*	
+	<?php 	
 		$data=[];
-		if (isset($this->session->flashdata('data'))) {
+		if ($this->session->flashdata('data')) {
 			$data = $this->session->flashdata('data');
 		}
-*/	
+	
 		//Success Message
 		if (isset($data['is_success'])) {
 			echo '<div class="Request-success">&#x2714; You have successfully sent us your product details.</div>';
