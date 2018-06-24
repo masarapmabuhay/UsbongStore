@@ -142,6 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																								
 												
 												echo '<div class="col-sm-2 Order-summary-alternate offset-col-sm-2">';
+/*
 												if ($value['purchased_datetime_stamp']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 												}
@@ -149,7 +150,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo '<span class="Fulfilled-Status-OK">';
 													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');													
 													echo '</span>';												
-												}												
+												}							
+*/												
+												if ($value['fulfilled_status']==0) {
+													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+												}
+												else if ($value['fulfilled_status']==1) {
+/*													
+													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+*/
+													echo '<span class="Fulfilled-Status-OK">';
+													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');
+													echo '</span>';
+												}
+												else {
+													echo '<span class="Fulfilled-Status-Cancelled">&ensp;Cancelled&ensp;</span>';
+												}
+												
 												echo '</div>';
 												
 											}
@@ -214,6 +231,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo '</div>';
 																								
 												echo '<div class="col-sm-2 Order-summary">';
+/*												
 												if ($value['purchased_datetime_stamp']==0) {
 													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
 												}
@@ -222,6 +240,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');
 													echo '</span>';
 												}
+*/
+												if ($value['fulfilled_status']==0) {
+													echo '<span class="Fulfilled-Status-Not-OK">&ensp;Not Yet&ensp;</span>';
+												}
+												else if ($value['fulfilled_status']==1) {
+/*													
+													echo '<span class="Fulfilled-Status-OK">&ensp;OK&ensp;</span>';
+*/
+													echo '<span class="Fulfilled-Status-OK">';
+													echo date_format(date_create($value['purchased_datetime_stamp']),'m/d/Y');
+													echo '</span>';
+												}
+												else {
+													echo '<span class="Fulfilled-Status-Cancelled">&ensp;Cancelled&ensp;</span>';
+												}												
 												echo '</div>';												
 											}
 											

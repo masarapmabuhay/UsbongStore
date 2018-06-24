@@ -170,12 +170,13 @@ class Account_Model extends CI_Model
 		return $query->result_array();
 	}
 	
-	//added by Mike, 20171009
+	//edited by Mike, 20180624
 	public function getCartHistoryAdmin() {
-		$this->db->select('t1.added_datetime_stamp, t1.purchased_datetime_stamp, t1.product_id, t2.name, t2.author, t1.quantity, t1.price, t3.customer_email_address, t3.customer_id');
+		$this->db->select('t1.added_datetime_stamp, t1.purchased_datetime_stamp, t1.product_id, t2.name, t2.author, t1.quantity, t1.price, t3.customer_email_address, t3.customer_id, t4.fulfilled_status');
 		$this->db->from('cart as t1');
 		$this->db->join('product as t2', 't1.product_id = t2.product_id', 'LEFT');
 		$this->db->join('customer as t3', 't1.customer_id = t3.customer_id', 'LEFT');
+		$this->db->join('customer_order as t4', 't1.purchased_datetime_stamp = t4.added_datetime_stamp', 'LEFT');		
 		$this->db->order_by('t1.added_datetime_stamp', 'DESC');
 		$query = $this->db->get();
 
