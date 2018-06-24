@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //			alert("hello");
 
 			if (isEnabled==0) {
-				document.getElementById("shippingAddressId").value = '2 E. Rodriguez Ave. Sto. Niﾃｱo';
+				document.getElementById("shippingAddressId").value = '2 E. Rodriguez Ave. Sto. Niño';
 				document.getElementById("cityId").value = 'Marikina City';
 				document.getElementById("countryId").value = 'Philippines';
 				document.getElementById("postalCodeId").value = '1800';
@@ -334,10 +334,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if (!hasReachedDataLength) {			    					
 			    	if (data[index].quantity_in_stock!=0) {
 						if (data[index].previous_price!=null) {
-							priceName.innerHTML = "竄ｱ" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
+							priceName.innerHTML = "₱" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
 						}
 						else {
-							priceName.innerText = "竄ｱ" + data[index].price + "\n" + "[Free Delivery]";														
+							priceName.innerText = "₱" + data[index].price + "\n" + "[Free Delivery]";														
 						}
 			    	}
 				}
@@ -638,10 +638,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if (!hasReachedDataLength) {				    	
 			    	if (data[index].quantity_in_stock!=0) {
 						if (data[index].previous_price!=null) {
-							priceName.innerHTML = "竄ｱ" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
+							priceName.innerHTML = "₱" + data[index].price + " <font color='#e72e16'>(" + data[index].previous_price +")</font>" + "<br>" + "[Free Delivery]";							
 						}
 						else {
-							priceName.innerText = "竄ｱ" + data[index].price + "\n" + "[Free Delivery]";														
+							priceName.innerText = "₱" + data[index].price + "\n" + "[Free Delivery]";														
 						}
 			    	}
 			    	else {
