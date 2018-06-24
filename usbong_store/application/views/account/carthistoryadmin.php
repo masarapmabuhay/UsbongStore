@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<b># of Items</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Price</b>
+										<b>Gross Price</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Customer Email</b>

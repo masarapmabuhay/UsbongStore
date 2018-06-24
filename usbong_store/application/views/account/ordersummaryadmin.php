@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<b>Status</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
-										<b>Price</b>
+										<b>Sale Price</b>
 									</div>
 									<div class="col-sm-2 Order-summary">		
 										<b>Fulfilled?</b>
