@@ -4,15 +4,24 @@
 
 3) SELECT `name`, `product_view_num` FROM `product` WHERE `product_view_num` > 0 ORDER BY `product_view_num` DESC
 
-4) This command updates the following columns/fields of the present "product" table with the new "product", i.e. "product_new", table version's.
---> a) quantity_in_stock
---> b) publisher
---> c) released_date
---> Note: To use this SQL command, the admin person must first create via phpmyadmin's import tool, the "product_new" table from which MySQL will retrieve the updated data and apply them onto the present "product" table.
---> To mitigate errors, the "product_new" table structure must be the same as the "product" table's.
---> The product_id is used to correctly match the "product" table row with the "product_new" table's.
-
-UPDATE `product` p1 JOIN `product_new` p2 ON (p1.product_id = p2.product_id)
+4) UPDATE `product` p1 JOIN `product_new` p2 ON (p1.product_id = p2.product_id)
 SET p1.quantity_in_stock = p2.quantity_in_stock,
 p1.publisher = p2.publisher,
 p1.released_date = p2.released_date; 
+
+This command updates the following columns/fields of the present "product" table with the new "product", i.e. "product_new", table version's.
+--> a) quantity_in_stock
+--> b) publisher
+--> c) released_date
+--> Note: To use this SQL command, the admin person must first create via phpmyadmin's import tool, the "product_new" table.
+--> From this "product_new" table, MySQL will retrieve the updated data and apply them onto the present "product" table.
+--> To mitigate errors, the "product_new" table structure must be the same as the "product" table's.
+--> The product_id is used to correctly match the "product" table row with the "product_new" table's.
+
+
+5) UPDATE `product` SET `price` = `price` - 70;
+
+This command updates the "product" table's "price" column/field by deducting 70pesos.
+--> 70pesos is the standard shipping price we used.
+--> At the time, the "price" column/field already included the 70pesos shipping price.
+--> At present, however, we've opted to separate the shipping price with the product price.
