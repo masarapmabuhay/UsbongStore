@@ -1291,7 +1291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 4px;
 		border: #ffffff;		
 		border-radius: 3px;
-		max-width: 400px;
+		max-width: 200px;
 	}
 	
 	.Button-container {
