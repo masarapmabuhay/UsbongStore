@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Search Header -->
 <nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container-fluid Header-container">
+    <div class="container">
         <!-- Minimum Heder Content -->
         <div class="navbar-header">
             <a class="navbar-brand" href="<?php echo site_url('/')?>">
