@@ -35,7 +35,13 @@ class MY_Controller extends CI_Controller {
 */
 //		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
 		if ($this->isMobileResponsive()) {
-			if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+			if (
+				$this->router->class == 'b' AND
+				(
+				$this->router->method == 'beverages' OR
+				$this->router->method == 'books'
+				)
+			) {
 				$this->load->view('templates/style_v2');
 			} else {
 				$this->load->view('templates/style');
@@ -109,7 +115,13 @@ class MY_Controller extends CI_Controller {
 		//edited by Mike, 20180610
 //		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {
 		if ($this->isMobileResponsive()) {			
-			if ($this->router->class == 'b' AND $this->router->method == 'beverages') {
+			if (
+				$this->router->class == 'b' AND
+				(
+					$this->router->method == 'beverages' OR
+					$this->router->method == 'books'
+				)
+			) {
 				$this->load->view('templates/header_v2');
 			} else {
 				//edited by Mike, 20180428

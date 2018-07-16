@@ -322,8 +322,12 @@ class B extends MY_Controller {
 		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
 		
 		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
+			// map non mobile resposive view fields into mobile resposive view fields
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
-			$this->load->view('b/books_v2',$data);
+			$data['product_type'] = 'Books';
+			$data['products'] = $data['books'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
 			
 			//--------------------------------------------
 			$this->load->view('templates/footer_v2');
@@ -549,9 +553,13 @@ class B extends MY_Controller {
 //		if ($this::isMobileResponsive()) {
 		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
 		
-		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
-			$this->load->view('b/beverages_v2',$data);
+			$data['product_type'] = 'Beverages';
+			$data['products'] = $data['beverages'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
 			
 			//--------------------------------------------
 			$this->load->view('templates/footer_v2');
