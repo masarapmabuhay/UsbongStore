@@ -17,8 +17,11 @@
     }
     
     // display fields
-    $header = $product_type;    
-    if ($product_type == 'Beverages') {
+    if ($product_type == 'Children\'s') {
+        $header = 'Children\'s Books';
+    } elseif ($product_type == 'Miscellaneous') {
+        $header = 'Miscellaneous Items';
+    } else {
         $header = $product_type;
     }
 ?>

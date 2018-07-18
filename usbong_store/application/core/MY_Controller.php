@@ -38,8 +38,17 @@ class MY_Controller extends CI_Controller {
 			if (
 				$this->router->class == 'b' AND
 				(
-				$this->router->method == 'beverages' OR
-				$this->router->method == 'books'
+					$this->router->method == 'beverages' OR
+					$this->router->method == 'books' OR
+					$this->router->method == 'childrens' OR
+					$this->router->method == 'textbooks' OR
+					$this->router->method == 'medical' OR
+					$this->router->method == 'food' OR
+					$this->router->method == 'comics' OR
+					$this->router->method == 'manga' OR
+					$this->router->method == 'toys_and_collectibles' OR
+					$this->router->method == 'miscellaneous' OR
+					$this->router->method == 'promos'
 				)
 			) {
 				$this->load->view('templates/style_v2');
@@ -119,7 +128,16 @@ class MY_Controller extends CI_Controller {
 				$this->router->class == 'b' AND
 				(
 					$this->router->method == 'beverages' OR
-					$this->router->method == 'books'
+					$this->router->method == 'books' OR
+					$this->router->method == 'childrens' OR
+					$this->router->method == 'textbooks' OR
+					$this->router->method == 'medical' OR
+					$this->router->method == 'food' OR
+					$this->router->method == 'comics' OR
+					$this->router->method == 'manga' OR
+					$this->router->method == 'toys_and_collectibles' OR
+					$this->router->method == 'miscellaneous' OR
+					$this->router->method == 'promos'
 				)
 			) {
 				$this->load->view('templates/header_v2');
