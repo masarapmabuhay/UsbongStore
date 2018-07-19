@@ -1355,6 +1355,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 
+        .Image-item-essential-reading {
+            display: block;
+            max-width: 75%;
+            height: auto;
+            z-index: 1;    	
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
 	.Image-offers {
             right: 0;
             padding-top: 12px;

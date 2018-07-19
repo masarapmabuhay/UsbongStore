@@ -8,7 +8,7 @@
             // get maxHeight of all product-item-div
             $("[data='product-item-div']").each(function(index) {
                 if ($(this).height() > maxHeight) {
-                    maxHeight = $(this).css('min-height', maxHeight);
+                    maxHeight = $(this).height();
                 }
             });
             // set height for all product-item-div

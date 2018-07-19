@@ -321,19 +321,21 @@ class B extends MY_Controller {
 //		if ($this::isMobileResponsive()) {			
 		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
 		
-		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
-			$this->load->view('b/books_v2',$data);
-			
+			$data['product_type'] = 'Books';
+			$data['products'] = $data['books'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
 			//--------------------------------------------
 			$this->load->view('templates/footer_v2');
 		}
 		else {
 			$this->load->view('templates/right_side_bar');
-			
 			$data['right_side_bar'] = 'templates/right_side_bar';
 			$this->load->view('b/books',$data);
-			
 			//--------------------------------------------
 			$this->load->view('templates/footer');
 		}
@@ -402,8 +404,6 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
-		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -423,14 +423,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-/*		
-		$this->load->model('Textbooks_Model');
-		$data['books'] = $this->Textbooks_Model->getTextbooks();
-*/		
-		$this->load->view('b/textbooks',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Textbooks';
+			$data['products'] = $data['textbooks'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/textbooks',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 	
 	//---------------------------------------------------------
@@ -441,8 +451,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		//		$data['content'] = 'category/Books';
@@ -466,11 +474,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-		//		$this->load->view('templates/general_template',$data);
-		$this->load->view('b/childrens',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Children\'s';
+			$data['products'] = $data['childrens'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/childrens',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}	
 	
 	//---------------------------------------------------------
@@ -481,8 +502,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -504,15 +523,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);		
 		
-//		$data['content'] = 'category/Combos';
-/*		$this->load->model('Promos_Model');
-		$data['promos'] = $this->Promos_Model->getPromos();
-*/		
-		//		$this->load->view('templates/general_template',$data);
-		$this->load->view('b/promos',$data);
-
-		//--------------------------------------------
-		$this->load->view('templates/footer');		
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Promos';
+			$data['products'] = $data['promos'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/promos',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 	
 	//---------------------------------------------------------
@@ -549,19 +577,20 @@ class B extends MY_Controller {
 //		if ($this::isMobileResponsive()) {
 		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
 		
-		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
 			$data['right_side_bar'] = 'templates/right_side_bar_v2';
-			$this->load->view('b/beverages_v2',$data);
-			
+			$data['product_type'] = 'Beverages';
+			$data['products'] = $data['beverages'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
 			//--------------------------------------------
 			$this->load->view('templates/footer_v2');
 		}
 		else {
 			$this->load->view('templates/right_side_bar');
-			
 			$data['right_side_bar'] = 'templates/right_side_bar';
 			$this->load->view('b/beverages',$data);
-			
 			//--------------------------------------------
 			$this->load->view('templates/footer');
 		}
@@ -584,8 +613,6 @@ class B extends MY_Controller {
 		$this::initStyle();
 		$this::initHeader();
 		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
-		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
 		
@@ -606,15 +633,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-/*		
-		$this->load->model('Comics_Model');
-		$data['comics'] = $this->Comics_Model->getComics();
-		//		$this->load->view('templates/general_template',$data);
-*/
-		$this->load->view('b/comics',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Comics';
+			$data['products'] = $data['comics'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/comics',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 	
 	//---------------------------------------------------------
@@ -625,8 +661,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -648,15 +682,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-/*		
-		$this->load->model('Manga_Model');
-		$data['manga'] = $this->Manga_Model->getManga();
-		//		$this->load->view('templates/general_template',$data);
-*/
-		$this->load->view('b/manga',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Manga';
+			$data['products'] = $data['manga'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/manga',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 	
 	//---------------------------------------------------------
@@ -667,8 +710,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -690,15 +731,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-/*		
-		$this->load->model('Toys_and_Collectibles_Model');
-		$data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles();
-		//		$this->load->view('templates/general_template',$data);
-*/
-		$this->load->view('b/toys_and_collectibles',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Toys & Collectibles';
+			$data['products'] = $data['toys_and_collectibles'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/toys_and_collectibles',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}	
 	
 	//---------------------------------------------------------
@@ -709,8 +759,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -732,15 +780,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);		
 		
-		/*
-		 $this->load->model('Toys_and_Collectibles_Model');
-		 $data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles();
-		 //		$this->load->view('templates/general_template',$data);
-		 */
-		$this->load->view('b/food',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Food';
+			$data['products'] = $data['food'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/food',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}	
 	
 	//---------------------------------------------------------
@@ -751,8 +808,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();		
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 				
 		$merchant_id = $this->uri->segment(3);
@@ -774,15 +829,24 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-		/*
-		 $this->load->model('Toys_and_Collectibles_Model');
-		 $data['toys_and_collectibles'] = $this->Toys_and_Collectibles_Model->getToys_and_Collectibles();
-		 //		$this->load->view('templates/general_template',$data);
-		 */
-		$this->load->view('b/miscellaneous',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Miscellaneous';
+			$data['products'] = $data['miscellaneous'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/miscellaneous',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}	
 	
 	//---------------------------------------------------------
@@ -793,8 +857,6 @@ class B extends MY_Controller {
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
-		//--------------------------------------------
-		$this->load->view('templates/right_side_bar');
 		//--------------------------------------------
 		
 		$merchant_id = $this->uri->segment(3);
@@ -815,13 +877,23 @@ class B extends MY_Controller {
 		$customer_id = $this->session->userdata('customer_id');
 		$data['merchant_customer_categories'] = $this->W_Model->getMerchantCustomerCategories($customer_id);
 		
-		/*
-		 $this->load->model('Textbooks_Model');
-		 $data['books'] = $this->Textbooks_Model->getTextbooks();
-		 */
-		$this->load->view('b/medical',$data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting= $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			// map non mobile resposive view fields into mobile resposive view fields
+			$data['right_side_bar'] = 'templates/right_side_bar_v2';
+			$data['product_type'] = 'Medical';
+			$data['products'] = $data['medical'];
+			$data['merchant'] = isset($data['result']) ? $data['result'] : NULL;
+			//--------------------------------------------
+			$this->load->view('b/generic_mobile_responsive_catalog',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			$this->load->view('templates/right_side_bar');
+			//--------------------------------------------
+			$this->load->view('b/medical',$data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 }
