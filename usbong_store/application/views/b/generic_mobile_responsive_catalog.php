@@ -27,8 +27,8 @@
 ?>
 
 <!--import javascript-->
-<script src="https://store.usbong.ph/assets/js/responsive_bootstrap_toolkit/bootstrap-toolkit.min.js"></script>
-<script src="https://store.usbong.ph/assets/js/b/common.js"></script>
+<script src="/assets/js/responsive_bootstrap_toolkit/bootstrap-toolkit.min.js"></script>
+<script src="/assets/js/b/common.js"></script>
 
 <div class="container-fluid">
     <div class="row">
