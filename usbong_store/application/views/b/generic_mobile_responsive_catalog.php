@@ -125,53 +125,55 @@
                 ?>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 Product-item text-center" data="product-item-div">
                         <a class="Product-item" href="<?php echo create_product_url($value['product_id'], $value['name'], $value['author']);?>">
-                            <!-- General Description -->
-                            <img class="img-responsive center-block Image-item" src="<?php echo create_image_url($value['name'], $product_type); ?>">
-                            <!-- Essential Reading Overlay -->
-                            <?php if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) { ?>
-                                <img class="img-responsive center-block Image-item-essential-reading" src="<?php echo base_url('assets/images/essential_reading.png'); ?>">
-                            <?php } ?>
-                            <br><div id="Product-item-titleOnly" class="Product-item-titleOnly"><?php echo $trimmedName;?></div>
-                            <!-- Details -->
-                            <label class="Product-item-details">
-                                <!-- Author -->
-                                <?php if(!empty($value['author'])) { ?>
-                                    <!-- Prepare Display -->
-                                    <?php
-                                        $trimmedAuthor = $value['author'];
-                                        if (strlen($value['author']) > 40) {
-                                            $trimmedAuthor = trim(substr($value['author'],0,40))."...";
-                                        }
-                                    ?>
-                                    <!-- Display -->
-                                    <div><?php echo $trimmedAuthor; ?></div>
+                            <div>
+                                <!-- General Description -->
+                                <img class="img-responsive center-block Image-item" src="<?php echo create_image_url($value['name'], $product_type); ?>">
+                                <!-- Essential Reading Overlay -->
+                                <?php if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) { ?>
+                                    <img class="img-responsive center-block Image-item-essential-reading" src="<?php echo base_url('assets/images/essential_reading.png'); ?>">
                                 <?php } ?>
-                                <!-- In Stock/Out of Stock -->
-                                <?php if ($value['quantity_in_stock'] !=0 ) { ?>
-                                    <label class="Product-item-price">&#x20B1;<?php echo $value['price']; ?></label>
-                                    <!-- Has Old Price -->
-                                    <?php if (isset($value['previous_price'])) { ?>
-                                        <label class="Product-item-previous-price">&ensp;(<?php echo $value['previous_price']; ?>)</label>
+                                <br><div id="Product-item-titleOnly" class="Product-item-titleOnly"><?php echo $trimmedName;?></div>
+                                <!-- Details -->
+                                <label class="Product-item-details">
+                                    <!-- Author -->
+                                    <?php if(!empty($value['author'])) { ?>
+                                        <!-- Prepare Display -->
+                                        <?php
+                                            $trimmedAuthor = $value['author'];
+                                            if (strlen($value['author']) > 40) {
+                                                $trimmedAuthor = trim(substr($value['author'],0,40))."...";
+                                            }
+                                        ?>
+                                        <!-- Display -->
+                                        <div><?php echo $trimmedAuthor; ?></div>
                                     <?php } ?>
-                                    <!-- Delivery Tag -->
-                                    <br><label class="Product-item-price">Free Delivery</label>
-                                <?php } else { ?>
-                                    <label class="Product-item-price">out of stock</label>
-                                <?php } ?><!-- In Stock/Out of Stock -->
-                                
-                                <!-- Admin or Not Admin -->
-                                <?php if (($customer_id != "-1") && ($is_admin == "1")) { ?>
-                                    <br><label class="Product-item-view-num">View Num: <?php echo $value['product_view_num']; ?></label>
-                                    <br><label class="Product-item-view-num">Qty Sold: <?php echo $value['quantity_sold'];    ?></label>
-                                <?php } else { ?>
-                                    <?php foreach ($merchant_customer_categories as $v) { ?>
-                                        <?php if ($v['product_type_name'] == $product_type) { ?>
-                                            <br><label class="Product-item-view-num">View Num: <?php echo $value['product_view_num']; ?></label>
-                                            <br><label class="Product-item-view-num">Qty Sold: <?php echo $value['quantity_sold'];    ?></label>
+                                    <!-- In Stock/Out of Stock -->
+                                    <?php if ($value['quantity_in_stock'] !=0 ) { ?>
+                                        <label class="Product-item-price">&#x20B1;<?php echo $value['price']; ?></label>
+                                        <!-- Has Old Price -->
+                                        <?php if (isset($value['previous_price'])) { ?>
+                                            <label class="Product-item-previous-price">&ensp;(<?php echo $value['previous_price']; ?>)</label>
                                         <?php } ?>
-                                    <?php } ?>
-                                <?php } ?><!-- Admin or Not Admin -->
-                            </label>
+                                        <!-- Delivery Tag -->
+                                        <br><label class="Product-item-price">Free Delivery</label>
+                                    <?php } else { ?>
+                                        <label class="Product-item-price">out of stock</label>
+                                    <?php } ?><!-- In Stock/Out of Stock -->
+
+                                    <!-- Admin or Not Admin -->
+                                    <?php if (($customer_id != "-1") && ($is_admin == "1")) { ?>
+                                        <br><label class="Product-item-view-num">View Num: <?php echo $value['product_view_num']; ?></label>
+                                        <br><label class="Product-item-view-num">Qty Sold: <?php echo $value['quantity_sold'];    ?></label>
+                                    <?php } else { ?>
+                                        <?php foreach ($merchant_customer_categories as $v) { ?>
+                                            <?php if ($v['product_type_name'] == $product_type) { ?>
+                                                <br><label class="Product-item-view-num">View Num: <?php echo $value['product_view_num']; ?></label>
+                                                <br><label class="Product-item-view-num">Qty Sold: <?php echo $value['quantity_sold'];    ?></label>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    <?php } ?><!-- Admin or Not Admin -->
+                                </label>
+                            </div>
                         </a>
                     </div>
                 <?php } ?>
