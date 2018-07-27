@@ -5,18 +5,24 @@
         // gives the tallest height of product-item-div as min height to all product-item-div's
         function resizeProductItemDivs() {
             var maxHeight = 0;
+            var tempHeight = 0;
+            var innerElem;
             // get maxHeight of all product-item-div
             $("[data='product-item-div']").each(function(index) {
-                if ($(this).height() > maxHeight) {
-                    maxHeight = Math.ceil($(this).height());
+                innerElem = $(this).find('a div');
+                tempHeight = innerElem.height();
+                if (tempHeight > maxHeight) {
+                    maxHeight = tempHeight;
                 }
             });
             // set height for all product-item-div
             $("[data='product-item-div']").each(function(index) {
                 if (viewport.is('xs')) {
                     $(this).css('min-height', '');
+                    $(this).css('max-height', '');
                 } else {
                     $(this).css('min-height', maxHeight);
+                    $(this).css('max-height', maxHeight);
                 }
             });
         }
