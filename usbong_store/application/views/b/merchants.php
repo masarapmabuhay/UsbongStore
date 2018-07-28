@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */				
 				if ($colCounter==0) {
 					echo '<div class="row">';	
-					echo '<a class="Product-item" href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$value['merchant_id']).'">';
+					echo '<a class="Product-item" href="'.site_url('b/'.strtolower($URLFriendlyReformattedCategoryName).'/'.$value['merchant_id']).'">';
 					echo '<div class="col-sm-3 Product-item">';
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';
 */
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$colCounter++;				
 				}
 				else if ($colCounter<5){
-					echo '<a class="Product-item" href="'.site_url('b/'.$URLFriendlyReformattedCategoryName.'/'.$value['merchant_id']).'">';
+					echo '<a class="Product-item" href="'.site_url('b/'.strtolower($URLFriendlyReformattedCategoryName).'/'.$value['merchant_id']).'">';
 					echo '<div class="col-sm-3 Product-item">';
 /*					echo '<button class="Button-merchant">&#x2617; Usbong Specialty Bookstore</button>';				
 */

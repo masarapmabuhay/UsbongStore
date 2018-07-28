@@ -59,7 +59,11 @@
 	            </div>
             
                 <div class="row Merchant-category-image">
-                    <a href="<?php echo site_url('b/'.strtolower($URLFriendlyReformattedCategoryName).'/'.$this->uri->segment(3)); ?>">
+                    <a href="<?php
+							//edited by Mike 20180728
+							echo site_url('b/merchants')
+							/*site_url('b/'.strtolower($URLFriendlyReformattedCategoryName).'/'.$this->uri->segment(3));*/ 
+							?>">
                         <img class="image-responsive center-block" src="<?php echo create_merchant_image_url($merchant->merchant_name); ?>">
                     </a>
                 </div>
