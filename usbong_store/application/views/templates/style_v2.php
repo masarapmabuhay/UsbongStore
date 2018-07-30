@@ -2119,6 +2119,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin: 21px 21px 21px 0px;	
 		color: #3a1d00;		
 	}
+	
+	.header-catalogue {
+		margin: 21px 0px 21px 15px;
+		color: #3a1d00;
+	}
 
 	.header-banner {
 		padding: 6px 6px 0px 6px;	
@@ -2281,6 +2286,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Merchant-category-b {	
 		padding-top: 0px;
+		padding-bottom: 20px;
 	}
 		
 	.Merchant-category-image {	
