@@ -109,12 +109,15 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 Product-item text-center" data="product-item-div">
                             <a class="Product-item" href="<?php echo create_product_url($value['product_id'], $value['name'], $value['author']);?>">
                                 <div>
-                                    <!-- General Description -->
-                                    <img class="img-responsive center-block Image-item" src="<?php echo create_image_url($value['name'], $product_type); ?>">
-                                    <!-- Essential Reading Overlay -->
-                                    <?php if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) { ?>
-                                        <img class="img-responsive center-block Image-item-essential-reading" src="<?php echo base_url('assets/images/essential_reading.png'); ?>">
-                                    <?php } ?>
+                                    <!-- Image Div -->
+                                    <div class="Image-item-container">
+                                        <!-- General Description -->
+                                        <img class="img-responsive center-block Image-item" src="<?php echo create_image_url($value['name'], $product_type); ?>">
+                                        <!-- Essential Reading Overlay -->
+                                        <?php if (isset($value['is_essential_reading']) && ($value['is_essential_reading'])) { ?>
+                                            <img class="img-responsive center-block Image-item Image-item-essential-reading" src="<?php echo base_url('assets/images/essential_reading.png'); ?>">
+                                        <?php } ?>
+                                    </div>
                                     <br><div id="Product-item-titleOnly" class="Product-item-titleOnly"><?php echo $trimmedName;?></div>
                                     <!-- Details -->
                                     <label class="Product-item-details">
