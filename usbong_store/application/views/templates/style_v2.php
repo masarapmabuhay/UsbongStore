@@ -1350,20 +1350,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Image-usbong-first-icon {
 	}
 		
+	.Image-item-container {
+            position: relative;
+	}
+
 	.Image-item {
-	    max-width: 75%;
-    	height: auto;
+	    max-width: 80%;
 	}
 
         .Image-item-essential-reading {
             display: block;
-            max-width: 75%;
-            height: auto;
-            z-index: 1;    	
+            z-index: 1;
             position: absolute;
+            top: 0;
             left: 0;
             right: 0;
-            top: 0;
         }
 
 	.Image-offers {
