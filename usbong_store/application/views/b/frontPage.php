@@ -357,6 +357,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	?>
 	</div>		
 
+	<!-- ################################################################################# -->
+	<p><a href="mailto:help@usbong.ph?subject=Usbong Promo: 50pesos App Development"><img src="<?php echo base_url('assets/images/usbongStore50pesosAppDevelopmentBanner.jpg')?>" class="FrontPage-billboard" name="slide" /></a></p>
+	<br>
+	
 <!-- ################################################################################# -->
 	<h3 class="header"><a class="FrontPage-header-link" href="<?php echo site_url('b/textbooks/')?>"><span class="Front-page-cat-name"> Textbooks</span></a></h3>	
 	<br>
