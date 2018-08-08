@@ -133,33 +133,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="col-sm-3">					
 								<div class="row Cart-product-quantity">
-									<label class="Quantity-label">Quantity:</label>																		
-									<input type="tel" id="quantityId<?php echo $itemCounter.'~'.$resultCount;?>" class="Quantity-textbox no-spin" 
-											name="quantityParam<?php echo $itemCounter;?>"
-											value="<?php 
-
-												//edited by Mike, 20170916
-												$product_id = $this->uri->segment(3);
-												$quantity = $this->uri->segment(4);
-
-												if ((isset($product_id)) && (isset($quantity))) {
-													
-													if ($product_id==$value['product_id']) {
-														echo $quantity;
-														$value['quantity']=$quantity;
-													}									
-													else {
-														echo $value['quantity'];													
-													}
-												}
-												else {
-													echo $value['quantity'];												
-												}											
-											?>" 
-											
-											
-											min="1" max="99" onKeyUp="myQuantityFunction(parseInt(this.value), this.id);" onKeyPress="if(this.value.length>2) {return false;} if(parseInt(this.value)<1) {this.value='1'; return false;}" required>					    								
-									<input type="hidden" id="productId<?php echo $itemCounter?>" value="<?php echo $value['product_id'];?>">
+									<label class="Quantity-label">Quantity:</label>
+									<label class="Quantity-label"><?php echo $value['quantity']?></label>
 								</div>
 								<div class="row">
 									<br>
