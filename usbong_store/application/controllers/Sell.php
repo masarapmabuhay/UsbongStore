@@ -82,16 +82,21 @@ class Sell extends MY_Controller {
 			redirect('account/login'); //home page
 		}
 	
-		$fields = array('productNameParam', 'productImageLinkParam', 'productTypeParam', 'quantityParam', 'totalCostParam', 'commentsParam');
+		//edited by Mike, 20180810
+		$fields = array('productNameParam', 'productImageLinkParam', 'productTypeParam', 'quantityParam', 'commentsParam');
 		
 		foreach ($fields as $field)
 		{
 			$data[$field] = $_POST[$field];
 		}
 		
-		 //added by Mike, 20171030
-		if ($data['totalCostParam']==0) {
+		//added by Mike, 20171030
+		//edited by Mike, 20180810
+		if ($data['quantityParam']==0) {
 		  $data['totalCostParam']=50;
+		}		
+		else {
+		  $data['totalCostParam']=50*$data['quantityParam'];			
 		}
 		
 		$this->load->model('Sell_Model');

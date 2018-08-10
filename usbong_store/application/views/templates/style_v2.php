@@ -1043,7 +1043,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			
 			var subTotal = quantity * 50;
-			totalCostField.value = subTotal;
+
+			//edited by Mike, 20180810
+			//totalCostField.value = subTotal;
+			totalCostField.innerHTML = subTotal;
 		}
 	</script>
 	
