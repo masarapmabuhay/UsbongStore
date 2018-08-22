@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Help">
 			<ul>
 				<li><span class="Help-subheader">What are your shipping rates/delivery times?</span><br>
-					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take one week after you've sent us a copy of your deposit slip.
+					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take seven (7) banking days after you've sent us a copy of your deposit slip.
 				</li><br>
 				<li><span class="Help-subheader">Can I combine more than one item in a single shipment?</span><br>
 					Yes, as a matter of fact, the Usbong Store is designed to specifically cater to customers interested in purchasing more than one item at a time. We even offer discounts for each additional product item a customer purchases.
