@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Help">
 			<ul>
 				<li><span class="Help-subheader">What are your shipping rates/delivery times?</span><br>
-					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take seven (7) banking days after you've sent us a copy of your deposit slip.
+					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take one week after you've sent us a copy of your deposit slip.
 				</li><br>
 				<li><span class="Help-subheader">Can I combine more than one item in a single shipment?</span><br>
 					Yes, as a matter of fact, the Usbong Store is designed to specifically cater to customers interested in purchasing more than one item at a time. We even offer discounts for each additional product item a customer purchases.
@@ -71,10 +71,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>			
 			<div class="Help">
 			<ul>
+				<li><span class="Help-subheader">Do you have a mobile number I can use to immediately contact the Usbong Store's Customer Service Representative?</span><br>
+					Yes, you can use: +63929.952.7263<br><br>
+					If we are unable to take your call, please send us an SMS message.<br><br>
+					Our office hours are between 9:00 to 17:00, Mondays to Saturdays.<br><br>
+					We do our best to respond to every call and SMS message.
+				</li><br>
 				<li><span class="Help-subheader">How do I cancel my order?</span><br>
 					Email us at <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b> and notify us that you would want to cancel your order.<br><br>
 					Please include your order number in the body of the email as well as type the phrase "Cancel Order" in the subject line.<br><br>				
-					If there is anything that we can do prior to cancelling your order that will fix the problem for you, we will do our best to accomodate your wishes.
+					If there is anything that we can do prior to cancelling your order that will fix the problem for you, we will do our best to accommodate your wishes.
 				</li><br>
 				<li><span class="Help-subheader">Where do I find my order number?</span><br>
 					You can find the order number in the order summary page of your account. To access the order summary page, click the Order Summary link in the dropdown menu located to the left of your shopping cart.
