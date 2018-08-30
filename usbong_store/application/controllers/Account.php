@@ -601,18 +601,8 @@ class Account extends MY_Controller {
 			$this->session->set_flashdata('errors', validation_errors());
 			$this->session->set_flashdata('data', $data);
 			
-			//from application/core/MY_Controller
-			$this::initStyle();
-			$this::initHeader();
-			//--------------------------------------------
-			
-			$this->load->library('session');
-			$this->load->library('form_validation');
-									
-			$this->load->view('account/settings');
-			
-			//--------------------------------------------
-			$this->load->view('templates/footer');
+			//edited by Mike, 20180830
+			$this->settings();
 		}
 		else
 		{
@@ -672,7 +662,7 @@ class Account extends MY_Controller {
 			$this->session->set_flashdata('data', $data);
 			
 			$this->load->model('Account_Model');
-			$this->Account_Model->updateAccount($customer_id, $data);
+			$this->Account_Model->updateAccount($customer_id, $data);			
 			
 			$this->settings();
 		}

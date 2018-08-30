@@ -129,12 +129,15 @@ class Cart extends MY_Controller {
 		if ($customer_id=="") {
 			redirect(site_url('account/login/'));
 		}
-
-		if (!($this->session->flashdata('errors')) && //or coming from field validation and there are errors
+/*  //commented out by Mike, 20180830
+ 		if (!($this->session->flashdata('errors')) && //or coming from field validation and there are errors
 			((!isset($_POST['quantityParam0'])))) {//if POST variable is empty
+			
+		//edited by Mike, 20180830
+		if (!($this->session->flashdata('errors'))) { //or coming from field validation and there are errors
 			redirect(site_url(''));	//redirect to home page
 		}		
-		
+*/		
 		//from application/core/MY_Controller
 		$this::initStyle();
 		$this::initHeader();
