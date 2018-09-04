@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="Help">
 			<ul>
 				<li><span class="Help-subheader">What are your shipping rates/delivery times?</span><br>
-					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take one week after you've sent us a copy of your deposit slip.
+					The shipping rate is already included in the price of each product item in the Usbong Store. Delivery times usually take seven (7) banking days after you've sent us a copy of your deposit slip.
 				</li><br>
 				<li><span class="Help-subheader">Can I combine more than one item in a single shipment?</span><br>
 					Yes, as a matter of fact, the Usbong Store is designed to specifically cater to customers interested in purchasing more than one item at a time. We even offer discounts for each additional product item a customer purchases.
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>			
 			<div class="Help">
 			<ul>
-				<li><span class="Help-subheader">Do you have an actual brick-and-mortar store?</span><br>
+				<li><span class="Help-subheader">Do you have an actual bricks-and-mortar store?</span><br>
 					At present, we accept payment and receiving of online purchases at the <b><a href='https://www.facebook.com/marikinaorthopedic' target='_blank'>Marikina Orthopedic Specialty Clinic (MOSC)</a></b>, which is located at 2 E. Manalo Ave. (formerly, E. Rodriguez Ave.), Sto. Niño, Marikina City, 1800, Philippines.
 					To view our available products, you may access <b><a href='https://store.usbong.ph'>STORE.USBONG.PH</a></b>. The prices already include the shipping cost.
 				</li><br>
@@ -102,7 +102,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					We do not sell, share, or otherwise distribute your information with any other party. We respect your privacy and store your information in order to communicate with you regarding your order status and occasional Usbong Store recommendations.
 				</li><br>
 				<li><span class="Help-subheader">How can I find a password that I forgot?</span><br>
-					We can email you a temporary password upon notifying us via <b><a href="mailto:support@usbong.ph"><span class="Help-paypal-email-address">support (at) usbong (dot) ph</span></a></b>. Once you have logged in with your temporary password, you can update your password from the My Account page. 
+					If you know the email address you use for your account, you may click "Forgot password" on the Login page. We will send a reset link to your email. You must process it before it expires in 20 minutes.
+					<br><br>
+					Once you have logged in with your temporary password, you can update your password from the My Account page. 
 					<br><br>
 					If you cannot remember what email address you used or no longer have access to that email address, you will need to register a new account.
 				</li><br>
