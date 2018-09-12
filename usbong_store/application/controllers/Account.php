@@ -42,10 +42,18 @@ class Account extends MY_Controller {
 		$this->load->model('Account_Model');
 		$data['is_login_success'] = $this->Account_Model->loginAccount($data);
 */				
-		$this->load->view('account/login');
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');	
+		$mobileResponsiveSetting = $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			//--------------------------------------------
+			$this->load->view('account/login_v2');
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			//--------------------------------------------
+			$this->load->view('account/login');
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 	
 	public function ordersummary() {

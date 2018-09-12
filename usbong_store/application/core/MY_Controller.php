@@ -55,7 +55,8 @@ class MY_Controller extends CI_Controller {
 				(
 					$this->router->class == 'account' AND
 					(
-						$this->router->method == 'create'
+						$this->router->method == 'create' OR
+						$this->router->method == 'login'
 					)
 				)
 			) {
@@ -152,7 +153,8 @@ class MY_Controller extends CI_Controller {
 				(
 					$this->router->class == 'account' AND
 					(
-						$this->router->method == 'create'
+						$this->router->method == 'create' OR
+						$this->router->method == 'login'
 					)
 				)
 			) {
