@@ -538,10 +538,19 @@ class Account extends MY_Controller {
 		 $this->load->model('Cart_Model');
 		 $data['result'] = $this->Cart_Model->getCart();//$this->input->post('customer'));//$param);
 		 */
-		$this->load->view('account/create');
 		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting = $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			//--------------------------------------------
+			$this->load->view('account/create_v2');
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			//--------------------------------------------
+			$this->load->view('account/create');
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}	
 
 	public function settings()

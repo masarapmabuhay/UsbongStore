@@ -2342,16 +2342,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 	.login-and-create {
-		max-width: 30%;		
 		float: none;
-    	display: block;
-    	margin: 0 auto;
-    	margin-bottom: 20px;
-    	margin-top: 16px;
-    	font-size: 24px;    	
-    	padding: 16px;
-    	border: 1px solid #4b3b2c;
-    	border-radius: 4px;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		margin-top: 16px;
+		font-size: 24px;
+		padding: 16px;
+		border: 1px solid #4b3b2c;
+		border-radius: 4px;
 	}
 	
 	.login-text {
@@ -2369,7 +2368,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.login-text-in-create {
-    	font-size: 16px;    		
+		font-size: 16px;
 		display: inline-block; 
 		padding-left: 12px;		
 		padding-bottom: 12px;	
@@ -2963,8 +2962,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
 </style>
 </head>
-<!-- 
-<body>
-</body>
-</html>
- -->
