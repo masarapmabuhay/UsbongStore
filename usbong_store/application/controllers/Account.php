@@ -581,10 +581,18 @@ class Account extends MY_Controller {
 		$this->load->model('Account_Model');
 		$data['customer_information_result'] = $this->Account_Model->getCustomerInformation($customer_id);
 				
-		$this->load->view('account/settings', $data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');
+		$mobileResponsiveSetting = $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			//--------------------------------------------
+			$this->load->view('account/settings_v2', $data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			//--------------------------------------------
+			$this->load->view('account/settings', $data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 
 	public function settingsmerchant()
