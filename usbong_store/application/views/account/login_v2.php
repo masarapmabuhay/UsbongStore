@@ -67,8 +67,6 @@ if ($this->session->flashdata('data')) {
                 <form id="sign-in-form" method="post" action="<?php echo site_url('')?>">
                     <!-- Email Address -->
                     <?php
-                        // the error message below can no longer be shown because of POST controller controllers/b/index
-                        // details in https://github.com/usbong/UsbongStore/issues/115
                         if (isset($data['does_email_exist'])) {
                     ?>
                         <div class="Register-error hidden-xs">Please check to make sure that your email address is correct or sign up for a new account with the "Create New Account" link above.</div>
