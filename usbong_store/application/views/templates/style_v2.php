@@ -2233,15 +2233,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Customer-information {
-		max-width: 55%;		
 		float: none;
-    	display: block;
-    	margin: 0 auto;
-    	margin-bottom: 20px;
-    	font-size: 24px;    	
-    	padding: 16px;
-    	border: 1px solid #4b3b2c;
-    	border-radius: 4px;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		font-size: 24px;
+		padding: 16px;
+		border: 1px solid #4b3b2c;
+		border-radius: 4px;
 	}
 
 	.Customer-information-text-in-checkout {
@@ -2255,30 +2254,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Account-settings-subject-header {
 		text-align: left;
-		margin-left: 40px;
-    	font-size: 18px;
-    	color: #1a0d00;    	
-    	border: .2px solid #4b3b2c;    	
-    	background-color: #efe6ca;  
-    	padding: 5px;  	    	
-    	font-weight: bold;
+		font-size: 18px;
+		color: #1a0d00;
+		border: .2px solid #4b3b2c;
+		background-color: #efe6ca;
+		padding: 5px;
+		font-weight: bold;
 	}
 
 	.Account-settings-subject-content {
 		text-align: left;
-		margin-left: 40px;
 		font-size: 18px;  
 		color: #1a0d00;		  			
-    	padding: 5px;  	    	
-    	border: .2px dotted #4b3b2c;    	
+		padding: 5px;
+		border: .2px dotted #4b3b2c;
 	}
 		
 	.Account-settings-subject-content-link {
 		text-align: left;
-		margin-left: 40px;
+		margin-left: 20px;
 		font-size: 18px;  
 		color: #1a0d00;		  			
-    	padding: 5px;  	    	
+		padding: 5px;
 	}
 
 	.Account-settings-subject-content-link:hover {
