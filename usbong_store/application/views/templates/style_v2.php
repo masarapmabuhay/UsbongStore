@@ -738,7 +738,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								textCart3Digits.innerHTML=totalItemsInCart;
 							}
 							
-							document.getElementById("myPopup").classList.toggle("show");			        
+							$('#myPopup').modal('show');
 				        }
 		
 				    });
@@ -1488,12 +1488,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	height: auto;
 	}
 
-	.Popup-product-image {
-	    max-width: 120%;
-    	height: auto;
-    	margin-left: 6px;
-	}
-
 	.Product-name {
 		color: #222222;
 		font-size: 30px;
@@ -1817,26 +1811,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Popup-product-details {
-		font-size: 15px;
 	}
 
 	.Popup-product-currency-symbol {
 		color: #b88a1b;
-		font-size: 18px;
-		margin-left: 6px;
 	}
 
 	.Popup-product-price {
 		color: #b88a1b;
-		font-size: 24px;
-		margin-right: 2px;
 	}
 
 	.Popup-product-free-delivery {
 		color: #b88a1b;
-		font-size: 18px;
-		margin-top: -30px;
-		margin-right: 2px;
 	}
 
 	.Product-overview-header {
@@ -2966,6 +2952,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             color: white;
             background-color: white;            
         }
-        
+
+        /*------------------*/
+        /* Modal            */
+        /*------------------*/
+
+        .modal-header {
+            padding-bottom: 0px;
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            padding-top: 0px;
+            border-top: none;
+        }
+
 </style>
 </head>

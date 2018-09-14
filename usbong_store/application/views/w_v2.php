@@ -165,6 +165,7 @@ if ($result->product_type_name == 'Children\'s') {
                 <div class="Product-overview-content">
                     <?php if (!empty($result->product_overview) && (strcmp($result->product_overview, "<p>&nbsp;</p>") != 0)) { ?>
                         <?php echo $result->product_overview; ?>
+                        <br><br>
                     <?php } else { ?>
                         <!-- Spacer -->
                         <div class="hidden-xs">
@@ -241,4 +242,43 @@ if ($result->product_type_name == 'Children\'s') {
         </div><!-- Add to Cart Pane -->
 
     </div><!-- Content Row -->
+
+    <!-- Spacer -->
+    <div>
+        <br>
+        <br>
+    </div>
+
 </div><!--<div class="container">-->
+
+<!--  Modal -->
+<div id="myPopup" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <img class="img-responsive center-block" src="<?php echo create_image_url($result->name, $result->product_type_name); ?>">
+                    </div>
+                    <div class="col-xs-7 Popup-product-details text-center">
+                        <span id="quantityId"></span>
+                        <?php echo '<b>'.$result->name.'</b>!'; ?>
+                        <br><br><b>Total Amt: </b>
+                        <label class="Popup-product-price">&#x20B1;<span id="productPriceId"><?php echo $result->price;?></span></label><br>
+                        <label class="Popup-product-free-delivery">[Free Delivery]</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <form method="post" action="<?php echo site_url('cart/shoppingcart')?>">
+                <button type="submit" class="Button-view-cart">
+                    View Cart
+                </button>
+            </form>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
