@@ -1386,11 +1386,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Product-item-page-image-offers-save-more {
-		margin-left: 20px;
 	}
 
 	.Product-item-page-image-offers-request {
-		margin-left: 20px;
 	}
 
 	.Image-offers-be-a-merchant {
@@ -1657,8 +1655,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Product-price {
 		color: #b88a1b;
 		font-size: 24px;
-		margin-top: 24px;		
-		margin-left: 6px;
 	}
 	
 	.Contact {
@@ -1885,7 +1881,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
 		text-align: left;
 	}
 	
@@ -1893,7 +1889,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
 		text-align: left;
 	}
 	
@@ -1901,7 +1897,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
+		text-align: left;
+	}
+
+	.Product-publisher {
+		color: #312f2d;
+		font-size: 16px;
+		margin-top: 6px;
+		max-width: 80%;
+		text-align: left;
+	}
+
+	.Product-released_date {
+		color: #312f2d;
+		font-size: 16px;
+		margin-top: 6px;
+		max-width: 80%;
 		text-align: left;
 	}
 
@@ -1909,7 +1921,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
 		text-align: left;
 	}
 
@@ -1926,7 +1938,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-weight: bold;
 		border: 0px solid;		
 		border-radius: 4px;
-		margin-left: 16px;
 	}
 
 	.Button-purchase:hover {
@@ -2024,12 +2035,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 156px;
 	}	
 
-	.container-product-item {
-		margin-left: 10px;
-		margin-bottom: 156px;
-	}	
-	
-	
 	.Cart-container {
 		margin-top: 0px;	
 		margin-left: -7px;
@@ -2289,7 +2294,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding-top: 0px;
 		padding-bottom: 20px;
 	}
-		
+
+	.Merchant-category-pane {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
 	.Merchant-category-image {	
 		margin-left: 10px;
 		margin-bottom: 12px;
@@ -2319,7 +2329,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 		font-size: 15px;  
 		color: #291f1a;		  			
-    	padding: 2px;  	    	    	
+		padding: 2px;
 	}
 
 	.Merchant-category-content-link:hover {

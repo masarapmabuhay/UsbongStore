@@ -26,9 +26,17 @@ class W extends MY_Controller {
 		
 //		$data['result'] = $this->W_Model->getProduct($param);
 		
-		$this->load->view('w', $data);
-		
-		//--------------------------------------------
-		$this->load->view('templates/footer');	
+		$mobileResponsiveSetting = $this->session->userdata('is_mobile_responsive');
+		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {
+			//--------------------------------------------
+			$this->load->view('w_v2', $data);
+			//--------------------------------------------
+			$this->load->view('templates/footer_v2');
+		} else {
+			//--------------------------------------------
+			$this->load->view('w', $data);
+			//--------------------------------------------
+			$this->load->view('templates/footer');
+		}
 	}
 }

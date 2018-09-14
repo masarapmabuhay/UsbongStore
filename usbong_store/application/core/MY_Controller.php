@@ -60,6 +60,12 @@ class MY_Controller extends CI_Controller {
 						$this->router->method == 'settings' OR
 						$this->router->method == 'save'
 					)
+				) OR
+				(
+					$this->router->class == 'w' AND
+					(
+						$this->router->method == 'index'
+					)
 				)
 			) {
 				$this->load->view('templates/style_v2');
@@ -159,6 +165,12 @@ class MY_Controller extends CI_Controller {
 						$this->router->method == 'login' OR
 						$this->router->method == 'settings' OR
 						$this->router->method == 'save'
+					)
+				) OR
+				(
+					$this->router->class == 'w' AND
+					(
+						$this->router->method == 'index'
 					)
 				)
 			) {
