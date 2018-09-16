@@ -36,19 +36,36 @@ class MY_Controller extends CI_Controller {
 //		if (isset($mobileResponsiveSetting) && ($mobileResponsiveSetting)) {			
 		if ($this->isMobileResponsive()) {
 			if (
-				$this->router->class == 'b' AND
 				(
-					$this->router->method == 'beverages' OR
-					$this->router->method == 'books' OR
-					$this->router->method == 'childrens' OR
-					$this->router->method == 'textbooks' OR
-					$this->router->method == 'medical' OR
-					$this->router->method == 'food' OR
-					$this->router->method == 'comics' OR
-					$this->router->method == 'manga' OR
-					$this->router->method == 'toys_and_collectibles' OR
-					$this->router->method == 'miscellaneous' OR
-					$this->router->method == 'promos'
+					$this->router->class == 'b' AND
+					(
+						$this->router->method == 'beverages' OR
+						$this->router->method == 'books' OR
+						$this->router->method == 'childrens' OR
+						$this->router->method == 'textbooks' OR
+						$this->router->method == 'medical' OR
+						$this->router->method == 'food' OR
+						$this->router->method == 'comics' OR
+						$this->router->method == 'manga' OR
+						$this->router->method == 'toys_and_collectibles' OR
+						$this->router->method == 'miscellaneous' OR
+						$this->router->method == 'promos'
+					)
+				) OR
+				(
+					$this->router->class == 'account' AND
+					(
+						$this->router->method == 'create' OR
+						$this->router->method == 'login' OR
+						$this->router->method == 'settings' OR
+						$this->router->method == 'save'
+					)
+				) OR
+				(
+					$this->router->class == 'w' AND
+					(
+						$this->router->method == 'index'
+					)
 				)
 			) {
 				$this->load->view('templates/style_v2');
@@ -125,19 +142,36 @@ class MY_Controller extends CI_Controller {
 //		if ((isset($isMobileResponsive)) AND ($isMobileResponsive == true)) {
 		if ($this->isMobileResponsive()) {			
 			if (
-				$this->router->class == 'b' AND
 				(
-					$this->router->method == 'beverages' OR
-					$this->router->method == 'books' OR
-					$this->router->method == 'childrens' OR
-					$this->router->method == 'textbooks' OR
-					$this->router->method == 'medical' OR
-					$this->router->method == 'food' OR
-					$this->router->method == 'comics' OR
-					$this->router->method == 'manga' OR
-					$this->router->method == 'toys_and_collectibles' OR
-					$this->router->method == 'miscellaneous' OR
-					$this->router->method == 'promos'
+					$this->router->class == 'b' AND
+					(
+						$this->router->method == 'beverages' OR
+						$this->router->method == 'books' OR
+						$this->router->method == 'childrens' OR
+						$this->router->method == 'textbooks' OR
+						$this->router->method == 'medical' OR
+						$this->router->method == 'food' OR
+						$this->router->method == 'comics' OR
+						$this->router->method == 'manga' OR
+						$this->router->method == 'toys_and_collectibles' OR
+						$this->router->method == 'miscellaneous' OR
+						$this->router->method == 'promos'
+					)
+				) OR
+				(
+					$this->router->class == 'account' AND
+					(
+						$this->router->method == 'create' OR
+						$this->router->method == 'login' OR
+						$this->router->method == 'settings' OR
+						$this->router->method == 'save'
+					)
+				) OR
+				(
+					$this->router->class == 'w' AND
+					(
+						$this->router->method == 'index'
+					)
 				)
 			) {
 				$this->load->view('templates/header_v2');
