@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $cart_action = site_url('account/login/');
                     }
                     $totalQuantity = $this->uri->segment(5);
-                    $totalQuantity = isset($totalQuantity) ? $totalQuantity : 0;
+                    $totalQuantity = isset($totalQuantity) ? $totalQuantity : $totalItemsInCart; //edited by Mike, 20180916
                 ?>
                 <form class="Cart-container navbar-form navbar-right" method="post" action="<?php echo $cart_action?>">
                     <button type="submit" class="Button-cart">

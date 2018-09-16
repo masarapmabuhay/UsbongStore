@@ -25,7 +25,7 @@ class MY_Controller extends CI_Controller {
 	
 	public function initStyle() {		
 		//added by Mike, 20180605
-		$this->setMobileResponsive(FALSE); //simply update this to TRUE to make the entire site mobile responsive; work-in-progress
+		$this->setMobileResponsive(TRUE); //simply update this to TRUE to make the entire site mobile responsive; work-in-progress
 		 				
 		
 		// new style that's mobile responsive
@@ -140,7 +140,7 @@ class MY_Controller extends CI_Controller {
 					$this->router->method == 'promos'
 				)
 			) {
-				$this->load->view('templates/header_v2');
+				$this->load->view('templates/header_v2', $data); //edited by Mike, 20180916
 			} else {
 				//edited by Mike, 20180428
 				$this->load->view('templates/header', $data);
