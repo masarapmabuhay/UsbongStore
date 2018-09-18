@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="Footer-container">
 		<div class="row">
-			<div class="col-sm-4">						
+			<div class="col-sm-3">						
 				<ul class="Footer-container-list">
 					<li><span class="Footer-list-header"><b>Categories</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('b/books/')?>">BOOKS</a></li>
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				    <li><a class="Footer-list-item" href = "<?php echo site_url('b/promos/')?>">PROMOS</a></li>
 				</ul>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<ul class="Footer-container-list">
 					<li><span class="Footer-list-header"><b>Mobile Apps</b></span></li>					
 					<li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.store_app" target="_blank">Usbong Store App</a></li>
@@ -42,7 +42,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li><a class="Footer-list-item" href = "http://www.usbong.ph/services" target="_blank">Training Courses</a></li>
 					<li><a class="Footer-list-item" href = "http://www.usbong.ph/services" target="_blank">Translation Services</a></li>
 					<li><a class="Footer-list-item" href = ""><br></a></li>					
-
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<ul class="Footer-container-list">
 					<li><span class="Footer-list-header"><b>My Account</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('account/settings/')?>">Settings</a></li>	
 					<li><a class="Footer-list-item" href = "<?php 
@@ -63,16 +66,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																	echo site_url('account/ordersummary/');																	
 																}
 														    ?>">Order Summary</a></li>					
-				</ul>
-			</div>
-			<div class="col-sm-4">		
-				<ul class="Footer-container-list">
+                    <li><a class="Footer-list-item" href = ""><br></a></li>                            
 					<li><span class="Footer-list-header"><b>Information</b></span></li>					
 					<li><a class="Footer-list-item" href ="http://www.usbong.ph" target="_blank">USBONG.PH</a></li>					
 					<li><a class="Footer-list-item" href ="https://www.facebook.com/usbongschool" target="_blank">Usbong School</a></li>					
-					<li><a class="Footer-list-item" href ="https://www.facebook.com/marikinaorthopedic" target="_blank">Marikina Orthopedic Specialty Clinic (MOSC)</a></li>					
+					<li><a class="Footer-list-item" href ="https://www.facebook.com/marikinaorthopedic" target="_blank">Marikina Orthopedic<br>Specialty Clinic (MOSC)</a></li>					
 					<li><a class="Footer-list-item" href ="<?php echo site_url('privacy/')?>" target="_blank">Privacy Policy</a></li>					
-					<li><a class="Footer-list-item" href = ""><br></a></li>					
+					<li><a class="Footer-list-item" href = ""><br></a></li>	
+				</ul>
+			</div>
+			<div class="col-sm-3">		
+				<ul class="Footer-container-list">
 					<li><span class="Footer-list-header"><b>Quick Help</b></span></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('help/')?>">Help & Support</a></li>					
 					<li><a class="Footer-list-item" href = "<?php echo site_url('sell/')?>">Sell Item</a></li>					

@@ -1159,7 +1159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.categories-navbar {	
-		background-color: #efe6ca;
+		background-color: #ffe697;
   		z-index: 0;
   		width: 100%;  		
 	}
@@ -1175,7 +1175,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.categories-navbar li a:hover {
 		color: #3a1d00;
-		background-color: #efe6ca;
+		background-color: #ffe697;
 		border-bottom: 3px solid #77b043;
 		font-weight: bold;
 		padding-bottom: 6px;
@@ -1811,7 +1811,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Order-summary-alternate {
 		font-size: 18px;
 		color: #4b4b4b;		
-		background-color: #efe6ca;
+		background-color: #ffe697;
 		margin:0px;
 		padding:0px;
 	}
@@ -1850,7 +1850,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Order-details-product {
-		background-color: #efe6ca;
+		background-color: #ffe697;
 	}
 	
 	.Order-details-shipping-address {
@@ -1871,7 +1871,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Order-details-align-right-order-total {
 		text-align: right;
-		background-color: #efe6ca;
+		background-color: #ffe697;
 		color: #b88a1b;
 	}
 	
@@ -2016,7 +2016,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Button-merchant {
 		padding: 2px 2px 2px 2px;
-		background-color: #efe6ca;
+		background-color: #ffe697;
 		color: #313131;
 		font-weight: bold;
 		border: 0px solid;		
@@ -2331,7 +2331,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	font-size: 18px;
     	color: #1a0d00;    	
     	border: .2px solid #4b3b2c;    	
-    	background-color: #efe6ca;  
+    	background-color: #ffe697;  
     	padding: 5px;  	    	
     	font-weight: bold;
 	}
@@ -2396,7 +2396,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-content:hover {
-		background-color: #efe6ca;
+		background-color: #ffe697;
 	}
 		
 	.Merchant-category-content-link {

@@ -29,9 +29,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <ul class="Footer-container-list">
                             <li><span class="Footer-list-header"><b>Mobile App</b></span></li>
                             <li><a class="Footer-list-item" href = "https://play.google.com/store/apps/details?id=usbong.android.store_app" target="_blank">Usbong Store App</a></li>
+							<li><a class="Footer-list-item" href = "http://www.usbong.ph/pos" target="_blank">Usbong POS App</a></li>
                             <li><a class="Footer-list-item" href = ""><br></a></li>
                         </ul>
+                        <ul class="Footer-container-list">
+                            <li><span class="Footer-list-header"><b>Services</b></span></li>
+							<li><a class="Footer-list-item" href = "http://www.usbong.ph/excel" target="_blank">Software Automation</a></li>
+							<li><a class="Footer-list-item" href = "http://www.usbong.ph/services" target="_blank">Software Customization</a></li>
+							<li><a class="Footer-list-item" href = "http://www.usbong.ph/home" target="_blank">₱50 App Development</a></li>
+							<li><a class="Footer-list-item" href = "http://www.usbong.ph/services" target="_blank">Training Courses</a></li>
+							<li><a class="Footer-list-item" href = "http://www.usbong.ph/services" target="_blank">Translation Services</a></li>
+							<li><a class="Footer-list-item" href = ""><br></a></li>					
+                        </ul>
                     </div>
+					
                     <div class="col-sm-3">
                         <ul class="Footer-container-list">
                             <li><span class="Footer-list-header"><b>My Account</b></span></li>
@@ -50,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><span class="Footer-list-header"><b>Information</b></span></li>
                             <li><a class="Footer-list-item" href ="http://www.usbong.ph" target="_blank">USBONG.PH</a></li>
                             <li><a class="Footer-list-item" href ="https://www.facebook.com/usbongschool" target="_blank">Usbong School</a></li>
-                            <li><a class="Footer-list-item" href ="https://www.facebook.com/marikinaorthopedic" target="_blank">Marikina Orthopedic Specialty Clinic (MOSC)</a></li>					                            
+                            <li><a class="Footer-list-item" href ="https://www.facebook.com/marikinaorthopedic" target="_blank">Marikina Orthopedic<br>Specialty Clinic (MOSC)</a></li>					                            
                             <li><a class="Footer-list-item" href ="<?php echo site_url('privacy/')?>" target="_blank">Privacy Policy</a></li>
                             <li><a class="Footer-list-item" href = ""><br></a></li>
                         </ul>
