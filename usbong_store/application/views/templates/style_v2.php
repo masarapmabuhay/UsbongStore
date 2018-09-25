@@ -738,7 +738,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								textCart3Digits.innerHTML=totalItemsInCart;
 							}
 							
-							document.getElementById("myPopup").classList.toggle("show");			        
+							$('#myPopup').modal('show');
 				        }
 		
 				    });
@@ -1135,7 +1135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.categories-navbar {	
-		background-color: #ffe697;
+		background-color: #efe6ca;
   		z-index: 0;
   		width: 100%;  		
 	}
@@ -1151,7 +1151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.categories-navbar li a:hover {
 		color: #3a1d00;
-		background-color: #ffe697;
+		background-color: #efe6ca;
 		border-bottom: 3px solid #77b043;
 		font-weight: bold;
 		padding-bottom: 7px;
@@ -1386,11 +1386,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Product-item-page-image-offers-save-more {
-		margin-left: 20px;
 	}
 
 	.Product-item-page-image-offers-request {
-		margin-left: 20px;
 	}
 
 	.Image-offers-be-a-merchant {
@@ -1488,12 +1486,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Checkout-product-image {
 	    max-width: 200%;
     	height: auto;
-	}
-
-	.Popup-product-image {
-	    max-width: 120%;
-    	height: auto;
-    	margin-left: 6px;
 	}
 
 	.Product-name {
@@ -1657,8 +1649,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Product-price {
 		color: #b88a1b;
 		font-size: 24px;
-		margin-top: 24px;		
-		margin-left: 6px;
 	}
 	
 	.Contact {
@@ -1746,7 +1736,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.Order-summary-alternate {
 		font-size: 18px;
 		color: #4b4b4b;		
-		background-color: #ffe697;
+		background-color: #efe6ca;
 		margin:0px;
 		padding:0px;
 	}
@@ -1785,7 +1775,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Order-details-product {
-		background-color: #ffe697;
+		background-color: #efe6ca;
 	}
 	
 	.Order-details-shipping-address {
@@ -1806,7 +1796,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Order-details-align-right-order-total {
 		text-align: right;
-		background-color: #ffe697;
+		background-color: #efe6ca;
 		color: #b88a1b;
 	}
 	
@@ -1821,26 +1811,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	
 	.Popup-product-details {
-		font-size: 15px;
 	}
 
 	.Popup-product-currency-symbol {
 		color: #b88a1b;
-		font-size: 18px;
-		margin-left: 6px;
 	}
 
 	.Popup-product-price {
 		color: #b88a1b;
-		font-size: 24px;
-		margin-right: 2px;
 	}
 
 	.Popup-product-free-delivery {
 		color: #b88a1b;
-		font-size: 18px;
-		margin-top: -30px;
-		margin-right: 2px;
 	}
 
 	.Product-overview-header {
@@ -1885,7 +1867,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
 		text-align: left;
 	}
 	
@@ -1893,7 +1875,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
 		text-align: left;
 	}
 	
@@ -1901,7 +1883,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
+		text-align: left;
+	}
+
+	.Product-publisher {
+		color: #312f2d;
+		font-size: 16px;
+		margin-top: 6px;
+		max-width: 80%;
+		text-align: left;
+	}
+
+	.Product-released_date {
+		color: #312f2d;
+		font-size: 16px;
+		margin-top: 6px;
+		max-width: 80%;
 		text-align: left;
 	}
 
@@ -1909,7 +1907,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #312f2d;
 		font-size: 16px;
 		margin-top: 6px;
-		margin-left: 32px;
+		max-width: 80%;
 		text-align: left;
 	}
 
@@ -1926,7 +1924,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		font-weight: bold;
 		border: 0px solid;		
 		border-radius: 4px;
-		margin-left: 16px;
 	}
 
 	.Button-purchase:hover {
@@ -1935,7 +1932,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Button-merchant {
 		padding: 2px 2px 2px 2px;
-		background-color: #ffe697;
+		background-color: #efe6ca;
 		color: #313131;
 		font-weight: bold;
 		border: 0px solid;		
@@ -2024,12 +2021,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-bottom: 156px;
 	}	
 
-	.container-product-item {
-		margin-left: 10px;
-		margin-bottom: 156px;
-	}	
-	
-	
 	.Cart-container {
 		margin-top: 0px;	
 		margin-left: -7px;
@@ -2233,15 +2224,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Customer-information {
-		max-width: 55%;		
 		float: none;
-    	display: block;
-    	margin: 0 auto;
-    	margin-bottom: 20px;
-    	font-size: 24px;    	
-    	padding: 16px;
-    	border: 1px solid #4b3b2c;
-    	border-radius: 4px;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		font-size: 24px;
+		padding: 16px;
+		border: 1px solid #4b3b2c;
+		border-radius: 4px;
 	}
 
 	.Customer-information-text-in-checkout {
@@ -2255,30 +2245,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	.Account-settings-subject-header {
 		text-align: left;
-		margin-left: 40px;
-    	font-size: 18px;
-    	color: #1a0d00;    	
-    	border: .2px solid #4b3b2c;    	
-    	background-color: #ffe697;  
-    	padding: 5px;  	    	
-    	font-weight: bold;
+		font-size: 18px;
+		color: #1a0d00;
+		border: .2px solid #4b3b2c;
+		background-color: #efe6ca;
+		padding: 5px;
+		font-weight: bold;
 	}
 
 	.Account-settings-subject-content {
 		text-align: left;
-		margin-left: 40px;
 		font-size: 18px;  
 		color: #1a0d00;		  			
-    	padding: 5px;  	    	
-    	border: .2px dotted #4b3b2c;    	
+		padding: 5px;
+		border: .2px dotted #4b3b2c;
 	}
 		
 	.Account-settings-subject-content-link {
 		text-align: left;
-		margin-left: 40px;
+		margin-left: 20px;
 		font-size: 18px;  
 		color: #1a0d00;		  			
-    	padding: 5px;  	    	
+		padding: 5px;
 	}
 
 	.Account-settings-subject-content-link:hover {
@@ -2292,7 +2280,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding-top: 0px;
 		padding-bottom: 20px;
 	}
-		
+
+	.Merchant-category-pane {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
 	.Merchant-category-image {	
 		margin-left: 10px;
 		margin-bottom: 12px;
@@ -2314,7 +2307,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.Merchant-category-content:hover {
-		background-color: #ffe697;
+		background-color: #efe6ca;
 	}
 		
 	.Merchant-category-content-link {
@@ -2322,7 +2315,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin-left: 6px;
 		font-size: 15px;  
 		color: #291f1a;		  			
-    	padding: 2px;  	    	    	
+		padding: 2px;
 	}
 
 	.Merchant-category-content-link:hover {
@@ -2342,16 +2335,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 	.login-and-create {
-		max-width: 30%;		
 		float: none;
-    	display: block;
-    	margin: 0 auto;
-    	margin-bottom: 20px;
-    	margin-top: 16px;
-    	font-size: 24px;    	
-    	padding: 16px;
-    	border: 1px solid #4b3b2c;
-    	border-radius: 4px;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		margin-top: 16px;
+		font-size: 24px;
+		padding: 16px;
+		border: 1px solid #4b3b2c;
+		border-radius: 4px;
 	}
 	
 	.login-text {
@@ -2369,7 +2361,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	.login-text-in-create {
-    	font-size: 16px;    		
+		font-size: 16px;
 		display: inline-block; 
 		padding-left: 12px;		
 		padding-bottom: 12px;	
@@ -2960,11 +2952,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             color: white;
             background-color: white;            
         }
-        
+
+        /*------------------*/
+        /* Modal            */
+        /*------------------*/
+
+        .modal-header {
+            padding-bottom: 0px;
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            padding-top: 0px;
+            border-top: none;
+        }
+
 </style>
 </head>
-<!-- 
-<body>
-</body>
-</html>
- -->

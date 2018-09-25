@@ -174,7 +174,7 @@ class MY_Controller extends CI_Controller {
 					)
 				)
 			) {
-				$this->load->view('templates/header_v2', $data); //edited by Mike, 20180916
+				$this->load->view('templates/header_v2', $data); //edited by Mike, 20180916 
 			} else {
 				//edited by Mike, 20180428
 				$this->load->view('templates/header', $data);
