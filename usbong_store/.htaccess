@@ -2,3 +2,58 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^usbong\.ph$ [NC]
+RewriteRule .* http://www.usbong.ph [R,L]
+
+RewriteCond %{HTTP_HOST} ^turon\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.when_you_dont_know [R,L]
+
+RewriteCond %{HTTP_HOST} ^app\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.store_app [R,L]
+
+RewriteCond %{HTTP_HOST} ^kindness\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.likha_collection_1 [R,L]
+
+RewriteCond %{HTTP_HOST} ^nature\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.likha_collection_2 [R,L]
+
+RewriteCond %{HTTP_HOST} ^o\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.themissingpiecesbecomethebigo [R,L]
+
+RewriteCond %{HTTP_HOST} ^pineapple\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.pinya [R,L]
+
+RewriteCond %{HTTP_HOST} ^tree\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.fi&hl=en [R,L]
+
+RewriteCond %{HTTP_HOST} ^fish\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.malansang_isda [R,L]
+
+RewriteCond %{HTTP_HOST} ^sport\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.ping_pong&hl=en [R,L]
+
+RewriteCond %{HTTP_HOST} ^filipino\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.tiyaga&hl=en [R,L]
+
+RewriteCond %{HTTP_HOST} ^paspas\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.paspas&hl=en [R,L]
+
+RewriteCond %{HTTP_HOST} ^build\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.builder [R,L]
+
+RewriteCond %{HTTP_HOST} ^life\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android [R,L]
+
+RewriteCond %{HTTP_HOST} ^heaven\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.where_is_heaven [R,L]
+
+RewriteCond %{HTTP_HOST} ^school\.usbong\.ph$ [NC]
+RewriteRule .* https://www.facebook.com/usbongschool [R,L]
+
+RewriteCond %{HTTP_HOST} ^pos\.usbong\.ph$ [NC]
+RewriteRule .* https://play.google.com/store/apps/details?id=usbong.android.pos_app [R,L]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
