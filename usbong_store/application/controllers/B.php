@@ -73,11 +73,12 @@ class B extends MY_Controller {
 						$this->session->set_flashdata('data', $data);
 						redirect('account/login');
 				}										
-				else {					
+				else {				
+					//edited by Mike, 20181019
 					echo "<script>
 							    alert('Either the email address or password you entered is incorrect. If you pasted your temporary password from an email, please enter it by typing it in instead.');
-								window.location.href='/'; ///usbong_store/
-						  </script>";
+								window.location.href='".base_url()."';//'/'; ///usbong_store/
+						  </script>";						  
 // 					redirect('/'); //return to homepage					
 // 					$this->books();
 				}
