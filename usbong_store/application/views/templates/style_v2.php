@@ -1819,10 +1819,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	.Popup-product-price {
 		color: #b88a1b;
+		font-size: 24px;
 	}
 
 	.Popup-product-free-delivery {
 		color: #b88a1b;
+		font-size: 18px;
 	}
 
 	.Product-overview-header {
@@ -2960,6 +2962,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         .modal-header {
             padding-bottom: 0px;
             border-bottom: none;
+        }
+
+        .modal-body {
+            font-size: 15px;
+            color: rgb(75, 75, 75);
         }
 
         .modal-footer {
