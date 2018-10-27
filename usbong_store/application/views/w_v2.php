@@ -265,8 +265,8 @@ if ($result->product_type_name == 'Children\'s') {
                     </div>
                     <div class="col-xs-7 Popup-product-details text-center">
                         <span id="quantityId"></span>
-                        <?php echo '<b>'.$result->name.'</b>!'; ?>
-                        <br><br><b>Total Amt: </b>
+                        <label class="Popup-product-name"><?php echo '<b>'.$result->name.'</b>!'; ?></label>
+                        <br><b>Total Amt: </b>
                         <label class="Popup-product-price">&#x20B1;<span id="productPriceId"><?php echo $result->price;?></span></label><br>
                         <label class="Popup-product-free-delivery">[Free Delivery]</label>
                     </div>

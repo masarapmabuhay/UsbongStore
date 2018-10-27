@@ -1817,6 +1817,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		color: #b88a1b;
 	}
 
+	.Popup-product-name {
+		font-size: 20px;
+	}
+
 	.Popup-product-price {
 		color: #b88a1b;
 		font-size: 24px;
