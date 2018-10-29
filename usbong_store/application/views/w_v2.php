@@ -206,7 +206,19 @@ if ($result->product_type_name == 'Children\'s') {
                     <label class="Quantity-label">Quantity: <span class="Quantity-out-of-stock">out of stock</span></label>
                 <?php } else { ?>
                     <label class="Quantity-label">Quantity:</label>
-                    <input type="tel" id="quantityParam" class="Quantity-textbox no-spin" value="1" min="1" max="99" onKeyPress="if (this.value.length == 2) {return false;} if (parseInt(this.value) < 1) { this.value = '1'; return false;}" required>
+                    <!-- edited by Mike, 20181029 
+						 keyCodes: 8 is backspace; 46 is delete; 37 is left; 39 is right 
+					-->									
+					<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" value="1" min="1" max="99" 
+						onKeyPress="var key = event.keyCode || event.charCode;									
+									if (this.value.length == 2) {			
+										if( key == 8 || key == 46 || key == 37 || key == 39) {
+											return true;
+										}
+										else {
+											return false;										
+										}
+									}" required>
                     <div class="row Product-purchase-button">
                         <input type="hidden" id="product_idParam" value="<?php echo $result->product_id; ?>" required>
                         <input type="hidden" id="customer_idParam" value="<?php echo $this->session->userdata('customer_id'); ?>" required>

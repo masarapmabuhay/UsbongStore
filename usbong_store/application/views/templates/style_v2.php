@@ -686,14 +686,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 			var totalItemsInCart = parseInt(document.getElementById("totalItemsInCartId").value);
 			//do the following only if quantity is a Number, i.e. not NaN
-			if (!isNaN(quantity)) {								
+			if (!isNaN(quantity)) {	
 				//added by Mike, 20170701
-				var quantityField = document.getElementById("quantityId");
+				var quantityField = document.getElementById("quantityId");			
 				if (quantity>1) {
 					quantityField.innerHTML = "Added <b>" +quantity +"</b> units of ";
 				}
 				else {
 					quantityField.innerHTML = "Added <b>1</b> unit of ";
+					quantity=1; //added by Mike, 20181029
 				}
 
 				var productPriceField = document.getElementById("productPriceId");
