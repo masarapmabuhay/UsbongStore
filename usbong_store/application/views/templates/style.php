@@ -720,6 +720,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}
 				else {
 					quantityField.innerHTML = "Added <b>1</b> unit of ";
+					quantity=1; //added by Mike, 20181101
 				}
 
 				var productPriceField = document.getElementById("productPriceId");

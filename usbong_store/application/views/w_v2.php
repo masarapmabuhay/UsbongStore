@@ -210,9 +210,14 @@ if ($result->product_type_name == 'Children\'s') {
 						 keyCodes: 8 is backspace; 46 is delete; 37 is left; 39 is right 
 					-->									
 					<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" value="1" min="1" max="99" 
-						onKeyPress="var key = event.keyCode || event.charCode;									
+						onKeyPress="var key = event.keyCode || event.charCode;		
+									const keyBackspace = 8;
+									const keyDelete = 46;
+									const keyLeftArrow = 37;
+									const keyRightArrow = 39;
+						
 									if (this.value.length == 2) {			
-										if( key == 8 || key == 46 || key == 37 || key == 39) {
+										if( key == keyBackspace || key == keyDelete || key == keyLeftArrow || key == keyRightArrow) {
 											return true;
 										}
 										else {

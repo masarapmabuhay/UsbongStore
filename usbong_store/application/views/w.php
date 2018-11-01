@@ -203,8 +203,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					else {
 				?>
 						<label class="Quantity-label">Quantity:</label>
-						<input type="tel" id="quantityParam" class="Quantity-textbox no-spin"
-							value="1" min="1" max="99" onKeyPress="if(this.value.length==2) {return false;} if(parseInt(this.value)<1) { this.value='1'; return false;}" required>
+                    <!-- edited by Mike, 20181029 
+						 keyCodes: 8 is backspace; 46 is delete; 37 is left; 39 is right 
+					-->									
+					<input type="tel" id="quantityParam" class="Quantity-textbox no-spin" value="1" min="1" max="99" 
+						onKeyPress="var key = event.keyCode || event.charCode;		
+									const keyBackspace = 8;
+									const keyDelete = 46;
+									const keyLeftArrow = 37;
+									const keyRightArrow = 39;
+
+									if (this.value.length == 2) {			
+										if( key == keyBackspace || key == keyDelete || key == keyLeftArrow || key == keyRightArrow) {
+											return true;
+										}
+										else {
+											return false;										
+										}
+									}" required>
 				<?php 
 					}
 				?>
