@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	var image2 = new Image()
     image2.src = "<?php echo base_url('assets/images/usbongOffersBuyBack_L.jpg')?>"
 </script>
-<p><img src="<?php echo base_url('assets/images/usbongStoreLess240pesosPlusBanner.jpg')?>" class="FrontPage-billboard" name="slide" /></p>
+<p class="FrontPage-billboard-span"><img src="<?php echo base_url('assets/images/usbongStoreLess240pesosPlusBanner.jpg')?>" class="FrontPage-billboard" name="slide" /></p>
     <script type="text/javascript">
     var step=1;
 
@@ -35,7 +35,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */                    
                 setTimeout("slideit()",2500)
             }
+/*			
             slideit()
+*/			
     </script>
 	
 	

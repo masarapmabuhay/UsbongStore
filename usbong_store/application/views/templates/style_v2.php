@@ -2722,6 +2722,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	.FrontPage-header-link:hover {
 		color: #77b043;
 	}	
+	
+	.FrontPage-billboard-span {
+		width: 100%;
+		background-color: #4b8dc9
+	}
+
+	.FrontPage-billboard {
+		width: 1064px;
+		height: 194px; 
+/*	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+*/	    
+		margin-left: 8px;
+		margin-top: 4px;
+    }
 
 	.Front-page-left-arrow-button {
 		float: right;
